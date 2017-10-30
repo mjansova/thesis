@@ -1,0 +1,42 @@
+\chapterwithnum{Study of highly ionizing particles in the strip tracker}
+
+\section{Tracking inefficiencies at beginning of RunII (or clustering, to be decided)}
+
+\subsection{Observed inefficiencies in tracks reconstruction}
+\subsection{Highly ionizing particles as possible explanation}
+        (how the nuclear event looks like (inelastic, most energy from recoil))
+
+
+\section{Strip tracker readout system}
+
+\subsection{Overview}
+       (give overview about the readout - how the signal goes)
+\subsection{Silicon strip modules}
+       (their description and energy loss mechanism)
+%TODO check the pitch size
+
+The CMS silicon sensors are formed by n-type bulk, which has on one side uniform n+ implant while on the other p+ strips are located. The implants are connected to reverse bias voltage to completly deplete the bulk of the sensor. The thickness of both p+ and n+ implants is small and negligible compared to the bulk, thus almost whole volume of sensor is depleted. Every p+ strip are connected by a wire bond to a read-out electronics.
+
+%is true 4-6 sensors?, or one sensor with more or less strips?
+The tracker modules are consisted by 4-6 sensors. The larger part of modules have one layer of sensors~(mono modules), the other holds two layers of sensors, which are attached back to back and with a strip inclination of $5.7^{\circ}$ against each other~(stereo modules). Thus the stereo modules are able to give 2-D information about the position where particle hitted the module~(hit position). The modules also differ by the pitch size between each strip which can vary from 80 $\mu$m up to 200 $\mu$m depending on the tracker layer and partition.
+
+The particle crossing silicon sensor is leaving energy predominantly via electromagnetic interaction - by ionization of the silicon volume, the electron-hole pairs are produced along the path of a particle. The energy loss in the material can be described by the Bethe-Bloch formula~\cite{Groom:2000sm} as a function of $\beta\gamma = p/Mc$, where $p$ and $M$ is mometum and mass of the interacting particle. The Bethe-Bloch function has a minimum for $\beta\gamma \approx 3$. Majority of relativistc particles are having this minimal value of $\beta\gamma$ and thus they are called be Minimum Ionizing Particles~(MIP).
+
+Under normal circumstances the created charge carriers, electrons and holes, would drift on opposite sides directly towards electrods (n+ and p+ implants). But as in the barrels case a perpendicular magnetic field is present, the charge carrier $q$ is deflected from the direction of electric field due to the Lorentz force
+
+\eq{LorentzEquation}
+{
+    q(E+v \times B).
+}
+
+The charge collected at strips is read by APV25 chip which is glued to the module. As one APV chip is reading 128 strips, 4-6 chips are present at one module.
+
+-charge collection
+-cross talk
+-analog signal read from all channels
+\subsection{The APV25 readout chip}
+\subsection{The Front End Driver}
+-FED description
+-pedestals,baselines
+\subsection{Offline data treatement}
+-tracking -connecting hiots to tracks
