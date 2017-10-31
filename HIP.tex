@@ -11,14 +11,15 @@
 
 \subsection{Overview}
        (give overview about the readout - how the signal goes)
+APV25~\cite{French:2001xb}
+FED~\cite{Baird:2002wg}
 \subsection{Silicon strip modules}
-       (their description and energy loss mechanism)
 %TODO check the pitch size
 
 The CMS silicon sensors are formed by n-type bulk, which has on one side uniform n+ implant while on the other p+ strips are located. The implants are connected to reverse bias voltage to completly deplete the bulk of the sensor. The thickness of both p+ and n+ implants is small and negligible compared to the bulk, thus almost whole volume of sensor is depleted. Every p+ strip are connected by a wire bond to a read-out electronics.
 
-%is true 4-6 sensors?, or one sensor with more or less strips?
-The tracker modules are consisted by 4-6 sensors. The larger part of modules have one layer of sensors~(mono modules), the other holds two layers of sensors, which are attached back to back and with a strip inclination of $5.7^{\circ}$ against each other~(stereo modules). Thus the stereo modules are able to give 2-D information about the position where particle hitted the module~(hit position). The modules also differ by the pitch size between each strip which can vary from 80 $\mu$m up to 200 $\mu$m depending on the tracker layer and partition.
+%TODO is true 4-6 sensors?, or one sensor with more or less strips?
+The tracker modules are consisted by 4-6 sensors, each sensor is having 128 p+ strips. The larger part of modules have one layer of sensors~(mono modules), the other holds two layers of sensors, which are attached back to back and with a strip inclination of $5.7^{\circ}$ against each other~(stereo modules). Thus the stereo modules are able to give 2-D information about the position where particle hitted the module~(hit position). The modules also differ by the pitch size between each strip which can vary from 80 $\mu$m up to 200 $\mu$m depending on the tracker layer and partition.
 
 The particle crossing silicon sensor is leaving energy predominantly via electromagnetic interaction - by ionization of the silicon volume, the electron-hole pairs are produced along the path of a particle. The energy loss in the material can be described by the Bethe-Bloch formula~\cite{Groom:2000sm} as a function of $\beta\gamma = p/Mc$, where $p$ and $M$ is mometum and mass of the interacting particle. The Bethe-Bloch function has a minimum for $\beta\gamma \approx 3$. Majority of relativistc particles are having this minimal value of $\beta\gamma$ and thus they are called be Minimum Ionizing Particles~(MIP).
 
@@ -29,14 +30,34 @@ Under normal circumstances the created charge carriers, electrons and holes, wou
     q(E+v \times B).
 }
 
-The charge collected at strips is read by APV25 chip which is glued to the module. As one APV chip is reading 128 strips, 4-6 chips are present at one module.
 
--charge collection
 -cross talk
--analog signal read from all channels
+
 \subsection{The APV25 readout chip}
+
+The charge collected by each channel~(strip) is read by APV25 chip located at the module. The APV is front-end chip providing amplification and shaping of signal from each channel separately. To achive this all APV chips are equipped by preamplifier, CR-RC shaper, analog pipeline and deconvolution filter. As one APV chip is reading signal from 128 strips, 4-6 chips are present at each module.
+
+The amplified signal is sent to CR-RC shaper to convert strip signal into $\sim$50~ns long voltage pulses. The shaper is providing an output with frequecy of bunch crossings. In case of APV working in the ``peak mode'' the sampled signal at maximum of the pulse shape, corresponding to given bunch crossing is used directly, but usually the APV is operating in ``deconvolution mode'' to reduce the out-of-time pile-up. In the deconvolution mode the weighted sum of the shaper output from three consecutive bunch crossing is used instead.To have a possiblity to optimize the puls shape, the feedback resistors of both preamplifier and shaper as well as  bias current and voltage are fully programable. For the calibration and test of the chip the internal calibration channel is present. This channel enables to inject charge to channels prior to the preamplifier stage.
+
+The puls heights and bunch crossing information for all 128 channels are extracted at the end of the analog pipeline upon the request of trigger. The average signal level from 128 channels can be adjusted within the dynamic range of the APV, in order to reduce the signals exceeding the APV range. The processed signal from two APV chips is multiplexed by APVMUX~\cite{Ball:2007zza} into a single line and converted by laser from an electrical to optical signal, which is sent via analog optical fibre to control room. At the control room the optical signal is recevied by the pin diod which is a part of FED.
+
+
+
 \subsection{The Front End Driver}
--FED description
--pedestals,baselines
+
+The FED is recieving data from 96 optical fibers, each sending information from 2 APVs. The data in form of optical signal are converted to electrical signal, they are reordered and synchronized. For each APV input the signals per channel are extracted and digitized into 10-bit range AD counts~(ADC). In the standard operation mode, the ``Zero Supression~(ZS)'', the pedestal subtraction followed by common mode noise~(CMN) subtraction is performed. Pedestal is mean strip activity for given strip, which is evaluated from special ``pedestal runs'' taken few times per year. After pedestal subtraction the CMN is remining noise, which is common to all channels and calculated on event by event basis as a median over the 128 strips. After both subtractions the channels with values lower than zero are truncated to zero. For all the channels the signal-to-noise ratio is checked separately and if too low, the ADC of those channels is set to zero~(zero suppressed). Only information about strips with non-zero ADC values are sent to the CMS data acqusition system~(DAQ). By this procedure the available data are reduced by factor $\sim$60 in order not to overload DAQ system.
+
+
+For testing purposes the FED is able to operate in others than ZS mode. In case of the ``Virgin Raw~(VR)'' data taking mode no subtractions and suppressions are applied and thus it is suitable mode e.g. for studies of the APV behavior.
+
 \subsection{Offline data treatement}
+
+clustering - hits - signal shared by adjacent channels -> adjacent channels added to cluster when they eceed certain thershold. three threshold algorithm - threshold on strip seed charge, charge of eighbouring strips and threshold on cluster charge.
 -tracking -connecting hiots to tracks
+recHits - position of the charge despoition -> cumputed from cluster barycenter
+-clustering - 8 bit truncation
+than tracking algo which is doing: %read a bit more
+-seed finding
+-pattern recognition
+-fitting and smoothing
+provides track estimates from combining hits. from the seeds (pair or triplet of hits) the tracks are built by scuceeding Kalaman technique. compatible hits in next layer are evaluated by chi2 computation. If good hit found it iss added to track. Once all hits available -track fitting which starts to evaluate new hits position -> from the seed and it is done interatively for each layer with updated track position. Then smoothing which is backward fitting using the trajectory found. From this we get final track and hits.
