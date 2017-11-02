@@ -19,7 +19,7 @@ FED~\cite{Baird:2002wg}
 The CMS silicon sensors are formed by n-type bulk, which has on one side uniform n+ implant while on the other p+ strips are located. The implants are connected to reverse bias voltage to completly deplete the bulk of the sensor. The thickness of both p+ and n+ implants is small and negligible compared to the bulk, thus almost whole volume of sensor is depleted. Every p+ strip are connected by a wire bond to a read-out electronics.
 
 %TODO is true 4-6 sensors?, or one sensor with more or less strips?
-The tracker modules are consisted by 4-6 sensors, each sensor is having 128 p+ strips. The larger part of modules have one layer of sensors~(mono modules), the other holds two layers of sensors, which are attached back to back and with a strip inclination of $5.7^{\circ}$ against each other~(stereo modules). Thus the stereo modules are able to give 2-D information about the position where particle hitted the module~(hit position). The modules also differ by the pitch size between each strip which can vary from 80 $\mu$m up to 200 $\mu$m depending on the tracker layer and partition.
+The tracker modules are consisted by 4-6 sensors, each sensor is having 128 p+ strips. The larger part of modules have one layer of sensors~(mono modules), the other holds two layers of sensors, which are attached back to back and with a strip inclination of $5.7^{\circ}$ against each other~(stereo modules). Thus the stereo modules are able to give 3-D information in global coordinates about the position where particle hitted the module~(hit position). The modules also differ by the pitch size between each strip which can vary from 80 $\mu$m up to 200 $\mu$m depending on the tracker layer and partition.
 
 The particle crossing silicon sensor is leaving energy predominantly via electromagnetic interaction - by ionization of the silicon volume, the electron-hole pairs are produced along the path of a particle. The energy loss in the material can be described by the Bethe-Bloch formula~\cite{Groom:2000sm} as a function of $\beta\gamma = p/Mc$, where $p$ and $M$ is mometum and mass of the interacting particle. The Bethe-Bloch function has a minimum for $\beta\gamma \approx 3$. Majority of relativistc particles are having this minimal value of $\beta\gamma$ and thus they are called be Minimum Ionizing Particles~(MIP).
 
@@ -45,19 +45,26 @@ The puls heights and bunch crossing information for all 128 channels are extract
 
 \subsection{The Front End Driver}
 
-The FED is recieving data from 96 optical fibers, each sending information from 2 APVs. The data in form of optical signal are converted to electrical signal, they are reordered and synchronized. For each APV input the signals per channel are extracted and digitized into 10-bit range AD counts~(ADC). In the standard operation mode, the ``Zero Supression~(ZS)'', the pedestal subtraction followed by common mode noise~(CMN) subtraction is performed. Pedestal is mean strip activity for given strip, which is evaluated from special ``pedestal runs'' taken few times per year. After pedestal subtraction the CMN is remining noise, which is common to all channels and calculated on event by event basis as a median over the 128 strips. After both subtractions the channels with values lower than zero are truncated to zero. For all the channels the signal-to-noise ratio is checked separately and if too low, the ADC of those channels is set to zero~(zero suppressed). Only information about strips with non-zero ADC values are sent to the CMS data acqusition system~(DAQ). By this procedure the available data are reduced by factor $\sim$60 in order not to overload DAQ system.
+The FED is recieving data from 96 optical fibers, each sending information from 2 APVs. The data in form of optical signal are converted to electrical signal, they are reordered and synchronized. For each APV input the signals per channel are extracted and digitized into 10-bit range AD counts~(ADC). In the standard operation mode, the ``Zero Supression~(ZS)'', the pedestal subtraction followed by common mode noise~(CMN) subtraction is performed. Pedestal is mean strip activity for given strip when no particle is present, which is evaluated from special ``pedestal runs'' taken few times per year. After pedestal subtraction the CMN is remining noise, which is common to all channels and calculated on event by event basis as a median over the 128 strips. After both subtractions the channels with values lower than zero are truncated to zero. For all the channels the signal-to-noise ratio~(S/N) is checked separately and if S/N of the channel is smaller than five or S/N of the channel and its neighbor is smaller than two, the ADC of these channels is set to zero~(zero suppressed). Morover the the ADC range id truncated to 8 bits. No change is applied for charges lower than 254 ADC, charges between 254 ADC and 1022 ADC, included are set to 254 ADC and charges aceeding 1022 ADC are stored as 255 ADC. Only information about strips with non-zero ADC values are sent to the CMS data acqusition system~(DAQ). By this procedure the available data are reduced by factor $\sim$60 in order not to overload DAQ system.
 
 
 For testing purposes the FED is able to operate in others than ZS mode. In case of the ``Virgin Raw~(VR)'' data taking mode no subtractions and suppressions are applied and thus it is suitable mode e.g. for studies of the APV behavior.
 
 \subsection{Offline data treatement}
 
-clustering - hits - signal shared by adjacent channels -> adjacent channels added to cluster when they eceed certain thershold. three threshold algorithm - threshold on strip seed charge, charge of eighbouring strips and threshold on cluster charge.
--tracking -connecting hiots to tracks
-recHits - position of the charge despoition -> cumputed from cluster barycenter
--clustering - 8 bit truncation
-than tracking algo which is doing: %read a bit more
--seed finding
--pattern recognition
--fitting and smoothing
-provides track estimates from combining hits. from the seeds (pair or triplet of hits) the tracks are built by scuceeding Kalaman technique. compatible hits in next layer are evaluated by chi2 computation. If good hit found it iss added to track. Once all hits available -track fitting which starts to evaluate new hits position -> from the seed and it is done interatively for each layer with updated track position. Then smoothing which is backward fitting using the trajectory found. From this we get final track and hits.
+Offline, the clustering procedure is applied on the ZS channels. The default clustering algorithm is called ``Three threshold algorithm'', posing threshold on seed strip, neighboring strips and cluster charge in terms of signal-to-noise ratio. Cluster seed must pass requirement S/N>3, adjacent stips can be added in case S/N>2. On top of those requirement the total cluster charge must be five times larger than total cluster noise $\sigma_{total}$ which is defined as
+
+\eq{noiseEquation}
+{
+    \sigma_{cluster} = \sqrt{\sum_{i} \sigma_{i}^{2}},
+}
+
+where $\sigma_{i}$ is noise of channel $i$.
+
+The final position of hit is obtained charge-weighted positions of channels in cluster, corrected for Lorentz drift in case of TIB and TOB. Additional correction is applied due to the inefficiency of collection of charge deposited close to back-plane.
+
+The reconstructed hits are used for tracks reconstruction~\cite{Chatrchyan:2014fea}, utilizing software reffered as Combinatorial Track Finder~(CTF), based on combinatorial Kalman filter~\cite{Fruhwirth:1987fm}. The CMS tracking is using iterative approach -- first the track the easiest to find are reconstructed (e.g. high $p_{T}$ ones ) and its hits are masked in order to reduce combinatorics for further iterations of tracks finding.
+
+
+The track reconstruction is performed in 4 steps. First the \textit{track seed} is built from two or three 3-D hits. Then during the \textit{track finding} the track is propagated to neighboring layers of tracker, testing the compatibility of hit with the track by $\chi^{2}$ test. Once the track candidate is complete, the \textit{track fitting} is performed to obtain the best parameters of the track. The last stage is \textit{track quallity selection} when it is tested if the final fit resulted in good $\chi^{2}$, if there are enough layers with hit associated to the track and if the track is originating from the primary vertex.
+
