@@ -11,6 +11,8 @@
 
 \subsection{Overview}
        (give overview about the readout - how the signal goes)
+
+particle going through, making e-holes pairs. Charge induced on strips is read by APV chips. output of two APV chips is multiplexed by APVMUX, converted to optical signal and read by the FED which digitizes data  and proceed with data processing and reduction - in order to reduce the ammount of data sent to DAQ.
 APV25~\cite{French:2001xb}
 FED~\cite{Baird:2002wg}
 \subsection{Silicon strip modules}
@@ -19,7 +21,7 @@ FED~\cite{Baird:2002wg}
 The CMS silicon sensors are formed by n-type bulk, which has on one side uniform n+ implant while on the other p+ strips are located. The implants are connected to reverse bias voltage to completly deplete the bulk of the sensor. The thickness of both p+ and n+ implants is small and negligible compared to the bulk, thus almost whole volume of sensor is depleted. Every p+ strip are connected by a wire bond to a read-out electronics.
 
 %TODO is true 4-6 sensors?, or one sensor with more or less strips?
-The tracker modules are consisted by 4-6 sensors, each sensor is having 128 p+ strips. The larger part of modules have one layer of sensors~(mono modules), the other holds two layers of sensors, which are attached back to back and with a strip inclination of $5.7^{\circ}$ against each other~(stereo modules). Thus the stereo modules are able to give 3-D information in global coordinates about the position where particle hitted the module~(hit position). The modules also differ by the pitch size between each strip which can vary from 80 $\mu$m up to 200 $\mu$m depending on the tracker layer and partition.
+The tracker modules are consisted by 1-2 sensors, each sensor is having three or four times 128 p+ strips. The larger part of modules have one layer of sensors~(mono modules), the other holds two layers of sensors, which are attached back to back and with a strip inclination of $5.7^{\circ}$ against each other~(stereo modules). Thus the stereo modules are able to give 3-D information in global coordinates about the position where particle hitted the module~(hit position). The modules also differ by the pitch size between each strip which can vary from 80 $\mu$m up to 205 $\mu$m depending on the tracker layer and partition.
 
 The particle crossing silicon sensor is leaving energy predominantly via electromagnetic interaction - by ionization of the silicon volume, the electron-hole pairs are produced along the path of a particle. The energy loss in the material can be described by the Bethe-Bloch formula~\cite{Groom:2000sm} as a function of $\beta\gamma = p/Mc$, where $p$ and $M$ is mometum and mass of the interacting particle. The Bethe-Bloch function has a minimum for $\beta\gamma \approx 3$. Majority of relativistc particles are having this minimal value of $\beta\gamma$ and thus they are called be Minimum Ionizing Particles~(MIP).
 
@@ -32,16 +34,22 @@ Under normal circumstances the created charge carriers, electrons and holes, wou
 
 
 -cross talk
+signal on strips is already induced once electrons and holes are separated and not at the time they reach the strips. The charge induced at electrodes can be calculated using shockley Ramo theorem~\cite{doi:10.1063/1.1710367,Ramo:1939vr}. Using the teorem for the TOB modules it can be shown~\cite{Bloch:2007zza} that charges drifting toward one strip induce charge on the two neighboring, but the net signal induced (total charge) for neighboring electrodes will be zero in case that all charges are collected at the seed and not trapped by other strips.
+
+-noise
+electronic noise - if constant current - in measurement we observe fluctuations. Noise sources - voltage sources or current sources. Noise: variations of velocity(termal noise) or fluctuating number of charge carriers (shot noise). The biggest noise comes from amplifying. There can be correlation between channels - positive correlation among strips of group.
+
+-cmn - originating from power suplies or electronics pickup - affects many channels simuntaneously.
 
 \subsection{The APV25 readout chip}
 
 The charge collected by each channel~(strip) is read by APV25 chip located at the module. The APV is front-end chip providing amplification and shaping of signal from each channel separately. To achive this all APV chips are equipped by preamplifier, CR-RC shaper, analog pipeline and deconvolution filter. As one APV chip is reading signal from 128 strips, 4-6 chips are present at each module.
 
-The amplified signal is sent to CR-RC shaper to convert strip signal into $\sim$50~ns long voltage pulses. The shaper is providing an output with frequecy of bunch crossings. In case of APV working in the ``peak mode'' the sampled signal at maximum of the pulse shape, corresponding to given bunch crossing is used directly, but usually the APV is operating in ``deconvolution mode'' to reduce the out-of-time pile-up. In the deconvolution mode the weighted sum of the shaper output from three consecutive bunch crossing is used instead.To have a possiblity to optimize the puls shape, the feedback resistors of both preamplifier and shaper as well as  bias current and voltage are fully programable. For the calibration and test of the chip the internal calibration channel is present. This channel enables to inject charge to channels prior to the preamplifier stage.
+The amplified signal is sent to CR-RC shaper to convert strip signal into $\sim$50~ns long voltage pulses. The shaper is providing an output with frequecy of bunch crossings. In case of APV working in the ``peak mode'' the sampled signal at maximum of the pulse shape, corresponding to given bunch crossing is used directly, but usually the APV is operating in ``deconvolution mode'' to reduce the out-of-time pile-up. In the deconvolution mode the weighted sum of the shaper output from three consecutive bunch crossing is used instead.To have a possiblity to optimize the puls shape, the feedback resistors of both preamplifier and shaper as well as  bias current and voltage are fully programable. For the calibration and test of the chip the internal calibration circuit is present. This circuit enables to inject charge to channels prior to the preamplifier stage.
 
 The puls heights and bunch crossing information for all 128 channels are extracted at the end of the analog pipeline upon the request of trigger. The average signal level from 128 channels can be adjusted within the dynamic range of the APV, in order to reduce the signals exceeding the APV range. The processed signal from two APV chips is multiplexed by APVMUX~\cite{Ball:2007zza} into a single line and converted by laser from an electrical to optical signal, which is sent via analog optical fibre to control room. At the control room the optical signal is recevied by the pin diod which is a part of FED.
 
-
+-tickmarck sent every 70 clock cycles when no data are qued for output -  used for synchronization betwwen frontend and backend electronics.
 
 \subsection{The Front End Driver}
 
@@ -68,3 +76,8 @@ The reconstructed hits are used for tracks reconstruction~\cite{Chatrchyan:2014f
 
 The track reconstruction is performed in 4 steps. First the \textit{track seed} is built from two or three 3-D hits. Then during the \textit{track finding} the track is propagated to neighboring layers of tracker, testing the compatibility of hit with the track by $\chi^{2}$ test. Once the track candidate is complete, the \textit{track fitting} is performed to obtain the best parameters of the track. The last stage is \textit{track quallity selection} when it is tested if the final fit resulted in good $\chi^{2}$, if there are enough layers with hit associated to the track and if the track is originating from the primary vertex.
 
+
+
+FURTHER
+-APV -dynamic range of 8 MIPs.
+-where gains?
