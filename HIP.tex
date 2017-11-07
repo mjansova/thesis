@@ -10,20 +10,25 @@
 \section{Strip tracker readout system}
 
 \subsection{Overview}
-       (give overview about the readout - how the signal goes)
 
-particle going through, making e-holes pairs. Charge induced on strips is read by APV chips. output of two APV chips is multiplexed by APVMUX, converted to optical signal and read by the FED which digitizes data  and proceed with data processing and reduction - in order to reduce the ammount of data sent to DAQ.
-APV25~\cite{French:2001xb}
-FED~\cite{Baird:2002wg}
+Particles passing through the modules of silicon strip tracker are loosing their energy mainly via ionization of silicon volume. The movement of the charge carriers toward electords is inducing current on the silicon strips, which is read by the APV25~\cite{French:2001xb} chips glued to the module. The analogue signal from these chips is sent via optical link to the front-end drivers~(FED)~\cite{Baird:2002wg} located at control room. In standard configuration, in FEDs the data are digitalized, processed and reduced. 
+
 \subsection{Silicon strip modules}
 %TODO check the pitch size
 
-The CMS silicon sensors are formed by n-type bulk, which has on one side uniform n+ implant while on the other p+ strips are located. The implants are connected to reverse bias voltage to completly deplete the bulk of the sensor. The thickness of both p+ and n+ implants is small and negligible compared to the bulk, thus almost whole volume of sensor is depleted. Every p+ strip are connected by a wire bond to a read-out electronics.
+The CMS silicon sensors are formed by n-type bulk, which has on one side uniform n+ implant while on the other p+ strips are located. The implants are connected to reverse bias voltage to completly deplete the bulk of the sensor. The thickness of both p+ and n+ implants is small and negligible compared to the bulk, thus almost whole volume of sensor is depleted. Every p+ strip are connected by a wire bond to a read-out electronics. The distance between strips is called a pitch.
 
 %TODO is true 4-6 sensors?, or one sensor with more or less strips?
 The tracker modules are consisted by 1-2 sensors, each sensor is having three or four times 128 p+ strips. The larger part of modules have one layer of sensors~(mono modules), the other holds two layers of sensors, which are attached back to back and with a strip inclination of $5.7^{\circ}$ against each other~(stereo modules). Thus the stereo modules are able to give 3-D information in global coordinates about the position where particle hitted the module~(hit position). The modules also differ by the pitch size between each strip which can vary from 80 $\mu$m up to 205 $\mu$m depending on the tracker layer and partition.
 
 The particle crossing silicon sensor is leaving energy predominantly via electromagnetic interaction - by ionization of the silicon volume, the electron-hole pairs are produced along the path of a particle. The energy loss in the material can be described by the Bethe-Bloch formula~\cite{Groom:2000sm} as a function of $\beta\gamma = p/Mc$, where $p$ and $M$ is mometum and mass of the interacting particle. The Bethe-Bloch function has a minimum for $\beta\gamma \approx 3$. Majority of relativistc particles are having this minimal value of $\beta\gamma$ and thus they are called be Minimum Ionizing Particles~(MIP).
+
+
+Signal starts to be induced on strips once electrons and holes begin to drift towards the electrodes - holes to strips and electrons to back-plane. The charge induced at electrodes can be calculated using Shockley Ramo theorem~\cite{doi:10.1063/1.1710367,Ramo:1939vr}. In framework of this teorem it can be shown~\cite{Bloch:2007zza} that charges drifting toward one strip induce charge on the neighboring strips as well, but the total charge on the neighboring strips will integrate to zero in case that at the end charge carriers are collected at one strip and are not trapped by other strips.
+
+The number of strips reading signal left by a particle depends on charge sharing and electronics crosstalk. Charge sharing is srongly dependent on the particle trajectory position and can be caused by difussion, trajectory inclination or Lorentz angle. While electronics crosstalk is independent of particle trajectory and it is result of the strip coupling via inter-strip capacitance. 
+
+The charge can be induced on more strips also because of inclination of trajectory. Then towards different strips the charge carriers from different parts of trajectory are drifting.
 
 Under normal circumstances the created charge carriers, electrons and holes, would drift on opposite sides directly towards electrods (n+ and p+ implants). But as in the barrels case a perpendicular magnetic field is present, the charge carrier $q$ is deflected from the direction of electric field due to the Lorentz force
 
@@ -32,27 +37,16 @@ Under normal circumstances the created charge carriers, electrons and holes, wou
     q(E+v \times B).
 }
 
+The angle between the electric field lines and drift direction in magnetic field is called Lorentz angle. This angle is independent of track inclination and can be compensated by tilting the modules.
 
-CLUSTER WIDTH
--cross talk
-signal on strips is already induced once electrons and holes are separated and not at the time they reach the strips. The charge induced at electrodes can be calculated using shockley Ramo theorem~\cite{doi:10.1063/1.1710367,Ramo:1939vr}. Using the teorem for the TOB modules it can be shown~\cite{Bloch:2007zza} that charges drifting toward one strip induce charge on the two neighboring, but the net signal induced (total charge) for neighboring electrodes will be zero in case that all charges are collected at the seed and not trapped by other strips.
-
-Strips are coupled via capacitance to backplaine and to neighboring strips via inter-strip capacitance. Anti-correlation- total charge conserved - more charge at one strip, less charge on the other.
-
-Two effects on cluster width-  charge sharing and electronic cross talk. Electronic cross talk independent of the position where the charge was generatedTwo effects on cluster width-  charge sharing and electronic cross talk. Electronic cross talk independent of the position where the charge was generated. Charge sharing on the other hand is strongly dependent. Cluster size depends only on collection of holes.
-
-Chare sharing can be measured from eta function (response function) -eta function R/(L+R), two separate peaks at 0 and 1 if no charge sharing. Shoft because of electronic coupling. Width of the peak determined by the noise. Almost linear charge sharing outside of the peak (plateau) - amount of charge collected by a strip is inversly proportional to the distance of the impact point from that strip (linear charge sharing) - for perpendicular tracks negligible.
+The diffusion, caused by collisions of charge carriers with each other, can also modify the path of the charge carriers from the straight drift following the filed lines. Hovewer this effect is very small and can result only in small amout of charge collected by neighboring strips just in case the particle was passing close the middle of the pitch.
 
 
-Electronic coupling parameters - strong dependence on sampling point (time dependence). Because of different sampling points the parameters are different in peak and deco mode.
+Electronics crosstalk arises from the readout capacitive network -- strips are coupled via capacitance to backplaine and to neighboring strips via inter-strip capacitance. Because of the inter-strip capacitance the collected charge by one channel is shared with the neighboring channels. The coupling of neighboring strips depend strongly on the time~\cite{Bloch:2007zza} thus the coupling constants are different for peak and deconvolution mode, as in deconvolution mode there are 3 sampling times. This effect can be studied numerically via description of the capacitive network by SPICE simulations~\cite{Barberis:1993ph}.
 
--diffusion
-particle going through detector is generating 1 mum around its pasasge.. The carriers are then drift in electric field -> majoritity of cahrge collected by the nearest strips. But diffusion can carry away small amount of charge -> diffucion is very small compared to pitch. So difusion is only visible if the track goes just in the middle of the pitch~\cite{Bloch:2007zza}.
 
--track inclination
+%Chare sharing can be measured from eta function (response function) -eta function R/(L+R), two separate peaks at 0 and 1 if no charge sharing. Shoft because of electronic coupling. Width of the peak determined by the noise. Almost linear charge sharing outside of the peak (plateau) - amount of charge collected by a strip is inversly proportional to the distance of the impact point from that strip (linear charge sharing) - for perpendicular tracks negligible.
 
--Lorentz angle
-angle between the electric field and drift direction. Different for holes and electorns as their charge is different. LA independent of track inclination and can be compensated by tilting the modules like in TIB.
 
 \subsection{The APV25 readout chip}
 
@@ -62,17 +56,18 @@ The amplified signal is sent to CR-RC shaper to convert strip signal into $\sim$
 
 The puls heights and bunch crossing information for all 128 channels are extracted at the end of the analog pipeline upon the request of trigger. The average signal level from 128 channels can be adjusted within the dynamic range of the APV, in order to reduce the signals exceeding the APV range. The processed signal from two APV chips is multiplexed by APVMUX~\cite{Ball:2007zza} into a single line and converted by laser from an electrical to optical signal, which is sent via analog optical fibre to control room. At the control room the optical signal is recevied by the pin diod which is a part of FED.
 
--noise
-electronic noise - if constant current - in measurement we observe fluctuations. Noise sources - voltage sources or current sources. Noise: variations of velocity(termal noise) or fluctuating number of charge carriers (shot noise). The biggest noise comes from amplifying. There can be correlation between channels - like CMN, but also due to electronics coupling. Negative correlation~\cite{Lutz:1987wd} of neighboring channels originating from ielectronics capacitive coupling of strips
 
--tickmarck sent every 70 clock cycles when no data are qued for output -  used for synchronization betwwen frontend and backend electronics.
+%-tickmarck sent every 70 clock cycles when no data are qued for output -  used for synchronization betwwen frontend and backend electronics.
 
 \subsection{The Front End Driver}
 
 The FED is recieving data from 96 optical fibers, each sending information from 2 APVs. The data in form of optical signal are converted to electrical signal, they are reordered and synchronized. For each APV input the signals per channel are extracted and digitized into 10-bit range AD counts~(ADC). In the standard operation mode, the ``Zero Supression~(ZS)'', the pedestal subtraction followed by common mode noise~(CMN) subtraction is performed. Pedestal is mean strip activity for given strip when no particle is present, which is evaluated from special ``pedestal runs'' taken few times per year. After pedestal subtraction the CMN is the remining noise common to all channels~(electronics, power supplies origin) and calculated on event by event basis as a median over the 128 strips. After both subtractions the channels with values lower than zero are truncated to zero. For all the channels the signal-to-noise ratio~(S/N) is checked separately and if S/N of the channel is smaller than five or S/N of the channel and its neighbor is smaller than two, the ADC of these channels is set to zero~(zero suppressed). Morover the the ADC range id truncated to 8 bits. No change is applied for charges lower than 254 ADC, charges between 254 ADC and 1022 ADC, included are set to 254 ADC and charges aceeding 1022 ADC are stored as 255 ADC. Only information about strips with non-zero ADC values are sent to the CMS data acqusition system~(DAQ). By this procedure the available data are reduced by factor $\sim$60 in order not to overload DAQ system.
 
-
 For testing purposes the FED is able to operate in others than ZS mode. In case of the ``Virgin Raw~(VR)'' data taking mode no subtractions and suppressions are applied and thus it is suitable mode e.g. for studies of the APV behavior.
+
+In the ideal case when constant current is injected, the output signal should be constant. But is is not the case because of the random fluctuations called elctronics noise. The silicon strips sensors has two sources of electronics noise -- voltage and current sources. These two sources can be induced by either variations of velocity (thermal noise) or by fluctuating number of charge carriers (shot noise)~\cite{website:noise}. Usually the largest noise comes from amplification of signal. 
+
+The noise can be correlated between channels - like in case of CMN, but also due to electronics coupling. Anti-correlation~\cite{Lutz:1987wd} of noise between neighboring channels originating from the inter-strip capacittance was observed. As the total charge must be conserved, in case of upward fluctuation on one strip, the downward fluctuation must occure on neighbor strips leading to anti-correlation of noise between neighboring channels.
 
 \subsection{Offline data treatement}
 
@@ -85,11 +80,13 @@ Offline, the clustering procedure is applied on the ZS channels. The default clu
 
 where $\sigma_{i}$ is noise of channel $i$.
 
--gains %https://github.com/cms-sw/cmssw/blob/09c3fce6626f70fd04223e7dacebf0b485f73f54/RecoLocalTracker/SiStripClusterizer/src/ThreeThresholdAlgorithm.cc
-G1 tickmarck gain- every 35 LHC clock - synchronization of tracker modules to central trigger. Height of pulse to correct for signal transmission losses. (gains at laser level CMS CR -2010/148)
-G2 - particle calibration - equalization of the response from MIP charge -MPV value. Cluster charge on track corrected for path in depleted region -> ionization per unit of length. The gain is tuned to MPV of those distributions. Cluster charge corrected by 1/(G1*G2).
-G1 and G2 no effect for clusterization as S/N thresholds used. - not so sure
--> once detector calibrated, not much needed to be recalibrated again - calibrations need to be redone because of aging (radiation damage) of the detector or change in operating conditions (like temperature)
+%-gains %https://github.com/cms-sw/cmssw/blob/09c3fce6626f70fd04223e7dacebf0b485f73f54/RecoLocalTracker/SiStripClusterizer/src/ThreeThresholdAlgorithm.cc
+During clustering the strip charge is corrected by two calibration -- tickmark gain~(G1) and particle gain~(G2). The tickmark gain is correcting the signal for the transmission losses, mainly for the losses caused by transmission of signal via $\sim$100m long optical fibers. The tickmark is a signal injected to the calibration circuit and from change of its height at readout output the gain per APV can be computed. The other purpose of tickmarks is synchronization of the APVs to central trigger.
+
+The particle gain is coorrecting for differences at the sensor level. This gain is determined from the inoization of silicon sensitive volume per unit of lengt by particle traversing the sensor. The MPV value of the ionization per unit of lenght is then used to equlize the response of different sensors to the MIP charge. 
+
+These calibrations need to be determined frequently as they change because of the aging of the detector orchange of operating conditions~(e.g. temperature).
+
 
 The final position of hit is obtained charge-weighted positions of channels in cluster, corrected for Lorentz drift in case of TIB and TOB. Additional correction is applied due to the inefficiency of collection of charge deposited close to back-plane.
 
@@ -99,7 +96,3 @@ The reconstructed hits are used for tracks reconstruction~\cite{Chatrchyan:2014f
 The track reconstruction is performed in 4 steps. First the \textit{track seed} is built from two or three 3-D hits. Then during the \textit{track finding} the track is propagated to neighboring layers of tracker, testing the compatibility of hit with the track by $\chi^{2}$ test. Once the track candidate is complete, the \textit{track fitting} is performed to obtain the best parameters of the track. The last stage is \textit{track quallity selection} when it is tested if the final fit resulted in good $\chi^{2}$, if there are enough layers with hit associated to the track and if the track is originating from the primary vertex.
 
 -tracking cosmics?
-
-FURTHER
--APV -dynamic range of 8 MIPs.
--where gains?
