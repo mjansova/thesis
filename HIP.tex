@@ -56,7 +56,7 @@ The amplified signal is sent to CR-RC shaper to convert strip signal into $\sim$
 
 The puls heights and bunch crossing information for all 128 channels are extracted at the end of the analog pipeline upon the request of trigger. The average signal level from 128 channels can be adjusted within the dynamic range of the APV, in order to reduce the signals exceeding the APV range. The processed signal from two APV chips is multiplexed by APVMUX~\cite{Ball:2007zza} into a single line and converted by laser from an electrical to optical signal, which is sent via analog optical fibre to control room. At the control room the optical signal is recevied by the pin diod which is a part of FED.
 
-
+-write sth about inverter
 %-tickmarck sent every 70 clock cycles when no data are qued for output -  used for synchronization betwwen frontend and backend electronics.
 
 \subsection{The Front End Driver}
@@ -96,3 +96,82 @@ The reconstructed hits are used for tracks reconstruction~\cite{Chatrchyan:2014f
 The track reconstruction is performed in 4 steps. First the \textit{track seed} is built from two or three 3-D hits. Then during the \textit{track finding} the track is propagated to neighboring layers of tracker, testing the compatibility of hit with the track by $\chi^{2}$ test. Once the track candidate is complete, the \textit{track fitting} is performed to obtain the best parameters of the track. The last stage is \textit{track quallity selection} when it is tested if the final fit resulted in good $\chi^{2}$, if there are enough layers with hit associated to the track and if the track is originating from the primary vertex.
 
 -tracking cosmics?
+-how is it with missing hits? -track is only lost if two consecutive hits are missing? Can differ but usually should be 1 missing hit per track maximum -  in note CMS-TRK-11-001
+
+
+\section{The impact of highly ionizing particles on APV25 chip}
+
+\subsection{MIP vs HIP events (try to improve this title)}
+
+       (what is the difference; how they look like; scale of deposit)
+
+
+HIP energy deposition as several hunderds of MIP
+inelastic interactions between hadrons and nuclei of silicon -> HIP recoiled nuclei (and fragments). HIP probability O(10-3) per incident hadron
+saturation of APVs - deadtime
+large signals for few channels? and shift(depression) of the other channels -> negative CMN - other APV chips not affected
+
+many studies done  - Beam tests: PSI and CERN X5~\cite{Adam:2005pz}
+injection of charge to calibration circuit, laser geberated charge test
+
+signal truncation to 8 bit, plus pedestal and baseline subtraction - HIP deposition cannot be seen + saturation of the dynamic range itself
+
+energy spectra of heavy fragments produced in silicon are insensitive to energy of incident particle and do not go further than 10MeV, energy loss for such fragments are of order$MeV\mum^{-1}$~thus the fragments can go up to 100 $\mum$ (compare with sensor thickness) - very localized depositions. The light particles from nuclear interactions can travel longer and also contribute significantly to the total energy depositied~\cite{Huhtinen:2000nk}.
+
+From the simulations of nuclear interactions in TOb sensors - energy depostions up to $\sim$100MeV predicted~\cite{Adam:2005pz} -> as fragments can deposit only 10 MeV several particles must be involved in very high depositions
+
+200MeV~400 MIPs
+
+10MeV contributions most probable - they already saturate amplifying stages - instensitive to further signal -> deadtime for several hunderds of ns
+
+suppresion of other channels of APV - crosstalk efect worsened by biasing scheme powering inverter and shaper. Which on the other hand removes external sources of CMN and -> stable baseline during normal MIPs~\cite{Bainbridge:2004jc} - shift of opposite plarity to signal, usually non uniform depression - baseline slopes.
+
+HIP depositions can differ a lot in magnitude, thus the simulation is very diffiult to acheive
+
+
+dead time+recovery time -> when chip is inefficient; only part of the signal is collected
+
+elastic interactions lkower depositions - rare to induce deadtime
+
+
+
+\subsection{Studies prior to the LHC data taking}
+
+\subsubsection{Experimental setup}
+
+PSI -  proton and pion beam of both charges with beam momentum 30MeV/c. 12 layers of detector modules (3xTIB,3xTEC,6xTOB).  Triggers - coincidence from photo-multipliers. Aditional trigger for HIP studies.
+(Many options actually) Trigger burst, to study recovery after HIPi - data every 25 ns for 750ns.
+
+Identification of HIP on basis of CMN shift - HIP probability from nr of events which induce CMN shift to the total nr of particles in the sensor - nr of tracks going through (Phip(CMNcut) = Nhip(CMN<CMNcut)/Ntrack)-> for this analysis CMN thershold =-40
+
+CMN level expressed as measured CMN divided by lovest possible CMN of APV (=CMR) -> independence of bias setting of APV
+
+-probability of HIP increases with thickness of sensor
+
+measured probability per pion per sensor plane ins lower than 10-3
+
+-looks liek only peak mode
+
+-90 ADC corresponds to energy depositions of 6 MeV - not sure. Around 10MeV is needed to induce significant deadtime (and induce fully depressed baselines!!)
+
+for the HIP analysis only tob modules used
+
+Efficent APV definition - reconstructed cluster close to the former HIP cluster
+In efficient case -CMN returned to normallity in 300 ns
+In inefficient case - baseline fully supressed for up to 200ns, they remain inefficient for 700ns
+
+Studies in CMS environment - the protons can release 10MeV via ionization what is 10 times more probable than through nuclear interaction
+\subsubsection{Response of the APV25 chip to the HIP events}
+\subsubsection{Deadtime induced by HIP events}
+
+from the results, baseline can be fully depressed for 300ns and then there is an overshoot. Also the measurements suggest that the period when the baseline is fully suppressed is indicative of deadtime experienced by the chip.
+
+because of CMN is computed as median , distorted baselione can induce lost of clusters or can induce fake clusters.
+
+If CM<-90 which is likely to induce deadtiem: Deadtime 345+23ns(100ohm),210+15ns(50ohm)
+
+for  320mum thick sensor the 300 MeV pion can iduce HIP with probability 3-10x10-4 -> in agreement with simulation. No significant dependence of recovery on sesnsor thickness.
+REMARKS
+-in my case the fraction of HIP is also effected by pile-up
+-computation how fake clusters affects tracking
+-what is the inverter resistor value first it was 100 but now changes to 50~\cite{Gennai:2003as}
