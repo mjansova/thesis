@@ -4,8 +4,8 @@
 
 \subsection{Observed inefficiencies in tracks reconstruction}
 \subsection{Highly ionizing particles as possible explanation}
-        (how the nuclear event looks like (inelastic, most energy from recoil))
 
+In the CMS environment the main mechanism of energy loss of charged particles~(except of electrons) in silicon sensors is ionization. Beyond ionization the traversing particle energy can be deposited in sensor via elastic and inelastic nulear interaction with the siclicon nucleus. These interaction result in nuclear recoil and nuclear fragmentation in case of inelastic interaction. A sufficiently energetic recoiled nucleus can induce displacement of other nuclei in its proximity. All affected nucleai as well as the fragments undergo energy loss by ionization, resulting in very localized large energy depositions in the silicon volume. By simulation of elastic and inelastic interactions in the silicon it was shown that elastic interactions do not lead to high energy depositions, while inelastic interactions can deposit energy up to $\sim$100MeV in tracker sensors, which is $\sim$1000 times larger energy deposit than by ionization only~\cite{Huhtinen:2002yda}. The readout electronics of tracker modules is not designed for such large energy deposits resulting in saturation of electronics and a deadtime in charge collection and thus loss of hits.
 
 \section{Strip tracker readout system}
 
@@ -57,11 +57,12 @@ The amplified signal is sent to CR-RC shaper to convert strip signal into $\sim$
 The puls heights and bunch crossing information for all 128 channels are extracted at the end of the analog pipeline upon the request of trigger. The average signal level from 128 channels can be adjusted within the dynamic range of the APV, in order to reduce the signals exceeding the APV range. The processed signal from two APV chips is multiplexed by APVMUX~\cite{Ball:2007zza} into a single line and converted by laser from an electrical to optical signal, which is sent via analog optical fibre to control room. At the control room the optical signal is recevied by the pin diod which is a part of FED.
 
 -write sth about inverter
+-picture of APV
 %-tickmarck sent every 70 clock cycles when no data are qued for output -  used for synchronization betwwen frontend and backend electronics.
 
 \subsection{The Front End Driver}
 
-The FED is recieving data from 96 optical fibers, each sending information from 2 APVs. The data in form of optical signal are converted to electrical signal, they are reordered and synchronized. For each APV input the signals per channel are extracted and digitized into 10-bit range AD counts~(ADC). In the standard operation mode, the ``Zero Supression~(ZS)'', the pedestal subtraction followed by common mode noise~(CMN) subtraction is performed. Pedestal is mean strip activity for given strip when no particle is present, which is evaluated from special ``pedestal runs'' taken few times per year. After pedestal subtraction the CMN is the remining noise common to all channels~(electronics, power supplies origin) and calculated on event by event basis as a median over the 128 strips. After both subtractions the channels with values lower than zero are truncated to zero. For all the channels the signal-to-noise ratio~(S/N) is checked separately and if S/N of the channel is smaller than five or S/N of the channel and its neighbor is smaller than two, the ADC of these channels is set to zero~(zero suppressed). Morover the the ADC range id truncated to 8 bits. No change is applied for charges lower than 254 ADC, charges between 254 ADC and 1022 ADC, included are set to 254 ADC and charges aceeding 1022 ADC are stored as 255 ADC. Only information about strips with non-zero ADC values are sent to the CMS data acqusition system~(DAQ). By this procedure the available data are reduced by factor $\sim$60 in order not to overload DAQ system.
+The FED is recieving data from 96 optical fibers, each sending information from 2 APVs. The data in form of optical signal are converted to electrical signal, they are reordered and synchronized. For each APV input the signals per channel are extracted and digitized into 10-bit range AD counts~(ADC). In the standard operation mode, the ``Zero Supression~(ZS)'', the pedestal subtraction followed by common mode noise~(CMN or baseline) subtraction is performed. Pedestal is mean strip activity for given strip when no particle is present, which is evaluated from special ``pedestal runs'' taken few times per year. After pedestal subtraction the CMN is the remining noise common to all channels~(electronics, power supplies origin) and calculated on event by event basis as a median over the 128 strips. After both subtractions the channels with values lower than zero are truncated to zero. For all the channels the signal-to-noise ratio~(S/N) is checked separately and if S/N of the channel is smaller than five or S/N of the channel and its neighbor is smaller than two, the ADC of these channels is set to zero~(zero suppressed). Morover the the ADC range id truncated to 8 bits. No change is applied for charges lower than 254 ADC, charges between 254 ADC and 1022 ADC, included are set to 254 ADC and charges aceeding 1022 ADC are stored as 255 ADC. Only information about strips with non-zero ADC values are sent to the CMS data acqusition system~(DAQ). By this procedure the available data are reduced by factor $\sim$60 in order not to overload DAQ system.
 
 For testing purposes the FED is able to operate in others than ZS mode. In case of the ``Virgin Raw~(VR)'' data taking mode no subtractions and suppressions are applied and thus it is suitable mode e.g. for studies of the APV behavior.
 
@@ -124,7 +125,6 @@ From the simulations of nuclear interactions in TOb sensors - energy depostions 
 
 10MeV contributions most probable - they already saturate amplifying stages - instensitive to further signal -> deadtime for several hunderds of ns
 
-suppresion of other channels of APV - crosstalk efect worsened by biasing scheme powering inverter and shaper. Which on the other hand removes external sources of CMN and -> stable baseline during normal MIPs~\cite{Bainbridge:2004jc} - shift of opposite plarity to signal, usually non uniform depression - baseline slopes.
 
 HIP depositions can differ a lot in magnitude, thus the simulation is very diffiult to acheive
 
@@ -137,10 +137,12 @@ elastic interactions lkower depositions - rare to induce deadtime
 
 \subsection{Studies prior to the LHC data taking}
 
+The effect of Highly Ionizing particles has beed studied in the past during beam tests -- PSI and CERN X5. Large energy depositions impact on electronics was also studied by injection of charge to calibracton circuit of APV or by laser tests~\cite{Adam:2005pz}. In this section I will only describe results of the PSI beam test.
+
 \subsubsection{Experimental setup}
 
-PSI -  proton and pion beam of both charges with beam momentum 30MeV/c. 12 layers of detector modules (3xTIB,3xTEC,6xTOB).  Triggers - coincidence from photo-multipliers. Aditional trigger for HIP studies.
-(Many options actually) Trigger burst, to study recovery after HIPi - data every 25 ns for 750ns.
+The M1 beamline at PSI provided continuous beam of protons and pions with bunch crossing every 20~ns. For the APV studies the beam was tuned to pion momentum of 300~MeV to best mimic conditions at CMS environment. The tracking system was consicted of 12 layers of tracker modules (3xTIB,3xTEC,6xTOB), but for the study of HIP events only TOB modules were used. These TOB modules had 500~$\mum$ thick sensors with strip pitch of 183~$\mu$m and were equipped by inverter resistors of either 50, 75 or 100 $\Omega$ . Special trigger burst and APV setting was used to trigger HIP event and then provide 29 more events every 25 ns -- resulting in data every 25~ns for 750~ns. All modules were operated in the peak mode. 
+
 
 Identification of HIP on basis of CMN shift - HIP probability from nr of events which induce CMN shift to the total nr of particles in the sensor - nr of tracks going through (Phip(CMNcut) = Nhip(CMN<CMNcut)/Ntrack)-> for this analysis CMN thershold =-40
 
@@ -161,8 +163,33 @@ In efficient case -CMN returned to normallity in 300 ns
 In inefficient case - baseline fully supressed for up to 200ns, they remain inefficient for 700ns
 
 Studies in CMS environment - the protons can release 10MeV via ionization what is 10 times more probable than through nuclear interaction
+
+-limited APV dynamic range
+
+-sensors 320 or 500 mum
 \subsubsection{Response of the APV25 chip to the HIP events}
+
+As discussed above the highly ionizing particles deposit large energies up to equivalent of ~1000 MIPs and thus saturate the APV chips. The affected channels collect charge beyond the range of APV which is few tens of MIPs. The remaining channels from 128-channel APV are shifted towards the low part of the APV range and even exceed it. This behavior is result of cross talk effect on the APV chip worsened by the biasing scheme powering inverter and shaper which ensures stable CMN and during normal conditions~\cite{Bainbridge:2004jc}. The CMN distribution can be seen at Fig.~\ref{fig:CMNpast}. The CMN distribution is peaking around 0~ADC in the standard consitions. Smaller peak around $\sim$-100~ADC comes from suppressed baselines which are result of HIP events. 
+
+Because of the shift of CMN the HIP events can be easilly recognised by posing requirement on value of the CMN, in case of this study the APV chip which exhibited CMN$\leq$-20 ADC during 750~ns trigger burst was tagged as containinga  HIP candidate. The response of the APV chip on the HIP event is shown in Fig~\ref{fig:APVbehaviourpast}. In the plot there are pedestal subtracted data from 6 consecutive TOB modules in 4 different times. In the top-left plot~($T_{event}$ = 300~ns) the first evidence for HIP event -- large signal peak and small shift towards low values of range of the other channels, can be observed in the second module from bottom, second APV. After 50~ns~($T_{event}$ = 350~ns) the channels of APV not collectiong signal are suppresed and thus the peak is fully revealed. The suppresion and large peak can be still observed at $T_{event}$ = 525~ns. At $T_{event}$ = 575~ns the channels start to recover to their initial position. At $T_{event}$ = 525~ns and $T_{event}$ = 300~ns the MIP signal the MIP particle was passing through all six layers of modules. The signal is observed in relative APVs of all layers except of the APV affected by HIP event. The time period, when APV is insensitive to MIP signal is reffered as deadtime.
+
+In this analysis the HIP event is associated with event at $T_{event}$ = 350~ns, but as shown at the exaple, the signal from actual HIP interaction occured and was observed already 50~ns before the selected HIP event.
+
+
+-str 120  fig 5.1
+-str 121 fig 5.2 and 5.3 cmn
+
+
+- shift of opposite plarity to signal, usually non uniform depression - baseline slopes.
+
 \subsubsection{Deadtime induced by HIP events}
+
+The HIP event is supressing all channels from the affected APV which are not collecting signal. Large HIP signals result in full suppression of the channels beyond the lower limit of the APV range. The APV with fully supppressed channels exhibit very small RMS spread of the data before pedestal subtraction~(raw data), if excluding the channels reading signal. The RMS spread of raw data is shown in Fig.~\ref{fig:CMNvsBaselinepast} where the large peak population are baselines $\sim$0~ADC, the smaller peak population are fully supressed baselines and the tail is populated by distorted baselines with negative value. Distorted baselines are result of non-uniform supression and recovery of baseline in response on HIP event.
+
+
+-table 5.6 str 149
+
+
 
 from the results, baseline can be fully depressed for 300ns and then there is an overshoot. Also the measurements suggest that the period when the baseline is fully suppressed is indicative of deadtime experienced by the chip.
 
@@ -171,6 +198,11 @@ because of CMN is computed as median , distorted baselione can induce lost of cl
 If CM<-90 which is likely to induce deadtiem: Deadtime 345+23ns(100ohm),210+15ns(50ohm)
 
 for  320mum thick sensor the 300 MeV pion can iduce HIP with probability 3-10x10-4 -> in agreement with simulation. No significant dependence of recovery on sesnsor thickness.
+
+plots
+-str 81 fig 3.5
+
+
 REMARKS
 -in my case the fraction of HIP is also effected by pile-up
 -computation how fake clusters affects tracking
