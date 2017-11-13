@@ -4,6 +4,7 @@
 
 \subsection{Observed inefficiencies in tracks reconstruction}
  TODO
+-TOBl1 affected the most
 
 \subsection{Highly ionizing particles as possible explanation}
 
@@ -54,7 +55,7 @@ Electronics crosstalk arises from the readout capacitive network -- strips are c
 %Chare sharing can be measured from eta function (response function) -eta function R/(L+R), two separate peaks at 0 and 1 if no charge sharing. Shoft because of electronic coupling. Width of the peak determined by the noise. Almost linear charge sharing outside of the peak (plateau) - amount of charge collected by a strip is inversly proportional to the distance of the impact point from that strip (linear charge sharing) - for perpendicular tracks negligible.
 
 
-\subsection{The APV25 readout chip}
+\subsection{The APV25 readout chip \label{sec:APV}}
 
 
     \insertFigure{figures/APVreadout} % Filename = label
@@ -68,7 +69,6 @@ The amplified signal is sent to CR-RC shaper to convert strip signal into $\sim$
 The puls heights and bunch crossing information for all 128 channels are extracted at the end of the analog pipeline upon the request of trigger. The average signal level from 128 channels can be adjusted within the dynamic range of the APV, in order to reduce the signals exceeding the APV range. The processed signal from two APV chips is multiplexed by APVMUX~\cite{Ball:2007zza} into a single line and converted by laser from an electrical to optical signal, which is sent via analog optical fibre to control room. At the control room the optical signal is recevied by the pin diod which is a part of FED.
 
 -TODO write sth about inverter
--TODO picture of APV
 %-tickmarck sent every 70 clock cycles when no data are qued for output -  used for synchronization betwwen frontend and backend electronics.
 
 \subsection{The Front End Driver}
@@ -121,16 +121,16 @@ The track reconstruction is performed in 4 steps. First the \textit{track seed} 
 %energy spectra of heavy fragments produced in silicon are insensitive to energy of incident particle and do not go further than 10MeV, energy loss for such fragments are of order$MeV\mum^{-1}$~thus the fragments can go up to 100 $\mum$ (compare with sensor thickness) - very localized depositions. The light particles from nuclear interactions can travel longer and also contribute significantly to the total energy depositied~\cite{Huhtinen:2000nk}.
 
 
-\subsection{Studies prior to the LHC data taking}
+\subsection{Studies prior to the LHC data taking~\label{sec:HIPinPast}}
 
 The effect of Highly Ionizing particles has beed studied in the past during beam tests -- PSI and CERN X5. Large energy depositions impact on electronics was also studied by injection of charge to calibracton circuit of APV or by laser tests~\cite{Adam:2005pz}. In this section I will only describe results of the PSI beam test.
 
 \subsubsection{Experimental setup}
 
-The M1 beamline at PSI provided continuous beam of protons and pions with bunch crossing every 20~ns. For the APV studies the beam was tuned to pion momentum of 300~MeV to best mimic conditions at CMS environment. The tracking system was consicted of 12 layers of tracker modules (3xTIB,3xTEC,6xTOB), but for the study of HIP events only TOB modules were used. These TOB modules had 500~$\mu m$ thick sensors with strip pitch of 183~$\mu$m and were equipped by inverter resistors of either 50, 75 or 100 $\Omega$ . Special trigger burst and APV setting was used to trigger HIP event and then provide 29 more events every 25 ns -- resulting in data every 25~ns for 750~ns. All modules were operated in the peak mode. 
+The M1 beamline at PSI provided continuous beam of protons and pions with bunch crossing every 20~ns. For the APV studies the beam was tuned to pion momentum of 300~MeV to best mimic conditions at CMS environment. The tracking system was consicted of 12 layers of tracker modules (3xTIB,3xTEC,6xTOB), but for the study of HIP events only TOB modules were used. These TOB modules had 500~$\mu m$ thick sensors with strip pitch of 183~$\mu$m and were equipped by inverter resistors of either 50, 75 or 100 $\Omega$ . Special trigger burst and APV setting was used to trigger HIP event and then provide 29 more events every 25 ns -- resulting in data every 25~ns for 750~ns. All modules were operated in the peak mode and taken data were equivalent to the CMS VR data format. 
 
 
--measured probability per pion per sensor plane ins lower than 10-3
+%-measured probability per pion per sensor plane ins lower than 10-3
 
 %-sensors 320 or 500 mum
 
@@ -185,7 +185,130 @@ where $N_{HIP}(CMN_{HIP}\leq CMN_{threshold})$ is number of HIP events selected 
 
 The measurements were provided with pion beam of energy $300~MeV$, which is the most probable energy value of pions in CMS tracker. The measured probability for different modules and $CMN_{thteshold}=-20$ was found out to be of order $10^{-3}$. It was concluded that the HIP probability does not scale with beam intensity, but it scales with sensor thickness. Also the HIP probability was lowered by changing the inverter resistor value from $100~\Omega$ to  $50~\Omega$. Similar measurement was provided as well with proton beam of momentum $300~MeV/c$, which is not compatible with CMS consitions.
 
-%chapter 6 Banbridge
+
+\section{Studies of the HIP events with CMS pp collision data}
+
+\subsection{Strategy of the HIP studies}
+ -maybe not needed
+
+As explained in the section~\ref{sec:APV} in the standard data-taking the Zero Suppresson mode is used. During the ZS procedure all negative channels after pedestal subtraction are truncated to zero, thus this mode is not suitable to study the HIP events, which are known for causing a drop of the CMN as described in section~\ref{sec:HIPinPast}. The solution is to use data taken in Virgin Raw mode, what comes with a cost of increased event size. In the VR data-taking no subtractions and supressions are done, and if needed the ZS can be done offline to be able to comute CMN and proceed with clustering and further data treatement.  
+
+The strategy of further presented studies is to select a HIP event and study the influence of such events on electronics and clustering. As seen in previous studies in section~\ref{sec:HIPinPast}, the CMN recovery as well as observed deadtime is in order of O(100)~ns. Thus to be able to study evolution of CMN and cluster properties, consecutive events from window of few hunderds of ns are needed. However the probability of closely spaced events is very low without special trigger configuration. The possibilities for new trigger configuration are very limited because of increased size of events during the VR data-taking by factor $\sim$~35 compared to standard ZS data run. Moreover not to overload CMS data acquisition system following trigger criteria on number of triggers in number of bunch crossings~(bx) are  imposed~\cite{website:VRtrigger}:
+
+\begin{itemize}
+\item{No more than 1 trigger in 3 bx}
+\item{No more than 2 triggers in 24 bx}
+\item{No more than 3 triggers in 100 bx}
+\item{No more than 4 triggers in 240 bx}
+\end{itemize}
+
+In order not to overload the acquistion system, the triggered events have to be spread over many datasets in a way that consecutive events are in different datasets. Because of this limitation, the sorting and ordering of events had to be performed before the study.
+
+In the following sections of this chapter, for simplicity, are shown only plots for first layer of TOB, which exhibited the largest drop in the hit efficiency. Although the fraction of HIP events for given APV defined as
+
+
+\eq{HIPprob}
+{
+f_{HIP} = \frac{N_{HIP}}{N_{all}},
+}
+
+where $N_{HIP}$ is number of selected HIP events, $N_{all}$ is number of all events, is computed for all partitions and layers of the tracker.
+
+%To be able to run the study in reasonable time and with reasonable amount of resources, the reduction of the data was done based on 
+
+-closely spaced events, statistical treatment
+-VR data
+-iterated median or normal median - how is this computed?
+-general strategy: low baselines?
+-limitations - trigger rules, a lot of data
+-combining and ordering of events
+-mention teh code I started from?
+-TOB L1
+
+\subsection{Study of HIP events as possible cause of cluster inefficiencies}
+
+\subsubsection{Motivation}
+
+\subsubsection{Experimental setup} 
+            ( trigger and filling scheme, closely spaced events, VR, studies after HIP, [TOBl1], trigger rules, statistical study)
+
+
+In this analysis, closely spaced events were enriched by using special trigger cnofiguration, which forced first bunch crossing in fixed train to be triggered. After this trigger two other bunch crossings in the same train were triggered randomly. The final number of triggered events as function of bunch crossing is shown in figure~\ref{fig:figure\triggerStudy1}. The shape of the trigger distribution is given by trigger rules as well as forced trigger on first bx in the train.
+
+
+-run 273162
+-fill
+-HIP selection: low baseline vs low rms
+-align HIP with BX=0
+-study the HIP before and after BX=0
+-for plots only 1st layer of tob used, whci was predicted to be moce affcted, but for $f_HIP$ all layers of traker
+-trigger rules: %https://indico.cern.ch/event/512685/contributions/2167961/attachments/1273330/1887985/virgin_raw_test_2016_ebutz.pdf
+-in which BX HIP selected - says something about duration of full saturation
+-14 – 20 MB VR event size compared to 450-570 kB ZS of standard data.
+
+
+ \subsubsection{Methodology}
+ 
+          (selection (or separate chapter), baseline, cluster charge & multiplicity)
+
+-selection: baseline < -5 ADC, RMS of raw digis < 2.5
+-baseline distribution - evolution, baseline recovery is not the same as cluster recovery  maybe some picture of Rob
+
+\subsubsection{Results}
+     ( Fraction of HIP events in the data and deadtime)     
+-cluster multiplicity (estimation of deadtime), 
+-cluster charge - difficult to understand because of mixture of different populations, in-time, OOT, fake induced by HIP and remnants of HIP
+- there is deadtime for 10bx, but it does not mena we fully collect charge after 10bx
+
+\subsubsection{Limitations of the study}
+
+         1> Differences in out of time pile-up for triggered events
+-1 st event in train - must be BX<=0, remove such event
+-plot of the charge for 1st and other bx
+
+         2> Ambiguity of HIP selection
+-we ahve no idea when HIP occured - maybe betetr selection by imposing criterium on the peak charge (seed)
+-maybe this figure: str 81 fig 3.5
+-bx vs rms of raw digis
+-is there other way to select HIP?
+	- cluster charge before HIP event - not significantly higher
+	- cluster width - no obvious trend
+	- largest cluster saturation
+        -> not really sure I should show the plots
+
+\subsubsection{Change of the APV configuration settings}
+          (The major source of the tracking inefficiencies)
+
+\subsection{Study of HIP events after change in APV settings}
+
+\subsubsection{Motivation}
+
+\subsubsection{Experimental setup}
+        (trigger and filling scheme + differences to other study (no OOT, physical event only in first BX) )
+-run 281604
+-7 consecutive events
+-3x3 isolated bunches -> no OOT
+-physical bunch crossing only in 1st vent in train
+-> we know when HIP event happened
+-kind of reload of previous analysis
+\subsubsection{Methodology}
+        (selection, Evolution of baseline, cluster charge and cluster multiplicity in APV the chips affected by HIP)
+-baseline evolution -> compare
+-selection: baseline < -5 ADC, RMS of raw digis < 2.5
+         1> Fake clusters
+- average cluster charge and multiplicity - fake clusters with large charge
+-table of cluster charge, mult, etc
+\subsubsection{Results}
+      (Fraction of HIP events in the data)
+
+\subsubsection{Limitations of the study}
+         1> Impossibility to study deadtime
+- deadtime not really possible due to filling scheme
+
+\section{Conclusion}
+
+
+
 
 REMARKS
 -in my case the fraction of HIP is also effected by pile-up
