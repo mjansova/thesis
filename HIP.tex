@@ -266,12 +266,18 @@ During the laser simulation of HIP events, during which a charge was induced in 
 
 \subsubsection{Results}
 
-The average cluster multiplicity and the maximal cluster charge~(charge of the cluster with the largest cluster charge) per APV as a function of bx are shown in figures~\ref{fig:figure/avMultiplicityFirst}~and~\ref{fig:figure/maxChargeFirst}. In these distributions again the averaging over APVs is performed as well as aligning the selected HIP with bx=0. The avarege cluster multiplicity~\ref{fig:figure/avMultiplicityFirst} is stable for events long before the occurence of the HIP. Around 5 bunch crossings the multiplicity is growing as additional cluster belonging to the HIP deposit~(recoil or fragments) starts to appear. As a consequence of the HIP event the chip becomes inefficient in signal collection and already at bx=0, when the baselines are fully saturated, the cluster multiplicity is close to zero. The cluster multiplicity is recovered in the $\sim$10 bunch crossings. The average cluster multiplicity for bx>10 reaches plateu which is higher than for BX<-10. The maximal cluster charge per APV~\ref{fig:figure/maxChargeFirst} is exhibiting stable behaviour for bx<-20, then the increase in charge appear (TODO: why so early, is it effect of differet OOT?). The charge is maximal for the selected HIP and then drops and recoveres almost immediately after the selected HIP, but to lower level than before the HIP event. 
+The average cluster multiplicity and the maximal cluster charge~(charge of the cluster with the largest cluster charge) per APV as a function of bx are shown in figures~\ref{fig:figure/avMultiplicityFirst}~and~\ref{fig:figure/maxChargeFirst}. In these distributions again the averaging over APVs is performed as well as aligning the selected HIP with bx=0. The avarege cluster multiplicity~\ref{fig:figure/avMultiplicityFirst} is stable for events long before the occurence of the HIP. Around 5 bunch crossings the multiplicity is growing as additional cluster belonging to the HIP deposit~(recoil or fragments) starts to appear. As a consequence of the HIP event the chip becomes inefficient in signal collection and already at bx=0, when the baselines are fully saturated, the cluster multiplicity is close to zero. The cluster multiplicity is recovered in the $\sim$10 bunch crossings. The average cluster multiplicity distribution for bx>10 is flat with a constant higher for BX<-10, what is in contradiction with expectaton. The maximal cluster charge per APV~\ref{fig:figure/maxChargeFirst} is exhibiting stable behaviour for bx<-20, then the increase in charge appear (TODO: why so early, is it effect of differet OOT?). The charge is maximal for the selected HIP and then drops and recoveres almost immediately after the selected HIP, but to lower level than before the HIP event, even though the same level as before the HIP event is expected. 
 
-This issue of different charge properties long before and long after the HIP event can be understood when plotting the cluster charge for first event in the train in the figure~\ref{} and other events in the train~\ref{}.
+%The disagreements between distributions of bx$\ll$0 and bx$gg$0 for average cluster multiplicity and maximal cluster charge will be discussed in details in section~\ref{sec:}.
 
 %TODO average cluster multiplicity
 %TODO max cluster charge
+
+The mismatch between cluster properties long before and long after the HIP event, as shown in figures~\ref{fig:figure/avMultiplicityFirst}~and~\ref{fig:figure/maxChargeFirst}, can be understood when analyzing the cluster charge distribution of all clusters for first event in the train in the figure~\ref{fig:figure/chargeFirstInTrain} and other events in the train~\ref{fig:figure/chargeFirstInTrain}. The cluster charge distribution for the first event in the train exhibits double peak structure of similar height with maxima around 100~ADC and 300~ADC, while in the cluster charge distribution of the other events, the height of the peak around 100~ADC is clearly dominating. The enhanced population of clusters around 100~ADC for the clusters from other than first bunch crossing in train is comming from out-of-time pile up, which is not present in the first bunch crossing. As in the train we have 3 events, first bunch crossing in the train and two others, one of them can be selected as a HIP event, but only first or second event can be set to bx<0 and on the other hand only second and third event can be set as bx>0. In consequence part of bx<0 of average cluster multiplicity and maximal cluster charge at figures~\ref{fig:figure/avMultiplicityFirst}~and~\ref{fig:figure/maxChargeFirst} is dominated by population with lower out-of-time pile-up than the part with bx>0. Thus as for bx<0 there is a lower out-of-time pile-up, the average cluster multiplicity is lower and maximal charge higher than for bx>0. To avoid not equal mixing of events with diferrent properties, the first event in the train was removed from the distributions. The average cluster multiplicity without first bunch crossing in the train is shown in figure~\ref{fig:figure/avMultiplicityCleanedFirst} and maximal charge~\ref{fig:figure/maxChargeCleanedFirst}. In both distributions the removal of first bunch crossing lead to the significant equalization between the levels of bx$\ll$0 and bx$\gg$0 .
+
+%TODO cluster charge for the first event in train
+%TODO cluster charge distribution for other eventsin the train
+%corrected cluster charge, corrected cluster multiplicity
 
      ( Fraction of HIP events in the data and deadtime)     
 -cluster multiplicity (estimation of deadtime), 
@@ -282,8 +288,7 @@ This issue of different charge properties long before and long after the HIP eve
 \subsubsection{Limitations of the study}
 
          1> Differences in out of time pile-up for triggered events
--1 st event in train - must be BX<=0, remove such event
--plot of the charge for 1st and other bx
+-1 st event in train - must be BX<=0, remove such event - alrady done, easy to do, described in results.
 -also in first bx no OOT HIP
 
          2> Ambiguity of HIP selection
@@ -291,6 +296,7 @@ It was also shown that the HIP events are characteristic by large signal peak at
 -we ahve no idea when HIP occured - maybe betetr selection by imposing criterium on the peak charge (seed)
 -maybe this figure: str 81 fig 3.5
 -bx vs rms of raw digis
+-OOT HIP
 -is there other way to select HIP?
 	- cluster charge before HIP event - not significantly higher
 	- cluster width - no obvious trend
