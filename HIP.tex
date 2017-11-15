@@ -216,7 +216,7 @@ where $N_{HIP}$ is number of selected HIP events, $N_{all}$ is number of all eve
 
 %To be able to run the study in reasonable time and with reasonable amount of resources, the reduction of the data was done based on 
 
-\subsection{Study of HIP events as possible cause of cluster inefficiencies}
+\subsection{Study of HIP events as possible cause of cluster inefficiencies~\label{sec:firstStudy}}
 
 \subsubsection{Motivation}
 
@@ -245,11 +245,11 @@ In section~\ref{sec:HIPinPast} it has been observed that HIP event can be identi
 %TODO figure module with APV with saturated baseline and peak
 %TODO figure module with APV with saturated baseline and without  peak
 
-Reliable selection of the APVs influenced by the HIP event can be designed via presence of ``fully saturated'' baselines. Analyzing correlation of CMN and $\sigma_{raw}$ in figure~\ref{fog:figure/baselinevsRMSrawFirst} it is obvious that the standard events with nominal value of the baseline around 128~ADC are having $\sigma_{raw}$ of order of few units. The second large population with small value of baseline and $\sigma_{raw}$ is the one of fully saturated baselines, whichcan be connected with large energy deposits in the APV chip. Based on the knowledge of the correlation between CMN and $\sigma_{raw}$ the selection of HIP event has been chosen to be 
+Reliable selection of the APVs influenced by the HIP event can be designed via presence of ``fully saturated'' baselines. Analyzing correlation of CMN and $\sigma_{raw}$ in figure~\ref{fig:figure/baselinevsRMSrawFirst} it is obvious that the standard events with nominal value of the baseline around 128~ADC are having $\sigma_{raw}$ of order of few units. The second large population with small value of baseline and $\sigma_{raw}$ is the one of fully saturated baselines, whichcan be connected with large energy deposits in the APV chip. Based on the knowledge of the correlation between CMN and $\sigma_{raw}$ the selection of HIP event has been chosen to be 
 
 \eq{selection}
 {
-$CMN<-25~ADC \mathrm{and} \sigma_{raw}<2.5$.
+CMN<-25~ADC \mathrm{and} \sigma_{raw}<2.5.
 }
 
 %TODO figure vs RMS
@@ -312,35 +312,111 @@ The improvement in the HIP selection has also been targeted in this study by try
 \subsubsection{Change of the APV configuration settings}
           (The major source of the tracking inefficiencies)
 
+%the fraction of HIP low
 %TODO  plot of the distribution of largest cluster charge in train (PBXvsCHall)
 \subsection{Study of HIP events after change in APV settings}
 
 \subsubsection{Motivation}
 
+%TODO the dynamic inefficiencies are gone -. have a look if we still see HIP and what is the probability and its manifestation
+%presenteation of Erik at WGM
+
 \subsubsection{Experimental setup}
-        (trigger and filling scheme + differences to other study (no OOT, physical event only in first BX) )
--run 281604
--7 consecutive events
--3x3 isolated bunches -> no OOT
--physical bunch crossing only in 1st vent in train
--> we know when HIP event happened
--kind of reload of previous analysis
+
+After identifying and fixing the source of APV dynamic inefficiencies a new 48 minute 45 seconds long VR data run 281604 was taken 25 of September 2016. The included subdetectors in this run were both silicon pixel and strip tracker, ECAL, HCAL and all muon chambers. This run was part of the fill 5330, during which only four isolated bunches per beam were injected to the LHC, out of them three were collided at CMS. The average pile-up of the fill was 48 iteractions per bunch crossing. The instantenous lumiosity of the run started at 17.38$\times 10^{30} cm^{-2} s^{-1}$ and ended at 16.48$\times 10^{30} cm^{-2} s^{-1}$. During the run all APVs were taking data in the deconvolution mode. 
+
+In this run the trigger triggered on fixed bx=2306, further reffered as ``first event'', in each orbit. After the first trigger on bx=2306, the trigger fired every 75~ns for 450~ns, thus per one orbit 7 events spaced by 3 bx were triggered, but only during the first event bunches were collided. Resulting trigger scheme per orit is shown in figure~\ref{fig:figure/triggerSecond}. The trigger setup was very special as  all the trigger rules were violated but the first one.
+
+%TODO figure trigger second per orbit
+%TODO say that I will reffer previous study as previous study
+
+The character of the run and data-taking setup resulted in many differences compared to the previous study in section~\ref{sec:firstStudy}. As bunches collided only during the first event, the particle causing the HIP effect had to originate from this bunch crossing and in this sense, the time of the HIP is fixed. Also because of fill with isolated bunches, there is no out-of-time pile-up for the first event.
+
 \subsubsection{Methodology}
-        (selection, Evolution of baseline, cluster charge and cluster multiplicity in APV the chips affected by HIP)
--baseline evolution -> compare
--selection: baseline < -5 ADC, RMS of raw digis < 2.5
-         1> Fake clusters
-- average cluster charge and multiplicity - fake clusters with large charge
--table of cluster charge, mult, etc
+
+In order to design selection of HIP events in this run, the correlation of baseline and $\sigma_{raw}$ per APV has been analyzed. In figure~\ref{fig:figure/baselineVsRMSSecond} it can be observed that the bulk of the APVs have nominal baseline value of $\sim$128 and rms spread of few units. The second substantial population is one of the APVs with very small value of baseline and rms spread, originating from the fully saturated baselines. Overall distribution is simillar to the one in figure~\ref{fig:figure/baselinevsRMSrawFirst} of previous study presented in section~\ref{sec:firstStudy}. Consequently the same HIP selection, defined in equation~\ref{eq:selection} , meaning that the manifestation of the HIP events has not change with the change of the APV settings.
+
+%TODO plot baseline vs rms
+
+As in this run the time of creation of the particle causing the HIP event is fixed by bx=2306, no redefinition of bunch crossing is not needed and the properties of the selected HIP event and other 6 events in the same orbit can be shown as function of the real bunch crossing~(respectively time).
+
+The baseline evolution as a function of bunch crossing is shown in figure~\ref{fig:baselineSecond}. The recovery of baseline occures in less than 12 bunch corssings, what is slightly faster recovery than in previous study. Then again the baseline overshoots for the remaining events even to higher values than in previous study. The baseline decreases between first and second event, because during first event not all baselines are fully saturated yet. The first occurence of fully saturated baseline as a function of bunch crossing is displayed in figure~\ref{fig:saturationSecond} in which it can be observed that in almost equal number of cases the fully saturated baseline appears already in the fist event as in the second event. In the other events the saturation TODO....
+
+%TODO baseline evolution
+%TODO saturation plot vs bunch crossing
+
 \subsubsection{Results}
-      (Fraction of HIP events in the data)
+
+For the study of the cluster multiplicity and cluster charge per APV four categories of events have been defined in table~\ref{tab:eventCategories}. If the APV in given orbit was influenced by HIP event, the cluster information from APV of the first event belong to the first category, of the remaining events to the second category. The cluster information from the APVs in which no HIP event has happened during the given orbit belong to the third category if it comes from the first event or to the fourth category in case of other events. Thus in categories 2 and 4 only fake clusters are expected as there were no colliding bunches in CMS at those bunch crossings, in contrary to catgeories 1 and 3 which are populated by both real and fake clusters.
+
+The average cluster multiplicity per APV shown is in figure~\ref{fig:avClusterMultiplicitySecond} for both orbits influenced by HIP event in dots~(category 1 and 2) and non-HIP orbits in triangles~(category 3 and 4). For the non-HIP orbits, in the first event the average cluster multiplicity is non-zero because of presence of collision and then falls almost to zero for other events where only fake clusters are present. In case of HIP-orbits, in the first event the averadge cluster multiplicity is higher than in previous case because of additional clusters originating from the HIP event. The other events exhibit significantly larger averadge multiplicity of fake clusters compared to non-HIP orbits, which is increasing in time up to constant level and do not disappear during the 6 events. These fake clusters resulting from HIP event may have much larger charge than the standard fake clusters as observed in figure~\ref{fig:avClusterChargeSecond}. 
+
+To understand origins of the fake clusters, average cluster multiplicity, charge and width as well as fraction of clusters larger than 10 strips is calculated in table~\ref{tab:clusterCategories}. From the table it is clear that the fake clusters resulting from HIP event are significanctly wider and have larger charge than standard clusters. Such clusters are reconstrected from baseline distortions, caused by non-uniform recovery among the 128 channels.
+
+
+The fake clusters in events after HIP interaction can be dangerous for tracking as they can be used for track reconstruction instead of the real clusters. But this effect scales with probability of HIP vent, which is relatively small.
+
+%TODO
+The fraction of HIP events for this event is mesured to be ... .There is a trigger problem as well , not only ambiguity with inst lumi.
+
+average cluster charge per APV
+
+%TODO averge cluster charge
+%TODO average cluster multiplicity
+
+\begin{table}[h]
+\begin{center}
+\begin{tabular}{|l|l|l|}
+\hline
+Category & Name  & Features \\
+\hline
+1 & HIP & Collision event when HIP occurred \\
+\hline
+2 & After HIP & Event at same orbit as a selected HIP \\
+& & Not a collision event \\
+& & Dominated by fake clusters \\
+\hline
+3 & Collision non-HIP & Collision event without HIP \\
+\hline
+4 & Non-collision, non-HIP  & Not a collision event \\
+& & No HIP selected in a same orbit \\
+& & Dominated by fake clusters \\
+\hline
+\end{tabular}
+\caption[Table caption text]{Table of ... }
+\label{tab:eventCategories}
+\end{center}
+\end{table}
+
+
+\begin{table}
+\begin{center}
+%\topcaption{ Average cluster charge, multiplicity, width and fraction of clusters larger than ten strips.\label{tab:clusterSum}}
+\resizebox{\linewidth}{!}{
+\begin{tabular}{l|cccc}
+\hline
+Events/Quantities & Average cluster charge~[ADC] & Average cluster multiplicity & Average cluster width~[strip] & Fraction of clusters larger than 10 strips \\
+\hline
+HIP & 1083 & 1.116 & 8 & 0.08 \\
+After HIP & 330 & 0.087 & 8 & 0.17 \\
+Collision non-HIP & 427 & 0.492 & 5 & 0.05 \\
+Non-collision, non-HIP & 239 & 0.003 & 3 & 0.03 \\
+\hline
+\end{tabular}}
+\caption[Table caption text]{Table of ... }
+\label{tab:clusterCategories}
+\end{center}
+\end{table}
+
 
 \subsubsection{Limitations of the study}
-         1> Impossibility to study deadtime
-- deadtime not really possible due to filling scheme
+ 
+1> Impossibility to study deadtime - deadtime not really possible due to filling scheme - no clustre recovery.
+
+-trigger limitations
 
 \section{Conclusion}
-
+-in teh first data hip as well because off the smae selection and same order of magnitude
 
 
 
