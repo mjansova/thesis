@@ -4,12 +4,45 @@
 
 \subsection{Observed inefficiencies in tracks reconstruction}
 TODO
-%-TOBl1 affected the most
-%TODO plots from my group presentation: /home/mjansova/Downloads/presentations/thesisDirectory/literature_HIP/my_old_presentations/groupPresentation_v2.pdf
+%TODO track must be known
+
+Starting the Run II era 2015D, the bunch spacing was shortened from 50~ns to 25~ns. In this era, with more data recollected, the CMS collaboration has started to observe larger discrepancies between the predicted and measured numbers of tracks than before. Data has shown a lack of tracks compared to simulations. Such situation has appeared because of the cluster inefficiency -- loss of hits, later linked with the limitations of the read-out electronics. This kind of ineciencies was already observed in Run I, especially in lead collisions, but with much smaller impact. 
+
+Later it was found out that the observed inefficiencies scale with tracker layer and also with instantenous luminosityi~\cite{website:hitEff}. In the figure~\ref{fig:figure/effAsLayer} the hit efficiency -- fraction of found hits around reconstructed track to expected hits, is shown for layers of barrels, disks and endcapes. The figure~\ref{fig:figure/effAsLumi} is depicting the hit efficiency  as function of instantenous luminosity. In these plots the reduced hit efficiency from 2015/2016 is shown in red empty circles. The red full circles stand for hit efficiency of data taken at the end of 2016, once the source of the largest hit inefficiency was eliminated.
+
+
+    \insertFigure{figures/effAsLayer} % Filename = label
+                 {0.6}       % Width, in fraction of the whole page width
+                 {The hit efficiency as a function of barrel, disk and endcapes layers.~\cite{website:hitEff}.} % Caption
+
+    \insertFigure{figures/effAsLumi} % Filename = label
+                 {0.6}       % Width, in fraction of the whole page width
+                 {The hit efficiency as a function of instantenous luminosity~\cite{website:hitEff}.} % Caption
+
+%-less tracks
+%-25ns/high lumi runs - fewer associated hits
+%-correlation with increased instantenous luminosity
+%-correlated with HIP effect
+%-efficiency improves at first bx of train
+
+%findings:
+%-lower cluster charge
+%-lower S/N
+%-lower hit efficiency
+%-shorter tracks
+%-lower track efficiency
+
+%https://twiki.cern.ch/twiki/bin/viewauth/CMS/SiStripHitEffLoss
+%https://indico.cern.ch/event/560224/contributions/2265347/attachments/1320462/1980048/WGM_HIP_Boudoul.pdf
+%https://indico.cern.ch/event/560226/contributions/2277448/attachments/1324704/1988050/wgm_vfp_change_ebutz.pdf
+
+%plots
+%https://twiki.cern.ch/twiki/bin/view/CMS/StripsOfflinePlots2016
+
 
 \subsection{Highly ionizing particles as possible explanation}
 
-In the CMS environment the main mechanism of energy loss of charged particles~(except of electrons) in silicon sensors is ionization. Beyond ionization the traversing particle energy can be deposited in sensor via elastic and inelastic nulear interaction with the siclicon nucleus. These interaction result in nuclear recoil and nuclear fragmentation in case of inelastic interaction. A sufficiently energetic recoiled nucleus can induce displacement of other nuclei in its proximity. All affected nucleai as well as the fragments undergo energy loss by ionization, resulting in very localized large energy depositions in the silicon volume. By simulation of elastic and inelastic interactions in the silicon it has been shown that elastic interactions do not lead to high energy depositions, while inelastic interactions can deposit energy up to $\sim$100MeV in tracker sensors, which is $\sim$1000 times larger energy deposit than by ionization only~\cite{Huhtinen:2002yda}. The readout electronics of tracker modules is not designed for such large energy deposits resulting in saturation of electronics and a deadtime in charge collection and thus loss of hits.
+In the CMS environment the main mechanism of energy loss of charged particles~(except of electrons) in silicon sensors is ionization. Beyond ionization the traversing particle energy can be deposited in sensor via elastic and inelastic nulear interaction with the siclicon nucleus. These interaction result in nuclear recoil and nuclear fragmentation in case of inelastic interaction. A sufficiently energetic recoiled nucleus can induce displacement of other nuclei in its proximity. All affected nucleai as well as the fragments undergo energy loss by ionization, resulting in very localized large energy depositions in the silicon volume. By simulation of elastic and inelastic interactions in the silicon it has been shown that elastic interactions do not lead to high energy depositions, while inelastic interactions can deposit energy up to $\sim$100MeV in tracker sensors, which is $\sim$1000 times larger energy deposit than by ionization only~\cite{Huhtinen:2002yda}. The readout electronics of tracker modules is not designed for such large energy deposits resulting in saturation of electronics and a deadtime in charge collection and thus hit inefficiency.
 
 \section{Strip tracker readout system}
 
@@ -27,7 +60,7 @@ Particles passing through the modules of silicon strip tracker are loosing their
 The CMS silicon sensors are formed by n-type bulk, which has on one side uniform n+ implant while on the other p+ strips are located. The implants are connected to reverse bias voltage to completly deplete the bulk of the sensor. The thickness of both p+ and n+ implants is small and negligible compared to the bulk, thus almost whole volume of sensor is depleted. Every p+ strip are connected by a wire bond to a read-out electronics. The distance between strips is called a pitch.
 
 %TODO is true 4-6 sensors?, or one sensor with more or less strips?
-The tracker modules are consisted by 1-2 sensors, each sensor is having three or four times 128 p+ strips. The larger part of modules have one layer of sensors~(mono modules), the other holds two layers of sensors, which are attached back to back and with a strip inclination of $5.7^{\circ}$ against each other~(stereo modules). Thus the stereo modules are able to give 3-D information in global coordinates about the position where particle has hit the module~(hit position). The modules also differ by the pitch size between each strip which can vary from 80 $\mu$m up to 205 $\mu$m depending on the tracker layer and partition.
+The tracker modules are consisted by 1-2 sensors (not sure), each sensor is having three or four times 128 p+ strips. The larger part of modules have one layer of sensors~(mono modules), the other holds two layers of sensors, which are attached back to back and with a strip inclination of $5.7^{\circ}$ against each other~(stereo modules). Thus the stereo modules are able to give 3-D information in global coordinates about the position where particle has hit the module~(hit position). The modules also differ by the pitch size between each strip which can vary from 80 $\mu$m up to 205 $\mu$m depending on the tracker layer and partition.
 
 The particle crossing silicon sensor is leaving energy predominantly via electromagnetic interaction - by ionization of the silicon volume, the electron-hole pairs are produced along the path of a particle. The energy loss in the material can be described by the Bethe-Bloch formula~\cite{Groom:2000sm} as a function of $\beta\gamma = p/Mc$, where $p$ and $M$ is mometum and mass of the interacting particle. The Bethe-Bloch function has a minimum for $\beta\gamma \approx 3$. Majority of relativistc particles are having this minimal value of $\beta\gamma$ and thus they are called be Minimum Ionizing Particles~(MIP).
 
@@ -312,18 +345,24 @@ The improvement in the HIP selection has also been targeted in this study by try
 \subsubsection{Change of the APV configuration settings}
           (The major source of the tracking inefficiencies)
 
+During the late 2015 and first half of 2016, the HIP effect was studied from many perspectives. The probabilty of the HIP effect was found to be too low to explain the magnitude of observed inefficiencies and thus CMS collaboration has tried to find other causes of seen hit inefficiency. In August 2016, the major source was found in the setting of APV itself.
+
+For the data taking, the APV's Preamplifier Feedback Voltage Bias~(VFP) was set according to APV manual to $\sim$30~V to obtain ideal CR-RC puls shape. This parameter controls the drain speed of the preamplifier, lower parameter results in faster drain speed. Because of increase of the APV ocupancy, due to shortenning the bunch spacing and increasing the instantenous luminosity, the drain speed was not fast enough anymore leading to saturation of the peramplifier by semi-large charge deposits~(10-100 MIPs). Saturated APV chip by this effect became inefficient up to its recovery at the end of the train or the run. These findings led to setting the VFP parameter and significant recovery of the hit efficiency as shown in figures~\ref{fig:figure/effAsLayer}~and~\ref{fig:figure/effAsLumi}.
+
 %the fraction of HIP low
-%TODO  plot of the distribution of largest cluster charge in train (PBXvsCHall)
+%TODO  plot of the distribution of largest cluster charge in train (PBXvsCHall) -from my group presentation: /home/mjansova/Downloads/presentations/thesisDirectory/literature_HIP/my_old_presentations/groupPresentation_v2.pdf
 \subsection{Study of HIP events after change in APV settings}
 
 \subsubsection{Motivation}
+
+After identifying and fixing thei main source of APV inefficiencies other VR data run was taken. This run provided an opportunity to study a clean HIP effect not affected by the APV inefficiency. The goal of the study with this data was to check, if the HIP event is still observed and if it manifests in similar way.
 
 %TODO the dynamic inefficiencies are gone -. have a look if we still see HIP and what is the probability and its manifestation
 %presenteation of Erik at WGM
 
 \subsubsection{Experimental setup}
 
-After identifying and fixing the source of APV dynamic inefficiencies a new 48 minute 45 seconds long VR data run 281604 was taken 25 of September 2016. The included subdetectors in this run were both silicon pixel and strip tracker, ECAL, HCAL and all muon chambers. This run was part of the fill 5330, during which only four isolated bunches per beam were injected to the LHC, out of them three were collided at CMS. The average pile-up of the fill was 48 iteractions per bunch crossing. The instantenous lumiosity of the run started at 17.38$\times 10^{30} cm^{-2} s^{-1}$ and ended at 16.48$\times 10^{30} cm^{-2} s^{-1}$. During the run all APVs were taking data in the deconvolution mode. 
+New 48 minute 45 seconds long VR data run 281604 was taken 25 of September 2016. The included subdetectors in this run were both silicon pixel and strip tracker, ECAL, HCAL and all muon chambers. This run was part of the fill 5330, during which only four isolated bunches per beam were injected to the LHC, out of them three were collided at CMS. The average pile-up of the fill was 48 iteractions per bunch crossing. The instantenous lumiosity of the run started at 17.38$\times 10^{30} cm^{-2} s^{-1}$ and ended at 16.48$\times 10^{30} cm^{-2} s^{-1}$. During the run all APVs were taking data in the deconvolution mode. 
 
 In this run the trigger triggered on fixed bx=2306, further reffered as ``first event'', in each orbit. After the first trigger on bx=2306, the trigger fired every 75~ns for 450~ns, thus per one orbit 7 events spaced by 3 bx were triggered, but only during the first event bunches were collided. Resulting trigger scheme per orit is shown in figure~\ref{fig:figure/triggerSecond}. The trigger setup was very special as  all the trigger rules were violated but the first one.
 
@@ -357,9 +396,8 @@ To understand origins of the fake clusters, average cluster multiplicity, charge
 The fake clusters in events after HIP interaction can be dangerous for tracking as they can be used for track reconstruction instead of the real clusters. But this effect scales with probability of HIP vent, which is relatively small.
 
 %TODO
-The fraction of HIP events for this event is mesured to be ... .There is a trigger problem as well , not only ambiguity with inst lumi.
+The fraction of HIP events for this event is mesured to be ... . As previously, the fraction of HIP events is biased by trigger. Only baselines which already fully saturated in first event or which are still fully saturated during the second event~(after 75~ns) can only be selected as HIP events.
 
-average cluster charge per APV
 
 %TODO averge cluster charge
 %TODO average cluster multiplicity
@@ -411,17 +449,17 @@ Non-collision, non-HIP & 239 & 0.003 & 3 & 0.03 \\
 
 \subsubsection{Limitations of the study}
  
-1> Impossibility to study deadtime - deadtime not really possible due to filling scheme - no clustre recovery.
-
--trigger limitations
+Except of bias in measurement of number of HIP events due to trigger, the other limitation is impossibility of the deadtime measurement with analyzed data. Other than first event in prbit do not contain collision and thus no cluster recovery can be studied. 
 
 \section{Conclusion}
--in teh first data hip as well because off the smae selection and same order of magnitude
+TODO
+-in the first data hip as well because off the smae selection and same order of magnitude
 
 
 
-REMARKS
--in my case the fraction of HIP is also effected by pile-up?!
--computation how fake clusters affects tracking
--what is the inverter resistor value first it was 100 but now changes to 50~\cite{Gennai:2003as}
--change all past to present perfect
+%REMARKS
+%-in my case the fraction of HIP is also eaffected by pile-up?!
+%-computation how fake clusters affects tracking
+%-what is the inverter resistor value first it was 100 but now changes to 50~\cite{Gennai:2003as}
+%-change all past to present perfec
+%zero light level -laser
