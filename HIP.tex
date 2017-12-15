@@ -1,22 +1,21 @@
-\chapterwithnum{Study of highly ionizing particles in the silicon strip tracker}
+\chapterwithnum{Study of the highly ionizing particles in the silicon strip tracker}
 
-\section{Tracking inefficiencies at beginning of Run~II}
+\section{The tracking inefficiencies at the beginning of Run~II}
 
-\subsection{Observed inefficiencies in tracks reconstruction}
+\subsection{Observed inefficiencies in track reconstruction}
 %TODO track must be known
 
-Starting the Run~II era 2015D, the time between collisions has been shortened from 50~ns to 25~ns. In this era, with more data recollected, the CMS collaboration has started to observe larger discrepancies between the predicted and measured numbers of tracks than before. Data have shown a lack of tracks compared to simulations. Such situation has appeared because of the cluster inefficiency -- loss of hits, which has translated into the loss of tracks. The inefficiencies were later linked with the limitations of the read-out electronics. This kind of inefficiencies has already been observed in Run~I, especially in lead collisions, but with much smaller impact. 
+At the start of the Run~II 2015D era, the time between collisions was shortened from 50~ns to 25~ns. During this era, with more data collected, the CMS collaboration started to observe large discrepancies between predicted and measured numbers of tracks: data showed less tracks than simulations. Such situation appeared because of the cluster inefficiency, the loss of hits translated into a loss of tracks. This kind of inefficiencies has already been observed in Run~I, especially in lead collisions, but with much smaller impact. 
 
-Later it has been found out that the observed inefficiencies scale with tracker layer and also with instantaneous luminosity~\cite{website:hitEff}. In the figure~\ref{fig:figures/effAsLayer} the hit efficiency -- fraction of number of found hits around reconstructed track to number of expected hits, is shown for layers of barrels, disks and endcapes. The figure~\ref{fig:figures/effAsLumi} is depicting the hit efficiency  as function of instantaneous luminosity. In these plots the reduced hit efficiency seen in 2015/2016 runs, is shown in red empty circles. The red full circles stand for hit efficiency of runs taken at the end of 2016, once the source of the largest hit inefficiency was eliminated.
+Observed inefficiencies were shown to depend on the tracker layers and also scale with the instantaneous luminosity~\cite{website:hitEff}. Left Fig.~\ref{fig:figures/effAsLayerAndLumi} shows the hit efficiency, computed as the ratio of the number of hits associated to reconstructed tracks to the number of expected hits for the different layers of the barrels, the disks, and the endcaps. Right Fig.~\ref{fig:figures/effAsLayerAndLumi} is depicting the hit efficiency  as a function of the instantaneous luminosity. In these plots, the reduced hit efficiency seen in 2015/2016 runs, is shown in red empty circles. For comparison, the red full circles stand for hit efficiency of the runs taken at the end of 2016, once the source of the largest hit inefficiency was eliminated, what will be discussed in later sections.
 
 
-    \insertFigure{figures/effAsLayer} % Filename = label
-                 {0.6}       % Width, in fraction of the whole page width
-                 {The hit efficiency as a function of barrel, disk and endcapes layers.~\cite{website:hitEff}.} % Caption
+    \insertTwoFigures{figures/effAsLayerAndLumi} % Filename = label
+                 {figures/effAsLayer}
+                 {figures/effAsLumi} % Filename = label
+                 {0.45}       % Width, in fraction of the whole page width
+                 {(left) Hit efficiency for the different layers of the barrels, the disks and the endcaps. The empty circles represent hit efficiency measurement for the old front-end electronics~(APV) settings while full circles depict hit efficiency measurement after the APV settings change. The instantenous luminosity for both runs is indicated in the legend. (right) Hit efficiency as a function of the instantenous luminosity. The measurement is shown only for first layer of TOB for both old~(empty circles) and new~(full circles) APV settings~\cite{website:hitEff} (TODO pdf and latest version) } % Caption
 
-    \insertFigure{figures/effAsLumi} % Filename = label
-                 {0.6}       % Width, in fraction of the whole page width
-                 {The hit efficiency as a function of instantaneous luminosity~\cite{website:hitEff}.} % Caption
 
 %-less tracks
 %-25ns/high lumi runs - fewer associated hits
@@ -37,44 +36,53 @@ Later it has been found out that the observed inefficiencies scale with tracker 
 %https://twiki.cern.ch/twiki/bin/view/CMS/StripsOfflinePlots2016
 
 
-\subsection{Highly ionizing particles as possible explanation}
+%The inefficiencies were later linked with the limitations of the read-out electronics. TODO do I need to use it?
 
-The main energy loss mechanism in tracker silicon sensors of charged particles produced in CMS is via electromagnetic interaction, mainly ionization. Beyond electromagnetic interaction the traversing particle energy can be deposited in sensor via elastic and inelastic nuclear interaction with the silicon nucleus. These interaction result in nuclear recoil and nuclear fragmentation in case of inelastic interaction. A sufficiently energetic recoiled nucleus can also induce displacement of other nuclei in its proximity. All affected nuclei as well as the fragments undergo energy loss by ionization, resulting in very localized large energy depositions in the silicon volume. By simulation of elastic and inelastic interactions in the silicon it has been shown that elastic interactions do not lead to high energy depositions, while inelastic interactions can deposit energy up to $\sim$100~MeV in tracker sensors, which is $\sim$1000 times larger energy deposit than by ionization only~\cite{Huhtinen:2002yda}. The readout electronics of tracker modules is not designed for such large energy deposits resulting in saturation of electronics, dead-time in charge collection and thus hit inefficiency.
+\subsection{The highly ionizing particles as a possible explanation}
+
+Among the various possible explanations of the observed hit efficiencies, the hypothesis of highly inoizing particles~(HIP) was considered. To understand the effect of the HIP on the hit efficiency, first the the energy loss mechanism for charged particles in silicon must be discussed. The main energy loss mechanism for charged particles in tracker silicon sensors is via the electromagnetic interaction, mainly via ionization. Beyond the electromagnetic interaction, the traversing particle can deposit energy in sensors via elastic and inelastic nuclear interactions with the silicon nucleus. These two interactions result in a nuclear recoil for the elastic case and a nuclear recoil and fragmentation in case of inelastic interaction. A sufficiently energetic recoiled nucleus can also induce displacement of the other nuclei in its proximity. All affected nuclei as well as the nuclear fragments undergo energy loss by ionization, resulting in large and very localized energy depositions in the silicon volume. By simulation of these interactions in the silicon, it has been shown that elastic interactions do not lead to high energy depositions, while inelastic interactions can induce energy deposits up to $\sim$100~MeV in the tracker sensors, which represents an energy deposit $\sim$1000 times larger than by ionization only~\cite{Huhtinen:2002yda}. The readout electronics of the tracker modules is not designed for such large energy deposits resulting in saturation of the electronics, dead-time in charge collection and thus hit inefficiency.
+
+(TODO clearly what is HIP)
 
 \section{Strip tracker readout system}
+
+(TODO introduction, transition)
 
 \subsection{Overview}
 
     \insertFigure{figures/dataFlow} % Filename = label
-                 {0.6}       % Width, in fraction of the whole page width
-                 {An overview of the tracker readout chain taken from~\cite{Bainbridge:2004jc}.} % Caption
+                 {0.4}       % Width, in fraction of the whole page width
+                 {Overview of the tracker readout chain~\cite{Bainbridge:2004jc}. Charge induced the silicon strips is read by the on-detector APV chips. Output of 2 APV chips is multiplexed and converted to the optical signal wich is sent via optical links to the off-detector FEDs for further signal processing. } % Caption
 
-Particle passing through the module of silicon strip tracker is loosing its energy mainly via ionization of the silicon volume. The movement of the charge carriers toward electrodes is inducing current on the silicon strips, which is read by the APV25~\cite{French:2001xb} chips glued to the tracker module. The analogue signal from these chips is sent via optical link to the front-end drivers~(FED)~\cite{Baird:2002wg} located at a control room. In standard data-taking configuration, in FEDs the data are digitized, processed and reduced. The graphical overview of this data flow is shown in figure~\ref{fig:figures/dataFlow}.
+A particle passing through a module of the silicon strip tracker looses its energy mainly via ionization of the silicon volume. The movement of the charge carriers toward electrodes induces current on the silicon strips, which is read by an APV25~\cite{French:2001xb} chips glued to the tracker module. The analog signal from these chips is sent via optical links to the front-end drivers~(FED)~\cite{Baird:2002wg} located in the control room. In standard data-taking configuration, the data are digitized in the FEDs, processed and then reduced. The graphical overview of this data flow is shown in Fig.~\ref{fig:figures/dataFlow}.
 
-\subsection{Silicon strip modules}
+\subsection{The silicon strip modules}
 
-The CMS silicon sensors are formed by n-type bulk, which has on one side uniform n+ implant while on the other p+ strips are located. The implants are connected to reverse bias voltage to completely deplete the bulk of the sensor. The thickness of both p+ and n+ implants is small and negligible compared to the bulk, thus almost whole volume of the sensor is depleted. Every p+ strip is connected by a wire bond to a read-out electronics. The distance between strips is called a pitch.
 
-The sensitive volume of tracker module is consisted by silicon sensors with strips, each module is having four or six times 128 p+ strips. The larger part of modules have one layer of sensors~(mono modules), the other holds two layers of sensors, which are attached back to back and with a strip inclination of $5.7^{\circ}$ against each other~(stereo modules). Having the two tilted sensor layers, the stereo modules are able to provide 3-D information in global coordinates about the position where particle has hit the module~(hit position). The modules also differ by the pitch size between each strip which can vary from approximately 80 $\mu$m up to 205 $\mu$m depending on the tracker layer and partition.
+The sensitive volume of the CMS tracker modules consists of the silicon strip sensors. Schematic sketch of a silicon strip sensor is shown in Fig.~\ref{fig:figure/siliconSensor} Each silicon sensor is formed by a n-type bulk, which has on one side an uniform n+ implant while p+ strips are located on the other side. The implants are connected to a reverse bias voltage to completely deplete the bulk of the sensors. The thickness of both p+ and n+ implants is small and negligible compared to the bulk, thus almost the whole volume of the sensor is depleted. Every p+ strip is connected by a wire bond to a read-out electronics. The distance between strips is called the pitch. Depending on the type, tracker modules have 512 or 768 p+ strips, each 128 strips are connected to one front-end chip. The larger part of the modules has one layer of sensors~(mono modules), while the remaining part holds two layers of sensors attached back to back and with a strip inclination of $5.7^{\circ}$ against each other~(stereo modules). Having two tilted sensor layers, the stereo modules are able to provide 3-D information in global coordinates about the hit position, where the particle has hit the module. The modules also differ by the pitch size between each strip, which can vary from approximately 80 $\mu$m up to 205 $\mu$m depending on the tracker layer and partition.
 
-When a charged particle is crossing the silicon sensor, the electron-hole pairs are produced along the path of a particle. The energy loss in the material can be described by the Bethe-Bloch formula~\cite{Groom:2000sm} as a function of $\beta\gamma = p/Mc$, where $p$ and $M$ is momentum and mass of the interacting particle. The Bethe-Bloch function has a minimum for $\beta\gamma \approx 3$. Majority of charged particles produced in hard scattering at CMS are around this minimal ionization and thus they are called be Minimum Ionizing Particles~(MIP).
+    \insertFigure{figures/siliconSensor} % Filename = label
+                 {0.4}       % Width, in fraction of the whole page width
+                 {A schematic sketch of the silicon sensor with n-type silicon bulk, p+ strips and n+ backplane. The directions of an electric field, an incoming particle from the interaction point, and a movement of charge carriers are also indicated. } % Caption
 
-Signal starts to be induced on strips once electrons and holes begin to drift towards the electrodes - holes to strips and electrons to back-plane~(n+ implant). The charge induced at electrodes can be calculated using Shockley Ramo theorem~\cite{doi:10.1063/1.1710367,Ramo:1939vr}. In framework of this theorem it can be shown~\cite{Bloch:2007zza} that charges drifting toward one strip induce as well charge on the neighboring strips, but the total charge on the neighboring strips integrates to zero in case that at the end charge carriers are collected at one strip and are not trapped by other strips.
+When a charged particle is crossing the silicon sensor, electron-hole pairs are produced along the path of the particle. The energy loss in the material can be described by the Bethe-Bloch formula~\cite{Groom:2000sm} as a function of $\beta\gamma = p/Mc$, where $\beta$ is the ratio of the interacting particle velocity to the speed of light, $gamma$ is the Lorentz factor, $c$ is the speed of light, and $p$ and $M$ are momentum and mass of the interacting particle. The Bethe-Bloch function has a minimum at $\beta\gamma \approx 3$. The majority of charged particles produced in the hard scattering in the CMS detector have in good approximation minimal $\beta\gamma$ values and are thus called be Minimum Ionizing Particles~(MIP).
 
-The number of strips reading signal left by a particle depends on charge sharing and electronics cross-talk. Charge sharing is strongly dependent on the particle trajectory position and can be caused by diffusion, trajectory inclination or Lorentz angle. While electronics cross-talk is independent of particle trajectory and it is a result of the strip coupling via inter-strip capacitance. 
+A signal starts to be induced on strips once electrons and holes begin to drift towards the electrodes. Holes drift to the strips and electrons to the back-plane~(n+ implant). The charge induced at the electrodes can be calculated using the Shockley Ramo theorem~\cite{doi:10.1063/1.1710367,Ramo:1939vr}. In the framework of this theorem, it can be shown~\cite{Bloch:2007zza} that charges drifting toward one strip induce as well charge on the neighboring strips, but the total charge on the neighboring strips integrates to zero in case that at the end charge carriers are collected at one strip and are not trapped by the other strips.
 
-One of the mechanisms of charge sharing inducing charge on more strips is an inclination of trajectory. If the trajectory is inclined, the charge carriers from the different parts of trajectory are drifting towards different strips.
+The number of strips reading charge left by a particle depends on charge sharing and electronics cross-talk. Charge sharing is strongly dependent on the particle trajectory position and can be caused by the diffusion, trajectory inclination or Lorentz angle. While the electronics cross-talk is independent of the particle trajectory and it is a result of the strip coupling via inter-strip capacitance. 
 
-Secondly, under normal circumstances the created charge carriers, electrons and holes, would drift directly towards electrodes. But as in case of barrels, a perpendicular magnetic field is present, the charge carrier $q$ is deflected from the direction of electric field due to the Lorentz force
+One of the mechanisms of charge sharing between more strips is an inclination of a trajectory. If the trajectory is inclined, the charge carriers from the different parts of trajectory are drifting towards different strips.
+
+Secondly, under normal circumstances the created charge carriers, electrons and holes, would drift directly towards electrodes. But as in the case of barrels, a perpendicular magnetic field is present, the charge carrier $q$ is deflected from the direction of the electric field due to the Lorentz force $F$ defined by equation
 
 \eq{LorentzEquation}
 {
-    q(E+v \times B).
+   F=  q(E+v \times B).
 }
 
-The angle between the electric field lines and drift direction of charge carriers in magnetic field is called Lorentz angle. This angle is independent of track inclination and can be compensated by tilting the modules.
+The angle between the electric field lines and drift direction of the charge carriers in the magnetic field is called Lorentz angle. This angle is independent of the track inclination and can be compensated by tilting the tracker modules.
 
-Finally, the diffusion, caused by collisions of charge carriers with each other, can also modify the path of the charge carriers from the straight drift to the electrodes. However this effect is very small and can result only in small amount of charge collected by neighboring strips just in case the particle has passed close the middle of the pitch.
+Finally, the diffusion, caused by collisions of charge carriers with each other, can also modify the path of the charge carriers from the straight drift to the electrodes. However this effect is very small and can result only in small amount of charge collected by neighboring strips just in case the particle has passed close to the middle of the pitch.
 
 
 The electronics cross-talk arises from the readout capacitive network -- strips are coupled to back-plane via capacitance and to neighboring strips via inter-strip capacitance. Due to the inter-strip capacitance, the collected charge by one channel~(strip) is shared between the neighboring channels. The coupling of neighboring strips depend strongly on the time~\cite{Bloch:2007zza} thus the coupling constants are different for peak and deconvolution mode, as in deconvolution mode there are 3 sampling times as explained in section~\ref{sec:APV}. This effect can be studied numerically via description of the capacitive network by SPICE simulations~\cite{Barberis:1993ph}.
@@ -87,69 +95,69 @@ The electronics cross-talk arises from the readout capacitive network -- strips 
 
 
     \insertFigure{figures/APVreadout} % Filename = label
-                 {0.6}       % Width, in fraction of the whole page width
+                 {0.8}       % Width, in fraction of the whole page width
                  {The schema of the APV25 chip taken from~\cite{Friedl:2001kra}.} % Caption
 
-The charge collected by each channel is read by APV25 chip located at the module. The APV is front-end chip providing amplification and shaping of signal from each channel separately. To achieve this all APV chips are equipped by preamplifier, inverter, CR-RC shaper, analog pipeline and deconvolution filter. The block diagram of APV chip is shown in figure~\ref{fig:figures/APVreadout} As one APV chip is reading signal from 128 strips, 4-6 chips are present at each module.
+The charge collected by each channel is read out by an APV25 chip located at the module. The APV is front-end chip providing amplification and shaping of the signal from each channel separately. To achieve this, all APV chips are equipped by preamplifier, inverter, CR-RC shaper, analog pipeline and deconvolution filter. The block diagram of APV chip is shown in Fig.~\ref{fig:figures/APVreadout} As one APV chip is reading signal from 128 strips, 4-6 chips are present at each module.
 
-The amplified signal is sent to inverter coping with the signal polarity and then to CR-RC shaper to convert the strip signal into $\sim$50~ns long voltage pulses. The shaper is providing an output with frequency of bunch crossings. In case of APV working in the ``peak mode'' the sampled signal at maximum of the pulse shape (pulse height) corresponding to given bunch crossing, is used directly, but usually the APV is operating in ``deconvolution mode'' to reduce the out-of-time pile-up. In the deconvolution mode the weighted sum of the shaper sampled output from three consecutive bunch crossing is used instead. To have a possibility to optimize the pulse shape, the feedback resistors of both preamplifier and shaper as well as  bias current and voltage are fully programmable. For the calibration and test of the chip the internal calibration circuit is present. This circuit enables to inject charge to channels prior to the preamplifier stage.
+The amplified signal is sent to inverter which is coping with the signal polarity and then to CR-RC shaper to convert the strip signal into $\sim$50~ns long voltage pulses. The shaper is providing an output with frequency of bunch crossings. In case of the APV working in the ``peak mode'' the sampled signal at maximum of the pulse shape (pulse height) corresponding to the given bunch crossing, is used directly, but usually the APV is operating in the ``deconvolution mode'' to reduce the out-of-time pile-up. In the deconvolution mode the weighted sum of the shaper sampled output from three consecutive bunch crossing is used instead. To have a possibility to optimize the pulse shape, the feedback resistors of both preamplifier and shaper as well as  bias current and voltage are fully programmable. For the calibration and test of the chip the internal calibration circuit is present. This circuit enables to inject charge to channels prior to the preamplifier stage.
 
-The pulse heights and bunch crossing information for all 128 channels are extracted at the end of the analog pipeline upon the request of trigger. The average signal level from 128 channels can be adjusted within the dynamic range of the APV, in order to reduce the signals exceeding the APV range. The processed signal from two APV chips is multiplexed by APVMUX~\cite{Ball:2007zza} into a single line and converted by laser from an electrical to optical signal, which is sent via analog optical fiber to control room. At the control room the optical signal is received by the pin diode which is a part of FED.
+The pulse heights and bunch crossing information for all 128 channels are extracted at the end of the analog pipeline upon the request of trigger. The average signal level from 128 channels can be adjusted within the dynamic range of the APV, in order to reduce the signals exceeding the APV range. The processed signal from two APV chips is multiplexed by APVMUX~\cite{Ball:2007zza} into a single line and converted by laser from an electrical to analog optical signal, which is sent via an optical fiber to control room. At the control room the optical signal is received by the pin diode which is a part of the FED.
 
 %-tickmarck sent every 70 clock cycles when no data are qued for output -  used for synchronization betwwen frontend and backend electronics.
 
 \subsection{The Front End Driver}
 
 
-The FED is receiving data from 96 optical fibers, each sending information from 2 APVs. The data in form of optical signal are converted to electrical signal, they are reordered and synchronized. For each APV input the signals per channel are extracted and digitized into 10-bit range AD counts~(ADC). The output signal for given channel is referred as digi. In the standard operation mode, the ``Zero Suppression~(ZS)'', the pedestal subtraction followed by common mode noise~(CMN or baseline) subtraction is performed. Pedestal is mean strip activity for given strip when no particle is present, evaluated from special ``pedestal runs'' taken several times per year. After pedestal subtraction the CMN is the remaining noise, common to all channels of one APV~(electronics, power supplies origin) and calculated on event by event basis as a median over the 128 strips. After both subtractions, the channels with ADC values lower than zero are truncated to zero. For all channels the signal-to-noise ratio~(S/N) is checked separately and if S/N of the channel is smaller than five or S/N of the channel and its neighbor is smaller than two, the ADC values of these channels is set to zero~(zero suppressed). Moreover the the ADC range is truncated to 8 bits in a way that no change is applied for charges lower than 254 ADC, charges between 254 ADC and 1022 ADC included, are set to 254 ADC and charges exceeding 1022 ADC are stored as 255 ADC. Only information about strips with non-zero ADC values are sent to the CMS data acquisition system~(DAQ). By this procedure the available data are reduced by factor $\sim$60 in order not to overload CMS DAQ system.
+The FED is receiving data from 96 optical fibers, each sending information from 2 APVs. The data in form of optical signal are converted to the electrical signal, they are reordered and synchronized. For each APV input the signals per channel are extracted and digitized into the 10-bit range AD counts~(ADC). The output signal for given channel is referred as digi. In the standard operation mode, the ``Zero Suppression~(ZS)'', the pedestal subtraction followed by the common mode noise~(CMN or baseline) subtraction is performed. Pedestal is a mean strip activity for given strip when no particle is present, evaluated from special ``pedestal runs'' taken several times per year. After pedestal subtraction the CMN is the remaining noise, common to all channels of one APV~(electronics, power supplies origins) and calculated on event by event basis as a median over the 128 strips. After both subtractions, the channels with ADC values lower than zero are truncated to zero. For all channels the signal-to-noise ratio~(S/N) is checked separately and if S/N of the channel is smaller than five or S/N of the channel and its neighbor is smaller than two, the ADC values of these channels are set to zero~(zero suppressed). Moreover the ADC range is truncated to 8 bits in a way that no change is applied for channels with charges lower than 254 ADC, charges between 254 ADC and 1022 ADC included, are set to 254 ADC and charges exceeding 1022 ADC are stored as 255 ADC. Only information about strips with non-zero ADC values are sent to the CMS data acquisition system~(DAQ). By this procedure the available data are reduced by factor $\sim$60 in order not to overload CMS DAQ system.
 
-For testing purposes the FED is able to operate in others than ZS mode. In case of the ``Virgin Raw~(VR)'' data taking mode no subtractions and suppression are applied and thus it is suitable mode e.g. for clean studies of the APV behavior.
+For testing purposes the FED is able to operate in others than ZS mode. In case of the ``Virgin Raw~(VR)'' data taking mode no subtractions and suppression are applied and thus it is suitable mode e.g. for clean studies of the APV output.
 
-In the ideal case when constant current is injected to sensor, the output signal should be constant. But it is not the case because of the random fluctuations called electronics noise. The silicon strips sensors have two sources of electronics noise -- voltage and current sources. These two sources can be induced by either variations of velocity (thermal noise) or by fluctuating number of charge carriers (shot noise)~\cite{website:noise}. Usually the largest noise comes from amplification of the signal. 
+In the ideal case when constant current is injected to the sensor, the output signal should be constant. But it is not the case because of the random fluctuations called electronics noise. The silicon strips sensors have two sources of electronics noise -- voltage and current sources. These two sources can be induced by either variations of the velocity (thermal noise) or by fluctuating number of charge carriers (shot noise)~\cite{website:noise}. Usually the largest noise comes from the amplification of the signal. 
 
-The noise can be correlated between channels - like in case of CMN, but also due to electronics coupling. Anti-correlation of noise between neighboring channels originating from the inter-strip capacitance has been observed~\cite{Lutz:1987wd}. As the total charge must be conserved, in case of upward fluctuation on one strip, the downward fluctuation must occur on neighboring strips leading to anti-correlation of noise between neighboring channels.
+The noise can be correlated between channels - like in case of the CMN, but also due to the electronics coupling. Anti-correlation of noise between neighboring channels originating from the inter-strip capacitance has been observed~\cite{Lutz:1987wd}. As the total charge must be conserved, in case of upward fluctuation on one strip, the downward fluctuation must occur on neighboring strips leading to anti-correlation of noise between neighboring channels.
 
 \subsection{Offline data treatment}
 
 
-Offline, the clustering procedure is applied on the ZS channels. The default clustering algorithm is called ``Three threshold algorithm'', posing threshold on seed strip~(strip with the largest signal), neighboring strips and cluster charge in terms of signal-to-noise ratio. Cluster seed must pass requirement S/N>3, adjacent strips can be added in case of S/N>2. On top of those requirements the total cluster charge~(total charge on all channels) must be five times larger than total cluster noise $\sigma_{total}$ which is defined as
+Offline, the clustering procedure is applied on the ZS channels. The default clustering algorithm is called ``Three threshold algorithm'', posing threshold on the seed strip~(strip with the largest signal), neighboring strips and cluster charge in terms of signal-to-noise ratio. Cluster seed must pass requirement S/N>3, adjacent strips can be added in case of S/N>2. On top of those requirements the total cluster charge~(total charge on all channels) must be five times larger than total cluster noise $\sigma_{cluster}$ which is defined as
 
 \eq{noiseEquation}
 {
     \sigma_{cluster} = \sqrt{\sum_{i} \sigma_{i}^{2}},
 }
 
-where $\sigma_{i}$ is the noise of channel $i$. Example of data from one module undergoing zero suppression and clustering is shown in figure~\ref{fig:figures/event2layer4}. Except of cluster charge and noise, each cluster can be quantified by cluster width -- number of channels in reconstructed cluster.
+where $\sigma_{i}$ is the noise of channel $i$. An example of the output data from one module undergoing zero suppression and clustering is shown in Fig.~\ref{fig:figures/event2layer4}. Except of the cluster charge and noise, each cluster can be quantified by a cluster width -- number of channels in the reconstructed cluster.
 
     \insertFigure{figures/event2layer4} % Filename = label
                  {0.6}       % Width, in fraction of the whole page width
-                 {Example of raw and pedestal subtracted data, baselines and clusters for one of the tracker modules.} % Caption
+                 {An example of raw and pedestal subtracted data, baselines and clusters for one of the tracker modules.} % Caption
 
 %-gains %https://github.com/cms-sw/cmssw/blob/09c3fce6626f70fd04223e7dacebf0b485f73f54/RecoLocalTracker/SiStripClusterizer/src/ThreeThresholdAlgorithm.cc
-During clustering the strip charge is corrected by two calibrations -- tick-mark gain~(G1) and particle gain~(G2). The tick-mark gain is correcting the signal for the transmission losses, mainly for the losses caused by transmission of signal via O(100)~m long optical fibers. The tick-mark is a signal injected to the calibration circuit and from the change of its height at readout output compared to input the gain per APV can be computed. The other purpose of tick-marks is synchronization of the APVs to central trigger.
+During clustering the strip charge is corrected by two calibrations -- tick-mark gain~(G1) and particle gain~(G2). The tick-mark gain is correcting the signal for the transmission losses, mainly for the losses caused by transmission of signal via O(100)~m long optical fibers. The tick-mark is a signal injected to the calibration circuit and from the change of its height at readout output compared to the input, the gain per APV can be computed. The other purpose of tick-marks is synchronization of the APVs to the central trigger.
 
 The particle gain is correcting for the differences at the sensor level. This gain is determined from the ionization of silicon sensitive volume per unit of length by particle traversing the sensor. The MPV value of the ionization per unit of length is then used to equalize the response of different sensors to the MIP charge. 
 
 These calibrations need to be determined frequently as they change because of the aging of the detector or change of operating conditions~(e.g. temperature).
 
-The final position of hit is obtained from charge-weighted positions of channels in cluster, corrected for Lorentz drift in case of TIB and TOB. Additional correction is applied due to the inefficiency of collection of charge deposited close to back-plane.
+The final position of the hit is obtained from charge-weighted positions of the channels in the cluster, corrected for the Lorentz drift in case of TIB and TOB. Additional correction is applied due to the inefficiency of collection of charge deposited close to the back-plane. 
 
-The reconstructed hits are used for tracks reconstruction~\cite{Chatrchyan:2014fea}, utilizing software referred as Combinatorial Track Finder~(CTF), based on combinatorial Kalman filter~\cite{Fruhwirth:1987fm}. The CMS tracking is using iterative approach -- first the track the easiest to find is reconstructed (e.g. high $p_{T}$ one ) and its hits are masked in order to reduce combinatorics for further iterations of tracks finding.
+The reconstructed hits are used for tracks reconstruction~\cite{Chatrchyan:2014fea}, utilizing software referred as Combinatorial Track Finder~(CTF), based on combinatorial Kalman filter~\cite{Fruhwirth:1987fm}. The CMS tracking is using iterative approach -- first the track the easiest to find is reconstructed (e.g. high $p_{T}$ one ) and after the track is complete its hits are masked in order to reduce combinatorics for further iterations of tracks finding.
 
 
 The track reconstruction is performed in 4 steps. First the \textit{track seed} is built from two or three 3-D hits. Then during the \textit{track finding} the track is propagated to neighboring layers of tracker, testing the compatibility of hit with the track by $\chi^{2}$ test. Once the track candidate is complete, the \textit{track fitting} is performed to obtain the best parameters of the track. The last stage is \textit{track quality selection} when it is tested if the final fit resulted in good $\chi^{2}$, if there are enough layers with hit associated to the track and if the track is originating from the primary vertex.
 
--tracking cosmics?
+-TODO tracking cosmics?
 %-how is it with missing hits? -track is only lost if two consecutive hits are missing? Can differ but usually should be 1 missing hit per track maximum -  in note CMS-TRK-11-001
 
-\section{The impact of highly ionizing particles on APV25 chip}
+\section{The impact of highly ionizing particles on the APV25 chip}
 
 %energy spectra of heavy fragments produced in silicon are insensitive to energy of incident particle and do not go further than 10MeV, energy loss for such fragments are of order$MeV\mum^{-1}$~thus the fragments can go up to 100 $\mum$ (compare with sensor thickness) - very localized depositions. The light particles from nuclear interactions can travel longer and also contribute significantly to the total energy depositied~\cite{Huhtinen:2000nk}.
 
 
 \subsection{Studies prior to the LHC data taking~\label{sec:HIPinPast}}
 
-The effect of highly ionizing particles was studied in the past during beam tests -- PSI and CERN X5. The impact of large energy depositions on electronics has also been studied by injection of charge to calibration circuit of APV or by laser tests~\cite{Adam:2005pz}. In this section only the results of the PSI beam test are described.
+The effect of the highly ionizing particles was studied in the past during the beam tests -- PSI and CERN X5. The impact of large energy depositions on the electronics has also been studied by injection of the charge to the calibration circuit of the APV or by laser tests~\cite{Adam:2005pz}. In this section only results of the PSI beam test are described.
 
 \subsubsection{Experimental setup}
 
@@ -162,36 +170,36 @@ The M1 beamline at PSI provided continuous beam of protons and pions. For the AP
 
 \subsubsection{Response of the APV25 chip to the HIP events}
 
-As discussed above the highly ionizing particles deposit large energies up to equivalent of ~1000 MIPs and thus saturate the APV chips. The affected channels collect charge beyond the range of APV which is of order of few tens of MIPs. The remaining channels from 128-channel APV are shifted towards the low part of the APV range and even exceed it. This behavior is result of cross-talk effect on the APV chip worsened by the biasing scheme powering inverter and shaper which ensures stable CMN during normal conditions~\cite{Bainbridge:2004jc}. The CMN distribution can be seen at figure~\ref{fig:figures/CMNandRMSrawPast} in the bottom plot. The CMN distribution is peaking around 0~ADC in the standard conditions. Smaller peak around $\sim$-100~ADC comes from suppressed baselines which are result of HIP events. 
+As discussed above the highly ionizing particles deposit large energies up to the equivalent of ~1000 MIPs and thus saturate the APV chips. The affected channels collect charge beyond the range of APV which is of order of few tens of MIPs. The remaining channels from the 128-channel APV are shifted towards the low part of the APV range and even exceed it. This behavior is result of the cross-talk effect on the APV chip worsened by the biasing scheme powering inverter and shaper which ensures stable CMN during the normal conditions~\cite{Bainbridge:2004jc}. The CMN distribution can be seen at Fig.~\ref{fig:figures/CMNandRMSrawPast} in the bottom plot. The CMN distribution is peaking around 0~ADC during the standard conditions. Smaller peak around $\sim$-100~ADC comes from suppressed baselines which are result of the HIP events. 
 
-Because of the shift of CMN the HIP events can be easily recognized by posing requirement on value of the baseline, in case of this study the APV chip which exhibited baseline$\leq$-20~ADC during 750~ns trigger burst was tagged as containing a  HIP candidate. The response of the APV chip on the HIP event is shown in figure~\ref{fig:figures/thesisEvolution}. In the plots there are pedestal subtracted data from 6 consecutive TOB modules in 4 different times. In the top-left plot~($T_{event}$ = 300~ns) the first evidence for HIP event -- the large signal peak and small shift towards low values of APV range of the other channels, can be observed in the second module from bottom, second APV. After 50~ns~($T_{event}$ = 350~ns) the channels of affected APV, not collecting signal, are suppressed and thus the signal peak is fully revealed. The suppression and large signal peak can be still observed at $T_{event}$ = 525~ns. At $T_{event}$ = 575~ns the channels start to recover to their initial position. At $T_{event}$ = 525~ns and $T_{event}$ = 300~ns the MIP was passing through all six layers of modules. The signal is observed in relative APVs of all layers except of the APV affected by the HIP event. The time period, when APV is insensitive to the MIP signal is referred as a dead-time.
+Because of the shift of CMN the HIP events can be easily recognized by posing requirement on value of the baseline. In this study the APV chip, which exhibited baseline$\leq$-20~ADC during 750~ns trigger burst was tagged as containing a  HIP candidate. The response of the APV chip on the HIP event is shown in Fig.~\ref{fig:figures/thesisEvolution}. In the plots there are pedestal subtracted data from 6 consecutive TOB modules in 4 different times. In the top-left plot~($T_{event}$ = 300~ns) the first evidence of the HIP event -- the large signal peak and small shift of other channels towards low values of the APV range, can be observed in the second module from bottom, second APV. After 50~ns~($T_{event}$ = 350~ns) the channels of affected APV, not collecting signal, are suppressed and thus the signal peak is fully revealed. The suppression and large signal peak can be still observed at $T_{event}$ = 525~ns. At $T_{event}$ = 575~ns the channels start to recover to their initial position. At $T_{event}$ = 525~ns and $T_{event}$ = 300~ns the MIP passes through all six layers of modules. The signal is observed in relative APVs of all layers except of the APV affected by the HIP event. The time period, when APV is insensitive to the MIP signal is referred as a dead-time.
 
-In this analysis the selected HIP event satisfies selection baseline$\leq$-20 and HIP cluster seed charge larger than 125~ADC.  In the discussed figure~\ref{fig:figures/thesisEvolution} HIP event is associated with event at $T_{event}$ = 350~ns, but as shown at the example, the signal from actual HIP interaction occurred and was partially observed already 50~ns before the selected HIP event.
+In this analysis the selected HIP event satisfies selection on CMN$\leq$-20 and HIP cluster seed charge larger than 125~ADC.  In the discussed Fig.~\ref{fig:figures/thesisEvolution} the HIP event is associated with event at $T_{event}$ = 350~ns, but as shown at the example, the signal from the actual HIP interaction occurred and was partially observed already 50~ns before the selected HIP event.
 
     \insertFigure{figures/CMNandRMSrawPast} % Filename = label
                  {0.6}       % Width, in fraction of the whole page width
-                 {(top) RMS spread of raw data~($\sigma_{raw}$. (bottom) CMN distribution~\cite{Bainbridge:2004jc}.} % Caption
+                 {(top) The RMS spread of raw data~($\sigma_{raw}$. (bottom) The CMN distribution~\cite{Bainbridge:2004jc}.} % Caption
 
 
     \insertFigure{figures/thesisEvolution} % Filename = label
-                 {0.6}       % Width, in fraction of the whole page width
-                 {Example of the APV behavior as a response on the HIP event in time. Pedestal subtracted data of six layers of TOB modules in four time-stamps are plotted~\cite{Bainbridge:2004jc}.} % Caption
+                 {1}       % Width, in fraction of the whole page width
+                 {Anxample of the APV behavior as a response on the HIP event in time. Pedestal subtracted data of six layers of TOB modules in four time-stamps are plotted~\cite{Bainbridge:2004jc}.} % Caption
 
 
 %Fully suppressed baselines remain suppressed for around 250ns
 
-\subsubsection{Dead-time induced by HIP events}
+\subsubsection{Dead-time induced by the HIP events}
 
-The HIP event is suppressing all channels from the affected APV which are not collecting signal. Large HIP signals result in full suppression of the channels beyond the lower limit of the APV range. The APV with fully supp pressed channels exhibit very small RMS spread~($\sigma_{raw}$) of the data before pedestal subtraction~(raw data), if excluding the channels reading signal. The RMS spread of raw data is shown in top part of figure~\ref{fig:figures/CMNandRMSrawPast}, where the population of large peak are normal operation RMS spread values around $\sim$1.6~ADC, which are reproducing the spread of pedestals. The smaller peak population with RMS spread lower than 1~ADC are fully suppressed baselines not anymore sensitive to the pedestal spread. The tail of distribution is populated by data with distorted baselines usually originating from the HIP event. Distorted baselines are result of non-uniform suppression and recovery of baseline in response on HIP event.
+The HIP event is suppressing all channels from the affected APV which are not collecting signal. Large HIP signals result in full suppression of the channels beyond the lower limit of the APV range. The APV with fully suppressed channels exhibit very small RMS spread~($\sigma_{raw}$) of the data before pedestal subtraction~(raw data), if excluding the channels reading signal. The RMS spread of raw data is shown in top part of Fig.~\ref{fig:figures/CMNandRMSrawPast}, where the population of large peak are normal operation RMS spread values around $\sim$1.6~ADC, which are reproducing the spread of pedestals. The smaller peak population with RMS spread lower than 1~ADC are fully suppressed baselines not anymore sensitive to the pedestal spread. The tail of distribution is populated by data with distorted baselines usually originating from the HIP event. Distorted baselines are result of non-uniform suppression and recovery of the baseline in response on the HIP event.
 
-Based on these observations two event categories were defined. Events with ``fully suppressed'' baselines satisfy $\sigma_{raw}< 1~\mathrm{ADC}$. ``Partially suppressed'' baselines are required to to have $\sigma_{raw}\geq$1~ADC and baseline$\leq$-20~ADC.
+Based on these observations two event categories were defined -- ``fully suppressed'' and ``partially suppressed'' baseline events. Events with ``fully suppressed'' baselines satisfy $\sigma_{raw}< 1~\mathrm{ADC}$. ``Partially suppressed'' baselines are required to to have $\sigma_{raw}\geq$1~ADC and CMN$\leq$-20~ADC.
 
 
-The dead-time of the APV is evaluated in terms of hit efficiency $\epsilon_{hit}$ for both APVs influenced by the HIP event $\epsilon_{hit}^{HIP}$ and efficient APVs~(not influenced by HIP event) $\epsilon_{hit}^{good}$. The hit efficiency is defined as $\epsilon_{hit} = N_{hit}/N_{tracks}$, where $N_{hit}$ is number of clusters reconstructed in APV around the track intercept point, and $N_track$ is number of reconstructed tracks traversing the APV. The dead-time is then time interval during which the APV is not fully efficient~($\epsilon_{hit}^{HIP}$ < $\epsilon_{hit}^{good}$). The averaged dead-times for APVs with fully suppressed baselines are shown in table~\ref{fig:tableDeadtimes} for both inverter resistor values of 50~$\Omega$ and 100~$\Omega$. The APVs with partially suppressed baselines exhibit much smaller dead-time compared to the previous case, typically in order of few tens of ns. In the table~\ref{table:deadtimesPast} it can be noticed, that the reduced resistor value is significantly decreasing dead-time. Although diminishing the resistor value has its disadvantage which is enhancement of the baseline distortions, which lead to the reconstruction of ``fake'' clusters discussed in more details in~\cite{Bainbridge:2004jc} and section~\ref{section:fakeClusters}.
+The dead-time of the APV is evaluated in terms of hit efficiency $\epsilon_{hit}$ for both APVs influenced by the HIP event $\epsilon_{hit}^{HIP}$ and efficient APVs~(not influenced by the HIP event) $\epsilon_{hit}^{good}$. The hit efficiency is defined as $\epsilon_{hit} = N_{hit}/N_{tracks}$, where $N_{hit}$ is number of clusters reconstructed in APV around the track intercept point, and $N_{tracks}$ is number of reconstructed tracks traversing the APV. The dead-time is then time interval during which the APV is not fully efficient~($\epsilon_{hit}^{HIP}$ < $\epsilon_{hit}^{good}$). The averaged dead-times for the APVs with the fully suppressed baselines are shown in table~\ref{fig:figures/tableDeadtimes} for both inverter resistor values of 50~$\Omega$ and 100~$\Omega$. The APVs with partially suppressed baselines exhibit much smaller dead-time compared to the previous case, typically in order of few tens of ns. In the table~\ref{fig:figures/tableDeadtimes} it can be noticed, that the reduced resistor value is significantly decreasing dead-time. Although diminishing the resistor value has its disadvantage which is enhancement of the baseline distortions, which lead to the reconstruction of ``fake'' clusters discussed in more details in~\cite{Bainbridge:2004jc}.
 
     \insertFigure{figures/tableDeadtimes} % Filename = label
-                 {0.6}       % Width, in fraction of the whole page width
-                 {The mean~($\Gamma_{mean}$) and maximum~($\Gamma_{max}$) dead-time of APV chip induced by HIP events for fully suppressed~($\sigma_{raw}<1~ADC$) baseline events. The dead-times were evaluated for two module geometries as well two inverter resistor values~\cite{Bainbridge:2004jc}.} % Caption
+                 {0.4}       % Width, in fraction of the whole page width
+                 {The mean~($\Gamma_{mean}$) and maximum~($\Gamma_{max}$) dead-time of APV chip induced by HIP events for fully suppressed~($\sigma_{raw}<1~ADC$) baseline events. The dead-times were evaluated for two module geometries as well as two inverter resistor values~\cite{Bainbridge:2004jc}.} % Caption
 
 
 \subsection{Probability of HIP event in the tracker module}
@@ -200,21 +208,21 @@ In the PSI beam test also the measurement of HIP probability was provided. The H
 
 \eq{HIPprob}
 {
-P_{HIP}(baseline_{HIP}\leq baseline_{threshold}) = \frac{N_{HIP}(baseline_{HIP}\leq baseline_{threshold})}{N_path},
+P_{HIP}(CMN_{HIP}\leq CMN_{threshold}) = \frac{N_{HIP}(CMN_{HIP}\leq CMN_{threshold})}{N_{path}},
 }
 
-where $N_{HIP}(baseline_{HIP}\leq baseline_{threshold})$ is number of selected HIP events with baseline value~($baseline_{HIP}$) lower than threshold~$baseline_{threshold}$ and $N_{path}$ is number of tracks traversing the sensor.
+where $N_{HIP}(CMN_{HIP}\leq CMN_{threshold})$ is number of selected HIP events with baseline value~($CMN_{HIP}$) lower than threshold~$CMN_{threshold}$ and $N_{path}$ is number of tracks traversing the sensor.
 
-The measurements were provided with pion beam of energy $300~MeV$, the most probable energy value of pions in CMS tracker. The measured probability for different modules and $baseline_{threshold}=-20$ was found out to be of order $10^{-3}$. It was concluded that the HIP probability does not scale with beam intensity, but it scales with sensor thickness. Also the HIP probability was lowered by changing the inverter resistor value from $100~\mathrm{\Omega}$ to  $50~\mathrm{\Omega}$. Similar measurement was provided using proton beam of momentum $300~MeV/c$, which is not compatible with the CMS conditions.
+The HIP probability measurements were provided with pion beam of energy $300~\mathrm{MeV}$, which is the most probable energy value of pions in CMS tracker. The measured probability for different modules and $CMN_{threshold}=-20$ was found out to be of order $10^{-3}$. It was concluded that the HIP probability does not scale with the beam intensity, but it scales with the sensor thickness. Also the HIP probability was lowered by changing the inverter resistor value from $100~\mathrm{\Omega}$ to  $50~\mathrm{\Omega}$. Similar measurement was provided using proton beam of momentum $300~\mathrm{MeV/c}$, which is not compatible with the CMS conditions.
 
 
-\section{Studies of the HIP events with CMS pp collision data}
+\section{Studies of the HIP events with the CMS pp collision data}
 
 \subsection{Strategy of the HIP studies}
 
-As explained in the section~\ref{sec:APV} in the standard data-taking the Zero Suppression mode is used. During the ZS procedure all negative channels after pedestal subtraction are truncated to zero, thus this mode is not suitable to study the HIP events, which are known for causing a drop of the CMN as described in section~\ref{sec:HIPinPast}. The solution is to arrange data-taking of data in Virgin Raw mode, what comes with a cost of increased event size. In the VR data-taking no subtractions and suppression are done, and if needed the ZS can be performed offline to be able to compute CMN and proceed with clustering and further data treatment. In the following analyses the CMN has been computed from all 128 raw digis after pedestal subtraction as a median over 128 strips. The RMS spread~($\sigma_{raw}$) has been computed from the raw digis of 80\% of the 128 channels which have the lowest ADC value, to avoid the clusters. But the ZS and clustering has been performed as in standard data-taking (truncation to zero, truncation of digis to 8 bits) to mimic the standard data-taking output.
+As explained in the section~\ref{sec:APV} in the standard data-taking the Zero Suppression mode is used. During the ZS procedure all negative channels after pedestal subtraction are truncated to zero, thus this mode is not suitable to study the HIP events, which are known for causing a drop of the CMN as described in section~\ref{sec:HIPinPast}. The solution is to arrange data-taking in the Virgin Raw mode, what comes with a cost of increased event size. In the VR data no subtractions and suppression are done, and if needed the ZS can be performed offline, providing the possibility to compute the CMN and proceed with clustering and further data treatment. In the following analyses the CMN has been computed from all 128 raw digis after pedestal subtraction as a median over 128 strips. The RMS spread~($\sigma_{raw}$) has been computed from the raw digis of 80\% of the 128 channels having the lowest ADC value, to avoid clusters. The ZS and clustering has been performed as in standard data-taking (truncation to zero, truncation of digis to 8 bits) to mimic the standard data-taking output.
 
-The strategy of further presented studies is to select a HIP event and study the influence of such events on electronics and clustering. As seen in previous studies in section~\ref{sec:HIPinPast}, the recovery of cluster efficiency is in order of O(100)~ns. Thus to be able to study evolution of CMN and cluster properties, consecutive events from window of few hundreds of ns are needed. However the probability of closely spaced events is very low without special trigger configuration. The possibilities for new trigger configuration are very limited due to increased size of events during the VR data-taking by factor of O(10) compared to standard ZS data run. Moreover not to overload CMS data acquisition system following trigger criteria on number of triggers in number of bunch crossings~(bx) are imposed~\cite{website:VRtrigger}:
+The strategy of further presented studies is to select a HIP event and study the influence of such events on the electronics and the clustering. As seen in previous studies in section~\ref{sec:HIPinPast}, the recovery of cluster efficiency is in order of O(100)~ns. Thus to be able to study evolution of CMN and cluster properties, consecutive events from a window of few hundreds of ns are needed. However the probability of closely spaced events is very low without special trigger configuration. The possibilities for a new trigger configuration are very limited due to increased size of events during the VR data-taking by factor of O(10) compared to the standard ZS data run. Moreover in order not to overload CMS data acquisition system, following trigger criteria on the number of triggers in the given number of bunch crossings~(bx) are imposed~\cite{website:VRtrigger}:
 
 \begin{itemize}
 \item{No more than 1 trigger in 3 bx}
@@ -223,7 +231,7 @@ The strategy of further presented studies is to select a HIP event and study the
 \item{No more than 4 triggers in 240 bx}
 \end{itemize}
 
-Other protection of acquisition system overload, in case of the runs analyzed in following sections, was the requirement that triggered events have to be spread over many data streams in a way that consecutive events are stored in different files. Because of this limitation, the sorting and ordering of events had to be performed before the studies.
+Other protection of the acquisition system overload, used for the runs analyzed in following sections, was the requirement that triggered events have to be spread over many data streams in a way that consecutive events are stored in different files. Because of this limitation, the sorting and ordering of events had to be performed beforehand.
 
 In the following sections of this chapter, for simplicity, are shown only plots for first layer of TOB, which has exhibited the largest drop in the hit efficiency. Although the fraction of HIP events for given APV defined as
 
@@ -237,21 +245,17 @@ where $N_{HIP}$ is number of selected HIP events per APV, $N_{all}$ is number of
 
 %To be able to run the study in reasonable time and with reasonable amount of resources, the reduction of the data was done based on 
 
-\subsection{Study of HIP events as possible cause of cluster inefficiencies~\label{sec:firstStudy}}
+\subsection{Study of the HIP events as possible cause of the cluster inefficiencies~\label{sec:firstStudy}}
 
 \subsubsection{Motivation}
 
-TODO
-
-Inefficiencies - look in the data for possible explanation - HIP
-look if there is a HIP effect at the CMS conditions, characterize it, look for its impact and characterize its frequency.
-VR studies: one of the studies which were done
+As the HIP effect was identified to be most probably the source of the tracking inefficiencies a lot of effort was put into the studies of the HIP effect from many perspectives. One of the option is to analyze Virgin Raw data, from which the pure output of the APV can be obtained. In the following study the VR data were used to characterize the HIP effect and evaluate its impact on the electronics and clustering. Presnted study provides first results on the HIP effect with the CMS data.
 
 \subsubsection{Experimental setup} 
 
-This study is based on VR data from 12 of April 2016, CMS run 273162, LHC fill 4915, with only silicon strip tracker included in the run. The run was 23 minutes 33 seconds long with initial instantaneous luminosity of 1548$\times 10^{30} cm^{-2} sec^{-1}$ and end instantaneous luminosity of 1538$\times 10^{30} cm^{-2} sec^{-1}$. During this run all APVs were operated in deconvolution mode. The LHC delivered beams with 601 bunches each, 589 pairs of bunches collided at CMS. The average pile-up (interactions per bx) for this fill was 26. The beams were mainly composed of 72 bunches long trains, in which bunches were spaced in a way that they can be collided every 25~ns.
+This study is based on VR data taken the $12^{th}$ of April 2016, CMS run 273162, LHC fill 4915, with only silicon strip tracker included in the run. The run was 23 minutes 33 seconds long with initial instantaneous luminosity of 1548$\times 10^{30} \mathrm{cm^{-2} sec^{-1}}$ and end instantaneous luminosity of 1538$\times 10^{30} \mathrm{cm^{-2} sec^{-1}}$. During this run all APVs were operating in the deconvolution mode. The LHC delivered beams with 601 bunches each, 589 pairs of bunches collided at CMS. The average pile-up (interactions per bx) for this fill was 26. The beams were mainly composed of 72 bunches long trains, in which bunches were spaced in a way that they can be collided every 25~ns.
 
-Closely spaced events were enriched in data by using special trigger configuration, which forced the first bunch crossing in fixed train to be triggered. After this trigger two other bunch crossings in the same train were triggered randomly. Then the trigger waited for the same train in next orbit (TODO is better to use turn or orbit?). The final number of triggered events as a function of bunch crossing is shown in figure~\ref{fig:figure/triggerStudyFirst}. The shape of the trigger distribution is given by trigger rules as well as forced trigger on first bx in the train.
+Closely spaced events were enriched in data by using special trigger configuration, which forced the first bunch crossing in fixed train to be triggered. After this trigger two other bunch crossings in the same train were triggered randomly. Then the trigger waited for the same train in next orbit (TODO is better to use turn or orbit?). The final number of triggered events as a function of bunch crossing is shown in Fig.~\ref{fig:figures/triggerStudyFirst}. The shape of the trigger distribution is given by trigger rules as well as forced trigger on first bx in the train.
 
 %-trigger rules: %https://indico.cern.ch/event/512685/contributions/2167961/attachments/1273330/1887985/virgin_raw_test_2016_ebutz.pdf
 
@@ -265,7 +269,7 @@ Closely spaced events were enriched in data by using special trigger configurati
  
 %HIP in module
 
-In section~\ref{sec:HIPinPast} it has been observed that HIP event can be identified via low value of baseline. Applying this approach to the CMS data an event like the one shown in figure~\ref{fig:figures/peakinmodule} has been selected. In this example the expected effect of the HIP event on the chip can be seen -- negative baseline, large signal on few channels and low RMS spread of raw digis. But in many cases the large signal has not been observed as shown in figure~\ref{fig:figures/nopeakinmodule} contradictory to what has been observed in study in section~\ref{sec:HIPinPast}. This can be explained by different operation mode of the APV, in this case deconvolution mode compared to the peak mode which has been used for HIP studies at PSI. During studies of the APV chip behavior when injecting large charge to the calibration circuit~\cite{Bainbridge:2002bda} it has been observed that in case that APV is operating in the deconvolution mode, the large signals can be observed only for few ns and then the affected channels are also driven to the low range of the APV. 
+In section~\ref{sec:HIPinPast} it has been observed that HIP event can be identified via low value of the baseline. Applying this approach to the CMS data an event like the one shown in Fig.~\ref{fig:figures/peakinmodule} has been selected. In this example the expected effect of the HIP event on the chip can be seen -- negative baseline, large signal on few channels and low RMS spread of the raw digis. But in many cases the large signal has not been observed as shown in Fig.~\ref{fig:figures/nopeakinmodule} contradictory to what has been observed in study in section~\ref{sec:HIPinPast}. This can be explained by different operation mode of the APV, in this case deconvolution mode compared to the peak mode which has been used for HIP studies at PSI. During studies of the APV chip behavior when injecting large charge to the calibration circuit~\cite{Bainbridge:2002bda} it has been observed that in case that APV is operating in the deconvolution mode, the large signals can be observed only for few ns and then the affected channels are also driven to the low range of the APV. 
 
 %TODO figure module with APV with saturated baseline and peak
     \insertFigure{figures/peakinmodule} % Filename = label
@@ -274,13 +278,13 @@ In section~\ref{sec:HIPinPast} it has been observed that HIP event can be identi
 %TODO figure module with APV with saturated baseline and without  peak
     \insertFigure{figures/nopeakinmodule} % Filename = label
                  {0.6}       % Width, in fraction of the whole page width
-                 {Example of distribution of of raw digis~(pink), pedestal subtracted digis~(blue), baselines~(red) and clusters~(green) as a function of strip number in one module. The third APV in the module is showing behavior induced by HIP event - low charge variation for suppressed channels, but in this case all channels are driven beyond the low range of APV thus no large charge deposit is observed. } % Caption
+                 {An example of distribution of of raw digis~(pink), pedestal subtracted digis~(blue), baselines~(red) and clusters~(green) as a function of strip number in one module. The third APV in the module is showing behavior induced by HIP event - low charge variation for suppressed channels, but in this case all channels are driven beyond the low range of APV thus no large charge deposit is observed. } % Caption
 
-Reliable selection of the APVs influenced by the HIP event can be designed via presence of fully saturated baselines. Analyzing correlation of baseline and $\sigma_{raw}$ in figure~\ref{fig:figures/baselinevsRMSrawFirst} it is obvious that the standard events with the nominal value of the baseline around 128~ADC(TODO or 127?) are having $\sigma_{raw}$ of order of few units. The second large population with small value of baseline and $\sigma_{raw}$ is the one of fully saturated baselines, which can be connected with large energy deposits in the sensor read by the given APV chip. Based on the knowledge of the correlation between the baseline and $\sigma_{raw}$ the selection of HIP events has been chosen to be 
+Reliable selection of the APVs influenced by the HIP event can be designed via presence of the fully saturated baselines. Analyzing correlation of baseline and $\sigma_{raw}$ in Fig.~\ref{fig:figures/baselinevsRMSrawFirst} it is obvious that the standard events with the nominal value of the baseline around 128~ADC(TODO or 127?) are having $\sigma_{raw}$ of order of few units. The second large population with small value of baseline and $\sigma_{raw}$ is the one of fully saturated baselines, which can be connected with the large energy deposits in the sensor read by the given APV chip. Based on the knowledge of the correlation between the baseline and $\sigma_{raw}$ the selection of HIP events has been chosen to be 
 
 \eq{selection}
 {
-baseline<-25~\mathrm{ADC} \mathrm{and} \sigma_{raw}<2.5.
+CMN<-25~\mathrm{ADC}~\mathrm{and}~\sigma_{raw}<2.5.
 }
 
 %TODO figure vs RMS
@@ -288,24 +292,24 @@ baseline<-25~\mathrm{ADC} \mathrm{and} \sigma_{raw}<2.5.
                  {0.6}       % Width, in fraction of the whole page width
                  {The 2-D distribution of RMS spread of raw digis versus baseline. } % Caption
 
-It can be seen that on the plot there are many events with negative value of baseline, but large value of $\sigma_{raw}$. These events can originate from the baseline drop, baseline recovery and also large energy deposits, but not large enough to fully saturate baseline. In order not to mix different populations, these partially saturated baseline events are not selected as the HIP events. It has also been observed that the full saturation can last for several bunch crossings as be shown in section~\ref{sec:limitationsSelection} and consequently more events in a row for given APV can be selected as a HIP. In this case the first event of the possible events is selected as a HIP. Also the HIP event does not have to be selected at the time when real HIP interaction has occurred in the sensor as the saturation of baseline is consequence of the HIP interaction. Other possibilities how to select HIP event will be discussed in section~\ref{sec:limitationsSelection}.
+It can be seen that on the plot there are many events with negative value of baseline, but large value of $\sigma_{raw}$. These events can originate from the baseline drop, baseline recovery and also large energy deposits, but not large enough to fully saturate baseline. In order not to mix different populations, the partially saturated baseline events are not selected as the HIP events. It has also been observed that the full saturation can last for several bunch crossings as shown in section~\ref{sec:limitationsSelection} and consequently more events in a row for given APV can be selected as a HIP. In this case the first event of the possible events is the selected HIP. Also the HIP event does not have to be selected at the time when the real HIP interaction has occurred in the sensor as the saturation of baseline is consequence of the HIP interaction. Other possibilities how to select HIP event will be discussed in section~\ref{sec:limitationsSelection}.
 
-The analysis of the APVs influenced by the HIP event has been performed statistically. When the HIP event has been selected, the bunch crossing of this event has been redefined to bx=0, the bunch crossings of two remaining events in the same train has been set relatively to the HIP event, e.g. when the other event has been triggered five bx after selected HIP, its bx has been set to 5. Then the average information per each bx has been plotted. The APV-averaged baseline distribution as a function of bx, and thus time before and after selected HIP, is show in figure~\ref{fig:figures/baselineFirst}. When tracking the baseline evolution in time, going from negative values of bx to positive, long before the HIP has occurred~(bx$\ll$0) the baseline shows stable value around 128~ADC. Shortly before the selected HIP~(bx=0) the baseline starts to drop as a consequence of the large energy deposition in the sensor. At bx=0, by definition, the baseline is saturated. The baseline recovers to normality in $\sim$15~bx and slightly overshoots for the remaining duration of the train (TODO why overshoot?).
+The analysis of the APVs influenced by the HIP event has been performed statistically. When the HIP event has been selected, the bunch crossing of this event has been redefined to bx=0, the bunch crossings of two remaining events in the same train has been set relatively to the HIP event, e.g. when the other event has been triggered five bx after the selected HIP, its bx has been set to 5. Then the average information per each bx has been plotted. The APV-averaged baseline distribution as a function of bx, and thus time before and after selected HIP, is show in Fig.~\ref{fig:figures/baselineFirst}. When tracking the baseline evolution in time, going from negative values of bx to positive, long before the HIP has occurred~(bx$\ll$0) the baseline shows stable value around 128~ADC. Shortly before the selected HIP the baseline starts to drop as a consequence of the large energy deposition in the sensor. At bx=0, by definition, the baseline is saturated. The baseline recovers to normality in $\sim$15~bx and slightly overshoots for the remaining duration of the train (TODO why overshoot?).
 
-A similar distribution as a function of bx is shown for $\sigma_{raw}$ in figure~\ref{fig:figures/rmsFirst}. Long before the HIP event the $\sigma_{raw}$ is stable with value around 8. Right before the selected HIP the $\sigma_{raw}$ increases due to the not uniform drop of baseline. The $\sigma_{raw}$ recovers in around 10~bx --  up to this point baselines can be fully or partly saturated and thus having low $\sigma_{raw}$, but this population is mixed with distorted baselines which on the other hand have large $\sigma_{raw}$ and therefore part of the distribution of bx>0 cannot be straightforwardly interpreted.
+A similar distribution as a function of bx is shown for $\sigma_{raw}$ in Fig.~\ref{fig:figures/rmsFirst}. Long before the HIP event the $\sigma_{raw}$ is stable with value around 8. Right before the selected HIP the $\sigma_{raw}$ increases due to the not uniform drop of baseline. The $\sigma_{raw}$ recovers in around 10~bx --  up to this point baselines can be fully or partly saturated and thus are having low $\sigma_{raw}$, but this population is mixed with distorted baselines which on the other hand have large $\sigma_{raw}$ and therefore part of the distribution of bx>0 cannot be straightforwardly interpreted.
 
 
 %iTODO plot baseline
     \insertFigure{figures/baselineFirst} % Filename = label
-                 {0.6}       % Width, in fraction of the whole page width
-                 {They averaged baseline evolution as a function of bunch crossing, respectively time, before, during and after the selected HIP event. The error bars are computed as a standard deviation of the baseline distribution in each bin.  } % Caption
+                 {0.8}       % Width, in fraction of the whole page width
+                 {The averaged baseline evolution as a function of bunch crossing, respectively time, before, during and after the selected HIP event. The error bars are computed as a standard deviation of the baseline distribution in each bin.  } % Caption
 %TODO plot rms
     \insertFigure{figures/rmsFirst} % Filename = label
-                 {0.6}       % Width, in fraction of the whole page width
+                 {0.8}       % Width, in fraction of the whole page width
                  {The evolution of averaged RMS spread of raw digis as a function of bunch crossing, respectively time, before, during and after the selected HIP event. The error bars are computed as a standard deviation of the baseline distribution in each bin.  } % Caption
 
 
-In the laser simulations of HIP events, during which charge has been induced in tracker sensors by laser, the recovery of baseline and signal in terms of S/N has been studied~\cite{Adam:2005pz}. It was shown in figure~\ref{fig:baselineAndSignalRecovery} that the S/N recovers differently and by different velocity than baseline. Thus to estimate the signal recovery, respectively the hit efficiency, and dead-time induced by HIP event it is necessary to study clusters.
+In the laser simulations of HIP events, during which charge has been induced in tracker sensors by laser, the recovery of baseline and signal in terms of S/N has been studied~\cite{Adam:2005pz}. It was shown in Fig.~\ref{fig:figures/baselineAndSignalRecovery} that the S/N recovers differently and by different velocity than baseline. Thus to estimate the signal recovery, respectively the hit efficiency, and the dead-time induced by HIP event it is necessary to study clusters.
 
     \insertFigure{figures/baselineAndSignalRecovery} % Filename = label
                  {0.6}       % Width, in fraction of the whole page width
@@ -313,83 +317,83 @@ In the laser simulations of HIP events, during which charge has been induced in 
 
 \subsubsection{Results}
 
-The average cluster multiplicity and the maximal cluster charge~(charge of the cluster with the largest cluster charge) distributions per APV as a function of the bx are shown in figures~\ref{fig:figures/avMultiplicityFirst}~and~\ref{fig:figures/maxChargeFirst}. In these distributions, as previously, the averaging over APVs is performed as well as aligning the selected HIP event with bx=0. The average cluster multiplicity~\ref{fig:figures/avMultiplicityFirst} is stable for events long before the occurrence of the HIP. Around bx=-5 the multiplicity is growing as additional cluster(s) originating from the HIP interaction~(recoil or fragments) start(s) to appear. As a consequence of the HIP deposit the chip becomes inefficient in signal collection and already at bx=0, when the baselines are fully saturated, the cluster multiplicity drops significantly. The cluster multiplicity is recovered in the $\sim$10 bunch crossings. The average cluster multiplicity distribution for bx>10 is flat with a constant higher than for BX<-10 in contradiction with an expectation. The maximal cluster charge per APV~\ref{fig:figures/maxChargeFirst} is exhibiting stable behavior for bx<-20, then the increase in charge appear (TODO: why so early?). The cluster charge is the highest for the selected HIP as few channels can collect large charge induced by the HIP energy deposits. After bx=0 the cluster charge drops and recovers almost immediately after the selected HIP, but to slightly lower level than before the HIP event, even though the same level as for bx$\ll$ is expected. 
+The average cluster multiplicity and the maximal cluster charge~(charge of the cluster with the largest cluster charge) distributions per APV as a function of the bx are shown in Fig.s~\ref{fig:figures/avMultiplicityFirst}~and~\ref{fig:figures/maxChargeFirst}. In these distributions, as previously, the averaging over APVs is performed as well as aligning the selected HIP event with bx=0. The average cluster multiplicity~\ref{fig:figures/avMultiplicityFirst} is stable for events long before the occurrence of the HIP. Around bx=-5 the multiplicity is growing as additional cluster(s) originating from the HIP interaction~(recoil or fragments) start(s) to appear. As a consequence of the HIP deposit the chip becomes inefficient in signal collection and already at bx=0, when the baselines are fully saturated, the cluster multiplicity drops significantly. The cluster multiplicity is recovered in $\sim$10 bunch crossings. The average cluster multiplicity distribution for bx>10 is flat with a constant higher than for BX<-10 in contradiction with an expectation. The maximal cluster charge per APV~\ref{fig:figures/maxChargeFirst} is exhibiting stable behavior for bx<-20, then the increase in charge appear (TODO: why so early?). The cluster charge is the highest for the selected HIP as few channels can collect large charge induced by the HIP energy deposits. After bx=0 the cluster charge drops and recovers almost immediately after the selected HIP, but to slightly lower level than before the HIP event, even though the same level as for bx$\ll$0 is expected. 
 
 %The disagreements between distributions of bx$\ll$0 and bx$gg$0 for average cluster multiplicity and maximal cluster charge will be discussed in details in section~\ref{sec:}.
 
 %TODO average cluster multiplicity
 
     \insertFigure{figures/avMultiplicityFirst} % Filename = label
-                 {0.6}       % Width, in fraction of the whole page width
+                 {0.8}       % Width, in fraction of the whole page width
                  {The averaged average cluster multiplicity evolution as a function of bunch crossing, respectively time, before, during and after the selected HIP event. } % Caption
 
 %TODO max cluster charge
     \insertFigure{figures/maxChargeFirst} % Filename = label
-                 {0.6}       % Width, in fraction of the whole page width
+                 {0.8}       % Width, in fraction of the whole page width
                  {The averaged maximal cluster charge evolution as a function of bunch crossing, respectively time, before, during and after the selected HIP event. } % Caption
 
-The mismatch between cluster properties for bx$\ll$0 and bx$\gg$0, as shown in figures~\ref{fig:figures/avMultiplicityFirst}~and~\ref{fig:figures/maxChargeFirst}, can be, at least partially, understood when analyzing the cluster charge distribution of all clusters for the first event in the train in figure~\ref{fig:figures/chargeFirstInTrain} and other events in the train in figure~\ref{fig:figures/chargeOtherInTrain}. The cluster charge distribution for the first event in the train exhibits double peak structure of similar peak heights with maxima around 100~ADC and 300~ADC, while in the cluster charge distribution of the other events, the height of the peak around 100~ADC is clearly dominant. The enhanced population of clusters around 100~ADC for the events from other than first bunch crossing in train, is coming from out-of-time pile up, which is not present in the first bunch crossing. As in the train there are 3 events triggered, first bunch crossing in the train and two others, one of them can be selected as a HIP event, but only first or second event can be set to bx<0 and on the other hand only second and third event can be set as bx>0. In consequence part of distributions with bx<0 of average cluster multiplicity and maximal cluster charge at figures~\ref{fig:figures/avMultiplicityFirst}~and~\ref{fig:figures/maxChargeFirst} is dominated by population with lower out-of-time pile-up than the part of distributions with bx>0. Thus as for bx<0 there is a lower out-of-time pile-up, the average cluster multiplicity is lower and maximal charge higher than for bx>0. To avoid not equal mixing of events with different properties, the first event in the train has been removed from the distributions. The average cluster multiplicity without first bunch crossing in the train is shown in figure~\ref{fig:figures/avMultiplicityCleanedFirst} and maximal charge without first bunch crossing in the train in figure~\ref{fig:figures/maxChargeCleanedFirst}. In both distributions the removal of first bunch crossing lead to the significant equalization between the levels of bx$\ll$0 and bx$\gg$0 .
+The mismatch between the cluster properties for bx$\ll$0 and bx$\gg$0, as shown in Fig.s~\ref{fig:figures/avMultiplicityFirst}~and~\ref{fig:figures/maxChargeFirst}, can be, at least partially, understood when analyzing the cluster charge distribution of all clusters for the first event in the train in Fig.~\ref{fig:figures/chargeFirstInTrain} and other events in the train in Fig.~\ref{fig:figures/chargeOtherInTrain}. The cluster charge distribution for the first event in the train exhibits double peak structure of similar peak heights with maxima around 100~ADC and 300~ADC, while in the cluster charge distribution of the other events, the height of the peak around 100~ADC is clearly dominant. The enhanced population of the clusters around 100~ADC for the events from other than first bunch crossing in the train, is coming from out-of-time pile up, which is not present in the first bunch crossing. As in the train there are 3 events triggered, first bunch crossing in the train and two others, one of them can be selected as a HIP event, but only first or second event can be set to bx<0 and on the other hand only second and third event can be set as bx>0. In consequence part of distributions with bx<0 of average cluster multiplicity and maximal cluster charge at Fig.s~\ref{fig:figures/avMultiplicityFirst}~and~\ref{fig:figures/maxChargeFirst} is dominated by population with lower out-of-time pile-up than the part of distributions with bx>0. Thus as for bx<0 there is a lower out-of-time pile-up, the average cluster multiplicity is lower and maximal charge higher than for bx>0. To avoid not equal mixing of events with different properties, the first event in the train has been removed from the distributions. The average cluster multiplicity without the first bunch crossing in the train is shown in Fig.~\ref{fig:figures/avMultiplicityCleanedFirst} and the maximal charge without first bunch crossing in the train in Fig.~\ref{fig:figures/maxChargeCleanedFirst}. In both distributions the removal of first bunch crossing lead to the significant equalization between the levels of bx$\ll$0 and bx$\gg$0 .
 
 %TODO cluster charge for the first event in train
    \insertFigure{figures/chargeFirstInTrain} % Filename = label
-                 {0.6}       % Width, in fraction of the whole page width
-                 {Cluster charge distribution of the events from the first bunch crossing in the train. } % Caption
+                 {0.8}       % Width, in fraction of the whole page width
+                 {The cluster charge distribution of the events from the first bunch crossing in the train. } % Caption
 %TODO cluster charge distribution for other eventsin the train
    \insertFigure{figures/chargeOtherInTrain} % Filename = label
-                 {0.6}       % Width, in fraction of the whole page width
-                 {Cluster charge distribution of the events from all but not first bunch crossings in the train. } % Caption
+                 {0.8}       % Width, in fraction of the whole page width
+                 {The cluster charge distribution of the events from all but not first bunch crossings in the train. } % Caption
 %TODO corrected cluster charge
 %TODO corrected cluster multiplicity
     \insertFigure{figures/avMultiplicityCleanedFirst} % Filename = label
-                 {0.6}       % Width, in fraction of the whole page width
+                 {0.8}       % Width, in fraction of the whole page width
                  {The averaged average cluster multiplicity evolution as a function of bunch crossing, respectively time, before, during and after the selected HIP event. The events from the first bunch crossing in the train are not used in this distribution. } % Caption
 
 %TODO max cluster charge
     \insertFigure{figures/maxChargeCleanedFirst} % Filename = label
-                 {0.6}       % Width, in fraction of the whole page width
+                 {0.8}       % Width, in fraction of the whole page width
                  {The averaged maximal cluster charge evolution as a function of bunch crossing, respectively time, before, during and after the selected HIP event.  The events from the first bunch crossing in the train are not used in this distribution. } % Caption
 
-The average dead-time for the modules of the first layer of TOB can be estimated from figure~\ref{fig:figures/avMultiplicityCleanedFirst}. The dead-time is the time interval between the selected HIP event and full recovery of average cluster multiplicity which appears to be $\sim$250~ns~(10~bx). The recovery of the cluster multiplicity does not imply the full recovery of the charge collection. The recovery of charge collection should be deduced from the recovery of the maximal cluster charge shown in figure~\ref{fig:figures/maxChargeCleanedFirst}, however the recovery seems to be almost immediate and no obvious trend is observed. This effect is most probably caused by mixing real and fake clusters~(clusters associated and not associated with the tracks) and could be reduced by using on-track clusters only.
+The average dead-time for the modules of the first layer of TOB can be estimated from Fig.~\ref{fig:figures/avMultiplicityCleanedFirst}. The dead-time is the time interval between the selected HIP event and full recovery of the average cluster multiplicity which appears to be $\sim$250~ns~(10~bx). The recovery of the cluster multiplicity does not imply the full recovery of the charge collection. The recovery of charge collection should be deduced from the recovery of the maximal cluster charge shown in Fig.~\ref{fig:figures/maxChargeCleanedFirst}, however the recovery seems to be almost immediate and no obvious trend is observed. This effect is most probably caused by mixing real and fake clusters~(clusters associated and not associated with the tracks) and could be reduced by using on-track clusters only.
 
-The APV-averaged fraction of HIP events for first layer of TOB, defined in equation~\ref{eq:HIPfrac}, was estimated to be ...., shown in ~\ref{fig:figure/HIPfrac} . The computed fraction is dependent on the run instantaneous luminosity and thus it is not probability of the HIP event as defined in equation~\ref{eq:HIPprob}. To estimate the HIP probability, the average number of reconstructed tracks per event per APV must be known. The average fraction of HIP events is biased by the used trigger with which, due to the first trigger rule, it is not possible to trigger on the second and third bunch crossings in the train. The HIP interactions, occurring in the first bx and fully saturating baseline only in second and/or third bx of the train, are never selected.
+The APV-averaged fraction of HIP events for first layer of TOB, defined in equation~\ref{eq:HIPfrac}, was estimated to be ...., shown in ~\ref{fig:figures/HIPfrac} . The computed fraction is dependent on the run instantaneous luminosity and thus it is not probability of the HIP event as defined in equation~\ref{eq:HIPprob}. To estimate the HIP probability, the average number of reconstructed tracks per event per APV must be known. The average fraction of HIP events is biased by the used trigger with which, due to the first trigger rule, it is not possible to trigger on the second and third bunch crossings in the train. The HIP interactions, occurring in the first bx and fully saturating baseline only in second and/or third bx of the train, are never selected.
  
 %TODO the fraction of HIP low
     \insertFigure{figures/HIPfrac} % Filename = label
-                 {0.6}       % Width, in fraction of the whole page width
+                 {0.8}       % Width, in fraction of the whole page width
                  {Fraction of HIP events, or probability, per layer, or more layers... lets see... } % Caption
 
-\subsubsection{Limitations of the study}
+\subsubsection{Limitations of the study~\label{sec:limitationsSelection}}
 
-Several limitations of the presented study were already discussed in the text above. In summary, among the mentioned limitations belong the different fraction of out-of-time pile-up in different events, solved by removing the events from first bunch crossing in the train from the clusters charge and width distributions. No tracking is performed, and thus both real and fake clusters are used in this analysis, on top of that the fraction of real and fake clusters can change as a result of HIP event. There is an empty window in the triggered events caused by the first trigger rule as seen in figure~\ref{fig:figures/triggerStudyFirst}, which leads to underestimation of average fraction of the HIP events per APV.
+Several limitations of the presented study were already discussed in the text above. In summary, among the mentioned limitations belongs the different fraction of out-of-time pile-up in different events, solved by removing the events from the first bunch crossing in the train from the clusters charge and width distributions. No tracking is performed, and thus both real and fake clusters are used in this analysis, on top of that the fraction of real and fake clusters can change as a result of HIP event. There is an empty window in the triggered events caused by the first trigger rule as seen in Fig.~\ref{fig:figures/triggerStudyFirst}, which leads to the underestimation of average fraction of the HIP events per APV.
 
 %TODO did I miss something from the limitations?
 
-Large limitation of this study represents the ambiguity of selection of the HIP events. In figure~\ref{fig:figures/RMSrawVSbx} is shown the $\sigma_{raw}$ per APV as a function of bunch crossing, where bx=0 is selected HIP event. In the bottom left part of the plot it is visible that there is large population of APVs with $\sigma_{raw}$<2.5 for bx>0, corresponding to very large energy depositions keeping baseline fully saturated of several bx. Due to this uncertainty it is impossible to determine the time of the HIP interaction in sensor and therefore all distributions shown above with selected HIP at bx=0 are effectively smeared. 
+A large limitation of this study represents the ambiguity of the selection of the HIP events. In Fig.~\ref{fig:figures/RMSrawVSbx} is shown the $\sigma_{raw}$ per APV as a function of bunch crossing, where bx=0 is selected HIP event. In the bottom-right part of the plot it is visible that there is large population of the APVs with $\sigma_{raw}$<2.5 for bx>0, corresponding to very large energy depositions keeping baseline fully saturated for several bx. Due to this uncertainty it is impossible to determine the time of the HIP interaction in the sensor and therefore all distributions shown above with selected HIP aligned to bx=0 are effectively smeared. 
 
 %Also because of the full baseline saturation druning more bx the fraction of HIP events, when using selection on fully saturated beaselines, is lower during the first few events in the train than for the rest of train.
 
-The possible improvement of the HIP selection was investigated by trying to define selection criteria on the clusters. First it should be possible to target large charge deposits by tagging the saturated clusters~(ADC value of a channel(s) inside cluster is larger than 1022). In figure~\ref{fig:figures/fractionOfSaturatedClusters} can be seen the fraction of APVs with saturated clusters to all clusters as a function of bx, where bx=0 is selected HIP by criterion~\ref{eq:selection}. The fraction of saturated clusters is significantly higher only for bx=0, which is already selected HIP event and moreover as discussed at figure~\ref{fig:figures/avMultiplicityCleanedFirst}, the average cluster multiplicity per APV is very low for bx=0, so a requirement for the saturated cluster would result only in large reduction of statistics. Another possibility is to study maximal cluster width per APV as function of bx, shown in figure~\ref{fig:figures/largestClusterWidth} , where again bx=0 is selected HIP by criterion~\ref{eq:selection}. No obvious trend is observed in the distribution. 
+The possible improvement of the HIP selection was investigated by trying to define selection criteria on the clusters. First it should be possible to target large charge deposits by tagging the saturated clusters~(ADC value of a channel(s) inside cluster is larger than 1022). In Fig.~\ref{fig:figures/fractionOfSaturatedClusters} can be seen the fraction of APVs with saturated clusters to all clusters as a function of bx, where bx=0 is the selected HIP by criterion~\ref{eq:selection}. The fraction of saturated clusters is significantly higher only for bx=0, which is already selected HIP event and moreover as discussed at Fig.~\ref{fig:figures/avMultiplicityCleanedFirst}, the average cluster multiplicity per APV is very low for bx=0, so a requirement for the saturated cluster would result only in a large reduction of statistics. Another possibility is to study maximal cluster width per APV as function of bx, shown in Fig.~\ref{fig:figures/largestClusterWidth} , where again bx=0 is selected HIP by criterion~\ref{eq:selection}. No obvious trend is observed in the distribution. 
 
 %TODO RMS_raw vs BX
     \insertFigure{figures/RMSrawVSbx} % Filename = label
-                 {0.6}       % Width, in fraction of the whole page width
+                 {0.8}       % Width, in fraction of the whole page width
                  {The 2-D distribution of RMS spread of raw digis versus bunch crossing. } % Caption
 %TODO fractionOfSaturatedClusters
     \insertFigure{figures/fractionOfSaturatedClusters} % Filename = label
-                 {0.6}       % Width, in fraction of the whole page width
+                 {0.8}       % Width, in fraction of the whole page width
                  {The averaged evolution of fraction of saturated clusters to all clusters as a function of bunch crossing, respectively time, before, during and after the selected HIP event.  The events from the first bunch crossing in the train are not used in this distribution. (TODO I guess x axis is not really a fraction) } % Caption
 %TODO largest cluster width
     \insertFigure{figures/largestClusterWidth} % Filename = label
-                 {0.6}       % Width, in fraction of the whole page width
+                 {0.8}       % Width, in fraction of the whole page width
                  {The 2-D distribution of cluster width versus bunch crossing. } % Caption
 
 %-OOT HIP
 
 \subsubsection{Change of the APV configuration settings}
 
-During the late 2015 and first half of 2016, the HIP effect was studied from many perspectives. The probability of the HIP effect was found to be too low to explain the magnitude of observed inefficiencies and thus CMS collaboration has tried to find other causes of seen hit inefficiency. In August 2016, the major source was found in the setting of the APVs themselves.
+During the late 2015 and first half of 2016, the HIP interaction at silicon sensors under the CMS conditions was studied from many perspectives. The probability of the HIP effect was found to be too low to explain the magnitude of observed inefficiencies and thus CMS collaboration has tried to find other causes of seen hit inefficiency. In August 2016, the major source was found in the setting of the APVs themselves.
 
-For the data taking, the APV's Preamplifier Feedback Voltage Bias~(VFP) was set according to APV manual to $\sim$30~V to obtain the ideal CR-RC pulse shape. This parameter controls the drain speed of the preamplifier -- lower parameter results in faster drain speed. Because of the increase of the APV occupancy, due to shortening the bunch spacing and increasing the instantaneous luminosity, the drain speed was not fast enough anymore leading to saturation of the preamplifier by semi-large charge deposits~(10-100 MIPs). Saturated APV chip by this effect became inefficient up to its recovery at the end of the train or the run. These findings led to setting the VFP parameter to 0~V, consequently the significant recovery of the hit efficiency as shown in figures~\ref{fig:figures/effAsLayer}~and~\ref{fig:figures/effAsLumi} has been observed.
+For the data taking, the APV's Preamplifier Feedback Voltage Bias~(VFP) was set according to APV manual to $\sim$30~V to obtain the ideal CR-RC pulse shape. This parameter controls the drain speed of the preamplifier -- lower parameter results in faster drain speed. Because of the increase of the APV occupancy, due to shortening the bunch spacing and increasing the instantaneous luminosity, the drain speed was not fast enough anymore, leading to the saturation of the preamplifier by semi-large charge deposits~(10-100~MIPs). Saturated APV chip by this effect became inefficient up to its recovery at the end of the train or the run. These findings led to the setting the VFP parameter to 0~V. Consequently the significant recovery of the hit efficiency as shown in Fig.s~\ref{fig:figures/effAsLayer}~and~\ref{fig:figures/effAsLumi} has been observed.
 
 
 %TODO  plot of the distribution of largest cluster charge in train (PBXvsCHall) -from my group presentation: /home/mjansova/Downloads/presentations/thesisDirectory/literature_HIP/my_old_presentations/groupPresentation_v2.pdf
@@ -403,13 +407,13 @@ After identifying and fixing the main source of APV inefficiencies new VR data r
 
 \subsubsection{Experimental setup}
 
-New 48 minute 45 seconds long VR data run 281604 was taken 25 of September 2016. The included subdetectors in this run were both silicon pixel and strip tracker, ECAL, HCAL and all muon chambers. This run was part of the fill 5330, during which only four isolated bunches per beam were injected into the LHC, out of them three bunches were collided at CMS. The average pile-up of the fill was 48 interactions per bunch crossing. The instantaneous luminosity of the run started at 17.38$\times 10^{30} cm^{-2} s^{-1}$ and ended at 16.48$\times 10^{30} cm^{-2} s^{-1}$. During the run all APVs were taking data in the deconvolution mode. 
+A new 48 minute 45 seconds long VR data run 281604 was taken 25 of September 2016. The included subdetectors in this run were both silicon pixel and strip tracker, ECAL, HCAL and all muon chambers. This run was part of the fill 5330, during which only four isolated bunches per beam were injected into the LHC, out of them three bunches were collided at CMS. The average pile-up of the fill was 48 interactions per bunch crossing. The instantaneous luminosity of the run started at 17.38$\times 10^{30} \mathrm{cm^{-2} s^{-1}}$ and ended at 16.48$\times 10^{30} \mathrm{cm^{-2} s^{-1}}$. During the run all APVs were taking data in the deconvolution mode. 
 
-In this run the trigger fired on the fixed bx=2306 in each orbit, further referred as ``first event''. After the first trigger on bx=2306, the trigger fired every 75~ns for 450~ns, thus per one orbit 7 events spaced by 3~bx were triggered, but only during the first event bunches were collided. Resulting trigger scheme for one orbit is shown in figure~\ref{fig:figures/triggerSecond}. The trigger setup was very special as all the trigger rules were violated but the first one.
+In this run the trigger fired on the fixed bx=2306 in each orbit, further referred as ``first event''. After the first trigger on bx=2306, the trigger fired every 75~ns for 450~ns, thus per one orbit 7 events spaced by 3~bx were triggered, but only during the first event bunches were collided. Resulting trigger scheme for one orbit is shown in Fig.~\ref{fig:figures/triggerSecond}. The trigger setup was very special as all trigger rules were violated but the first one.
 
 %TODO figure trigger second per orbit
     \insertFigure{figures/triggerSecond} % Filename = label
-                 {0.6}       % Width, in fraction of the whole page width
+                 {0.8}       % Width, in fraction of the whole page width
                  {Number of triggered events for one orbit as a function of bunch crossing.} % Caption
 %TODO say that I will reffer previous study as previous study
 
@@ -417,49 +421,49 @@ The character of the run and data-taking setup resulted in many differences comp
 
 \subsubsection{Methodology}
 
-In order to design a selection of HIP events in this run, the correlation of baseline the and $\sigma_{raw}$ per APV has been analyzed. In figure~\ref{fig:figures/baselineVsRMSSecond} it can be observed that the bulk of the APVs has nominal baseline value of $\sim$128 and RMS spread of few units. The second substantial population is one of the APVs with very small value of baseline and RMS spread, originating from the fully saturated baselines. Overall distribution is similar to the one in figure~\ref{fig:figures/baselinevsRMSrawFirst} of previous study. Consequently the same HIP selection, defined in equation~\ref{eq:selection} can be used, meaning that the manifestation of the HIP events has not changed with the change of the APV settings.
+In order to design a selection of HIP events in this run, the correlation of baseline and $\sigma_{raw}$ per APV has been analyzed. In Fig.~\ref{fig:figures/baselineVsRMSSecond} it can be observed that the bulk of the APVs has nominal baseline value of $\sim$128~ADC and RMS spread of few units. The second substantial population is one of the APVs with very small value of baseline and RMS spread, originating from the fully saturated baselines. Overall distribution is similar to the one in Fig.~\ref{fig:figures/baselinevsRMSrawFirst} of the previous study. Consequently the same HIP selection, defined in equation~\ref{eq:selection} can be used, meaning that the manifestation of the HIP events has not changed with the change of the APV settings.
 
 %TODO plot baseline vs rms
 %TODO figure vs RMS
     \insertFigure{figures/baselineVsRMSSecond} % Filename = label
-                 {0.6}       % Width, in fraction of the whole page width
+                 {0.8}       % Width, in fraction of the whole page width
                  {The 2-D distribution of RMS spread of raw digis versus baseline. } % Caption
 
-As in this run the time of creation of the particle causing the HIP event is fixed by bx=2306, no redefinition of bunch crossing is needed and hence the properties of the selected HIP event and other 6 events in the same orbit can be shown as function of the real bunch crossing~(respectively time).
+As in this run the time of the creation of the particle causing the HIP event is fixed by bx=2306, no redefinition of bunch crossing is needed and hence the properties of the selected HIP event and other 6 events in the same orbit can be shown as function of the real bunch crossing~(respectively time).
 
-The APV-averaged baseline evolution as a function of bunch crossing is shown in figure~\ref{fig:figures/baselineSecond}. The recovery of baseline occurs in less than 12 bunch crossings, what is slightly faster recovery than in the previous study. Then again the baseline overshoots for the remaining events in one orbit even to the higher level than in previous study. The baseline decreases between first and second event, because during the first event not all baselines are fully saturated yet. The first occurrence of fully saturated baseline as a function of bunch crossing is displayed in figure~\ref{fig:figures/saturationSecond} in which it can be observed that $\sim 50\%$ of the HIP events lead to the fully saturated baseline already in the fist event. In the other events the saturation TODO - plot not the best one....
+The APV-averaged baseline evolution as a function of bunch crossing is shown in Fig.~\ref{fig:figures/baselineSecond}. The recovery of baseline occurs in less than 12 bunch crossings, what is slightly faster recovery than in the previous study. Then again the baseline overshoots for the remaining events in one orbit even to the higher level than in previous study. The baseline decreases between first and second event, because during the first event not all baselines are fully saturated yet. The first occurrence of the fully saturated baseline as a function of bunch crossing is displayed in Fig.~\ref{fig:figures/saturationSecond} in which it can be observed that $\sim 50\%$ of the HIP events lead to the fully saturated baseline already in the first event. In the other events the saturation (TODO - plot not the best one)....
 
 %TODO baseline evolution
     \insertFigure{figures/baselineSecond} % Filename = label
-                 {0.6}       % Width, in fraction of the whole page width
+                 {0.8}       % Width, in fraction of the whole page width
                  {The averaged baseline evolution as a function of bunch crossing, respectively time, during and after the HIP interaction in the sensor. The error bars are computed as a standard deviation of the baseline distribution in each bin.  } % Caption
 %TODO saturation plot vs bunch crossing
     \insertFigure{figures/saturationSecond} % Filename = label
-                 {0.6}       % Width, in fraction of the whole page width
+                 {0.8}       % Width, in fraction of the whole page width
                  { The first occurrence of fully saturated baseline as a function of bunch crossing. } % Caption
  
 \subsubsection{Results}
 
 For the study of the cluster multiplicity and cluster charge per APV four categories of events have been defined in table~\ref{tab:eventCategories}. If the APV in given orbit was influenced by the HIP event, the cluster information from the APV of the first event belong to the first category, of the remaining events to the second category. The cluster information from the APVs in which no HIP event has happened during the given orbit belong to the third category in case of the first event or to the fourth category in case of other events. Thus in categories 2 and 4 only fake clusters are expected as no colliding bunches in CMS were present at those bunch crossings, in contrary to categories 1 and 3 which are populated by both real and fake clusters.
 
-The average cluster multiplicity per APV shown is in figure~\ref{fig:avClusterMultiplicitySecond} for both orbits influenced by HIP event in dots~(category 1 and 2) and non-HIP orbits in triangles~(category 3 and 4). For the non-HIP orbits, in the first event the average cluster multiplicity is non-zero because of the presence of collision and then it falls almost to zero for other events where only fake clusters are present. In case of HIP-orbits, in the first event the average cluster multiplicity is higher than in previous case because of additional clusters originating from the HIP interaction. The other events exhibit significantly larger average multiplicity of fake clusters compared to non-HIP orbits. The average fake cluster multiplicity is increasing in time up to constant level and do not disappear during the 6 events. These fake clusters resulting from HIP event may have much larger charge than the standard fake clusters as observed in figure~\ref{fig:avClusterChargeSecond}. 
+The average cluster multiplicity per APV is shown in Fig.~\ref{fig:figures/avClusterMultiplicitySecond} for both orbits influenced by HIP event in dots~(category 1 and 2) and non-HIP orbits in triangles~(category 3 and 4). For the non-HIP orbits, in the first event the average cluster multiplicity is non-zero because of the presence of collision and then it falls almost to zero for other events where only fake clusters are present. In case of HIP-orbits, in the first event the average cluster multiplicity is higher than in previous case because of additional clusters originating from the HIP interaction. The other events exhibit significantly larger average multiplicity of fake clusters compared to non-HIP orbits. The average fake cluster multiplicity is increasing in time up to constant level and do not disappear during the 6 events. These fake clusters resulting from HIP event may have much larger charge than the standard fake clusters as observed in Fig.~\ref{fig:figures/avClusterChargeSecond}. 
 
 To understand origins of the fake clusters, average cluster multiplicity, charge and width as well as the fraction of clusters larger than 10 strips to all clusters, are calculated in table~\ref{tab:clusterCategories}. From the table it is clear that the fake clusters resulting from HIP event are significantly wider and have larger charge than standard clusters. Such clusters are reconstructed from baseline distortions, caused by non-uniform recovery among the 128 channels.
 
 The fake clusters in events after the HIP interaction can be dangerous for tracking as they can be used for track reconstruction instead of the real clusters. But this effect scales with probability of the HIP event, which is relatively small.
 
 %TODO
-The fraction of HIP events for this event is measured to be ... shown in~\ref{fig:figures/fracHIP2} . As previously, the fraction of HIP events is biased by the trigger conditions. Only baselines which already fully saturated in first event or which are still fully saturated during the second event~(after 75~ns) can be selected as HIP events.
+The fraction of the HIP events for this event is measured to be ... shown in~\ref{fig:figures/fracHIP2} . As previously, the fraction of HIP events is biased by the trigger conditions. Only baselines which are already fully saturated in first event or which are still fully saturated during the second event~(after 75~ns) can be selected as HIP events.
 
 
 %TODO averge cluster charge
     \insertFigure{figures/avClusterMultiplicitySecond} % Filename = label
-                 {0.6}       % Width, in fraction of the whole page width
+                 {0.8}       % Width, in fraction of the whole page width
                  {The averaged average cluster multiplicity evolution as a function of bunch crossing, respectively time,  during and after the HIP interaction in the sensor. } % Caption
 
 %TODO average cluster charge
     \insertFigure{figures/avClusterChargeSecond} % Filename = label
-                 {0.6}       % Width, in fraction of the whole page width
+                 {0.8}       % Width, in fraction of the whole page width
                  {The averaged average cluster charge evolution as a function of bunch crossing, respectively time, before,  during and after the HIP interaction in the sensor. } % Caption
 
 \begin{table}[h]
@@ -481,7 +485,7 @@ Category & Name  & Features \\
 & & Dominated by fake clusters \\
 \hline
 \end{tabular}
-\caption[Table caption text]{Table of ... }
+\caption[Table caption text]{Table of the four categories of clusters used for the study. }
 \label{tab:eventCategories}
 \end{center}
 \end{table}
@@ -505,7 +509,7 @@ Collision non-HIP & 427 & 0.492 & 5 & 0.05 \\
 Non-collision, non-HIP & 239 & 0.003 & 3 & 0.03 \\
 \hline
 \end{tabular}}
-\caption[Table caption text]{Table of ... }
+\caption[Table caption text]{The average cluster charge, multiplicity and width and the fraction of clusters larger than 10 strips for four categories defined in table~\ref{tab:eventCategories}.}
 \label{tab:clusterCategories}
 \end{center}
 \end{table}
@@ -513,16 +517,16 @@ Non-collision, non-HIP & 239 & 0.003 & 3 & 0.03 \\
 
 %TODO the fraction of HIP low
     \insertFigure{figures/fracHIP2} % Filename = label
-                 {0.6}       % Width, in fraction of the whole page width
+                 {0.8}       % Width, in fraction of the whole page width
                  {Fraction of HIP events, or probability, per layer, or more layers... lets see... } % Caption
 
 \subsubsection{Limitations of the study}
  
-Except of the bias in measurement of number of HIP events due to trigger, the other limitation is impossibility of the dead-time measurement with analyzed data. Other than first event in orbit do not contain collision and thus cluster recovery cannot be studied. 
+Except of the bias in measurement of number of the HIP events due to trigger, the other limitation is impossibility of the APV dead-time measurement with analyzed data. Other than first event in orbit do not contain collision and thus cluster recovery cannot be studied. 
 
 \section{Conclusion}
 TODO
--in the first data hip as well because off the same selection and same order of magnitude
+%-in the first data hip as well because off the same selection and same order of magnitude
 
 
 
