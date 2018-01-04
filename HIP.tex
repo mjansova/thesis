@@ -7,7 +7,7 @@
 \setcounter{secnumdepth}{4}
 
 
-\section{The tracking inefficiencies at the beginning of Run~II}
+\section{The tracking inefficiencies at the beginning of Run~II~\label{sec:hitIneff}}
 
 \subsection{Observed inefficiencies in track reconstruction}
 %TODO track must be known
@@ -146,7 +146,7 @@ where $\sigma_{i}$ is the noise of channel $i$. In addition to its charge and no
 
     \insertFigure{figures/event2layer4} % Filename = label
                  {0.6}       % Width, in fraction of the whole page width
-                 {An example of data from one tracker module undergoing zero suppression and clustering. The raw digis are shown in pink. From raw digis the pedestals are subtracted and the resulting digis are shown in blue. From these digis the baselines shown in red are comuped and subtracted. The final clusters are shown in green.} % Caption
+                 {Example of data from one tracker module undergoing zero suppression and clustering. The raw digis are shown in pink. From raw digis the pedestals are subtracted and the resulting digis are shown in blue. From these digis the baselines shown in red are comuped and subtracted. The final clusters are shown in green.} % Caption
 
 %-gains %https://github.com/cms-sw/cmssw/blob/09c3fce6626f70fd04223e7dacebf0b485f73f54/RecoLocalTracker/SiStripClusterizer/src/ThreeThresholdAlgorithm.cc
 During clustering, the strip charge is corrected by two calibrations: the tick-mark gain~(G1) and the particle gain~(G2). First, thhe tick-mark gain is correcting the signal for the transmission losses, mainly for the lossesi happening during the transmission ofi the signal through the O(100)~m long optical fibers. To estimate this gain, a signal is injected to the calibration circuit. The gain per APV is then computed from the change of height between the readout output and the input. The tick-marks also allow the synchronization of the APVs to the central trigger.
@@ -192,7 +192,7 @@ Because of the shift of CMN the HIP events can be easily identified thanks to a 
 
     \insertFigure{figures/thesisEvolution} % Filename = label
                  {1}       % Width, in fraction of the whole page width
-                 {An example of the time evolution of the APV behavior as a response to a HIP event which can be seen in the second module from bottom. The ADC values of pededestal subtracted data~(y-axis) of six layers of TOB modules~(y-axis direction) in four time-stamps are plotted for all channels of one module~(x-axis)~\cite{Bainbridge:2004jc}.} % Caption
+                 {Example of the time evolution of the APV behavior as a response to a HIP event which can be seen in the second module from bottom. The ADC values of pededestal subtracted data~(y-axis) of six layers of TOB modules~(y-axis direction) in four time-stamps are plotted for all channels of one module~(x-axis)~\cite{Bainbridge:2004jc}.} % Caption
 
 The CMN distribution can be seen in the bottom plot of Fig.~\ref{fig:figures/CMNandRMSrawPast}. The CMN distribution is peaking around 0~ADC during the standard conditions, while a smaller peak around $\sim$-100~ADC comes from suppressed baselines which are result of the HIP events. 
 
@@ -221,7 +221,7 @@ The dead-time of the APV is evaluated in terms of hit efficiency~($\epsilon_{hit
 
 \subsection{Probability of HIP event in the tracker module}
 
-At the PSI beam test, the measurement of the HIP probability was also provided. The HIP probabilityi labelled as~$P_{HIP}(CMN_{HIP}\leq CMN_{threshold})$ is defined as 
+At the PSI beam test, the measurement of the HIP probability was also provided. The HIP probability labelled as~$P_{HIP}(CMN_{HIP}\leq CMN_{threshold})$ is defined as 
 
 \eq{HIPprob}
 {
@@ -237,20 +237,20 @@ The HIP probability measurements were provided with a pion beam of $300~\mathrm{
 
 \subsection{Strategy of the HIP studies}
 
-As explained in the section~\ref{sec:APV} the Zero Suppression mode is used in the standard data-taking . During the ZS procedure all negative channels after pedestal subtraction are truncated to zero, thus this mode is not suitable to study the HIP events, which are known for causing a drop of the CMN as described in section~\ref{sec:HIPinPast}. The solution is to arrange data-taking in the Virgin Raw mode, what comes with a cost of increased event size. In the VR data no subtractions and suppression are done, and if needed the ZS can be performed offline, providing the possibility to compute the CMN and proceed with clustering and further data treatment. In the following analyses the CMN has been computed from all 128 raw digis after pedestal subtraction as a median over 128 strips. The RMS spread~($\sigma_{raw}$) has been computed from the raw digis of 80\% of the 128 channels having the lowest ADC value, to avoid clusters. The ZS and clustering has been performed as in standard data-taking (truncation to zero, truncation of digis to 8 bits) to mimic the standard data-taking output.
+As explained in the section~\ref{sec:APV} the Zero Suppression mode is used in the standard data-taking . During the ZS procedure, all negative channels after pedestal subtraction are truncated to zero, this mode is thus not suitable to study the HIP events, which are known for causing a drop of the CMN as described in section~\ref{sec:HIPinPast}. The solution is to arrange data-taking in the Virgin Raw mode, what comes with a cost of an increased event size. In the VR data, no subtraction or suppression is applied but the ZS can always be performed offline, providing then the possibility to compute the CMN and proceed with clustering and further data treatment. In the following analyses, the CMN has been computed from all 128 raw digis after pedestal subtraction as a median over these 128 strips. The RMS spread~($\sigma_{raw}$) has been computed from the raw digis of 80\% of the 128 channels having the lowest ADC value, to avoid the clusters in this computation. The ZS and clustering have been performed as in the standard data-taking ( i.e. truncation to zero, truncation of digis to 8 bits) to mimic the standard data-taking output.
 
-The strategy of further presented studies is to select a HIP event and study the influence of such events on the electronics and the clustering. As seen in previous studies in section~\ref{sec:HIPinPast}, the recovery of cluster efficiency is in order of O(100)~ns. Thus to be able to study evolution of CMN and cluster properties, consecutive events from a window of few hundreds of ns are needed. However the probability of closely spaced events is very low without special trigger configuration. The possibilities for a new trigger configuration are very limited due to increased size of events during the VR data-taking by factor of O(10) compared to the standard ZS data run. Moreover in order not to overload CMS data acquisition system, following trigger criteria on the number of triggers in the given number of bunch crossings~(bx) are imposed~\cite{website:VRtrigger}:
+The goals pursued in the further presented studies are to select a HIP event and study the influence of such events on the electronics and the clustering. As seen in previous studies in section~\ref{sec:HIPinPast}, the recovery time of the cluster efficiency is of the order of O(100)~ns. Thus to be able to study the evolution of the CMN and the cluster properties, consecutive events in a window of a few hundreds of ns are needed. However the probability to record closely spaced events in time is very low without special trigger configuration. The possibilities for a new trigger configuration are very limited due to the increased size of events during the VR data-taking by factor of O(10) compared to the standard ZS data taking. Moreover in order not to overload the CMS data acquisition system, the following trigger criteria are imposed on the number of triggers in a given number of bunch crossings~(bx)~\cite{website:VRtrigger}:
 
 \begin{itemize}
-\item{No more than 1 trigger in 3 bx}
-\item{No more than 2 triggers in 24 bx}
-\item{No more than 3 triggers in 100 bx}
-\item{No more than 4 triggers in 240 bx}
+\item{no more than 1 trigger in 3 bx,}
+\item{no more than 2 triggers in 24 bx,}
+\item{no more than 3 triggers in 100 bx,}
+\item{no more than 4 triggers in 240 bx.}
 \end{itemize}
 
-Other protection of the acquisition system overload, used for the runs analyzed in following sections, was the requirement that triggered events have to be spread over many data streams in a way that consecutive events are stored in different files. Because of this limitation, the sorting and ordering of events had to be performed beforehand.
+Another protection of the acquisition system, used for the runs analyzed in following sections, was the requirement that triggered events have to be spread over many data streams to ensure that consecutive events are stored in different files. Because of this limitation, the sorting and ordering of the events had to be performed beforehand.
 
-In the following sections of this chapter, for simplicity, are shown only plots for first layer of TOB, which has exhibited the largest drop in the hit efficiency. Although the fraction of HIP events for given APV defined as
+In the following sections of this chapter, for simplicity, are shown only plots for the first layer of TOB, which exhibited the largest drop in the hit efficiency. Although, the fraction of HIP events for a given APV, defined as
 
 
 \eq{HIPfrac}
@@ -258,46 +258,47 @@ In the following sections of this chapter, for simplicity, are shown only plots 
 f_{HIP} = \frac{N_{HIP}}{N_{all}},
 }
 
-where $N_{HIP}$ is number of selected HIP events per APV, $N_{all}$ is number of all events per APV, is computed in average for all layers of the strip tracker.
+where $N_{HIP}$ is the the number of selected HIP events per APV and $N_{all}$ is the total number of events per APV, is also computed in average for all layers of the strip tracker in order to complement the study with a more global picture.
 
 %To be able to run the study in reasonable time and with reasonable amount of resources, the reduction of the data was done based on 
 
-\subsection{Study of the HIP events as possible cause of the cluster inefficiencies~\label{sec:firstStudy}}
+\subsection{First study of the HIP events in the CMS detector~\label{sec:firstStudy}}
 
-\subsubsection{Motivation}
+\subsubsection{Motivation to study HIP effect with the CMS detector}
 
-As the HIP effect was identified to be most probably the source of the tracking inefficiencies a lot of effort was put into the studies of the HIP effect from many perspectives. One of the option is to analyze Virgin Raw data, from which the pure output of the APV can be obtained. In the following study the VR data were used to characterize the HIP effect and evaluate its impact on the electronics and clustering. Presnted study provides first results on the HIP effect with the CMS data.
+As introduced in section~\ref{sec:hitIneff} the CMS detector faced an important hit inefficiencies in 2015 and 2016. At that time, the HIP effect was identified to be most probably the source of these tracking inefficiencies. A lot of efforts were therefore put into the studies of the HIP effect from many perspectives. One of the option was to analyze Virgin Raw data, from which the pure output of the APV can be obtained. In the following study, the VR data were used to characterize the HIP effect and evaluate its impact on the electronics and clustering. The presented study provides first results on the HIP effect with the CMS data.
 
 \subsubsection{Experimental setup} 
 
-This study is based on VR data taken the $12^{th}$ of April 2016, CMS run 273162, LHC fill 4915, with only silicon strip tracker included in the run. The run was 23 minutes 33 seconds long with initial instantaneous luminosity of 1548$\times 10^{30} \mathrm{cm^{-2} sec^{-1}}$ and end instantaneous luminosity of 1538$\times 10^{30} \mathrm{cm^{-2} sec^{-1}}$. During this run all APVs were operating in the deconvolution mode. The LHC delivered beams with 601 bunches each, 589 pairs of bunches collided at CMS. The average pile-up (interactions per bx) for this fill was 26. The beams were mainly composed of 72 bunches long trains, in which bunches were spaced in a way that they can be collided every 25~ns.
+This study is based on VR data taken on the $12^{th}$ of April 2016: CMS run 273162 during the LHC fill 4915, with only silicon strip tracker included in the run. The run lasted 23 minutes and 33 seconds, with an initial instantaneous luminosity of 1548$\times 10^{30} \mathrm{cm^{-2} sec^{-1}}$ and an end instantaneous luminosity of 1538$\times 10^{30} \mathrm{cm^{-2} sec^{-1}}$. During this run, all APVs were operating in the deconvolution mode. The LHC delivered beams with 601 bunches each, among which 589 pairs of bunches collided at CMS. The average pile-up (interactions per bx) for this fill was 26. The beams were mainly composed of 72 bunches long trains, in which bunches were spaced every 25~ns.
 
-Closely spaced events were enriched in data by using special trigger configuration, which forced the first bunch crossing in fixed train to be triggered. After this trigger two other bunch crossings in the same train were triggered randomly. Then the trigger waited for the same train in next orbit (TODO is better to use turn or orbit?). The final number of triggered events as a function of bunch crossing is shown in Fig.~\ref{fig:figures/triggerStudyFirst}. The shape of the trigger distribution is given by trigger rules as well as forced trigger on first bx in the train.
+Closely spaced events were enriched in data by using a special trigger configuration, which forced the first bunch crossing in a fixed train to be triggered. After this trigger, two other bunch crossings in the same train were triggered randomly. Then the trigger waited for the same train in next orbit. 
+
+%The final number of triggered events as a function of the bunch crossing is shown in Fig.~\ref{fig:figures/triggerStudyFirst}. The shape of the trigger distribution is given by the trigger rules after the forced trigger on the first bx in the train.
 
 %-trigger rules: %https://indico.cern.ch/event/512685/contributions/2167961/attachments/1273330/1887985/virgin_raw_test_2016_ebutz.pdf
 
-%TODO figure trigger
-    \insertFigure{figures/triggerStudyFirst} % Filename = label
-                 {0.6}       % Width, in fraction of the whole page width
-                 {Number of triggered events as a function of bunch crossing.} % Caption
+    %\insertFigure{figures/triggerStudyFirst} % Filename = label
+    %             {0.6}       % Width, in fraction of the whole page width
+    %             {Number of triggered events as a function of bunch crossing.} % Caption
 
 
  \subsubsection{Methodology}
  
 %HIP in module
 
-In section~\ref{sec:HIPinPast} it has been observed that HIP event can be identified via low value of the baseline. Applying this approach to the CMS data an event like the one shown in Fig.~\ref{fig:figures/peakinmodule} has been selected. In this example the expected effect of the HIP event on the chip can be seen -- negative baseline, large signal on few channels and low RMS spread of the raw digis. But in many cases the large signal has not been observed as shown in Fig.~\ref{fig:figures/nopeakinmodule} contradictory to what has been observed in study in section~\ref{sec:HIPinPast}. This can be explained by different operation mode of the APV, in this case deconvolution mode compared to the peak mode which has been used for HIP studies at PSI. During studies of the APV chip behavior when injecting large charge to the calibration circuit~\cite{Bainbridge:2002bda} it has been observed that in case that APV is operating in the deconvolution mode, the large signals can be observed only for few ns and then the affected channels are also driven to the low range of the APV. 
+In section~\ref{sec:HIPinPast}, it has been observed that HIP event can be identified via a low value of the baseline. Applying this approach to the CMS data allows to select the event shown in Fig.~\ref{fig:figures/peakinmodule}. In this example the expected effect of the HIP event on the chip can be seen: a negative baseline, a large signal on few channels and a low RMS spread of the raw digis. But in many cases the large signal is not observed as shown in Fig.~\ref{fig:figures/nopeakinmodule}, in contradiction to what has been observed in the study of section~\ref{sec:HIPinPast}. This difference can be explained by the different operation mode of the APV: a deconvolution mode was used for studies at CMS while for the HIP studies at PSI it was a peak mode. During studies of the APV chip behavior when large charges were injected to the calibration circuit~\cite{Bainbridge:2002bda}, it has been observed that, the large signals can be observed only for few ns when APVs are operated in the deconvolution mode and then the affected channels are also driven to the low range of the APV. 
 
 %TODO figure module with APV with saturated baseline and peak
     \insertFigure{figures/peakinmodule} % Filename = label
                  {0.6}       % Width, in fraction of the whole page width
-                 {Example of distribution of of raw digis~(pink), pedestal subtracted digis~(blue), baselines~(red) and clusters~(green) as a function of strip number in one module. The third APV in the module is showing behavior induced by HIP event - low charge variation for suppressed channels and large observed signal at few channels. } % Caption
+                 {Example of distribution of raw digis~(pink), pedestal subtracted digis~(blue), baselines~(red) and clusters~(green) as a function of the strip number in one module. The third APV in the module is showing a behavior induced by a HIP event: low charge variation for the suppressed channels and a large observed signal for few channels. } % Caption
 %TODO figure module with APV with saturated baseline and without  peak
     \insertFigure{figures/nopeakinmodule} % Filename = label
                  {0.6}       % Width, in fraction of the whole page width
-                 {An example of distribution of of raw digis~(pink), pedestal subtracted digis~(blue), baselines~(red) and clusters~(green) as a function of strip number in one module. The third APV in the module is showing behavior induced by HIP event - low charge variation for suppressed channels, but in this case all channels are driven beyond the low range of APV thus no large charge deposit is observed. } % Caption
+                 {Example of distribution of raw digis~(pink), pedestal subtracted digis~(blue), baselines~(red) and clusters~(green) as a function of the strip number in one module. The third APV in the module is showing a behavior induced by a HIP event: low charge variation for the suppressed channels, but in this case all channels are driven beyond the low range of APV and thus no large charge deposit is observed. } % Caption
 
-Reliable selection of the APVs influenced by the HIP event can be designed via presence of the fully saturated baselines. Analyzing correlation of baseline and $\sigma_{raw}$ in Fig.~\ref{fig:figures/baselinevsRMSrawFirst} it is obvious that the standard events with the nominal value of the baseline around 128~ADC(TODO or 127?) are having $\sigma_{raw}$ of order of few units. The second large population with small value of baseline and $\sigma_{raw}$ is the one of fully saturated baselines, which can be connected with the large energy deposits in the sensor read by the given APV chip. Based on the knowledge of the correlation between the baseline and $\sigma_{raw}$ the selection of HIP events has been chosen to be 
+A reliable selection of APVs influenced by HIP events can be designed via the presence of the fully saturated baselines. From the analysis of the correlation of the baseline and $\sigma_{raw}$ values in Fig.~\ref{fig:figures/baselinevsRMSrawFirst}, it is obvious that the standard events with a nominal value of the baseline around 128~ADC have a $\sigma_{raw}$ value of order of a few ADC units. The second largest population has a small value $\sigma_{raw}$ and a fully saturated baseline, which can be connected with large energy deposits in the sensor read by the given APV chip. Based on the correlation between the baseline and $\sigma_{raw}$, the selection of HIP events has been chosen to be 
 
 \eq{selection}
 {
@@ -307,14 +308,19 @@ CMN<-25~\mathrm{ADC}~\mathrm{and}~\sigma_{raw}<2.5.
 %TODO figure vs RMS
     \insertFigure{figures/baselinevsRMSrawFirst} % Filename = label
                  {0.6}       % Width, in fraction of the whole page width
-                 {The 2-D distribution of RMS spread of raw digis versus baseline. } % Caption
+                 {2-D distribution of the RMS spread of raw digis versus the baseline for run 273162. On the x-axis there are baseline values in ADC and on the y-axis RMS spreadi in ADC of the raw digis in the APV. The large yellow bulk is the population of baselines with nominal value andi the RMS spread of few units of ADC. The smaller yellow population are fully saturated baselines, which exhibit low value of baseline and low value of RMS spread. } % Caption
 
-It can be seen that on the plot there are many events with negative value of baseline, but large value of $\sigma_{raw}$. These events can originate from the baseline drop, baseline recovery and also large energy deposits, but not large enough to fully saturate baseline. In order not to mix different populations, the partially saturated baseline events are not selected as the HIP events. It has also been observed that the full saturation can last for several bunch crossings as shown in section~\ref{sec:limitationsSelection} and consequently more events in a row for given APV can be selected as a HIP. In this case the first event of the possible events is the selected HIP. Also the HIP event does not have to be selected at the time when the real HIP interaction has occurred in the sensor as the saturation of baseline is consequence of the HIP interaction. Other possibilities how to select HIP event will be discussed in section~\ref{sec:limitationsSelection}.
+In the Fig.~\ref{fig:figures/baselinevsRMSrawFirst}, there are many events with a negative value of baseline, but a large value of $\sigma_{raw}$. These events can originate from the baseline drop, the baseline recovery or from the large energy deposits, but not large enough to fully saturate the baseline. In order not to mix the different populations, the partially saturated baseline events are not selected as HIP events. 
 
-The analysis of the APVs influenced by the HIP event has been performed statistically. When the HIP event has been selected, the bunch crossing of this event has been redefined to bx=0, the bunch crossings of two remaining events in the same train has been set relatively to the HIP event, e.g. when the other event has been triggered five bx after the selected HIP, its bx has been set to 5. Then the average information per each bx has been plotted. The APV-averaged baseline distribution as a function of bx, and thus time before and after selected HIP, is show in Fig.~\ref{fig:figures/baselineFirst}. When tracking the baseline evolution in time, going from negative values of bx to positive, long before the HIP has occurred~(bx$\ll$0) the baseline shows stable value around 128~ADC. Shortly before the selected HIP the baseline starts to drop as a consequence of the large energy deposition in the sensor. At bx=0, by definition, the baseline is saturated. The baseline recovers to normality in $\sim$15~bx and slightly overshoots for the remaining duration of the train (TODO why overshoot?).
+It has also been observed that the full saturation can last for several bunch crossings as shown in section~\ref{sec:limitationsSelection} and consequently more conecutive events can be selected as a HIP for a given APV. In this case, the first event of the possible events is defined as the selected HIP. As the saturation of baseline is a consequence of the HIP interaction, the HIP event does not have to be selected at the time when the real HIP interaction has occurred in the sensor. 
 
-A similar distribution as a function of bx is shown for $\sigma_{raw}$ in Fig.~\ref{fig:figures/rmsFirst}. Long before the HIP event the $\sigma_{raw}$ is stable with value around 8. Right before the selected HIP the $\sigma_{raw}$ increases due to the not uniform drop of baseline. The $\sigma_{raw}$ recovers in around 10~bx --  up to this point baselines can be fully or partly saturated and thus are having low $\sigma_{raw}$, but this population is mixed with distorted baselines which on the other hand have large $\sigma_{raw}$ and therefore part of the distribution of bx>0 cannot be straightforwardly interpreted.
+%Other possibilities how to select HIP event will be discussed in section~\ref{sec:limitationsSelection}.
 
+The analysis of the APVs influenced by the HIP event has been performed statistically. For that purpose, when the HIP event has been selected, the bunch crossing of this event has been redefined to bx=0, the bunch crossings of two remaining events in the same train have been set relatively to the HIP event, e.g. when an other event has been triggered five bx after the selected HIP, its bx has been set to 5. Then the average information per each bx has been plotted. The APV-averaged baseline distribution as a function of bx, is shown in Fig.~\ref{fig:figures/baselineFirst}, which allows to study what happened before and after the selected HIP. When tracking the baseline evolution in time, the baseline shows a stable value around 128~AD long before the HIP occures~(bx$\ll$0). Shortly before the selected HIP the baseline starts to drop as a consequence of the large energy deposition in the sensor. At bx=0, by definition, the baseline is saturated. The baseline recovers to normality in $\sim$15~bx and slightly overshoots for the remaining duration of the train (TODO why overshoot?).
+
+A similar distribution for $\sigma_{raw}$  as a function of bx is shownin Fig.~\ref{fig:figures/rmsFirst}. Long before the HIP event, $\sigma_{raw}$ is stable with a value around 8. Right before the selected HIP, $\sigma_{raw}$ increases due to a non-uniform drop of the baseline and recovers in around 10~bx. Up to this recovery point, the baseline can be fully or partly saturated what explains the low $\sigma_{raw}$ value. This population is however mixed with distorted baselines which on the other hand have large $\sigma_{raw}$ and therefore part of the distribution of bx>0 cannot be straightforwardly interpreted.
+
+%zacit tu
 
 %iTODO plot baseline
     \insertFigure{figures/baselineFirst} % Filename = label
