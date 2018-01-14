@@ -178,7 +178,8 @@ The track reconstruction~\cite{Chatrchyan:2014fea} is using the software referre
 
 %energy spectra of heavy fragments produced in silicon are insensitive to energy of incident particle and do not go further than 10MeV, energy loss for such fragments are of order$MeV\mum^{-1}$~thus the fragments can go up to 100 $\mum$ (compare with sensor thickness) - very localized depositions. The light particles from nuclear interactions can travel longer and also contribute significantly to the total energy depositied~\cite{Huhtinen:2000nk}.
 
-Equipped with the knowledge of the tracker readout, in this section we are ready to return to the HIP events and study their effect on electronics and output data in detail. At the beginning of this section the HIP event lab studies done in past will be introduced. Then the first studies of the HIP effect with the CMS detector will follow. The CMS HIP studies will be discussed in two separate sub-sections. In the first sub-section the HIP effect will be studied from the perspective as a possible explanation of the observed hit inefficiency. The later sub-section will study new data after the fix of the largest source of hit inefficiency and will be focused on clean analysis of the HIP properties and consequences on the output.
+Equipped with the knowledge of the tracker readout, in this section we are ready to return to the HIP events and study their effect on electronics and output data in detail. Before the start of the LHC operation, several studies of the HIP events were performed in the laboratory conditions. These studies will be briefly introduced in following subsections to understand basic characteristics of th HIP events and possibilities of its detection. 
+
 
 \subsection{Studies prior to the LHC data taking~\label{sec:HIPinPast}}
 
@@ -195,7 +196,7 @@ To provide reliable studies of the CMS tracker modules behaviour before the star
 
 \subsubsection{Response of the APV25 chip to the HIP events}
 
-As discussed above, the highly ionizing particle leaves very localized large energy depositions up to the equivalent of $\sim$1000 MIPs and thus saturates the APV chips. The affected channels collect a charge beyond the range of the APV which is of order of a few tens of MIPs. The remaining channels from the 128-channel APV are shifted towards the low part of the APV range and even exceed it. This behavior results in the cross-talk effect on the APV chip worsened by the biasing scheme powering inverter and shaper which ensure stable CMN during the normal conditions~\cite{Bainbridge:2004jc}. 
+As discussed previously, the highly ionizing particle leaves very localized large energy depositions up to the equivalent of $\sim$1000 MIPs and thus saturates the APV chips. The affected channels collect a charge beyond the range of the APV which is of order of a few tens of MIPs. The rest of the channels belonging the same 128-channel APV is shifted towards the low part of the APV range and even exceed it. This behavior results in the cross-talk effect on the APV chip worsened by the biasing scheme powering inverter and shaper which ensure stable CMN during the normal  operation conditions~\cite{Bainbridge:2004jc}. 
 
 Because of the shift of CMN the HIP events can be easily identified thanks to a requirement on value of the baseline. In this study, an APV chip, which exhibited baseline$\leq$-20~ADC during the period of 750~ns trigger burst, was tagged as containing a  HIP candidate. The response of the APV chip on the HIP event is shown in Fig.~\ref{fig:figures/thesisEvolution}. Each plot of Fig.~\ref{fig:figures/thesisEvolution} presents the data from 6 consecutive TOB modules~(on the y-axis) after pedestal subtraction at a different time. The x-axis depicts all channels of one module and the indivudal y-axes show the ADC values for all these channels. The normally operating module is e.g. top module in bottom-left plot~($T_{event}$ = 525~ns), where all APVs have their baseline around a nominal value. In this module MIP signal can be seen in the second APV. In Fig.~\ref{fig:figures/thesisEvolution} the HIP signal can be also observed. The top-left plot~($T_{event}$ = 300~ns) shows the first evidence of the HIP event. In the second module from bottom, in the second APV, the large signal peak and a small shift of other channels towards low values of the APV range can be observed . After 50~ns~($T_{event}$ = 350~ns) the channels of the affected APV, which are not collecting the HIP signal, are suppressed and thus the signal peak is fully revealed. The suppression of the numerous channels as well as the large signal peak can be still observed at $T_{event}$ = 525~ns. At $T_{event}$ = 575~ns, the channels start to recover to their initial position. It is interesting to note that at $T_{event}$ = 525~ns~(x$\sim$33~mm) and $T_{event}$ = 575~ns~(x$\sim$33~and~50~mm) a MIP passes through all six layers of the modules. The signal is observed in the APVs of all layers except of the one affected by the HIP event. The time period, during which an APV is insensitive to a MIP signal is referred as the dead-time.
 
@@ -209,16 +210,16 @@ In this analysis the selected HIP event satisfies the selection requesting CMN$\
 
     \insertFigure{figures/CMNandRMSrawPast} % Filename = label
                  {0.6}       % Width, in fraction of the whole page width
-                 {(top) The RMS spread of raw data~($\sigma_{raw}$). The large peak around 1.5~ADC corresponds to standard baselines, while the peak $\sim$ is caused by fully suppressed baselines. (bottom) The CMN distribution, in which the nominal baselines are located around zero and fully supressed baselines are peaking around -100~ADC~\cite{Bainbridge:2004jc}.} % Caption
+                 {(top) The RMS spread of raw data~($\sigma_{raw}$). The large peak around 1.5~ADC corresponds to standard baselines, while the peak $\sim$ is caused by fully suppressed baselines. (bottom) The CMN distribution, in which the nominal baselines are located around zero and fully supressed baselines are peaking around -100~ADC. These results were obtained with PSI beam test data~\cite{Bainbridge:2004jc}.} % Caption
 
 
 %Fully suppressed baselines remain suppressed for around 250ns
 
 \subsubsection{Dead-time induced by the HIP events}
 
-As seen in the example, the HIP event is suppressing all channels from the affected APV which are not collecting signal. Large HIP signals then result in a full suppression of the channels beyond the lower limit of the APV range. The APV with fully suppressed channels exhibit a very small RMS spread~($\sigma_{raw}$) of the data before pedestal subtraction~(raw data), if excluding the channels reading signal. The RMS spread of raw data is shown in top part of Fig.~\ref{fig:figures/CMNandRMSrawPast}, where the population in the large peak corresponds to the normal operation RMS spread values around $\sim$1.6~ADC, which are reproducing the spread of pedestals. The smaller peak population with an RMS spread lower than 1~ADC is coming from fully suppressed baselines not anymore sensitive to the pedestal spread. The tail of the distribution is populated by data with distorted baselines usually originating from the HIP event, and which results in a non-uniform suppression and recovery of the baseline in response to the HIP event.
+As seen in the example, the HIP event is suppressing all channels from the affected APV which are not collecting signal. Large enough HIP signals then result in a full suppression of the channels beyond the lower limit of the possible range, when the electrical signal is so small, that no light is emmited by the laser. The APV with fully suppressed channels exhibit a very small RMS spread~($\sigma_{raw}$) of the data before pedestal subtraction~(raw data), if excluding the channels reading signal. The RMS spread of raw data is shown in top part of Fig.~\ref{fig:figures/CMNandRMSrawPast}, where the population in the large peak corresponds to the normal operation RMS spread values around $\sim$1.6~ADC, which are reproducing the spread of pedestals. The smaller peak population with an RMS spread lower than 1~ADC is coming from fully suppressed baselines not anymore sensitive to the pedestal spread. The tail of the distribution is populated by data with distorted baselines usually originating from the HIP event, and which results in a non-uniform suppression and recovery of the baseline in response to the HIP event.
 
-Based on these observations two event categories were defined: the ``fully suppressed'' and the ``partially suppressed'' baseline events. Events with ``fully suppressed'' baselines satisfy $\sigma_{raw}< 1~\mathrm{ADC}$. ``Partially suppressed'' baselines are required to to have $\sigma_{raw}\geq$1~ADC and CMN$\leq$-20~ADC.
+Based on these observations two event categories were defined: the ``fully suppressed'' and the ``partially suppressed'' baseline events. Events with ``fully suppressed'' baselines satisfy $\sigma_{raw}< 1~\mathrm{ADC}$, due to no light emission. ``Partially suppressed'' baselines are required to to have $\sigma_{raw}\geq$1~ADC and CMN$\leq$-20~ADC.
 
 In the laser simulations of HIP events, during which charge has been induced in tracker sensors by laser, the recovery of baseline and signal in terms of S/N has been studied~\cite{Adam:2005pz}. It was shown in Fig.~\ref{fig:figures/baselineAndSignalRecovery} that the S/N recovers differently and by different velocity than baseline. Thus to estimate the dead-time and hit efficiency induced by an HIP event, the hit and track information was used.
 
@@ -226,14 +227,34 @@ In the laser simulations of HIP events, during which charge has been induced in 
                  {0.6}       % Width, in fraction of the whole page width
                  {The recovery of the baseline~(circles) and S/N~(triangles) (expressed as a ratio of the measured S/N to the reference S/N) as a function of time. The evolution is shown for an inverter resistor value of $50~\mathrm{\Omega}$ and an energy deposit of 25~MeV~\cite{Adam:2005pz}.} % Caption
 
-The dead-time of the APV is evaluated in terms of hit efficiency~($\epsilon_{hit}$) separately for APVs influenced by the HIP event~($\epsilon_{hit}^{HIP}$) and for efficient APVs which are not influenced by the HIP event~($\epsilon_{hit}^{good}$). The hit efficiency is defined as $\epsilon_{hit} = N_{hit}/N_{tracks}$, where $N_{hit}$ is the number of clusters reconstructed in the APV around the track intercept point, and $N_{tracks}$ is the number of reconstructed tracks traversing the APV. The dead-time is then time interval during which the APV is not fully efficient~($\epsilon_{hit}^{HIP}$ < $\epsilon_{hit}^{good}$). The averaged dead-times for the APVs with the fully suppressed baselines are shown in table~\ref{fig:figures/tableDeadtimes} for both inverter resistor values of 50~$\Omega$ and 100~$\Omega$. The APVs with partially suppressed baselines exhibit much smaller dead-time compared to the previous case, typically in order of a few tens of ns. In table~\ref{fig:figures/tableDeadtimes}, it can be noticed that the reduced resistor value significantly decreases the dead-time. Although, diminishing the resistor value has its disadvantage which is the enhancement of the baseline distortions, leading to the reconstruction of ``fake'' clusters~\cite{Bainbridge:2004jc}.
-
-    \insertFigure{figures/tableDeadtimes} % Filename = label
-                 {0.4}       % Width, in fraction of the whole page width
-                 {The mean~($\Gamma_{mean}$) and maximum~($\Gamma_{max}$) dead-time of the APV chip induced by HIP events for fully suppressed~($\sigma_{raw}<1~ADC$) baseline events. The dead-times were evaluated for two different module geometries~(TIB or TOB) as well as two inverter resistor values~(100 or 50~$\Omega$)~\cite{Bainbridge:2004jc}.} % Caption
+The dead-time of the APV is evaluated in terms of hit efficiency~($\epsilon_{hit}$) separately for APVs influenced by the HIP event~($\epsilon_{hit}^{HIP}$) and for efficient APVs which are not influenced by the HIP event~($\epsilon_{hit}^{good}$). The hit efficiency is defined as $\epsilon_{hit} = N_{hit}/N_{tracks}$, where $N_{hit}$ is the number of clusters reconstructed in the APV around the track intercept point, and $N_{tracks}$ is the number of reconstructed tracks traversing the APV. The dead-time is then time interval during which the APV is not fully efficient~($\epsilon_{hit}^{HIP}$ < $\epsilon_{hit}^{good}$). The averaged dead-times for the APVs with the fully suppressed baselines are shown in Tab.~\ref{tab:tableDeadtimes} for both inverter resistor values of 50~$\Omega$ and 100~$\Omega$. The APVs with partially suppressed baselines exhibit much smaller dead-time compared to the previous case, typically in order of a few tens of ns. In Tab.~\ref{tab:tableDeadtimes}, it can be noticed that the reduced resistor value significantly decreases the dead-time. Although, diminishing the resistor value has its disadvantage which is the enhancement of the baseline distortions, leading to the reconstruction of ``fake'' clusters~\cite{Bainbridge:2004jc}.
 
 
-\subsection{Probability of HIP event in the tracker module}
+
+\begin{table}[h]
+\begin{center}
+\begin{tabular}{|l|l|l|}
+\hline
+Sensor type and $R_{inv}$~[\Omega] & $\Gamma_{mean}$~[ns]  & $\Gamma_{max}$~[ns] \\
+\hline
+\hline
+TIB 100 & 99.5 &\pm& 12.0 & 200 &\pm& 25 \\
+TIB 50 & 69.6 &\pm& 9.4 & 250 &\pm& 25 \\
+TOB 100 & 112.5 &\pm& 12.6 & 275 &\pm& 25 \\
+TOB 50 & 100.5 &\pm& 3.6 & 275 &\pm& 25 \\
+\hline
+$\Gamma_{mean} (50/100)_{TIB}$&  0.70 &\pm& 0.13  & \\
+$\Gamma_{mean} (50/100)_{TOB}$&  0.82 &\pm& 0.09 & \\
+\hline
+\end{tabular}
+\caption[Table caption text]{The mean~($\Gamma_{mean}$) and maximum~($\Gamma_{max}$) dead-time of the APV chip induced by HIP events for fully suppressed~($\sigma_{raw}<1~ADC$) baseline events. The dead-times were evaluated for two different module geometries~(TIB or TOB) as well as two inverter resistor values~(100 or 50~$\Omega$).  These results were obtained with PSI beam test data~\cite{Bainbridge:2004jc}. }
+\label{tab:tableDeadtimes}
+\end{center}
+\end{table}
+
+
+
+\subsection{Probability of HIP events in the tracker module}
 
 At the PSI beam test, the measurement of the HIP probability was also provided. The HIP probability labelled as~$P_{HIP}(CMN_{HIP}\leq CMN_{threshold})$ is defined as 
 
@@ -248,6 +269,10 @@ The HIP probability measurements were provided with a pion beam of $300~\mathrm{
 
 
 \section{Studies of the HIP events with the CMS pp collision data}
+
+As described in previous section, several HIP studies were performed before the start of the LHC, but the HIP events has never been studied with the CMS collision data. Though the PSI beam test conditions were supposed to be as close as possible to the CMS ones, the particle and energy spectra differ in these two cases, thus it is important to evaluate the HIP effect in the real CMS environment.
+
+The HIP studies with CMS data will be discussed in two separate sub-sections. In the first sub-section the HIP effect will be studied from the perspective as a possible explanation of the observed hit inefficiency. The later sub-section will study new data after the fix of the largest source of hit inefficiency and will be focused on clean analysis of the HIP properties and consequences on the output.
 
 \subsection{Strategy of the HIP studies}
 
