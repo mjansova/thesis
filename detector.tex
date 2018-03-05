@@ -4,21 +4,103 @@
 \chapterwithnum{The CMS experiment at the LHC}
 \setcounter{secnumdepth}{4}
 
+introductory word
+
 \section{The Large Hadron Collider}
 
+The Large Hadron Collider~(LHC) is a particle accelarator of cicumference of 27~km, which is a part of the CERN accelerator complex located near Geneva, Switzerland~\cite{CERN-Brochure-2017-002-Eng, Evans:2008zzb}. The LHC project was approved in 1994 and designed to provide mainly collisions proton bunches. Part of the LHC running time is also dedicated to collisions of heavy nuclei. Since 2008 the LHC is colliding bunches of protons, which contain around 100 bilion protons each and are arranged in the 2 beams of around 3000 bunches, which are accellarated and then collided against each other. The LHC operations is divided two wo eras, Run~I and Run~2. The Run~I started in 2008 and ended in 2013. During this era the center-of-mass energy of the collisions was 8~TeV and the beam structure allowwd collisions every 50~ns. The Run~II started in 2015 and is still ongoing. In the Run~II the collison center-of-mass energy incerased to 13~TeV and the time between collisions decreased to 25~ns.
+
+At the beginning of the of the acceleration prcocess the protons are obtained by stripping the electrons from the hydrogen atoms. Protons are then pre-accelareted through a chain of accelerators: Linac2, PS Booster, Proton Synchrotorn~(PS) and Super Proton Synchrotron~(SPS). The proton beemas accelerated to 450~GeV are injected from SPS into the LHC~(both clockwise and anti-colckwise), where the beams are further shaped and accelerated with eight RF~(radiofrequency) cavities per beam. The LHC is equipled with around ten thousand magnets, mainly dipoles and quadrupoles, to bend and focus the beams. There is a vacuum in the LHC tube to avoid collisions of particles with gass and vacuum is also used to fo insultation of cryomagnets and helium distribution line.
+
+The bunches of protons collide at four interaction points where the four main experiments where installed. The two general-purpose detectors, which were designed to cover wide range of physics are A Toroidal  LHC ApparatuS~(ATLAS)~\cite{Aad:2008zzm} and Compact Muon Solenoid~(CMS)~\cite{Chatrchyan:2008aa}. The other two main experiments are A Larege Ion Collider Experiment~(ALICE)~\cite{Aamodt:2008zz} which focuses on the analysis of heavy-ion collisions and the Large Hadron Collider beauty~(LHCb)~\cite{Alves:2008zz} specialized in the physics of b-quark. There are threee smaller experiment along the LHC, TOTEM~\cite{Anelli:2008zza} which is close to the CMS and its principal goal is to measure the total cross section of the proton at LHC.  The LHCf~\cite{Adriani:2008zz} which is close to the ATLAS studies particles from interactions which move very close to the proton beams. Finally the MoEDAL~\cite{Acharya:2014nyr} which is close to the LHCb focuses on the search of hypothetical paarticles, e.g. magnetic monopoles. The schematic view of the CERN accelerator complex with its main experiments can be seen in Fig.~\ref{fig:figures/CCC-v2016}.
+
+    \insertFigure{figures/CCC-v2016} % Filename = label
+                 {0.9}       % Width, in fraction of the whole page width
+                 { The CERN accelerator complex~\cite{Mobs:2225847}. }
+
+One of the main motivations for the LHC and its experiments was the search for the Higgs boson which was discovered at 2012. The other principal topic is search for new particles, motivated mainly by cosmological obervations and unification of known forces. Additionaly, the main focus of the  heavy-ion collisions is state called ``quark-gluon plasma'', which existed in the early Universe.
+%- in the LEP tunnel
+%- 50 - 175m underground
+
+\newpage
 
 \section{The Compact Muon Solenoid}
 
 \subsection{CMS detector}
 
-\subsubsection{Coordinate system}
+The CMS~\cite{Chatrchyan:2008aa, CMSproposal} is a multipurpose detector of a length of 28.7~m, a dimaeter 15~m and a weight 14~t,  which is located at the interaction point 5~\cite{Chatrchyan:2008aa}. The CMS was designed to have good muon identification and resolution, to have good charged-particle momentum and resolution as well as high efficiency in reconstruction of charged-particle tracks. Further it was required to ahve good electromagnetic energy, missing-transverse-energy~(MET) and dijet mass resolution. One of the important requriments was also high efficiency in offline tagging of tau particles and jets originating fro b-quarks. These confitions have to be fulfilled in the LHC environmnt, with bunch crossing every 25~ns, where every bunch crossing leads to about 20i inelastic interactions on top of the interaction of the interest resulting in around 1000 charged particles in the CMS detector every 25~ns. Because of the large radiation, the detectors and front-end electronics have to be radiation-hard.
+
+To achieve given requirements, the CMS was built in layers around large solenoidal magnet. Inside the magnet from the intaraction points outwards, there is a pixel and silicon strip tracker, followed by the electromagnetic and hadronic calorimeter. Outside of the magnet teher is an steel return yoke with embedded muon chambers. The CMS detector is shown in Fig.~\ref{fig:fogures/cmsdetector}.
+%-coverage up to |eta|<5
+
+
+    \insertFigure{figures/cmsdetector} % Filename = label
+                 {0.9}       % Width, in fraction of the whole page width
+                 { A schematic layout of the CMS detector~\cite{website:CMSdet}. }
+
+\subsubsection{Coordinate system and conventions}
+
+
+The coordinate system used by CMS is sketched in Fig.~\ref{fig:figures/coordinates}. In this convention, the Cartesian coordinate system has a center at interaction point, with x-axis is pointing into the center of the LHC, y-axis is going upwards and z-axis is going anti-clockwise in the beam direction. The azimuthal angle $\Phi$ is defined in the x-y plane and is measured from the x-axis. The polar angle $\Theta$ is measured from the z-axis and is defined in x-z plane. Finally the $R$ is a radial coordinate in x-y plane. In this convention the pseudorapidity $\eta$ is defined as
+
+    \insertFigure{figures/coordinates} % Filename = label
+                 {0.6}       % Width, in fraction of the whole page width
+                 { The CMS coordinate system with the three axes intecpeting at interaction point, x-axis pointing inside the LHC ring, y-axis going upwards and z-axis pointing anti-clockwise in the direction of the beam.~\cite{Pantaleo:2293435}. }
+
+\eq{pseudorapidity}
+{
+    \eta =  -\ln [ \tan \left \frac{\Theta}{2} \right].
+}
+
+The distance of two points can be measured with help of $\Delta R$ defined as
+
+\eq{deltaR}
+{
+    \Delta R = \sqrt{ \Delta \Phi^2 + \Delta \eta^2}.
+}
+
+
+The transverse momentum $p_{T}$ can be computed from the x and y mometum components as
+
+\eq{pseudorapidity}
+{
+    p_{T} =  \sqrt{p_{x}^2 + p_y^2 }.
+}
+
+
 \subsubsection{Solenoid}
+
+
+The CMS magnet is superconducting solenoid providing magnetic field of 3.8~T. The magnet is surrounded from outside by the steel yoke which returns the magnetic flux of the solenoid~\cite{tdrMagnet}.
+
 \subsubsection{Silicon tracker}
+
 \subsubsection{Electormagnetic calorimeter}
+
+~\cite{tdrECAL}
+-after tracker
+-measure energy of electrons and photons
+-stopping them
+- hermetic homogenous  calorimeter
+- 61 200 lead-tungstate (pbWO4) crystals in barrels, closed by  7324 crystals in endcapes
+- poreshower in fron of endcap crystals -> helps mainly to identify neutral pions (going to gamma gama) from highly energetic single photon~
+- high density crystals -> fast, fine granularity, radiation resistant, good energy resolution
+-barrel coverage |eta|<1.479 and endcap up to |eta|=3.0
+
+- (sigma/E) = (0.028/\sqrt(E)) + (0.12/E) + (0.003) check with EKP-2017-00062...
+-> the three contributions corresponds to stochastic part~(statistical fluctuations in the shower) , noise? T constant corresponds to non-uniformities, inter-calibration errors and energy leakage.
+
 \subsubsection{Hadronic calorimeter}
 \subsubsection{Muon chambers}
 \subsubsection{Trigger and data acquisition}
 \subsubsection{Luminosity and pile-up}
+
+
+    \insertFigure{figures/cmslumi} % Filename = label
+                 {0.6}       % Width, in fraction of the whole page width
+                 { The delivered luminosity to the CMS detector for years 2010-2017~\cite{website:CMSlumi}. }
+
+\newpage
 
 \subsection{Event and object reconstruction at CMS}
 
