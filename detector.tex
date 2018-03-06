@@ -30,7 +30,7 @@ One of the main motivations for the LHC and its experiments was the search for t
 
 The CMS~\cite{Chatrchyan:2008aa, CMSproposal} is a multipurpose detector of a length of 28.7~m, a dimaeter 15~m and a weight 14~t,  which is located at the interaction point 5~\cite{Chatrchyan:2008aa}. The CMS was designed to have good muon identification and resolution, to have good charged-particle momentum and resolution as well as high efficiency in reconstruction of charged-particle tracks. Further it was required to ahve good electromagnetic energy, missing-transverse-energy~(MET) and dijet mass resolution. One of the important requriments was also high efficiency in offline tagging of tau particles and jets originating fro b-quarks. These confitions have to be fulfilled in the LHC environmnt, with bunch crossing every 25~ns, where every bunch crossing leads to about 20i inelastic interactions on top of the interaction of the interest resulting in around 1000 charged particles in the CMS detector every 25~ns. Because of the large radiation, the detectors and front-end electronics have to be radiation-hard.
 
-To achieve given requirements, the CMS was built in layers around large solenoidal magnet. Inside the magnet from the intaraction points outwards, there is a pixel and silicon strip tracker, followed by the electromagnetic and hadronic calorimeter. Outside of the magnet teher is an steel return yoke with embedded muon chambers. The CMS detector is shown in Fig.~\ref{fig:fogures/cmsdetector}.
+To achieve given requirements, the CMS was built in layers around large solenoidal magnet. Inside the magnet from the intaraction points outwards, there is a pixel and silicon strip tracker, followed by the electromagnetic and hadronic calorimeter. Outside of the magnet teher is an steel return yoke with embedded muon chambers. The CMS detector is shown in Fig.~\ref{fig:fogures/cmsdetector}. In  the following sections, the layers of the CMS, starting with the innermost, are introduced in more details.
 %-coverage up to |eta|<5
 
 
@@ -75,23 +75,47 @@ The CMS magnet is superconducting solenoid providing magnetic field of 3.8~T. Th
 
 \subsubsection{Silicon tracker}
 
+The silicon strip is the innermost subdetector of the CMS detector, which can be divided into two parts. The inner part is composed by pixel detectors, while the outer part by strip detectors.
+
 \subsubsection{Electormagnetic calorimeter}
 
-~\cite{tdrECAL}
--after tracker
--measure energy of electrons and photons
--stopping them
-- hermetic homogenous  calorimeter
-- 61 200 lead-tungstate (pbWO4) crystals in barrels, closed by  7324 crystals in endcapes
-- poreshower in fron of endcap crystals -> helps mainly to identify neutral pions (going to gamma gama) from highly energetic single photon~
-- high density crystals -> fast, fine granularity, radiation resistant, good energy resolution
--barrel coverage |eta|<1.479 and endcap up to |eta|=3.0
+The electromagnetic calorimeter (ECAL)~\cite{tdrECAL} is a layer following the silicon tracker. It is homogenous, fast, radiation resistant calorimenter with a good energy resolution which is composed of lead-tungstate ($\mathrm{PbWo_{4}}$) crystals and its purpose is to measure energy of electrons and photons. The ECAL consist of two parts, barrel~(EB) covering $|\eta|<1.479$ and endcaps~(EC) extending coverage up to $\eta =3$. A preshower is placed in front of the endcaps in order to separate highly energetic single photons from the photon originating from the decay of neutral pions.
 
-- (sigma/E) = (0.028/\sqrt(E)) + (0.12/E) + (0.003) check with EKP-2017-00062...
--> the three contributions corresponds to stochastic part~(statistical fluctuations in the shower) , noise? T constant corresponds to non-uniformities, inter-calibration errors and energy leakage.
+The energy resolution of ECAL was determined to be
 
-\subsubsection{Hadronic calorimeter}
+\eq{ECALresol}
+{
+ \frac{\sigma_{E}}{E} = \frac{0.028}{\sqrt{E}} \bigoplus \frac{0.12}{E} \bigoplus 0.003 ,
+}
+
+where $E$ is energy and $\sigma_{E}$ is energy resolution. The first term is stochastic part, it corresponds to e.g. fluctioations in number of particles. The second term accounts for noise and the third term covers mainly the non-uniformities, energy leakage and intercallibration errors.
+
+
+\subsubsection{Hadron calorimeter}
+
+Hadron calorimeter~(HCAL)~\cite{tdrHCAL} surrounds teh ECAL  (only HB and HE in fact), is dedicated to measure energy of hadrons. -> to be revisited
+-jets and MET
+-barrel~(HB) and endcapes~(HE) 
+-outer hadron calorimeter~(HO) outside the solenoid because of not enough of available space
+-endcapes up to |eta|=3
+- forward hadron calorimeter (HF) up tom |eta|=5.2 which is 11.2 meters far from IP, cherenkov-based technology
+-HF exposed to extreme particle flux -> very radiation hard technology - absorber steel, quartz fibers are active material
+-HB and HO not enough stopping power -> to ensure enough of sampling depth, additional HO covering |eta|<1.3 -> stop the remaining particles -> known as tail catcher
+-HO uses materal of magnet as an absorber
+-HF quartz fibres
+- HF and HE absorber is brass and active material is plastic scintilator
+
+-HB sampling calorimeter |eta<1.3|
+-HE 1.3<|eta|<3 -> contains 34 percent of particles produced in final state
+
+-layers of brass and scintilator plates
+
+-energy resolution 0.847/sqrt(E) + 0.074 -> The hadronic energy resolution of the barrel HCAL and ECAL combination ~\cite{Chatrchyan:2009ag}, similar in endcaps
+- for HF 1.98/sqrt(E)+0.09 -> higher because of high energy of jets in this region but as divided by energy, it is ok
+-first term is again stochastic
+
 \subsubsection{Muon chambers}
+\subsubsection{Castor}
 \subsubsection{Trigger and data acquisition}
 \subsubsection{Luminosity and pile-up}
 
