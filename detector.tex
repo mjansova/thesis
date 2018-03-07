@@ -49,7 +49,7 @@ The coordinate system used by CMS is sketched in Fig.~\ref{fig:figures/coordinat
 
 \eq{pseudorapidity}
 {
-    \eta =  -\ln [ \tan \left \frac{\Theta}{2} \right].
+    \eta =  -\ln [ \tan \left( \frac{\Theta}{2} \right) ].
 }
 
 The distance of two points can be measured with help of $\Delta R$ defined as
@@ -71,7 +71,7 @@ The transverse momentum $p_{T}$ can be computed from the x and y mometum compone
 \subsubsection{Solenoid}
 
 
-The CMS magnet is superconducting solenoid providing magnetic field of 3.8~T. The magnet is surrounded from outside by the steel yoke which returns the magnetic flux of the solenoid~\cite{tdrMagnet}.
+The CMS magnet is superconducting solenoid providing magnetic field of 3.8~T. The magnet is surrounded from outside by the steel yoke which returns the magnetic flux of the solenoid~\cite{tdrMagnet}. Because of the pgysics reson, the radius of the magnet has to be small and therefore the available space between the magnet and interaction point is limited.
 
 \subsubsection{Silicon tracker}
 
@@ -93,28 +93,57 @@ where $E$ is energy and $\sigma_{E}$ is energy resolution. The first term is sto
 
 \subsubsection{Hadron calorimeter}
 
-Hadron calorimeter~(HCAL)~\cite{tdrHCAL} surrounds teh ECAL  (only HB and HE in fact), is dedicated to measure energy of hadrons. -> to be revisited
--jets and MET
--barrel~(HB) and endcapes~(HE) 
--outer hadron calorimeter~(HO) outside the solenoid because of not enough of available space
--endcapes up to |eta|=3
-- forward hadron calorimeter (HF) up tom |eta|=5.2 which is 11.2 meters far from IP, cherenkov-based technology
--HF exposed to extreme particle flux -> very radiation hard technology - absorber steel, quartz fibers are active material
--HB and HO not enough stopping power -> to ensure enough of sampling depth, additional HO covering |eta|<1.3 -> stop the remaining particles -> known as tail catcher
--HO uses materal of magnet as an absorber
--HF quartz fibres
-- HF and HE absorber is brass and active material is plastic scintilator
+The purpose of the hadron calorimeter~(HCAL)~\cite{tdrHCAL}, which is subdetector another subdetector of CMS, is to measure energy of strongly interacting particles.  The HCALi is a sampling colorimeter which has four parts, out of them two are located between the ECAL and magnet, these are HCAL barrrel~(HB) and endcaps~(HE). Both HE and HB have a brass absorber and their active material is made of plastic scintilator. The pseudorapidity coverage of HB is $|\eta|<1.3$, and of HE $1.3<|\eta|<3$, which is further extended up to $|\eta|=5.2$ by the third part called forward calorimeter~(HF). The HF, installed 11.2 meters far from interaction point on both sides, has is made of steel as an absorber and quartz fibers as an active volume. The technology of the HF is very radiation-hard as around third of particles produced in the final state hits the HF. Because of the available space between the ECAL and magnet was not large enough to build caloriemter with enough stopping power, the last part of the calorimeter, the outside calorimeter~(HO), was added after the magnet. The HO is covering region $|\eta|<1.3$ and stops particles escaping the barrel, for this reason it is someties also reffered as ``tail catcher''. The magnet material is used as an absorber for HO.
 
--HB sampling calorimeter |eta<1.3|
--HE 1.3<|eta|<3 -> contains 34 percent of particles produced in final state
+The hadron energy resolution from combination of ECAL and HCAL (barrel and endcapes)~\cite{Chatrchyan:2009ag} was determined to be
 
--layers of brass and scintilator plates
 
--energy resolution 0.847/sqrt(E) + 0.074 -> The hadronic energy resolution of the barrel HCAL and ECAL combination ~\cite{Chatrchyan:2009ag}, similar in endcaps
-- for HF 1.98/sqrt(E)+0.09 -> higher because of high energy of jets in this region but as divided by energy, it is ok
--first term is again stochastic
+\eq{HCALresol}
+{
+ \frac{\sigma_{E}}{E} = \frac{0.847}{\sqrt{E}} \bigoplus 0.074 ,
+}
+
+where the terms have similar meaning as for ECAL.
+%- for HF 1.98/sqrt(E)+0.09 -> higher because of high energy of jets in this region but as divided by energy, it is ok
 
 \subsubsection{Muon chambers}
+
+Bacause many interesting physics processes have signature with muons in the final state, good and precise measyrement of muons is one of teh main goals of the CMS. This comprises muon identification, momentum measurement and triggering. The good triggering and momentum measurement is achieved with help of the high magnetic field provided by the solenoid. The muon mesurement is provided by three gaseous subdetectors, the drift tube~(DT), cathode strip chamber~(CSC) and resistive plate chamber~(RPC) systems~\cite{tdrMuon}.
+
+The DTs are located in the barrel region, they are partly integrated into the return yoke and are covering pseudorapidity of $|\eta|<1.2$. They are composed of plane cathodes with anode wires are in between. The endcaps are outside the return yoke and are composed by the CSCs. The CSCs coverage is $0.9<|\eta|<2.4$, which is partly overlapping with teh DTs. The CSCs also contain cathodes with anode wires in between, but one cathode of the pair is segmented into strips. The DTs and CSCs provide good triggering on uons independent of the rest of the CMS.
+
+To ensure the triggering on the right bunch crossing, the compementary RPCs are present in both barrel and endcap regions. The RPCs are faster DTs and CSCs, but on the other hand they provide worse position resolution. The RPCs trigger is independent of the CSCs and DTs. They are composed of parallel plates of anodes and cathodes and redout strips. 
+
+\subsubsubsection{Muon timing measurement in DTs}
+
+- in DTs the local position of muon is determined from the drift time of electrons (ionized by muon) to the wires. The drift velocity is known and the time when the particle hits detector is know as well (particle produced at IP travelloing at c). The difference of the time when the detector is hit and the readout time can be converted into distance from the anode wire. What is unknown if th ewire is hit fro left or right, but this is solved by using more layers as layers have shifted chambers one against each other. (need to add Fig. 1). If particle arrives at different time than assumed during standard reconstruction, the trajectory will not be straight because of the shift of delta(t) -> wavy pattern. Deviation of hit from the straight line -> measure of timing offset delta(t), wich can be converted to time again.
+
+Timing reconstruction -> input are dleta(t) measurements = measured arrival time to expected arrival time. 
+
+-timeAtIPInOut
+
+assumes particle going from inside of the CMS out at speed of light. time when muon passed the IP is computed from the weighted average of delta(t) measurements. the weight for DT is N-2, where N is number of hits in DT segment to which the hit belongs.  The error is caluculated as
+
+\eq{timingResol}
+{
+ \sigma^{2} = \frac{1}{N-1} \times \frac{1}{\sum{w_{i}}} \times \sum{(t_i-\bar{t})^2 w_{i} },
+ 
+}
+
+where $wi = 1/\sigma_{i}^2$ (single hit resolution), t stredni is the delta(t) calculated from the  wighted average
+
+-timeAtIPOutIn 
+
+
+-on top of it
+ CMS being synchronized "top-down" for cosmic runs, so that a cosmic muon going vertically down is always in-time (or "at the same time" to be more precise). So basically the DT system is timed for muons going straight down. (just like for collisions it's timed for muons going outwards from IP).In practical terms. The "muons" collection takes as timeAtIpInOut what is more or less the mean of the segment times for a muon. Because it's assuming that the muon is propagating in the same direction that the system is synchronized in. From my observations above it looks like this is the case, the system is synchronized for downward-going cosmics.
+
+
+
+~\cite{Traczyk:1365029}
+
+
+
 \subsubsection{Castor}
 \subsubsection{Trigger and data acquisition}
 \subsubsection{Luminosity and pile-up}
