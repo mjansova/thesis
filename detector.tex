@@ -2,7 +2,7 @@
 
 \setcounter{secnumdepth}{4}
 \chapterwithnum{The CMS experiment at the LHC}
-\setcounter{secnumdepth}{4}
+\setcounter{secnumdepth}{5}
 
 introductory word
 
@@ -114,38 +114,74 @@ The DTs are located in the barrel region, they are partly integrated into the re
 
 To ensure the triggering on the right bunch crossing, the compementary RPCs are present in both barrel and endcap regions. The RPCs are faster DTs and CSCs, but on the other hand they provide worse position resolution. The RPCs trigger is independent of the CSCs and DTs. They are composed of parallel plates of anodes and cathodes and redout strips. 
 
-\subsubsubsection{Muon timing measurement in DTs}
+in the following sub-section the time measurement in DTs is introduced. The timing can be also measured with CSCs and ECAL in similar manner, but for the purposes of the thesis only the measurement in DTs is needed.
 
-- in DTs the local position of muon is determined from the drift time of electrons (ionized by muon) to the wires. The drift velocity is known and the time when the particle hits detector is know as well (particle produced at IP travelloing at c). The difference of the time when the detector is hit and the readout time can be converted into distance from the anode wire. What is unknown if th ewire is hit fro left or right, but this is solved by using more layers as layers have shifted chambers one against each other. (need to add Fig. 1). If particle arrives at different time than assumed during standard reconstruction, the trajectory will not be straight because of the shift of delta(t) -> wavy pattern. Deviation of hit from the straight line -> measure of timing offset delta(t), wich can be converted to time again.
+\textbf{Muon timing measurement in DTs}
 
-Timing reconstruction -> input are dleta(t) measurements = measured arrival time to expected arrival time. 
+The muon going through DTs deposits its energy by ionization of the gas. Created charge carriers drift towards the wires and are read at time $t_{read}$. If it is assumed that the muon was produced in time with collision and its speed is speed-of-light, the time ($t_{cell}$) when the muon arrives to the given drift cell can be calculated. Then with the knowledge of the drift velocity~$v_{drift}$, the difference between $t_{read}$ and $t_{cell}$ can be converted into distance as shown in Fig.~\ref{fig:figures/dtTiming}. In this figure the distance $ v_{drift} (t_{read} - t_{cell})$ is illustrated in violet arrow. The distance is then used to compute the hits where muon crossed the cells, shown in blue crosses. In case that the production time was assumed correctly, all hits should be on one line. If the particle was not produced ``in time'' with the assumed production time, the hits will be shifted~(red crosses) by and the line which connects them is not straight, but curly. The time distance between reconstructed hits and hits on the straight line is converted to the time~$\delta t$, which measures real arrival time of muon with respect to the expected arrival time, and thus can be used to compute the muon timing~\cite{Traczyk:1365029}.
 
--timeAtIPInOut
 
-assumes particle going from inside of the CMS out at speed of light. time when muon passed the IP is computed from the weighted average of delta(t) measurements. the weight for DT is N-2, where N is number of hits in DT segment to which the hit belongs.  The error is caluculated as
+    \insertFigure{figures/dtTiming} % Filename = label
+                 {0.5}       % Width, in fraction of the whole page width
+                 { A schema of few drift cells of DT. The wires are shown in black dots, the drift direction in purple arrows, the expected hits in blue crosses and the reconstructed hits in the red crosses. The distance between reconstructed and expected hits is coverted to time ans denoted as $\delta t$~\cite{Traczyk:1365029}. }
+
+The timing measurements are combined to produce, among others, the following variables 
+
+\begin{description}
+\item [TimeAtIPInOut]
+This variable corresponds to the ttime at which muon passed the interaction point, assunimng that particle moves at speed of light from IP outside the CMS. It is compuetd as a weighted avarage of $\delta t$ values, where for the DTs each weight weight is equal to N-2, with N being a number of hits in a segment to which the the hit belongs. The error on the time measurement is compued as
 
 \eq{timingResol}
 {
  \sigma^{2} = \frac{1}{N-1} \times \frac{1}{\sum{w_{i}}} \times \sum{(t_i-\bar{t})^2 w_{i} },
- 
 }
 
-where $wi = 1/\sigma_{i}^2$ (single hit resolution), t stredni is the delta(t) calculated from the  wighted average
+where wight $w_{i}$ is defined as $w_i = 1/\sigma_{i}^2$ with $\sigma_{i}$ being a single hit resolution, $\bar{t}$ is the weighted average of the $\delta t$ measurements.
 
--timeAtIPOutIn 
+\item[TimeAtIPOutIn]
+The TimeAtIPOutIn is the muon time at interaction point assuming a muon moving from outside of the detector towerds the IP. During the calculation, each $\delta t$ measureemnts is increased by twice time-of-flight~(TOF) of the in-time muon from IP to the DT cell measuring $\delta t$. Then the proceedure continues as for the TimeAtIPInOut.
+
+\item[Direction]
+The direction variable provides a simple and rubust estimate if the muon moved from the IP out or opposite. The evaluation takes into account the errors on the TimeAtIPOutIn and TimeAtIPInOut variables and assumes that the correct time hypothesis has smaller error.
+
+\item[Free inverse beta]
+This variable is free $c/v$, where $c$ is the speed of light and $v$ speed of the muon. The word ``free''indicates that neither particle production time, direction nor velocity is assumed and are free parameters. It is obtained from the fit of muon time-of-flight measurements.
+
+The timing resolution for DTs in Run~I was determined to be 7-9~ns~\cite{Traczyk:1365029}, compared to 2.3~ns obtained from simulation. But the measured resolution is expected to decrease as the detectro synchronization improves.
+
+\end{description}
+
+%-on top of it
+ %CMS being synchronized "top-down" for cosmic runs, so that a cosmic muon going vertically down is always in-time (or "at the same time" to be more precise). So basically the DT system is timed for muons going straight down. (just like for collisions it's timed for muons going outwards from IP).In practical terms. The "muons" collection takes as timeAtIpInOut what is more or less the mean of the segment times for a muon. Because it's assuming that the muon is propagating in the same direction that the system is synchronized in. From my observations above it looks like this is the case, the system is synchronized for downward-going cosmics. - not the case in the paper
+
+\textbf{tracker}
+-innermost
+-trajectories of charged particles
+-primary and secondary vertices reconstruction from tracks
+-curvature in mg field - momentum and sign of particles
+- good spatial resolutiona nd extremly radiation hard
+-small
+- should not affet traversing particle in a way -via multiple scattering, nuclear interactions, bremsstrahlung
+-silicon sensors in all tracker
+- detector layers
+-the density of particles decrease with distance from IP -> in  inner part pixels (which handle high track density), outside strips
 
 
--on top of it
- CMS being synchronized "top-down" for cosmic runs, so that a cosmic muon going vertically down is always in-time (or "at the same time" to be more precise). So basically the DT system is timed for muons going straight down. (just like for collisions it's timed for muons going outwards from IP).In practical terms. The "muons" collection takes as timeAtIpInOut what is more or less the mean of the segment times for a muon. Because it's assuming that the muon is propagating in the same direction that the system is synchronized in. From my observations above it looks like this is the case, the system is synchronized for downward-going cosmics.
+\textbf{pixels}
 
 
+\textbf{strips}
+-strips 8 to 20 cm long with pitch between 80 $\mu m$ and 200 $\mu m$
+-strips enough in this area, and it reduces costs -> fewer readout channels
 
-~\cite{Traczyk:1365029}
-
-
-
-\subsubsection{Castor}
 \subsubsection{Trigger and data acquisition}
+
+-now rate of 40MHz -> fast and reliable triggering
+- a single event has approx 1MB, thus we would neet to stor 40TB per second if no trigger
+- physics motivated selection- two parts (Level-1) L1 and (High Level Trigger) HLT
+-L1 - hardware based, info from muon subdetectors and  calorimeters -> decision is made in around 3.4~$\mu s$ .Only triggered events sent to LHCi, the data from the rest of subdetectors read
+-HLT - software based, further selection, HLT algorithms can be adjusted to the sought physics. Rate after HLT is order of few 100 HZ  
+
 \subsubsection{Luminosity and pile-up}
 
 
@@ -160,6 +196,12 @@ where $wi = 1/\sigma_{i}^2$ (single hit resolution), t stredni is the delta(t) c
 
 \subsubsection{Data formats}
 \subsubsection{Particle-Flow algorithm}
+~\cite{Sirunyan:2017ulk}
+
+    \insertFigure{figures/CMStransverse} % Filename = label
+                 {0.9}       % Width, in fraction of the whole page width
+                 { Transverse view through the CMS detector~\cite{Sirunyan:2017ulk}. }
+
 \subsubsection{Tracks and vertices}
 \subsubsection{Jets and b-jets}
 \subsubsection{Leptons}
