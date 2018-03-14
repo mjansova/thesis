@@ -165,9 +165,10 @@ The timing resolution for DTs in Run~I was determined to be 7-9~ns~\cite{Traczyk
 -silicon sensors in all tracker
 - detector layers
 -the density of particles decrease with distance from IP -> in  inner part pixels (which handle high track density), outside strips
-
+i-pseudorapidity of $\eta < 2.5$
 
 \textbf{pixels}
+-
 
 
 \textbf{strips}
@@ -176,18 +177,56 @@ The timing resolution for DTs in Run~I was determined to be 7-9~ns~\cite{Traczyk
 
 \subsubsection{Trigger and data acquisition}
 
--now rate of 40MHz -> fast and reliable triggering
+-now rate of 40MHz (25ns bx) -> fast and reliable triggering
 - a single event has approx 1MB, thus we would neet to stor 40TB per second if no trigger
 - physics motivated selection- two parts (Level-1) L1 and (High Level Trigger) HLT
--L1 - hardware based, info from muon subdetectors and  calorimeters -> decision is made in around 3.4~$\mu s$ .Only triggered events sent to LHCi, the data from the rest of subdetectors read
--HLT - software based, further selection, HLT algorithms can be adjusted to the sought physics. Rate after HLT is order of few 100 HZ  
+-L1 - hardware based, info from muon subdetectors and  calorimeters -> decision is made in around 3.4~$\mu s$ .Only triggered events sent to LHCi, the data from the rest of subdetectors read ->100kHZ
+-HLT - software based, further selection, HLT algorithms can be adjusted to the sought physics. Rate after HLT is order of few 100 HZ . HLT is parallelized.
+ 
 
 \subsubsection{Luminosity and pile-up}
 
+- needed for both beam parameters and physics analysis
+-luminosity
 
+\eq{nev}
+{
+ \frac{\mathrm{d}N}{\mathrm{d}t} = \sigma \times \mathcal{L},
+}
+
+where $\mathcal{L}$ is the instantenous luminostity given by
+
+\eq{luminosity}
+{
+ \mathcal{L} = \frac{N_{p}^2 N_{b} f_{rev} \gamma}{4 \pi \epsilon_{n} \beta^{*}}F,
+}
+
+where the variables in numerator are $N_{p}$ which is the number of particle in one bunch, $N_{b}$ which is the number of bunches in one beam and $f_{rev}$ which is the revolution frequency and $\gamma$ is the relativistic gamma factor. In the denominator the $\epsilon_{n}$ is normalized transverse beam emmitance and $\beta_{*}$ is the beam amplitude function. Lastly, because of the beam crossing angle the reduction factor $F$ is introduced.
+i
+The designed max peak inst. luminosity of LHC is $1 \times 10^{34} cm^{-2}s^{-1}$
+Run1 begun with peak inst. luminosity of LHC is $3.6 \times 10^{33} cm^{-2}s^{-1}$ - do not give number, just order
+Run2  peak inst. luminosity of LHC up to $1.58 \times 10^{34} cm^{-2}s^{-1}$ -> more than designed ~\cite{Pralavorio:2272474} -LHC
+-give formula.
+\eq{intluminosity}
+{
+ L = \int{ \mathcal{L} \mathrm{d}t}
+}
+-and then integrated lumi formula.
+
+The total integrated luminosity since here:
     \insertFigure{figures/cmslumi} % Filename = label
                  {0.6}       % Width, in fraction of the whole page width
                  { The delivered luminosity to the CMS detector for years 2010-2017~\cite{website:CMSlumi}. }
+
+
+because of the high lumi several interactions at one time taht lead to inelastic and diffractive scattering -> 
+in-time PU
+om top of that OOT PU comming from BX before and after the triggered event~\cite{Bayatian:2006nff}(simu view) -> they are remaining and looping in teh detector (before), after(like in tracker?!)
+
+-REFERENCES needed.
+%the inst lumi measured by two detectors: 
+%-fast Beam Conditions Monitory (BCM1f)~\cite{Bell:2009hr}
+%-pixel luminosity telescope (PLT)~\cite{}
 
 \newpage
 
