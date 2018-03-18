@@ -75,7 +75,62 @@ The CMS magnet is superconducting solenoid providing magnetic field of 3.8~T. Th
 
 \subsubsection{Silicon tracker}
 
-The silicon strip is the innermost subdetector of the CMS detector, which can be divided into two parts. The inner part is composed by pixel detectors, while the outer part by strip detectors.
+The silicon tracker~\cite{CMS:1997tlf, CMS:2000eqx} is the innermost subdetector of the CMS detector, which consist of layers of the silicon sensors. The CMS tracker can be divided into two parts~\cite{CMS:1997tlf}. The inner part is composed by pixel detectors, while the outer part by strip detectors. Its purposed is to reconstruct the tracks of charged particles and the primary and secondary vertices. The track is the reconstructed path of the particle passing trough the tracker. The primary vertices, vertex from the interaction of interest and PU interactions, are the positions of the interaction and can be determined using the tracks. The secondary vertices are the places where one particle decayed to other particles and are also found with help of tracks. 
+
+
+As the tracker is in the magnetic field in which the cahrged particles bend, their momenta and charge sign can be measured as well. To perform so, the tracker has to have good spatial resolution and to be extremly radiation-hard due to large flux of incoming particles. Also the material has to be chosen carefuly, in order to avoid multiple scattering, nuclear interactions or bremsstrahlung.
+
+The density of the particles decrease with distance from the interaction point and therefore the inner part of the tracker is made of silicon pixels, which are able to measure aprticle trajactories and its properties high particle density environment. In the outer part of the tracker the density is low enough to use silicon strip sensors, which are cheaper mainly because they require less readout channels. Overall, the tracker pseudorapidity coverage is  $\eta < 2.5$.
+
+\textbf{Silicon strip tracker}
+
+In the following chapters the studies of the silicon strip tracker and its simulation are presented and thus it is necessary to take a deeper look into its design. The silicon strip tracker is divided into four partitions. Each of the partition has layers of modules, which have either one side~(mono) or two sides~(stereo) of silicon sensors. The tracker inner barrel~(TIB) is the innermost barell layer with two layers of stereo modules suceeded with two layers of mono modules. The tracker outer barrel~(TOB) surrounds the TIB. In the innermost part, it has two layers of stereo modules, the remaining four layers are mono. On each side of the barrel, tracker inner disks~(TID) and tracker endcapes~(TEC) are located. There are three wheels of TID with three module rings and 9 wheels of TEC with four to seven rings of modules on each side. In each layer there is a mixture of mono and stereo modules, but each ring has either mono or stereo modules. The overall layout of the silicon strip tarcker can be seen in Fig.~\ref{fig:figures/cmsTracker}.
+
+    \insertFigure{figures/cmsTracker}
+                 {0.9}       
+                 {A schema of the upper half of the CMS silicon strip tracker tracker and its partition layout. The modules in blue are stereo, while the mono ones are shown in black color~\cite{Chatrchyan:2014fea}. }
+
+Each of the modules holds 320$\mathrm{\mu m}$ or 500$\mathrm{\mu m}$ thick silicon sensors with either 512 or 768 silicon strips, in case of mono modules, for stereo modules the number doubles. The strip lenght is between 8 and 25~cm and their width is 18~$\mathrm{\mu m}$. The distance between strips, called pitch, varies between 80 $\mu m$ and 200 $\mu m$. In barrels the strips are parallel to the z-axis, or are tilted by 100~mrad with respect to the z-axis. In the disks and endcapes, the strips are allingned to be parallel to $R$. The details about the module geometries for each laer of TIB and TOB and each ring of TID and TEC can be found in Tab.~\ref{tab:trackerGeometries} .
+
+\begin{table}[h]
+\begin{center}
+\begin{tabular}{|l|l|l|l|l|}
+\hline
+Layer & Type  & Strips & Thickness~[$\mathrm{\mu m}$] & Pitch~[$\mathrm{\mu m}$]  \\
+\hline
+\hline
+TIB L1 & stereo & 768 & 320 & 80  \\
+TIB L2 & stereo & 768 & 320 & 80  \\
+TIB L3 & mono & 512 & 320 & 120  \\
+TIB L4 & mono & 512 & 320 & 120 \\
+\hline
+TOB L1 & stereo & 768/512 & 500 & 122/183 \\
+TOB L2 & stereo & 768/512 & 500 & 122/183 \\
+TOB L3 & mono & 512 & 500 & 183 \\
+TOB L4 & mono & 512 & 500 & 183 \\
+TOB L5 & mono & 768 & 500 & 122 \\
+TOB L6 & mono & 768 & 500 & 122 \\
+\hline
+TID R1 & stereo & 768 & 320 & 81...112  \\
+TID R2 & stereo & 768 & 320 & 113...143  \\
+TID R3 & mono & 512 & 320 & 124...158  \\
+\hline
+TEC R1 & stereo & 768 & 320 & 81...112  \\
+TEC R2 & stereo & 768 & 320 & 113...143  \\
+TEC R3 & mono & 512 & 320 & 124...158  \\
+TEC R4 & mono & 512 & 320 & 113...139  \\
+TEC R5 & stereo & 768 & 500 & 126...156  \\
+TEC R6 & mono & 512 & 500 & 163...205  \\
+TEC R7 & mono & 512 & 500 & 140...172  \\
+\hline
+\end{tabular}
+\caption[Table caption text]{The module type, number of strips, thickness and pitch for layers or rings of four silicon strip tracker partitions ~\cite{website:hephyPage}. }
+\label{tab:trackerGeometries}
+\end{center}
+\end{table}
+
+
+%-hit resolution
 
 \subsubsection{Electormagnetic calorimeter}
 
@@ -154,47 +209,21 @@ The timing resolution for DTs in Run~I was determined to be 7-9~ns~\cite{Traczyk
 %-on top of it
  %CMS being synchronized "top-down" for cosmic runs, so that a cosmic muon going vertically down is always in-time (or "at the same time" to be more precise). So basically the DT system is timed for muons going straight down. (just like for collisions it's timed for muons going outwards from IP).In practical terms. The "muons" collection takes as timeAtIpInOut what is more or less the mean of the segment times for a muon. Because it's assuming that the muon is propagating in the same direction that the system is synchronized in. From my observations above it looks like this is the case, the system is synchronized for downward-going cosmics. - not the case in the paper
 
-\textbf{tracker}
--innermost
--trajectories of charged particles
--primary and secondary vertices reconstruction from tracks
--curvature in mg field - momentum and sign of particles
-- good spatial resolutiona nd extremly radiation hard
--small
-- should not affet traversing particle in a way -via multiple scattering, nuclear interactions, bremsstrahlung
--silicon sensors in all tracker
-- detector layers
--the density of particles decrease with distance from IP -> in  inner part pixels (which handle high track density), outside strips
-i-pseudorapidity of $\eta < 2.5$
-
-\textbf{pixels}
--
-
-
-\textbf{strips}
--strips 8 to 20 cm long with pitch between 80 $\mu m$ and 200 $\mu m$
--strips enough in this area, and it reduces costs -> fewer readout channels
 
 \subsubsection{Trigger and data acquisition}
 
--now rate of 40MHz (25ns bx) -> fast and reliable triggering
-- a single event has approx 1MB, thus we would neet to stor 40TB per second if no trigger
-- physics motivated selection- two parts (Level-1) L1 and (High Level Trigger) HLT
--L1 - hardware based, info from muon subdetectors and  calorimeters -> decision is made in around 3.4~$\mu s$ .Only triggered events sent to LHCi, the data from the rest of subdetectors read ->100kHZ
--HLT - software based, further selection, HLT algorithms can be adjusted to the sought physics. Rate after HLT is order of few 100 HZ . HLT is parallelized.
- 
+As in the CMS the buches are colliding every 25~ns, thus with a rate of 40~MHz, a good, fast and reliable triggering system is required. The data size of one event is approximately 1~MB, therefore if there would not be any dedicated trigger, 40~TB of data per second would have to be stored, what is far beyond current technical capacities. In the CMS there are two level of triggers which provide physics motivated selection of the interesting events. The first one called Level-1~(L1), is hardware based and for its selection it uses information from muon chambers and calorimeters. The L1 is capable to decide within 3.4~$\mu s$ and its output rate is around 100~kHz. The rest of the event is read upon the decision of L1 and sent to the second level called High Level Trigger~(HLT), which is software based and provides further selection. The output rate from HLT is of orther of hundreds Hz.
 
 \subsubsection{Luminosity and pile-up}
 
-- needed for both beam parameters and physics analysis
--luminosity
+In the particle physcis experiments it is very imprtant to know an expected event rate during a time period. For this evaluation, the following formula can be used
 
 \eq{nev}
 {
  \frac{\mathrm{d}N}{\mathrm{d}t} = \sigma \times \mathcal{L},
 }
 
-where $\mathcal{L}$ is the instantenous luminostity given by
+where $\sigma$ is the cross section of process of interest and $\mathcal{L}$ is the instantenous luminostity given by
 
 \eq{luminosity}
 {
@@ -202,48 +231,131 @@ where $\mathcal{L}$ is the instantenous luminostity given by
 }
 
 where the variables in numerator are $N_{p}$ which is the number of particle in one bunch, $N_{b}$ which is the number of bunches in one beam and $f_{rev}$ which is the revolution frequency and $\gamma$ is the relativistic gamma factor. In the denominator the $\epsilon_{n}$ is normalized transverse beam emmitance and $\beta_{*}$ is the beam amplitude function. Lastly, because of the beam crossing angle the reduction factor $F$ is introduced.
-i
-The designed max peak inst. luminosity of LHC is $1 \times 10^{34} cm^{-2}s^{-1}$
-Run1 begun with peak inst. luminosity of LHC is $3.6 \times 10^{33} cm^{-2}s^{-1}$ - do not give number, just order
-Run2  peak inst. luminosity of LHC up to $1.58 \times 10^{34} cm^{-2}s^{-1}$ -> more than designed ~\cite{Pralavorio:2272474} -LHC
--give formula.
+
+By integration of the instantenout luminosity over time, the integrated luminosity can be obtained:
+
 \eq{intluminosity}
 {
- L = \int{ \mathcal{L} \mathrm{d}t}
+ L = \int{ \mathcal{L} \mathrm{d}t}.
 }
--and then integrated lumi formula.
 
-The total integrated luminosity since here:
+The LHC was designed to deliver the instantenous luminosity of LHC is $1 \times 10^{34} cm^{-2}s^{-1}$. At the begining of Run~I the instantenous luminosity was lower than designed and was beaing increased during the years of LHC operation. Later, bacause of the smooth running, it was decided to go even beyond the designed luminosity, up to $1.58 \times 10^{34} cm^{-2}s^{-1}$~\cite{Pralavorio:2272474}. The integrated luminosity delivered to CMS over years 2010-2017 can be seen in Fig~\ref{fig:figures/cmsLumi}.
+
     \insertFigure{figures/cmslumi} % Filename = label
                  {0.6}       % Width, in fraction of the whole page width
                  { The delivered luminosity to the CMS detector for years 2010-2017~\cite{website:CMSlumi}. }
 
 
-because of the high lumi several interactions at one time taht lead to inelastic and diffractive scattering -> 
-in-time PU
-om top of that OOT PU comming from BX before and after the triggered event~\cite{Bayatian:2006nff}(simu view) -> they are remaining and looping in teh detector (before), after(like in tracker?!)
-
--REFERENCES needed.
-%the inst lumi measured by two detectors: 
-%-fast Beam Conditions Monitory (BCM1f)~\cite{Bell:2009hr}
-%-pixel luminosity telescope (PLT)~\cite{}
+High luminosity is essential to study rare processes, but on the other hands it brings effect called pile-up~(PU)~\cite{Bayatian:2006nff}. Pile-up are particles which are not originating from the interaction of interest and can be divided into two categories. During one bunch crossing, not only the intearction of interest is produced, but more inelastic or diffractive interactions appear at the same time. This kind of pile-up is refefred as in-time pile-up. The second kin of pile-up is called out-of-time pile-up~(OOT PU) and originates from particles produced before or after the bunch crossing of interest. The OOT PU is cause for exaple by slow particles looping in the detector.
 
 \newpage
 
 \subsection{Event and object reconstruction at CMS}
 
+-the data taken by CMS reconstructed and slimmed to be used by analyses
+-describe data formats and reconstruction of the objects
 
-\subsubsection{Data formats}
-\subsubsection{Particle-Flow algorithm}
-~\cite{Sirunyan:2017ulk}
+-each aprticle leaves characteristic signature and with it can be reconstructed - describe transverse view
 
     \insertFigure{figures/CMStransverse} % Filename = label
                  {0.9}       % Width, in fraction of the whole page width
                  { Transverse view through the CMS detector~\cite{Sirunyan:2017ulk}. }
 
-\subsubsection{Tracks and vertices}
-\subsubsection{Jets and b-jets}
-\subsubsection{Leptons}
-\subsubsection{Missing transverse energy}
-\subsubsection{Photons}
+-details about data formats and objects in CMS in following sub-sections
 
+\subsubsection{Data formats}
+
+HLT -> data eneters in the RAW format to Tier-0 where data are reconstructed for monitoring and calibration purposes -> express reconstruction.
+Prompt-RECO -> reconstruction of physics objects (At T0 or T1)
+-then data are saved to tapes and moved to Tier-1s if there is an interest
+-mini-AOD format~\cite{Petrucciani:2029414}, slimming in order to reduce size of datasets -> enough for majority of analyses
+-other formats as well but tehse are important
+%-primary datasets according to trigger path?!
+
+\subsubsection{Particle-Flow algorithm}
+
+-two options of object reconstruction -> recunstruction of whole event 
+-> reconstruction of objects specific to one subdetector (only one subdetector info used )
+-> connection of all information from subdetectors -> reconstruct each particle ->PF algo
+
+- all subdetetor information conencted by using geomterical criteria
+-> in general  first the energy deposits are clustered in ECAL, which are seeds to PF particle reconstruction
+
+-stadalone muon -muon hits tehn matched to innter tracks in tracker
+-electrons seeding in ECAL, cluster position defines where to find a track in tarcker
+
+~\cite{Sirunyan:2017ulk}
+
+
+
+\subsubsection{Jets and b-jets}
+
+anti-kt clustering algorithm, which defines distance between objects~\cite{Cacciari:2008gp}
+\eq{antikt}
+{   
+    d_{ij} = \mathrm{min}(p_{T}^{-2}(i), (p_{T}^{-2}(j)) \frac{(\eta_{i} -\eta_{j}^2)+ (\Phi_{i} -\Phi_{j}^2)}{R^2} =  \mathrm{min}(p_{T}^{-2}(i), (p_{T}^{-2}(j)) \frac{\Delta R_{ij}^{2}}{R^2}}.
+}
+where R(definititon?) is the radus parameter and in standard jet reconstruction its value is of 0.4 during the run~I. Merged jets can be reconstructed wit 0.8 or 1 -> jet size parameter
+
+-antikt - joining(clustering) together objects with the smallest distance between each other and goes to larger distances (when ends?)
+
+-antikt can cluster particles comming from PF -> PF jets, or clustering energy deposits in calorimeters (Calo jets).
+
+-suppress PU  - Charged Hadron Subtraction~(CHS) used -> removing charged particles not oridinating from primary vertex from the clustering
+
+-the energy mesurement can have some biases and the measured energyi does not have to be same as the particle energy thus needs to be corrected -> jet energy calibration.
+
+-b-jets -> jet tagging techniques
+-to know from which particle ejt originated
+-heavy flavour tagging -> b-tagging~\cite{Sirunyan:2017ezt}
+-heavy flavour jet tagging - heavy flavour hadron from the hadronization of b-quark presen in jets -> the lifetime of hadrons containing b-quark of order 1.5 ps displacement of few mm up to cm -> displaced tracks (wrt pripary vertex) from which secondary evrtex can eb reconstructed
+-impact parameter - distance between PV and SV
+-Combined Secondary Vertex algorithm~(CSVv2) based on CSV algorithm from Run~I
+	-combines info of displaced tracks with info on the secondary vertex
+-combined multivariate analysis~(cMVAv2) version of cMVA from run~I.
+	-soft electrons or muons can be  present in the b-jet - soft leptons used in combination of other taggers to discriminate b-jet
+-(DeepCSV) -> CSV algorithm using deepi machine learning (neural network)
+-b-tagging scale factors - data to simulation factor, compensates for different b-tagging efficiency in data and MC.
+
+\subsubsection{Leptons}
+
+\textbf{Muon}
+-muons interact in all layers of the CMS
+%-two ways -outside in and inside out -> name form the sysem where reconstruction started - outside-in starts with muon chambers and then continues into tracker. in-out start in tracker and are extrapolated to muon chambers
+-tracks (standalone muon) are created in the muon chambers from the hits ~combining CSC,DT,RPC info 
+(inner tracks) from silicon tarcker only ; -> 
+-first option: (tracker muons) built in-out using tracker info and matching with the muon chamber info (hits)
+-second option: (global muons) combining inner tracks with standalone muon
+~\cite{Chatrchyan:2012xi}
+-leptons from ahrd scattering - they should be isolated - not much activity in proximity -> improved reconstruction of muons by using isolation criterium
+
+\textbf{Electron}
+Depositions in ECAL and tracker -> bremstralung and photon emission -> elmag shower in ecal
+-> matching of energy deposits and tracks in tarcker~\cite{Khachatryan:2015iwa}
+
+
+\textbf{Tau}
+-short living, too short to see secondary vertex
+-usually decays hadronically to combination of charged and neutral mesons plus tau neutrino
+-hadronic taus reconstructed with hadron-plus-strips algorithm (HPS)-> can distinguish several decay signatures ~\ref{CMS:2016gvn}
+	-looks into jet to reconsctuct neutral pion decaying to two gamma. The gammas convert to electron-positron pair. Neutral pions in most of teh hadronic decaying taus
+         -te electrons/positrons from conversion have broadened signature in ECALi in azimuthal direction because of bending in mg field. This is taken into account by reconstructing the photons into so called ``strips'', which are objects reconstructed from photons and electrons. The reconstruction centers a strip to the position of the most energetic elmag particle within a jet. Then it searches for other elamg particle within given space window - if more energetic particle foundit is associated with the strip. Repeated up to the point that there are no other elmag particles in proximity. Then the strips passing certain momentum threshold are combined with charged hadrons to form the hadronically decaying tau.
+	-each antikT jet can eb possibly a pizero comming from tau -> pizero decays to gammas which convert to e-e+. electron-positron pair is bended in mg field
+
+\subsubsection{Missing transverse energy}
+
+
+imbalance in thransverse momenta summing all particles enterinf the detector
+negative of the vectorial sum of the transverse momenta of all PF particles.
+\vec{ET} miss =
+ETmiss magnitude
+~\cite{CMS:2016ljj}
+
+-presence of weekly interacting particles escaping detection -> imbalance of the momentum in plane perpendicular to the beam direction. Other particles must be measured precisely in order to be able to reconstruct the MET.
+-very important for searches beyon teh standard model as they ofthen predictneutral weekly interactiong particles.
+
+-because of the min energy thresholds in calorimeters, inefficiencies in tarcker, nonlinearity i  response for hadrons of calos, the MET can be not completely correct. -> the correction are applied to correct the MET for such inefficiencies (correction by correcting the pT of jets to the particle level using jet energy corrections -> propagation to the MET calcylation METcorr= MET -(pTcorr-pT) )
+-> this is type-I correction %- it uses jet energy scale corrections for corrected jets above certain pT threshold (15GeV), which deposited less than 90\% of teir energy in ECAL.
+-uncertainty on MET - decompose type of objects (jets, photons, electrons ..) and vary each object within its resolution uncertainty  
+
+%photons?
