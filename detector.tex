@@ -252,110 +252,65 @@ High luminosity is essential to study rare processes, but on the other hands it 
 
 \subsection{Event and object reconstruction at CMS}
 
--the data taken by CMS reconstructed and slimmed to be used by analyses
--describe data formats and reconstruction of the objects
+The events triggerd by HLT are saved in the RAW format, but they are also processed in order to reconstruct physics events. The output is saved in RECO format. Most physics analyses do not need all the information present in the RECO files, and thus they are slimmed up to miniAOD~\cite{Petrucciani:2029414} format in order to save space and computing time (later in the Run~II the miniAOD was slimed the nanoAOD format). In this section, several objects which are reconstructed from RAW data and which are important for the analyses discussed in this thesis, are introduced.
 
--each aprticle leaves characteristic signature and with it can be reconstructed - describe transverse view
 
+\subsubsection{Particle-Flow algorithm}
+
+As it can be seen in Fig.~\ref{fig:figures/CMStransverse} each kind of particle leaves characteristic signature in the CMS detector. For example an electron leaves track in the tracker and thenstops in the ECAL where it deposits its energy. The neutral hadron does not interact in the tracker but it leaves energy both in ECAL and then HCAL where it stops.
+
+~\cite{Sirunyan:2017ulk}
     \insertFigure{figures/CMStransverse} % Filename = label
                  {0.9}       % Width, in fraction of the whole page width
                  { Transverse view through the CMS detector~\cite{Sirunyan:2017ulk}. }
 
--details about data formats and objects in CMS in following sub-sections
-
-\subsubsection{Data formats}
-
-HLT -> data eneters in the RAW format to Tier-0 where data are reconstructed for monitoring and calibration purposes -> express reconstruction.
-Prompt-RECO -> reconstruction of physics objects (At T0 or T1)
--then data are saved to tapes and moved to Tier-1s if there is an interest
--mini-AOD format~\cite{Petrucciani:2029414}, slimming in order to reduce size of datasets -> enough for majority of analyses
--other formats as well but tehse are important
-%-primary datasets according to trigger path?!
-
-\subsubsection{Particle-Flow algorithm}
-
--two options of object reconstruction -> recunstruction of whole event 
--> reconstruction of objects specific to one subdetector (only one subdetector info used )
--> connection of all information from subdetectors -> reconstruct each particle ->PF algo
-
-- all subdetetor information conencted by using geomterical criteria
--> in general  first the energy deposits are clustered in ECAL, which are seeds to PF particle reconstruction
-
--stadalone muon -muon hits tehn matched to innter tracks in tracker
--electrons seeding in ECAL, cluster position defines where to find a track in tarcker
-
-~\cite{Sirunyan:2017ulk}
-
-
+The CMS approach to reconstruction of the event takes this into account and combines information from all subdetectors at once to reconstruct the objects. The algorithm used for this kind of reconstruction is called Particle Flow~(PF) algorithm~\cite{Sirunyan:2017ulk}. In general, the deposits left by particle in different subdetectors are connected by the geometrical constraints.
 
 \subsubsection{Jets and b-jets}
 
-anti-kt clustering algorithm, which defines distance between objects~\cite{Cacciari:2008gp}
+Jets, which are objects originating from hadronization of quarks are are clustered by $\mathrm{anti-}k_{T}$ clustering algorithm~\cite{Cacciari:2008gp}. The $\mathrm{anti-}k_{T}$  algorithm clusters objects which are reconstructed by PF algorithm~(PF jets), but differently reconstructed objects can be used as well. Within this algorithm the distance between objects is defined as
+
 \eq{antikt}
 {   
     d_{ij} = \mathrm{min}(p_{T}^{-2}(i), (p_{T}^{-2}(j)) \frac{(\eta_{i} -\eta_{j}^2)+ (\Phi_{i} -\Phi_{j}^2)}{R^2} =  \mathrm{min}(p_{T}^{-2}(i), (p_{T}^{-2}(j)) \frac{\Delta R_{ij}^{2}}{R^2}}.
 }
-where R(definititon?) is the radus parameter and in standard jet reconstruction its value is of 0.4 during the run~I. Merged jets can be reconstructed wit 0.8 or 1 -> jet size parameter
 
--antikt - joining(clustering) together objects with the smallest distance between each other and goes to larger distances (when ends?)
+where $p_{T}$ is the trasverse momentum, $\eta$ is the pseudorapidity and $\phi$ is the azimuthal angle on an object. The parameter $R$ is the jet radius parameter and in standard jet reconstruction of Run~II its value is set to 0.4. In case of boosted objects, jets originating from two partons can be merged. These topologies can be reconstructed as so called ``fat jets'', and for this purpose the parameter $R$ is increased to 0.8 or 1.0. The $\mathrm{anti-}k_{T}$ algoithm, by definition, clusters first thei hard ojects with shortest distance between each other and continues with objects further apart. The clustering stops when no hard enough particle is nearby. The product of the clustering a a jet.
 
--antikt can cluster particles comming from PF -> PF jets, or clustering energy deposits in calorimeters (Calo jets).
+There measured jet energyusually in general does not correspond to the parton energy responsible for the jet because of the several inefficiencies and biases in the measurement. Thus the jet energy is corrected for such effects.
 
--suppress PU  - Charged Hadron Subtraction~(CHS) used -> removing charged particles not oridinating from primary vertex from the clustering
+\textbf{b-jets}
 
--the energy mesurement can have some biases and the measured energyi does not have to be same as the particle energy thus needs to be corrected -> jet energy calibration.
+In order to know from which parton the jet is originating, the flavour tagging techniques were developed. The heavy flavour tagging techniques target to distinguish the jets orginating from b~(b-jets) or c quark~(c-jets) from light flavour jets. Further only b-jets are discussed. The b-quarks areforming B-mesons, which are decaying within about 1.5 ns creating secondary vertex displaced by few mm up to cm from the primary vertex. Presence of the displaced secondary vertex in the jet and information about particles originating from secondary vertex and optionaly other information are used by b-tagging algorithms to tag jets originating from the b-quarks~\cite{Sirunyan:2017ezt}.
 
--b-jets -> jet tagging techniques
--to know from which particle ejt originated
--heavy flavour tagging -> b-tagging~\cite{Sirunyan:2017ezt}
--heavy flavour jet tagging - heavy flavour hadron from the hadronization of b-quark presen in jets -> the lifetime of hadrons containing b-quark of order 1.5 ps displacement of few mm up to cm -> displaced tracks (wrt pripary vertex) from which secondary evrtex can eb reconstructed
--impact parameter - distance between PV and SV
--Combined Secondary Vertex algorithm~(CSVv2) based on CSV algorithm from Run~I
-	-combines info of displaced tracks with info on the secondary vertex
--combined multivariate analysis~(cMVAv2) version of cMVA from run~I.
-	-soft electrons or muons can be  present in the b-jet - soft leptons used in combination of other taggers to discriminate b-jet
--(DeepCSV) -> CSV algorithm using deepi machine learning (neural network)
--b-tagging scale factors - data to simulation factor, compensates for different b-tagging efficiency in data and MC.
+There are several algorithms to tag a b-jet. The first one is the Combined Secondary Vertex~(CSVv2)algorithm, which combines information about displaced tracks with information on the secondary vertex. The DeepCSV algorithm improves CSV algorithm by using deep neural network. The Combined Multivariate Analysis~(cMVAv2) technique takes into account that hadrons can decay leptonically and thus soft electrons or muons can be present in the b-jet. TIn this algorithm, the information about soft leptons are used in combination with other taggers.
+
+The performance of b-jets taggers is different in data and simulations therefore a muliplicative data-to-simulation factor must be used on top of the simulaton in order to compensate for the differences.
 
 \subsubsection{Leptons}
 
 \textbf{Muon}
--muons interact in all layers of the CMS
-%-two ways -outside in and inside out -> name form the sysem where reconstruction started - outside-in starts with muon chambers and then continues into tracker. in-out start in tracker and are extrapolated to muon chambers
--tracks (standalone muon) are created in the muon chambers from the hits ~combining CSC,DT,RPC info 
-(inner tracks) from silicon tarcker only ; -> 
--first option: (tracker muons) built in-out using tracker info and matching with the muon chamber info (hits)
--second option: (global muons) combining inner tracks with standalone muon
-~\cite{Chatrchyan:2012xi}
--leptons from ahrd scattering - they should be isolated - not much activity in proximity -> improved reconstruction of muons by using isolation criterium
+
+The muons are traversing whole CMS detector and therefore their tracks can be reconstructed in both silicon tracker and muon chambers. The ``standalone muon'' is a muon track reconstructed from the hits in CSC, DT and RPC, while the ``inner track'' muon is reconstructed from the hits in the silicon strip tracker only. There are two options how to reconstruct muon using both information from muon chambers and tracker. The first one leads to collection of muons called ``tracker muons''.  The tracker muons are first reconstructed in the tarcker and then are extrapolated to the muon chambers by matching the inner track with hits in the muon chambers. The second approach matches standalone
+muons with inner track based on geometrical criteria. The resulting collection is called ``global muons''~\cite{Chatrchyan:2012xi}. 
+
+Then the PF algorithm uses both global and tracker muons to identify PF muon. As leptons from ahrd scattering are expected not to have other activity in the proximity, the requirement on muon isolation is added in order to select muon candidate and reject hadrons misidentified as muons. The selected muons are then tested by several quality requirements to balance the efficiency and purity of muon selection. Based on passing or failing the criteria, several muon IDs are assesed, e.g. loose, medium, tight muon. 
 
 \textbf{Electron}
-Depositions in ECAL and tracker -> bremstralung and photon emission -> elmag shower in ecal
--> matching of energy deposits and tracks in tarcker~\cite{Khachatryan:2015iwa}
+
+The electrons are reconstructed with the track information from the tracker and the energy deposits in the ECAL~\cite{Khachatryan:2015hwa}. Because of the bremsstrahlung, the electron looses around 30\% of its energy before reaching the ECAL. The energy deposits in the ECAL are reconstructed as superclusters, taking into account the bremsstrahlung photons. The track in the tracker are reconstructed starting either from seed created by few tracker hits or ECAL supercluster and then extrapolating to full tracker. In case the seeding was tracker-based only, the next step is matching ECAL supercluster with the electron track. As for the muon the electron isolation is required and also quality requirements are imposed on the reconstruced electrons and several categories of muons, e.g. loose, medium, tight.
+
 
 
 \textbf{Tau}
--short living, too short to see secondary vertex
--usually decays hadronically to combination of charged and neutral mesons plus tau neutrino
--hadronic taus reconstructed with hadron-plus-strips algorithm (HPS)-> can distinguish several decay signatures ~\ref{CMS:2016gvn}
-	-looks into jet to reconsctuct neutral pion decaying to two gamma. The gammas convert to electron-positron pair. Neutral pions in most of teh hadronic decaying taus
-         -te electrons/positrons from conversion have broadened signature in ECALi in azimuthal direction because of bending in mg field. This is taken into account by reconstructing the photons into so called ``strips'', which are objects reconstructed from photons and electrons. The reconstruction centers a strip to the position of the most energetic elmag particle within a jet. Then it searches for other elamg particle within given space window - if more energetic particle foundit is associated with the strip. Repeated up to the point that there are no other elmag particles in proximity. Then the strips passing certain momentum threshold are combined with charged hadrons to form the hadronically decaying tau.
-	-each antikT jet can eb possibly a pizero comming from tau -> pizero decays to gammas which convert to e-e+. electron-positron pair is bended in mg field
+
+In majority of cases the tau leptons are decaying hadronically to mixture of cahrged and neutral hadrons and tau neutrino. The decay is very fast and thus it is difficult to reconstruct the secondary vertex. The algorithm used to recognize the hadronically decaying tau is called Hadron-Plus-Strips (HPS)~\cite{CMS:2016gvn} which searches for the presence of neutral pions present in the majority of hadronic tau decays. The algorithm takes jets and udentifies the neutral pions decaying to two photonsi, which later convert to electron/positron pairs. These electrons/positrons bend in the magnetic field and thus broaden the energy deposits in the ECAL in azimuthal direction. To take tis affect into account, the electromagnetic particles  are reconstructed into ``strips''. The strip is first associated with the most energetic electron or photon within PF jet. Then the algorithm looks nearby whether other electromagnetic particles are present closte to selected one. If more energetic electromagnetic particle than the one associated with strip is found, the strip is associated with this new particle and algorithm proceeds up to the point, no other more energetic particle is present i  the proximity of the strip. The final algorithm searches for the hadronic taus in topologies with single hadron, one hadron and one strip, one hadron and two strips and three hadrons.
 
 \subsubsection{Missing transverse energy}
 
 
-imbalance in thransverse momenta summing all particles enterinf the detector
-negative of the vectorial sum of the transverse momenta of all PF particles.
-\vec{ET} miss =
-ETmiss magnitude
-~\cite{CMS:2016ljj}
+If momenta of all particles would be measured, the sum of all momenta in the plane transverse to the beam would be zero. But as the weekly interacting neutrinos escape the detector unmeasured, the imbalance of the momenta in this plane is observed. 
 
--presence of weekly interacting particles escaping detection -> imbalance of the momentum in plane perpendicular to the beam direction. Other particles must be measured precisely in order to be able to reconstruct the MET.
--very important for searches beyon teh standard model as they ofthen predictneutral weekly interactiong particles.
+The Missing Transverse Energy~($E_{T}^{miss}$ or MET) is magnitude of negative vectorial sum of the transverse momenta of all PF particles~\cite{CMS:2016ljj}. Because of the energuy thresholds in the calorimeters, inefficiencies in the tracker or nonlinearity of calorimeters' response for hadrons, the MET can be biased and thus the energy correction factor must be used. This factor accouns for effects influencing the MET and is applied on the transverse momenta of the jets. The MET is then recomputed with the new transverse momenta of jets. The uncertainty on MET is evaluating by varying $p_{T}$ of each kind of object within its resolution. 
 
--because of the min energy thresholds in calorimeters, inefficiencies in tarcker, nonlinearity i  response for hadrons of calos, the MET can be not completely correct. -> the correction are applied to correct the MET for such inefficiencies (correction by correcting the pT of jets to the particle level using jet energy corrections -> propagation to the MET calcylation METcorr= MET -(pTcorr-pT) )
--> this is type-I correction %- it uses jet energy scale corrections for corrected jets above certain pT threshold (15GeV), which deposited less than 90\% of teir energy in ECAL.
--uncertainty on MET - decompose type of objects (jets, photons, electrons ..) and vary each object within its resolution uncertainty  
-
-%photons?
+The MET variable plays crucial role in the searches for physics beyond the standard model, as many models predict stable weekly interacting particles which enhance the MET.
