@@ -4,33 +4,29 @@
 \chapterwithnum{The CMS experiment at the LHC}
 \setcounter{secnumdepth}{5}
 
-introductory word
+Among others, one and very important possibility how to study matter is at collider experiments. In the section~\ref{sec:LHC} the largest existing collider, the LHC, and its experimets are introduced. In the next section~\ref{sec:CMS} the CMS detector, in which context this thesis is done, is described. Then in section~\ref{sec:objects}, object reconstruction techniques of the CMS data are introduced. A special interest is put on the topics which knowledge is needed or which are further developed in following chapters of this thesis.
 
-\section{The Large Hadron Collider}
+\section{The Large Hadron Collider~\label{sec:LHC}}
 
-The Large Hadron Collider~(LHC) is a particle accelarator of cicumference of 27~km, which is a part of the CERN accelerator complex located near Geneva, Switzerland~\cite{CERN-Brochure-2017-002-Eng, Evans:2008zzb}. The LHC project was approved in 1994 and designed to provide mainly collisions proton bunches. Part of the LHC running time is also dedicated to collisions of heavy nuclei. Since 2008 the LHC is colliding bunches of protons, which contain around 100 bilion protons each and are arranged in the 2 beams of around 3000 bunches, which are accellarated and then collided against each other. The LHC operations is divided two wo eras, Run~I and Run~2. The Run~I started in 2008 and ended in 2013. During this era the center-of-mass energy of the collisions was 8~TeV and the beam structure allowwd collisions every 50~ns. The Run~II started in 2015 and is still ongoing. In the Run~II the collison center-of-mass energy incerased to 13~TeV and the time between collisions decreased to 25~ns.
+The Large Hadron Collider~(LHC) is a particle accelerator with circumference of 27~km, which is a part of the CERN accelerator complex located near Geneva, Switzerland~\cite{CERN-Brochure-2017-002-Eng, Evans:2008zzb}. The LHC project was approved in 1994 and designed to provide mainly collisions of proton bunches. Part of the LHC operation time is also dedicated to collisions of heavy nuclei. Since 2008, the LHC is colliding two beams composed of around 3000 bunches of protons each, with one bunch containing around 100 bilions of protons. The beams are accellarated in separate pipes and then collided against each other at four interaction points. The LHC operations is divided into two eras, Run~I and Run~2. The Run~I started in 2008 and ended in 2013. During this era the center-of-mass energy of the collisions was 8~TeV and the beam structure allowed collisions every 50~ns. The Run~II started in 2015 and is still ongoing. In the Run~II the collison center-of-mass energy incerased to 13~TeV and the time between collisions decreased to 25~ns.
 
-At the beginning of the of the acceleration prcocess the protons are obtained by stripping the electrons from the hydrogen atoms. Protons are then pre-accelareted through a chain of accelerators: Linac2, PS Booster, Proton Synchrotorn~(PS) and Super Proton Synchrotron~(SPS). The proton beemas accelerated to 450~GeV are injected from SPS into the LHC~(both clockwise and anti-colckwise), where the beams are further shaped and accelerated with eight RF~(radiofrequency) cavities per beam. The LHC is equipled with around ten thousand magnets, mainly dipoles and quadrupoles, to bend and focus the beams. There is a vacuum in the LHC tube to avoid collisions of particles with gass and vacuum is also used to fo insultation of cryomagnets and helium distribution line.
+At the beginning of the of the acceleration process the protons are obtained by stripping electrons from the hydrogen atoms. Protons are then pre-accelareted through a chain of accelerators: Linac2, PS Booster, Proton Synchrotorn~(PS) and Super Proton Synchrotron~(SPS). The proton beams accelerated to 450~GeV are injected from SPS into the LHC~(both clockwise and anti-colckwise), where the beams are further shaped and accelerated with eight RF~(radiofrequency) cavities currently up to 6.5~TeV. The LHC is equipped with around ten thousand magnets, mainly dipoles and quadrupoles, to bend and focus the beams. There is a vacuum in the LHC tube to avoid collisions of particles with gass and vacuum is also used for isolation of cryomagnets and helium distribution line.
 
-The bunches of protons collide at four interaction points where the four main experiments where installed. The two general-purpose detectors, which were designed to cover wide range of physics are A Toroidal  LHC ApparatuS~(ATLAS)~\cite{Aad:2008zzm} and Compact Muon Solenoid~(CMS)~\cite{Chatrchyan:2008aa}. The other two main experiments are A Larege Ion Collider Experiment~(ALICE)~\cite{Aamodt:2008zz} which focuses on the analysis of heavy-ion collisions and the Large Hadron Collider beauty~(LHCb)~\cite{Alves:2008zz} specialized in the physics of b-quark. There are threee smaller experiment along the LHC, TOTEM~\cite{Anelli:2008zza} which is close to the CMS and its principal goal is to measure the total cross section of the proton at LHC.  The LHCf~\cite{Adriani:2008zz} which is close to the ATLAS studies particles from interactions which move very close to the proton beams. Finally the MoEDAL~\cite{Acharya:2014nyr} which is close to the LHCb focuses on the search of hypothetical paarticles, e.g. magnetic monopoles. The schematic view of the CERN accelerator complex with its main experiments can be seen in Fig.~\ref{fig:figures/CCC-v2016}.
+The bunches of protons collide at four interaction points, at which the four main experiments where installed. The two general-purpose detectors, which were designed to cover wide range of physics are A Toroidal  LHC ApparatuS~(ATLAS)~\cite{Aad:2008zzm} and Compact Muon Solenoid~(CMS)~\cite{Chatrchyan:2008aa}. The other two main experiments are A Large Ion Collider Experiment~(ALICE)~\cite{Aamodt:2008zz}, which focuses on the analysis of heavy-ion collisions and the Large Hadron Collider beauty~(LHCb)~\cite{Alves:2008zz} specialized in the physics of b-quark. There are also three smaller experiment along the LHC, one of them is TOTEM~\cite{Anelli:2008zza} which is close to the CMS and its principal goal is to measure the total cross section of protons at LHC. The LHCf~\cite{Adriani:2008zz}, which is located near to the ATLAS experiment, studies particles moving very close to the proton beams. Finally the MoEDAL~\cite{Acharya:2014nyr}, which is close to the LHCb, focuses on the search of hypothetical paarticles, e.g. magnetic monopoles. The schematic view of the CERN accelerator complex with its main experiments can be seen in Fig.~\ref{fig:figures/CCC-v2016}.
 
     \insertFigure{figures/CCC-v2016} % Filename = label
                  {0.9}       % Width, in fraction of the whole page width
                  { The CERN accelerator complex~\cite{Mobs:2225847}. }
 
-One of the main motivations for the LHC and its experiments was the search for the Higgs boson which was discovered at 2012. The other principal topic is search for new particles, motivated mainly by cosmological obervations and unification of known forces. Additionaly, the main focus of the  heavy-ion collisions is state called ``quark-gluon plasma'', which existed in the early Universe.
-%- in the LEP tunnel
-%- 50 - 175m underground
+One of the main motivations for the LHC and its experiments was the search for the Higgs boson, which was discovered at 2012. The other principal topic is search for new particles, motivated mainly by cosmological obervations and desire for unification of known forces. Additionaly, the main focus of the  heavy-ion collisions is state called ``quark-gluon plasma'', which existed in the early Universe.
 
 \newpage
 
-\section{The Compact Muon Solenoid}
+\section{The Compact Muon Solenoid~\label{sec:CMS}}
 
-\subsection{CMS detector}
+The Compact Muon Solenoid~(CMS)~\cite{Chatrchyan:2008aa, CMSproposal} is a multipurpose detector of a length of 28.7~m, a diameter of 15~m and a weight of 14~t,  which is located at the interaction point 5~\cite{Chatrchyan:2008aa}. The designed properties of the CMS  detector were to have good muon identification and resolution, to have good charged-particle momentum and resolution as well as high efficiency in reconstruction of charged-particle tracks. Further it was required to have good electromagnetic energy, missing transverse energy~(MET) and dijet mass resolution. One of the important requriments was also high efficiency in offline tagging of tau particles and jets originating from b-quarks. These conditions have to be fulfilled in the LHC environmnt, with bunch crossing~(BX) every 25~ns, where every bunch crossing leads to tens of inelastic interactions on top of the interaction of the interest, resulting in thousands of charged particles in the CMS detector every 25~ns. Because of this large radiation, the detectors and front-end electronics have to be radiation-hard.
 
-The CMS~\cite{Chatrchyan:2008aa, CMSproposal} is a multipurpose detector of a length of 28.7~m, a dimaeter 15~m and a weight 14~t,  which is located at the interaction point 5~\cite{Chatrchyan:2008aa}. The CMS was designed to have good muon identification and resolution, to have good charged-particle momentum and resolution as well as high efficiency in reconstruction of charged-particle tracks. Further it was required to ahve good electromagnetic energy, missing-transverse-energy~(MET) and dijet mass resolution. One of the important requriments was also high efficiency in offline tagging of tau particles and jets originating fro b-quarks. These confitions have to be fulfilled in the LHC environmnt, with bunch crossing every 25~ns, where every bunch crossing leads to about 20i inelastic interactions on top of the interaction of the interest resulting in around 1000 charged particles in the CMS detector every 25~ns. Because of the large radiation, the detectors and front-end electronics have to be radiation-hard.
-
-To achieve given requirements, the CMS was built in layers around large solenoidal magnet. Inside the magnet from the intaraction points outwards, there is a pixel and silicon strip tracker, followed by the electromagnetic and hadronic calorimeter. Outside of the magnet teher is an steel return yoke with embedded muon chambers. The CMS detector is shown in Fig.~\ref{fig:fogures/cmsdetector}. In  the following sections, the layers of the CMS, starting with the innermost, are introduced in more details.
+To achieve given requirements, the CMS was built in layers around large solenoidal magnet, with endcapes at each side. Inside the magnet from the intaraction points outwards, there is a pixel and silicon strip tracker, followed by the electromagnetic and hadronic calorimeter. Outside of the magnet there is a part of hadronic calorimeter an steel return yoke with embedded muon chambers. The CMS detector layout is shown in Fig.~\ref{fig:fogures/cmsdetector}. In the following sections, the layers of the CMS, starting with the innermost, are introduced in more details.
 %-coverage up to |eta|<5
 
 
@@ -38,14 +34,13 @@ To achieve given requirements, the CMS was built in layers around large solenoid
                  {0.9}       % Width, in fraction of the whole page width
                  { A schematic layout of the CMS detector~\cite{website:CMSdet}. }
 
-\subsubsection{Coordinate system and conventions}
-
-
-The coordinate system used by CMS is sketched in Fig.~\ref{fig:figures/coordinates}. In this convention, the Cartesian coordinate system has a center at interaction point, with x-axis is pointing into the center of the LHC, y-axis is going upwards and z-axis is going anti-clockwise in the beam direction. The azimuthal angle $\Phi$ is defined in the x-y plane and is measured from the x-axis. The polar angle $\Theta$ is measured from the z-axis and is defined in x-z plane. Finally the $R$ is a radial coordinate in x-y plane. In this convention the pseudorapidity $\eta$ is defined as
+\subsection{Coordinate system and conventions}
 
     \insertFigure{figures/coordinates} % Filename = label
                  {0.6}       % Width, in fraction of the whole page width
                  { The CMS coordinate system with the three axes intecpeting at interaction point, x-axis pointing inside the LHC ring, y-axis going upwards and z-axis pointing anti-clockwise in the direction of the beam.~\cite{Pantaleo:2293435}. }
+
+The coordinate system used by CMS is sketched in Fig.~\ref{fig:figures/coordinates}. In the CMS conventions, the Cartesian coordinate system has a center at interaction point, with x-axis is pointing into the center of the LHC, y-axis is going upwards and z-axis is going anti-clockwise in the beam direction. The azimuthal angle $\Phi$ is defined in the x-y plane and is measured from the x-axis. The polar angle $\Theta$ is measured from the z-axis and is defined in x-z plane. Finally the $r$ is a radial coordinate in x-y plane. In this convention the pseudorapidity $\eta$ is defined as
 
 \eq{pseudorapidity}
 {
@@ -68,29 +63,28 @@ The transverse momentum $p_{T}$ can be computed from the x and y mometum compone
 }
 
 
-\subsubsection{Solenoid}
+\subsection{Solenoid}
 
 
-The CMS magnet is superconducting solenoid providing magnetic field of 3.8~T. The magnet is surrounded from outside by the steel yoke which returns the magnetic flux of the solenoid~\cite{tdrMagnet}. Because of the pgysics reson, the radius of the magnet has to be small and therefore the available space between the magnet and interaction point is limited.
+The CMS magnet is superconducting solenoid providing magnetic field of 3.8~T. The magnet is surrounded from outside by the steel yoke which returns the magnetic flux of the solenoid~\cite{tdrMagnet}. Because of the physics reasons, the radius of the magnet has to be small and therefore the available space between the magnet and interaction point is limited.
 
-\subsubsection{Silicon tracker}
+\subsection{Silicon tracker}
 
-The silicon tracker~\cite{CMS:1997tlf, CMS:2000eqx} is the innermost subdetector of the CMS detector, which consist of layers of the silicon sensors. The CMS tracker can be divided into two parts~\cite{CMS:1997tlf}. The inner part is composed by pixel detectors, while the outer part by strip detectors. Its purposed is to reconstruct the tracks of charged particles and the primary and secondary vertices. The track is the reconstructed path of the particle passing trough the tracker. The primary vertices, vertex from the interaction of interest and PU interactions, are the positions of the interaction and can be determined using the tracks. The secondary vertices are the places where one particle decayed to other particles and are also found with help of tracks. 
+The silicon tracker~\cite{CMS:1997tlf, CMS:2000eqx} is the innermost subdetector of the CMS detector. The CMS tracker can be divided into two parts~\cite{CMS:1997tlf}. The inner part consist pixel detectors, while the outer part by strip detectors. The whole tracker is composed of the modules with silicon sensors, aiming to measure path of the track. Its purposed is to reconstruct tracks from charged particles' depositions in silicon sensors along their path and the primary and secondary vertices. The track is the reconstructed path of the particle passing trough the tracker. The primary vertices, which are vertices from the interaction of interest and PU interactions, are the positions of the interaction and can be determined using the tracks. The secondary vertices are the places where given particle decayed to other particles. They are also found with help of the tracks. As the tracker is in the magnetic field, paths of charged particles are bent according to their momenta and charge, thust the CMS tracker is able measured charge sign and momenta as well. To perform so, the tracker has to have good spatial resolution and to be extremly radiation-hard due to large flux of incoming particles. Also the material has to be chosen carefuly, in order to avoid multiple scattering, nuclear interactions or bremsstrahlung in the tracker material.
 
-
-As the tracker is in the magnetic field in which the cahrged particles bend, their momenta and charge sign can be measured as well. To perform so, the tracker has to have good spatial resolution and to be extremly radiation-hard due to large flux of incoming particles. Also the material has to be chosen carefuly, in order to avoid multiple scattering, nuclear interactions or bremsstrahlung.
-
-The density of the particles decrease with distance from the interaction point and therefore the inner part of the tracker is made of silicon pixels, which are able to measure aprticle trajactories and its properties high particle density environment. In the outer part of the tracker the density is low enough to use silicon strip sensors, which are cheaper mainly because they require less readout channels. Overall, the tracker pseudorapidity coverage is  $\eta < 2.5$.
+The density of the particles in the CMS detector decrease with the distance from the interaction point and therefore the inner part of the tracker is made of silicon pixels, which are able to measure particle paths and its properties in high particle density environment. In the outer part of the tracker, the particle density is low enough to use silicon strip sensors, which are cheaper mainly because they require less readout channels. Overall, the tracker pseudorapidity coverage is  $\eta < 2.5$.
 
 \textbf{Silicon strip tracker}
 
-In the following chapters the studies of the silicon strip tracker and its simulation are presented and thus it is necessary to take a deeper look into its design. The silicon strip tracker is divided into four partitions. Each of the partition has layers of modules, which have either one side~(mono) or two sides~(stereo) of silicon sensors. The tracker inner barrel~(TIB) is the innermost barell layer with two layers of stereo modules suceeded with two layers of mono modules. The tracker outer barrel~(TOB) surrounds the TIB. In the innermost part, it has two layers of stereo modules, the remaining four layers are mono. On each side of the barrel, tracker inner disks~(TID) and tracker endcapes~(TEC) are located. There are three wheels of TID with three module rings and 9 wheels of TEC with four to seven rings of modules on each side. In each layer there is a mixture of mono and stereo modules, but each ring has either mono or stereo modules. The overall layout of the silicon strip tarcker can be seen in Fig.~\ref{fig:figures/cmsTracker}.
+In the following chapters studies of the silicon strip tracker and its simulation are presented and thus it is necessary to take a deeper look into its design. The silicon strip tracker is divided into four partitions. Each of the partition has layers of modules, which have either one side~(mono) or two sides~(stereo) of silicon sensors. The tracker inner barrel~(TIB) is the innermost barrel part with two layers of stereo modules suceeded with two layers of mono modules. The tracker outer barrel~(TOB) surrounds the TIB. In the innermost part of TOB, there are two layers of stereo modules, the remaining four layers are mono. On each side of the barrels, tracker inner disks~(TID) and tracker endcapes~(TEC) are located. There are three wheels of TID with three module rings and 9 wheels of TEC with four to seven rings of modules on each side. In each layer there is a mixture of mono and stereo modules, but each ring has either mono or stereo modules. The overall layout of the silicon strip tracker can be seen in Fig.~\ref{fig:figures/cmsTracker}.
 
     \insertFigure{figures/cmsTracker}
                  {0.9}       
-                 {A schema of the upper half of the CMS silicon strip tracker tracker and its partition layout. The modules in blue are stereo, while the mono ones are shown in black color~\cite{Chatrchyan:2014fea}. }
+                 {A schema of the upper half of the CMS silicon strip tracker and layout of its partitions. The modules in blue are stereo, while the mono ones are shown in black color~\cite{Chatrchyan:2014fea}. }
 
-Each of the modules holds 320$\mathrm{\mu m}$ or 500$\mathrm{\mu m}$ thick silicon sensors with either 512 or 768 silicon strips, in case of mono modules, for stereo modules the number doubles. The strip lenght is between 8 and 25~cm and their width is 18~$\mathrm{\mu m}$. The distance between strips, called pitch, varies between 80 $\mu m$ and 200 $\mu m$. In barrels the strips are parallel to the z-axis, or are tilted by 100~mrad with respect to the z-axis. In the disks and endcapes, the strips are allingned to be parallel to $R$. The details about the module geometries for each laer of TIB and TOB and each ring of TID and TEC can be found in Tab.~\ref{tab:trackerGeometries} .
+Each mono module holds 320$\mathrm{\mu m}$ or 500$\mathrm{\mu m}$ thick silicon sensors with either 512 or 768 silicon strips. In case of stereo modules the number of strips doubles. The strip lenght is between 8 and 25~cm and its width is 18~$\mathrm{\mu m}$. The distance between strips, called pitch, varies between 80 $\mu m$ and 200 $\mu m$. In barrels the strips are parallel to the z-axis, or are tilted by 100~mrad with respect to the z-axis. In the disks and endcapes, the strips are allingned to be parallel to $r$. The local module coordinates have zero in the middle of the module, z-axis goes in direction from backplane to strips, y-axis goes along strips, and x-axis isperpendicular to the strips and traverses them. The local $\Theta$ angle is measured from the z-axis and the local $\Phi$ is defined in xy-plane and is measured from the x-axis. The details about the module geometries for each laer of TIB and TOB and each ring of TID and TEC can be found in Tab.~\ref{tab:trackerGeometries}.
+
+%TODO local module geometry
 
 \begin{table}[h]
 \begin{center}
@@ -124,15 +118,12 @@ TEC R6 & mono & 512 & 500 & 163...205  \\
 TEC R7 & mono & 512 & 500 & 140...172  \\
 \hline
 \end{tabular}
-\caption[Table caption text]{The module type, number of strips, thickness and pitch for layers or rings of four silicon strip tracker partitions ~\cite{website:hephyPage}. }
+\caption[Table caption text]{The module type, number of strips, thickness and pitch for layers or rings of four silicon strip tracker partitions~\cite{website:hephyPage}. }
 \label{tab:trackerGeometries}
 \end{center}
 \end{table}
 
-
-%-hit resolution
-
-\subsubsection{Electormagnetic calorimeter}
+\subsection{Electormagnetic calorimeter}
 
 The electromagnetic calorimeter (ECAL)~\cite{tdrECAL} is a layer following the silicon tracker. It is homogenous, fast, radiation resistant calorimenter with a good energy resolution which is composed of lead-tungstate ($\mathrm{PbWo_{4}}$) crystals and its purpose is to measure energy of electrons and photons. The ECAL consist of two parts, barrel~(EB) covering $|\eta|<1.479$ and endcaps~(EC) extending coverage up to $\eta =3$. A preshower is placed in front of the endcaps in order to separate highly energetic single photons from the photon originating from the decay of neutral pions.
 
@@ -146,7 +137,7 @@ The energy resolution of ECAL was determined to be
 where $E$ is energy and $\sigma_{E}$ is energy resolution. The first term is stochastic part, it corresponds to e.g. fluctioations in number of particles. The second term accounts for noise and the third term covers mainly the non-uniformities, energy leakage and intercallibration errors.
 
 
-\subsubsection{Hadron calorimeter}
+\subsection{Hadron calorimeter}
 
 The purpose of the hadron calorimeter~(HCAL)~\cite{tdrHCAL}, which is subdetector another subdetector of CMS, is to measure energy of strongly interacting particles.  The HCALi is a sampling colorimeter which has four parts, out of them two are located between the ECAL and magnet, these are HCAL barrrel~(HB) and endcaps~(HE). Both HE and HB have a brass absorber and their active material is made of plastic scintilator. The pseudorapidity coverage of HB is $|\eta|<1.3$, and of HE $1.3<|\eta|<3$, which is further extended up to $|\eta|=5.2$ by the third part called forward calorimeter~(HF). The HF, installed 11.2 meters far from interaction point on both sides, has is made of steel as an absorber and quartz fibers as an active volume. The technology of the HF is very radiation-hard as around third of particles produced in the final state hits the HF. Because of the available space between the ECAL and magnet was not large enough to build caloriemter with enough stopping power, the last part of the calorimeter, the outside calorimeter~(HO), was added after the magnet. The HO is covering region $|\eta|<1.3$ and stops particles escaping the barrel, for this reason it is someties also reffered as ``tail catcher''. The magnet material is used as an absorber for HO.
 
@@ -161,7 +152,7 @@ The hadron energy resolution from combination of ECAL and HCAL (barrel and endca
 where the terms have similar meaning as for ECAL.
 %- for HF 1.98/sqrt(E)+0.09 -> higher because of high energy of jets in this region but as divided by energy, it is ok
 
-\subsubsection{Muon chambers}
+\subsection{Muon chambers}
 
 Bacause many interesting physics processes have signature with muons in the final state, good and precise measyrement of muons is one of teh main goals of the CMS. This comprises muon identification, momentum measurement and triggering. The good triggering and momentum measurement is achieved with help of the high magnetic field provided by the solenoid. The muon mesurement is provided by three gaseous subdetectors, the drift tube~(DT), cathode strip chamber~(CSC) and resistive plate chamber~(RPC) systems~\cite{tdrMuon}.
 
@@ -210,11 +201,11 @@ The timing resolution for DTs in Run~I was determined to be 7-9~ns~\cite{Traczyk
  %CMS being synchronized "top-down" for cosmic runs, so that a cosmic muon going vertically down is always in-time (or "at the same time" to be more precise). So basically the DT system is timed for muons going straight down. (just like for collisions it's timed for muons going outwards from IP).In practical terms. The "muons" collection takes as timeAtIpInOut what is more or less the mean of the segment times for a muon. Because it's assuming that the muon is propagating in the same direction that the system is synchronized in. From my observations above it looks like this is the case, the system is synchronized for downward-going cosmics. - not the case in the paper
 
 
-\subsubsection{Trigger and data acquisition}
+\subsection{Trigger and data acquisition}
 
 As in the CMS the buches are colliding every 25~ns, thus with a rate of 40~MHz, a good, fast and reliable triggering system is required. The data size of one event is approximately 1~MB, therefore if there would not be any dedicated trigger, 40~TB of data per second would have to be stored, what is far beyond current technical capacities. In the CMS there are two level of triggers which provide physics motivated selection of the interesting events. The first one called Level-1~(L1), is hardware based and for its selection it uses information from muon chambers and calorimeters. The L1 is capable to decide within 3.4~$\mu s$ and its output rate is around 100~kHz. The rest of the event is read upon the decision of L1 and sent to the second level called High Level Trigger~(HLT), which is software based and provides further selection. The output rate from HLT is of orther of hundreds Hz.
 
-\subsubsection{Luminosity and pile-up}
+\subsection{Luminosity and pile-up}
 
 In the particle physcis experiments it is very imprtant to know an expected event rate during a time period. For this evaluation, the following formula can be used
 
@@ -250,12 +241,12 @@ High luminosity is essential to study rare processes, but on the other hands it 
 
 \newpage
 
-\subsection{Event and object reconstruction at CMS}
+\section{Event and object reconstruction at CMS~\label{sec:objects}}
 
 The events triggerd by HLT are saved in the RAW format, but they are also processed in order to reconstruct physics events. The output is saved in RECO format. Most physics analyses do not need all the information present in the RECO files, and thus they are slimmed up to miniAOD~\cite{Petrucciani:2029414} format in order to save space and computing time (later in the Run~II the miniAOD was slimed the nanoAOD format). In this section, several objects which are reconstructed from RAW data and which are important for the analyses discussed in this thesis, are introduced.
 
 
-\subsubsection{Particle-Flow algorithm}
+\subsection{Particle-Flow algorithm}
 
 As it can be seen in Fig.~\ref{fig:figures/CMStransverse} each kind of particle leaves characteristic signature in the CMS detector. For example an electron leaves track in the tracker and thenstops in the ECAL where it deposits its energy. The neutral hadron does not interact in the tracker but it leaves energy both in ECAL and then HCAL where it stops.
 
@@ -266,7 +257,7 @@ As it can be seen in Fig.~\ref{fig:figures/CMStransverse} each kind of particle 
 
 The CMS approach to reconstruction of the event takes this into account and combines information from all subdetectors at once to reconstruct the objects. The algorithm used for this kind of reconstruction is called Particle Flow~(PF) algorithm~\cite{Sirunyan:2017ulk}. In general, the deposits left by particle in different subdetectors are connected by the geometrical constraints.
 
-\subsubsection{Jets and b-jets}
+\subsection{Jets and b-jets}
 
 Jets, which are objects originating from hadronization of quarks are are clustered by $\mathrm{anti-}k_{T}$ clustering algorithm~\cite{Cacciari:2008gp}. The $\mathrm{anti-}k_{T}$  algorithm clusters objects which are reconstructed by PF algorithm~(PF jets), but differently reconstructed objects can be used as well. Within this algorithm the distance between objects is defined as
 
@@ -287,7 +278,7 @@ There are several algorithms to tag a b-jet. The first one is the Combined Secon
 
 The performance of b-jets taggers is different in data and simulations therefore a muliplicative data-to-simulation factor must be used on top of the simulaton in order to compensate for the differences.
 
-\subsubsection{Leptons}
+\subsection{Leptons}
 
 \textbf{Muon}
 
@@ -306,7 +297,7 @@ The electrons are reconstructed with the track information from the tracker and 
 
 In majority of cases the tau leptons are decaying hadronically to mixture of cahrged and neutral hadrons and tau neutrino. The decay is very fast and thus it is difficult to reconstruct the secondary vertex. The algorithm used to recognize the hadronically decaying tau is called Hadron-Plus-Strips (HPS)~\cite{CMS:2016gvn} which searches for the presence of neutral pions present in the majority of hadronic tau decays. The algorithm takes jets and udentifies the neutral pions decaying to two photonsi, which later convert to electron/positron pairs. These electrons/positrons bend in the magnetic field and thus broaden the energy deposits in the ECAL in azimuthal direction. To take tis affect into account, the electromagnetic particles  are reconstructed into ``strips''. The strip is first associated with the most energetic electron or photon within PF jet. Then the algorithm looks nearby whether other electromagnetic particles are present closte to selected one. If more energetic electromagnetic particle than the one associated with strip is found, the strip is associated with this new particle and algorithm proceeds up to the point, no other more energetic particle is present i  the proximity of the strip. The final algorithm searches for the hadronic taus in topologies with single hadron, one hadron and one strip, one hadron and two strips and three hadrons.
 
-\subsubsection{Missing transverse energy}
+\subsection{Missing transverse energy}
 
 
 If momenta of all particles would be measured, the sum of all momenta in the plane transverse to the beam would be zero. But as the weekly interacting neutrinos escape the detector unmeasured, the imbalance of the momenta in this plane is observed. 
