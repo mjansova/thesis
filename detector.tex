@@ -30,9 +30,11 @@ One of the main motivations for the LHC and its experiments was the search for t
 
 \section{The Compact Muon Solenoid detector~\label{sec:CMS}}
 
-The Compact Muon Solenoid~(CMS)~\cite{Chatrchyan:2008aa, CMSproposal} is a multipurpose detector of a length of 28.7~m, a diameter of 15~m and a weight of 14~t,  which is located at the interaction point 5~\cite{Chatrchyan:2008aa}. The designed properties of the CMS  detector were to have good muon identification and resolution, to have good charged-particle momentum and resolution as well as high efficiency in reconstruction of charged-particle tracks. Further it was required to have good electromagnetic energy, missing transverse energy~(MET) and dijet mass resolution. One of the important requirements was also high efficiency in offline tagging of tau particles and jets originating from b-quarks. These conditions have to be fulfilled in the LHC environment, with bunch crossing~(BX) every 25~ns, where every bunch crossing leads to tens of inelastic interactions on top of the interaction of the interest, resulting in thousands of charged particles in the CMS detector every 25~ns. Because of this large radiation, the detectors and front-end electronics have to be radiation-hard.
+The CMS (``Compact Muon Solenoid'') detector~\cite{Chatrchyan:2008aa, CMSproposal} is a multipurpose detector of overall length of 22~m, a diameter of 15~m and a weight of 14~t, located at the IP~5. The designed properties of the CMS  detector were to have high efficiency of muon identification and reconstruction, which was achived to be of order of 95\%-99\%). It was also required have precise momentum resolution in large range of momenta, dimuon mass resolution of order of 1\% at 100 GeV, good charged-particle momentum measurement and resolution~(around 1\%-2\% for 10~GeV muons in majority of CMS coverage) as well as high efficiency in reconstruction of charged-particle tracks. Furthermore it was designed to have precise measurement electromagnetic energy, leading to resolution of diphoton and dielectron mass of around 1\% at 100~GeV. Good missing transverse energy~(MET) and dijet mass resolution is required as well. One of the important requirements was also high efficiency in offline tagging of tau particles and jets originating from b-quarks. These conditions have to be fulfilled in the LHC environment, with a bunch crossing~(BX) frequency of 25~ns, where every bunch crossing leads to tens of inelastic interactions on top of the interaction of the interest, reffered as ``pile-up''~(PU), resulting in thousands of charged particles in the CMS detector every 25~ns. Because of this large radiation, the detectors and front-end electronics have to be radiation-hard.
 
-To achieve given requirements, the CMS was built in layers around large solenoidal magnet, with endcaps at each side. Inside the magnet from the interaction points outwards, there is a pixel and silicon strip tracker, followed by the electromagnetic and hadronic calorimeter. Outside of the magnet there is a part of hadronic calorimeter an steel return yoke with embedded muon chambers. The CMS detector layout is shown in Fig.~\ref{fig:figures/cmsdetector}. In the following sections, the layers of the CMS, starting with the innermost, are introduced in more details.
+To achieve the given requirements, CMS was built in layers around a large solenoidal magnet, with endcaps at each side. The CMS magnet is superconducting solenoid providing a magnetic field of 3.8~T. The magnet is surrounded from outside by the steel yoke which returns the magnetic flux of the solenoid~\cite{tdrMagnet}. The radius of the magnet has to be kept relatively small and therefore the available space between the magnet and interaction point is limited.
+
+Inside the magnet from the interaction point outwards, there is a pixel and silicon strip tracker, followed by the electromagnetic and hadron calorimeter. Outside of the magnet there is outer hadron calorimeter and steel return yoke with embedded muon chambers. The CMS detector layout is shown in Fig.~\ref{fig:figures/cmsdetector}. In the following sections, first the coordinate system of CMS and then the layers of CMS, starting with the innermost, are introduced in more details. At the end, the basic information about trigger, luminosity and pile-up is given.
 %-coverage up to |eta|<5
 
 
@@ -44,16 +46,16 @@ To achieve given requirements, the CMS was built in layers around large solenoid
 
     \insertFigure{figures/coordinates} % Filename = label
                  {0.6}       % Width, in fraction of the whole page width
-                 { The CMS coordinate system with the three axes intercepting at interaction point, x-axis pointing inside the LHC ring, y-axis going upwards and z-axis pointing anti-clockwise in the direction of the beam.~\cite{Pantaleo:2293435}. }
+                 { The CMS coordinate system with the three axes intercepting at the interaction point, the x-axis pointing inside the LHC ring, the y-axis going upwards and the z-axis pointing anti-clockwise along the beam.~\cite{Pantaleo:2293435}. }
 
-The coordinate system used by CMS is sketched in Fig.~\ref{fig:figures/coordinates}. In the CMS conventions, the Cartesian coordinate system has a center at interaction point, with x-axis is pointing into the center of the LHC, y-axis is going upwards and z-axis is going anti-clockwise in the beam direction. The azimuthal angle $\Phi$ is defined in the x-y plane and is measured from the x-axis. The polar angle $\Theta$ is measured from the z-axis and is defined in x-z plane. Finally the $r$ is a radial coordinate in x-y plane. In this convention the pseudorapidity $\eta$ is defined as
+The coordinate system used by CMS is sketched in Fig.~\ref{fig:figures/coordinates}. In the CMS conventions, the Cartesian coordinate system has a center at the IP, with the x-axis pointing into the center of the LHC, the y-axis going upwards and the z-axis going anti-clockwise along the beam direction. The azimuthal angle $\Phi$ is defined in the x-y plane and is measured from the x-axis. The polar angle $\theta$ is measured from the z-axis and is defined in the y-z plane. Finally the $r$ is a radial coordinate in the x-y plane. In this convention the pseudorapidity $\eta$ is defined as
 
 \eq{pseudorapidity}
 {
-    \eta =  -\ln \left[ \tan \left( \frac{\Theta}{2} \right) \right].
+    \eta =  -\ln \left[ \tan \left( \frac{\theta}{2} \right) \right].
 }
 
-The distance of two points can be measured with help of $\Delta R$ defined as
+The distance between two points can be measured with the help of $\Delta R$ defined as
 
 \eq{deltaR}
 {
@@ -69,26 +71,37 @@ The transverse momentum $p_{T}$ can be computed from the x and y momentum compon
 }
 
 
-\subsection{Solenoid}
+
+\subsection{The silicon tracker}
+
+The silicon tracker~\cite{CMS:1997tlf, CMS:2000eqx} is the innermost subdetector of the CMS detector. The CMS tracker is divided into two parts. The inner part consists of a pixel detector, while the outer part of a strip detector. The whole tracker is composed of the modules with silicon sensors. Its purpose is to reconstruct tracks from charged particle depositions in silicon sensors along their path and primary and secondary vertices. A track is the reconstructed path of a particle passing trough the tracker. The primary vertices are the positions where the interaction of interest and PU interaction occured. They are determined using the tracks. The secondary vertices correspond to the place where a particle with a long lifetime decays to other particles. They are also reconstructed with help of the tracks. As the tracker is in the magnetic field, charged particles are bent according to their momentum and charge, thus the CMS tracker is able to measure the charge sign and the momentum associated to a track. To perform so, the tracker has to have good spatial resolution and to be extremely radiation-hard due to the large flux of incoming particles. Also the material was chosen carefully, in order to avoid multiple scattering, nuclear interactions or bremsstrahlung in the tracker material.
+
+The density of the particles in the CMS detector decreases with the distance from the interaction point and therefore the inner part of the tracker is made of silicon pixels, which are able to measure particle paths and its properties in high particle density environment. In the outer part of the tracker, the particle density is low enough to use silicon strip sensors, which are cheaper mainly because they require less readout channels. Overall, the tracker pseudorapidity coverage is  $|\eta| < 2.5$.
+
+The sicilon strip tracker is 5.8~m long with a diameer of 2.5~m. In the barrel region, the inner tracker layer was located at readius of 4.4~cm from the IP. In 2017 the pixel tracker was replaced and the proximity to the IP was decreased to 3~cm. 
+
+The track resolution in \pt is of order of 1.5\% for non-isolated particles in range $1 < \pt < 10\GeV$ and $\abs{\eta} < 1.4$ and of order of 2.8\% for particles with \pt = 100\GeV and $\abs{\eta} < 1.4$~\cite{TRK-11-001}. The spatial resolution of the reconstructed hits for different barrel layers of the strip tracker is shown in Fig.~\ref{fig:figures/hitResolution}~\cite{website:hitEff}.
 
 
-The CMS magnet is superconducting solenoid providing magnetic field of 3.8~T. The magnet is surrounded from outside by the steel yoke which returns the magnetic flux of the solenoid~\cite{tdrMagnet}. Because of the physics reasons, the radius of the magnet has to be small and therefore the available space between the magnet and interaction point is limited.
+    \insertFigure{figures/hitResolution}
+                 {0.6}       
+                 {Measured resolution of reconstructed hit position for different layers. The red color corresponds to hits with charge deposited in one strip, green in two strips and red in three strips~\cite{website:hitEff}. }
 
-\subsection{Silicon tracker}
+%-new pixels - short distance from IP, high radiation -> damage -> need for replacement
+%- FPIX - 3 disks on each side 29.1cm -51.6cm  (Forward pixel) ~\cite{CMS:2012sda}
+%- BPIX - barrel pixel - 4 cylindrical layers radius of 3-16 cm
 
-The silicon tracker~\cite{CMS:1997tlf, CMS:2000eqx} is the innermost subdetector of the CMS detector. The CMS tracker can be divided into two parts. The inner part consist pixel detectors, while the outer part by strip detectors. The whole tracker is composed of the modules with silicon sensors, aiming to measure path of the track. Its purposed is to reconstruct tracks from charged particles' depositions in silicon sensors along their path and the primary and secondary vertices. The track is the reconstructed path of the particle passing trough the tracker. The primary vertices, which are vertices from the interaction of interest and PU interactions, are the positions of the interaction and can be determined using the tracks. The secondary vertices are the places where given particle decayed to other particles. They are also found with help of the tracks. As the tracker is in the magnetic field, paths of charged particles are bent according to their momenta and charge, thus the CMS tracker is able measured charge sign and momenta as well. To perform so, the tracker has to have good spatial resolution and to be extremely radiation-hard due to large flux of incoming particles. Also the material has to be chosen carefully, in order to avoid multiple scattering, nuclear interactions or bremsstrahlung in the tracker material.
+\textbf{Silicon strip tracker}
 
-The density of the particles in the CMS detector decrease with the distance from the interaction point and therefore the inner part of the tracker is made of silicon pixels, which are able to measure particle paths and its properties in high particle density environment. In the outer part of the tracker, the particle density is low enough to use silicon strip sensors, which are cheaper mainly because they require less readout channels. Overall, the tracker pseudorapidity coverage is  $\eta < 2.5$.
+%15148 silicon strip modules
 
-\subsubsection{Silicon strip tracker}
-
-In the following chapters studies of the silicon strip tracker and its simulation are presented and thus it is necessary to take a deeper look into its design. The silicon strip tracker is divided into four partitions. Each of the partition has layers of modules, which have either one side~(mono) or two sides~(stereo) of silicon sensors. The tracker inner barrel~(TIB) is the innermost barrel part with two layers of stereo modules succeeded with two layers of mono modules. The tracker outer barrel~(TOB) surrounds the TIB. In the innermost part of TOB, there are two layers of stereo modules, the remaining four layers are mono. On each side of the barrels, tracker inner disks~(TID) and tracker endcaps~(TEC) are located. There are three wheels of TID with three module rings and 9 wheels of TEC with four to seven rings of modules on each side. In each layer there is a mixture of mono and stereo modules, but each ring has either mono or stereo modules. The overall layout of the silicon strip tracker can be seen in Fig.~\ref{fig:figures/cmsTracker}.
+In the following chapters, studies of the silicon strip tracker and its simulation are presented and thus it is necessary to take a deeper look into its design. The silicon strip tracker is divided into four partitions. Each of the partition has layers of modules, which have either one side~(mono) or two sides~(stereo) of silicon sensors. In totality the strip tracker is composed of 15148 modules. The tracker inner barrel~(TIB) is the innermost barrel part with two layers of stereo modules succeeded by two layers of mono modules. The tracker outer barrel~(TOB) surrounds the TIB. In the innermost part of TOB, there are two layers of stereo modules, the remaining four layers are mono. On each side of the barrels, tracker inner disks~(TID) and tracker endcaps~(TEC) are located. There are three wheels of TID with three module rings and 9 wheels of TEC with four to seven rings of modules on each side. In each layer there is a mixture of mono and stereo modules, but each ring has either mono or stereo modules. In the barrel region the silicon tracker is placed in radius between 10.2~cm up to 1.1~m from the IP. The disks start at 80~cm in the z-direction from the IP and the endcaps reach up to z=2.8~m from the IP. The overall layout of the silicon strip tracker can be seen in Fig.~\ref{fig:figures/cmsTracker}~\cite{Chatrchyan:2014fea}.
 
     \insertFigure{figures/cmsTracker}
                  {0.9}       
-                 {A schema of the upper half of the CMS silicon strip tracker and layout of its partitions. The modules in blue are stereo, while the mono ones are shown in black color~\cite{Chatrchyan:2014fea}. }
+                 {A schema of the upper half of the CMS silicon strip tracker and layout of its partitions. The modules in blue are stereo, while the mono ones are shown in black~\cite{Chatrchyan:2014fea}. }
 
-Each mono module holds 320$\mathrm{\mu m}$ or 500$\mathrm{\mu m}$ thick silicon sensors with either 512 or 768 silicon strips. In case of stereo modules the number of strips doubles. The strip length is between 8 and 25~cm and its width is 18~$\mathrm{\mu m}$. The distance between strips, called pitch, varies between 80 $\mu m$ and 200 $\mu m$. In barrels the strips are parallel to the z-axis, or are tilted by 100~mrad with respect to the z-axis. In the disks and endcaps, the strips are aligned to be parallel to $r$. The local module coordinates have zero in the middle of the module, z-axis goes in direction from back-plane to strips, y-axis goes along strips, and x-axis is perpendicular to the strips and traverses them. The local $\Theta$ angle is measured from the z-axis and the local $\Phi$ is defined in xy-plane and is measured from the x-axis. The details about the module geometries for each layer of TIB and TOB and each ring of TID and TEC can be found in Tab.~\ref{tab:trackerGeometries}.
+Each mono module holds 320~$\mathrm{\mu m}$ or 500~$\mathrm{\mu m}$ thick silicon sensors with either 512 or 768 silicon strips. In case of stereo modules the number of strips doubles. The strip length is between 8 and 25~cm and its width is 18~$\mathrm{\mu m}$. The distance between strips, called pitch, varies between 80~$\mathrm{\mu m}$ and 200 ~$\mathrm{\mu m}$. In the barrels the strips are parallel to the z-axis, or tilted by 100~mrad with respect to the z-axis. In TID and TEC, the strips are aligned to be parallel to $r$. The local module coordinates have zero in the middle of the module, the z-axis goes in direction from the back-plane to the strips, the y-axis goes along the strips, and the x-axis is perpendicular to the strips and traverses them. The local $\theta$ angle is measured from the z-axis. The local $\Phi$ is defined ini the xy-plane and measured from the x-axis. The details about the module geometries for each layer of TIB and TOB and each ring of TID and TEC can be found in Tab.~\ref{tab:trackerGeometries}~\cite{website:hephyPage}.
 
 %TODO local module geometry
 
@@ -96,7 +109,7 @@ Each mono module holds 320$\mathrm{\mu m}$ or 500$\mathrm{\mu m}$ thick silicon 
 \begin{center}
 \begin{tabular}{|l|l|l|l|l|}
 \hline
-Layer & Type  & Strips & Thickness~[$\mathrm{\mu m}$] & Pitch~[$\mathrm{\mu m}$]  \\
+Layer & Type  & #Strips & Thickness~[$\mathrm{\mu m}$] & Pitch~[$\mathrm{\mu m}$]  \\
 \hline
 \hline
 TIB L1 & stereo & 768 & 320 & 80  \\
@@ -124,14 +137,14 @@ TEC R6 & mono & 512 & 500 & 163...205  \\
 TEC R7 & mono & 512 & 500 & 140...172  \\
 \hline
 \end{tabular}
-\caption[Table caption text]{The module type, number of strips, thickness and pitch for layers or rings of four silicon strip tracker partitions~\cite{website:hephyPage}. }
+\caption[Table caption text]{The module type, number of strips, thickness and pitch for layers or rings of the four silicon strip tracker partitions~\cite{website:hephyPage}. }
 \label{tab:trackerGeometries}
 \end{center}
 \end{table}
 
-\subsection{Electormagnetic calorimeter}
+\subsection{The electromagnetic calorimeter}
 
-The electromagnetic calorimeter (ECAL)~\cite{tdrECAL} is a subdetector following the silicon tracker. It is homogeneous, fast, radiation resistant calorimeter with a good energy resolution. It is composed of lead-tungstate ($\mathrm{PbWo_{4}}$) crystals and its purpose is to measure energy of electrons and photons. The ECAL consist of two parts, barrel~(EB) covering $|\eta|<1.479$ and endcaps~(EC) extending the coverage up to $\eta =3$. A preshower is placed in front of the endcaps in order to separate highly energetic single photons from the photons originating from the decay of neutral pions.
+The electromagnetic calorimeter (ECAL)~\cite{tdrECAL} is a subdetector locatad around the silicon tracker from outside. In the barrel region the ECAL extends up to radius of 1.77~m from the IP, in the z-direction . It is an homogeneous, fast, radiation resistant calorimeter with a good energy resolution. It is composed of 75848 lead-tungstate ($\mathrm{PbWo_{4}}$) crystals and its purpose is to measure the energy of electrons and photons. The ECAL consists of two parts, barrel~(EB) covering $|\eta|<1.479$ and endcaps~(EC) extending the coverage up to $|\eta| =3$. A preshower is placed in front of the endcaps in order to separate highly energetic single photons from the photons originating from the decay of neutral pions.
 
 The energy resolution of ECAL was determined to be
 
@@ -140,14 +153,18 @@ The energy resolution of ECAL was determined to be
  \frac{\sigma_{E}}{E} = \frac{0.028}{\sqrt{E}} \bigoplus \frac{0.12}{E} \bigoplus 0.003 ,
 }
 
-where $E$ is energy and $\sigma_{E}$ is energy resolution. The first term is stochastic part, it corresponds to e.g. fluctuations in number of particles. The second term accounts for noise and the third term covers mainly the non-uniformities, energy leakage and inter-calibration issues.
+where $E$ is the energy and $\sigma_{E}$ is the energy resolution. The first term is the stochastic part, it corresponds to e.g. fluctuations in number of particles. The second term accounts for noise and the third term covers mainly the non-uniformities, energy leakage and inter-calibration issues.
 
 
-\subsection{Hadron calorimeter}
+\subsection{The hadron calorimeter}
 
-The purpose of the hadron calorimeter~(HCAL)~\cite{tdrHCAL}, which is another subdetector of the CMS, is to measure energy of strongly interacting particles.  The HCAL is a sampling calorimeter composed of four parts, out of them two are located between the ECAL and magnet, which are HCAL barrel~(HB) and endcaps~(HE). Both HE and HB have a brass absorber and their active material is made of plastic scintillator. The pseudorapidity coverage of HB is $|\eta|<1.3$, and of HE $1.3<|\eta|<3$. The coverage is further extended up to $|\eta|=5.2$ by the third part called forward calorimeter~(HF). The HF, installed 11.2 meters far from the interaction point on both sides, is made of steel serving as an absorber and quartz fibers creating an active volume. The technology of the HF is very radiation-hard as around third of particles produced in the final state reaches the HF. Because of the available space between the ECAL and magnet was not large enough to build calorimeter with enough of stopping power, the last part of the calorimeter, the outside calorimeter~(HO), was added after the magnet. The HO is covering region $|\eta|<1.3$ and stops particles escaping the HB, for this reason it is sometimes also referred as ``tail catcher''. The magnet material is used as an absorber for HO.
+The purpose of the hadron calorimeter~(HCAL)~\cite{tdrHCAL} is to measure the energy of strongly interacting particles.  The HCAL is a sampling calorimeter composed of four parts, out of them two are located between the ECAL and the magnet, which are HCAL barrel~(HB) and endcaps~(HE). Both HE and HB have a brass absorber and their active material is made of plastic scintillators. The pseudorapidity coverage of HB is $|\eta|<1.3$, and of HE $1.3<|\eta|<3$. The coverage is further extended up to $|\eta|=5.2$ by the third part called the forward calorimeter~(HF). Installed 11.2~meters from the IP on both sides, HF is made of steel serving as an absorber and quartz fibers creating the active volume. The technology of HF is very radiation-hard as around one third of the particles produced in the collisions reaches HF. Because the available radial space between ECAL and the magnet is between r=1.77~m and r=2.95~m, which is not large enough to build calorimeter with enough stopping power, the last part of the calorimeter, the outside calorimeter~(HO), was added after the magnet. HO is covering the region $|\eta|<1.3$ and stops particles escaping the HB, for this reason it is sometimes also referred as ``tail catcher''. The magnet material is in that case used as an absorber for HO. A schematic layout of the HCAL is shown in Fig.~\ref{fig:figures/HCAL}~\cite{Chatrchyan:2008aa}.
 
-The hadron energy resolution from combination of ECAL and HCAL (barrel and endcaps)~\cite{Chatrchyan:2009ag} was determined to be
+    \insertFigure{figures/HCAL}
+                 {0.9}       
+                 {A schema of one quarter of the CMS HCAL with layout of HB, HE, HF and HO~\cite{Chatrchyan:2008aa}. }
+
+The hadron energy resolution from the combination of ECAL and HCAL (barrel and endcaps)~\cite{Chatrchyan:2009ag} was measured to be
 
 
 \eq{HCALresol}
@@ -158,46 +175,55 @@ The hadron energy resolution from combination of ECAL and HCAL (barrel and endca
 where the meaning of the terms is similar as for the ECAL.
 %- for HF 1.98/sqrt(E)+0.09 -> higher because of high energy of jets in this region but as divided by energy, it is ok
 
-\subsection{Muon chambers}
+\subsection{The muon chambers}
 
-Because many interesting physics processes have signature with muons in the final state, good and precise measurement of muons is one of the main goals of the CMS. This comprises muon identification, momentum measurement and triggering. The good triggering and momentum measurement is achieved with help of the high magnetic field provided by the solenoid. The measurement of muons is provided by three gaseous subdetectors, the Drift Tube~(DT), Cathode Strip Chamber~(CSC) and Resistive Plate Chamber~(RPC) systems~\cite{tdrMuon}.
+Because many interesting physics processes have signature with muons in the final state, good and precise measurement of muons is one of the main goals of the CMS. This comprises muon identification, momentum measurement and triggering~(event selection). The good triggering and momentum measurement is achieved with help of the high magnetic field provided by the solenoid. The measurement of muons is provided by three gaseous subdetectors, the Drift Tube~(DT), Cathode Strip Chamber~(CSC) and Resistive Plate Chamber~(RPC) systems~\cite{tdrMuon}. The three muon systems combined have in total 1400 chambers, which in radial direction are placed between around 4~m up to 7.5~m from the IP. The distance in the z-direction between the inner and outer part of muon systems is about 5.5~m-11~m. The layot of the muon systems is shown in Fig.~\ref{fig:figures/muons}~\cite{Chatrchyan:2013sba}.
 
-The DTs are located in the barrel region and they are partly integrated into the return yoke.  The pseudorapidity coverage is of $|\eta|<1.2$. They are composed of plane cathodes with anode wires in between the planes. The CSCs are in the endcap areas and are located outside of the return yoke. The CSCs coverage is $0.9<|\eta|<2.4$, which is partly overlapping with the DTs. The CSCs also contain cathodes with anode wires in between, but one cathode of the pair is segmented into strips. The DTs and CSCs provide good triggering on muons which independent of the rest of the CMS.
+    \insertFigure{figures/muons}
+                 {0.9}       
+                 {A schematic view of CMS of one quarter of the CMS muon systemsand their inner structure~\cite{Chatrchyan:2013sba}. In case of DTs MB stands for ``muon barrel'' and in case of CSCs ME stands for ``muon endcap''. The notation for RPCs is RB for barrel and RE for endcaps. }
 
-To ensure the triggering on the right bunch crossing, the complementary RPCs are present in both barrel and endcap regions. The RPCs are faster DTs and CSCs, but on the other hand they provide worse position resolution. The RPCs trigger is independent of the CSCs and DTs. They are composed of parallel plates of anodes and cathodes and readout strips. 
+The DTs are located in the barrel region and they are partly integrated into the return yoke.  The pseudorapidity coverage is of $|\eta|<1.2$. They are composed of plane cathodes with anode wires in between the planes. The smallest unit of DTs is drift cell of dimensions 42$\times$13~mm, in which one 50~$\mathrm{\mu m}$ anode wire is located. The drift time of charge carriers can be up to 400~ns.
+
+The CSCs are in the endcap areas and are located outside of the return yoke. The CSCs coverage is $0.9<|\eta|<2.4$, which is partly overlapping with the DTs. The CSCs also contain cathodes with anode wires in between, but one cathode of the pair is segmented into strips. The DTs and CSCs provide good triggering of muons which is independent of the rest of the CMS.
+
+To ensure the correct bunch crossing identification~(from which bunch crossing given muon originates), the complementary RPCs are present in both barrel and endcap regions. The RPCs are faster than DTs and CSCs, but on the other hand they provide worse position resolution. The RPCs trigger is independent of the CSCs and DTs. RPCs are composed of parallel plates of anodes and cathodes and readout strips. 
+
+The spatial resolution per chamber differs for the three systems, for DTs it is 80-120~$\mathrm{\mu m}$, for CSCs 40-150~$\mathrm{\mu m}$, and for RPCs 0.8-1.2~$\mathrm{cm}$~\cite{Chatrchyan:2013sba}.
 
 In the following sub-section the time measurement in DTs is introduced. The timing can be also measured with CSCs and ECAL in very similar way, but for the purposes of the thesis, only knowledge of the time measurement in DTs is needed.
 
-\subsubsection{Muon timing measurement in DTs}
 
-The muon going through DTs deposits its energy by ionization of the gas. Created charge carriers drift towards the wires and are read at time $t_{read}$. If it is assumed that the muon was produced in-time with collision and its speed is speed-of-light, the time ($t_{cell}$) when the muon arrives from the interaction point to the given drift cell can be calculated then. With the knowledge of the drift velocity~$v_{drift}$, the difference between $t_{read}$ and $t_{cell}$ can be converted into distance as shown in Fig.~\ref{fig:figures/dtTiming}. In this figure the distance $ v_{drift} (t_{read} - t_{cell})$ is illustrated in violet arrow. The distance is then used to compute the hit positions where muon crossed the cells, starting from the wire as shown in blue crosses. In case that the production time was assumed correctly, all hits should be on one line. If the particle was not produced ``in-time'' with the assumed production time, the hits are be shifted~(red crosses) and the line which connects them is not straight, but curly. The distance between reconstructed hits and hits on the straight line is converted to the time~$\delta t$, which measures real arrival time of muon with respect to the expected arrival time, and thus can be used to compute the muon timing~\cite{Traczyk:1365029}.
+\textbf{Muon timing measurement in DTs}
+
+The muon going through DTs deposits its energy by ionization of the gas. The created charge carriers drift towards the wires and are read at time $t_{read}$. If it is assumed that the muon was produced in-time with collision and its speed is the speed of light, the time ($t_{cell}$) when the muon arrives from the IP to the given drift cell can then be calculated. With the knowledge of the drift velocity~$v_{drift}$, the difference between $t_{read}$, when muon charge was read at the wire, and $t_{cell}$, when muon came to the cell, can be converted into distance between them as shown in Fig.~\ref{fig:figures/dtTiming}. In this figure the distance $ v_{drift} (t_{read} - t_{cell})$, is illustrated in violet arrow. The distance is then used to compute the hit positions where muon crossed the cells, starting from the wire as shown in blue crosses. In case that the production time was assumed correctly~(muon was created in-time with collision), all hits should be on one line~(blue crosses). If the particle was not produced ``in-time'' with the collision time, the hits are shifted~(red crosses) and the line which connects them is not straight, but curly. The distance between the reconstructed hit and the hit on the straight line is converted to the time~$\delta t$, which measures real arrival time of muon with respect to the expected arrival time, and thus can be used to compute the muon timing~\cite{Traczyk:1365029}.
 
 
     \insertFigure{figures/dtTiming} % Filename = label
                  {0.5}       % Width, in fraction of the whole page width
-                 { A schema of few drift cells of DTs. The wires are shown in black dots, the drift direction in purple arrows, the expected hits in blue crosses and the reconstructed hits in the red crosses. The distance between reconstructed and expected hits is converted to time and denoted as $\delta t$~\cite{Traczyk:1365029}. }
+                 { A schema of few drift cells of DTs. The wires are shown as black dots, the drift direction as purple arrows, the expected hits as blue crosses and the reconstructed hits as the red crosses. The distance between reconstructed and expected hits is converted to a time denoted as $\delta t$~\cite{Traczyk:1365029}. }
 
 The timing measurements are combined to produce, among others, the following variables: 
 
 \begin{description}
 \item [TimeAtIPInOut]
-This variable corresponds to the time at which muon was present the interaction point, assuming that muon moves at speed of light from the IP outside of the CMS. It is computed as a weighted average of measured $\delta t$ values, where in case of the DTs each weight weight is equal to N-2, with N being a number of hits in a segment of DTs to which the the hit belongs. The error on the time measurement is computed as
+This variable corresponds to the time at which a muon was present at the interaction point, assuming that the muon moves at the speed of light from the IP outside of CMS. It is computed as a weighted average of the measured $\delta t$ values, where in case of the DTs each weight is equal to N-2, with N being the number of hits in the segment of DTs to which the the hit belongs. The error on the time measurement is computed as
 
 \eq{timingResol}
 {
  \sigma^{2} = \frac{1}{N-1} \times \frac{1}{\sum{w_{i}}} \times \sum{(t_i-\bar{t})^2 w_{i} },
 }
 
-where wight $w_{i}$ is defined as $w_i = 1/\sigma_{i}^2$ with $\sigma_{i}$ being a single hit resolution, $\bar{t}$ is the weighted average of the $\delta t$ measurements.
+where the weight $w_{i}$ is defined as $w_i = 1/\sigma_{i}^2$ with $\sigma_{i}$ being a single hit resolution, $t_{i}$ is single timing measurement~($\delta t$) and $\bar{t}$ is the weighted average of the $\delta t$ measurements.
 
 \item[TimeAtIPOutIn]
-The TimeAtIPOutIn is the muon time at interaction point assuming that a muon moving from outside of the CMS detector towards the IP. During the calculation, each $\delta t$ measurement is increased by twice time-of-flight~(TOF) of the in-time muon from IP to the DT cell measuring the $\delta t$. Then the procedure continues as for the TimeAtIPInOut.
+The TimeAtIPOutIn is the muon time at the interaction point assuming that the muon moves from the outside of the CMS detector towards the IP. During the calculation, each $\delta t$ measurement is increased by twice the time-of-flight~(TOF) of the in-time muon from IP to the DT cell measuring the $\delta t$. Then the computation of timing continues as for the TimeAtIPInOut.
 
 \item[Direction]
-The direction variable provides a simple and robust estimate if the muon traveled from the IP out or opposite. The evaluation takes into account the errors on the TimeAtIPOutIn and TimeAtIPInOut variables and assumes that the correct time hypothesis has smaller error.
+The direction variable provides a simple and robust estimate if the muon travelled from the IP out or in the opposite way. The evaluation takes into account the errors on the TimeAtIPOutIn and TimeAtIPInOut variables and assumes that the correct time hypothesis has the smallest error.
 
 \item[Free inverse beta]
-This variable is free $c/v$, where $c$ is the speed of light and $v$ speed of the muon. The word ``free''indicates that neither particle production time, direction nor velocity is assumed and these are free parameters. It is obtained from the fit of muon time-of-flight measurements.
+This variable is the free $c/v$, where $c$ is the speed of light and $v$ the speed of the muon. The word ``free'' indicates that neither the production time, the direction nor the velocity is assumed and that all three are free parameters. It is obtained from the fit of muon time-of-flight measurements.
 
 The timing resolution for DTs in Run~I was determined to be 7-9~ns~\cite{Traczyk:1365029}, compared to 2.3~ns obtained from simulation. The measured resolution is expected to decrease as the detector synchronization improves.
 
@@ -207,11 +233,13 @@ The timing resolution for DTs in Run~I was determined to be 7-9~ns~\cite{Traczyk
 
 \subsection{Trigger and data acquisition}
 
-As bunches are colliding every 25~ns, thus with a rate of 40~MHz, a good, fast and reliable triggering system is required. The data size of one event is approximately 1~MB, therefore if there would not be any dedicated trigger, 40~TB of data per second would have to be stored, what is far beyond current technical capacities. In the CMS there are two level of triggers which provide physics motivated selection of the interesting events. The first one called Level-1~(L1), is hardware based and its decision-making is based in information from muon chambers and calorimeters. The L1 is capable to decide within 3.4~$\mu s$ and its output rate is around 100~kHz. The rest of the event is read upon the decision of L1 and sent to the second level called High Level Trigger~(HLT). The HLT is software based trigger providing further selection. The output rate from HLT is of other of hundreds of Hz. The time period of uninterrupted data-taking is called a run. For example, the run can be interrupted because of the detector techincal difficulties, or switching between collision and cosmics data-taking.
+As bunches are colliding every 25~ns, thus with a rate of 40~MHz, fast and reliable triggering system is required. The data size of one event is approximately 1~MB, therefore if there would not be any dedicated trigger, 40~TB of data per second would have to be stored, what is far beyond the current technical capacities. In CMS there are two level of triggers which provide physics motivated selection of the interesting events. The first one, called Level-1~(L1), is hardware based and its decision-making is based in information from the muon chambers and the calorimeters. The L1 is capable to take a decision within 3.4~$\mathrm{\mu s}$ and its output rate is around 100~kHz. The rest of the event is read upon the decision of L1 and sent to the second level called High Level Trigger~(HLT). The HLT is a software based trigger providing further selections. The output rate of the HLT is of other of the hundreds of Hz. The time period of uninterrupted data-taking is called a run. For example, the run can be interrupted because of detector techincal difficulties, dump of beams, or switching between collision and cosmics data-taking.
+
+The trigger can be set to select different kind of events. In case of Zero Bias trigger there is no requirement. In the Minimum Bias events, the tigger is firing on any bunch crossing with minimal requirement on the activity in the detector. More dedicated is for example Single Muon trigger, which requires presence of one muon. 
 
 \subsection{Luminosity and pile-up}
 
-In the particle physics experiments it is very important to have information about an expected event rate during a time period. For this evaluation, following formula can be used
+In particle physics experiments it is very important to have information about an expected event rate during a time period. For this evaluation, the following formula can be used
 
 \eq{nev}
 {
@@ -222,10 +250,10 @@ where $\sigma$ is the cross section of process of interest and $\mathcal{L}$ is 
 
 \eq{luminosity}
 {
- \mathcal{L} = \frac{N_{p}^2 N_{b} f_{rev} \gamma}{4 \pi \epsilon_{n} \beta^{*}}F,
+ \mathcal{L} = \frac{N^2 f}{4 \pi \epsilon_{n} \beta^{*}}F,
 }
 
-where the variables in numerator are $N_{p}$ which is the number of particle in one bunch, $N_{b}$ which is the number of bunches in one beam and $f_{rev}$ which is the revolution frequency and $\gamma$ is the relativistic gamma factor. In the denominator the $\epsilon_{n}$ is normalized transverse beam emittance and $\beta_{*}$ is the beam amplitude function. Lastly, because of the beam crossing angle the reduction factor $F$ is introduced.
+where the variables in numerator are $N$ which is the number of protons in one bunch (around $10^{11}$) and $f$ which is the bunch crossing frequency (currently 40$\times 10^{6}$). In the denominator $\epsilon_{n}$ is normalized transverse beam emittance and $\beta^{*}$ is the beam amplitude function. In the LHC conditions the  $\epsilon_{n}$ is of order of 4~mm~$\mathrm{\mu m}$ and $\beta^{*}$ of order of 0.5~m. Lastly, because of the beam crossing angle the reduction factor $F$ is introduced. Its value in the LHC conditions typically around 0.95.
 
 By integration of the instantaneous luminosity over time, the integrated luminosity can be obtained:
 
@@ -234,14 +262,14 @@ By integration of the instantaneous luminosity over time, the integrated luminos
  L = \int{ \mathcal{L} \mathrm{d}t}.
 }
 
-The LHC was designed to deliver the instantaneous luminosity of $1 \times 10^{34} \mathrm{cm^{-2}s^{-1}}$. At the beginning of Run~I the instantaneous luminosity was lower than the designed one and it has been increased during the years of LHC operation. Later, because of the smooth running, it was decided to go even beyond the designed luminosity, up to $1.58 \times 10^{34} \mathrm{cm^{-2}s^{-1}}$~\cite{Pralavorio:2272474}. The integrated luminosity delivered to CMS over years 2010-2017 can be seen in Fig~\ref{fig:figures/cmslumi}.
+The LHC was designed to deliver an instantaneous luminosity of $1 \times 10^{34} \mathrm{cm^{-2}s^{-1}}$. At the beginning of Run~I the instantaneous luminosity was lower than the designed one and it has been increased during the years of the LHC operation. Later, because of the smooth running, it was decided to go even beyond the designed luminosity, up to $1.58 \times 10^{34} \mathrm{cm^{-2}s^{-1}}$~\cite{Pralavorio:2272474}. The integrated luminosity delivered to CMS over years 2010-2017 can be seen in Fig~\ref{fig:figures/cmslumi}~\cite{website:CMSlumi}. The full intagreated luminosity is not used for the physics analyses as some of the runs can be a problem with the detector and thus such data are ommited.
 
     \insertFigure{figures/cmslumi} % Filename = label
                  {0.6}       % Width, in fraction of the whole page width
                  { The delivered luminosity to the CMS detector for years 2010-2017~\cite{website:CMSlumi}. }
 
 
-High luminosity is essential to study rare processes, but on the other hand it brings effect called pile-up~(PU)~\cite{Bayatian:2006nff}. Pile-up particles are particles which are not originating from the interaction of interest. Further, pile-up can be divided into two categories. During one bunch crossing, not only the interaction of interest is produced, but more inelastic or diffractive interactions appear at the same time. This kind of pile-up is referred as in-time pile-up. The second kind of pile-up is called out-of-time pile-up~(OOT PU) and originates from particles produced before or after the bunch crossing of interest. The OOT PU is caused for example by slow particles looping in the detector.
+High luminosity is essential to study rare processes, but on the other hand it brings effects called pile-up~(PU)~\cite{Bayatian:2006nff}. Pile-up particles are particles which are not originating from the interaction of interest. Further, pile-up can be divided into two categories. During one bunch crossing, not only the interaction of interest is produced, but more inelastic or diffractive interactions appear at the same time. This kind of pile-up is referred as in-time pile-up and it is of order of tens of interactions per bunch crossing, typically five or six tens, depending on the filling scheme. The second kind of pile-up is called out-of-time pile-up~(OOT PU) and originates from particles produced before or after the bunch crossing of interest. The OOT PU is caused for example by slow particles looping in the detector.
 
 \newpage
 
@@ -288,6 +316,8 @@ The performance of b-jet taggers is different in data and event simulations ther
 Muons are traversing whole CMS detector and therefore their tracks can be reconstructed in both silicon tracker and muon chambers. The ``standalone muon'' is a muon track reconstructed from the hits in CSC, DT and RPC, while the ``inner track'' muon is reconstructed from the hits in the silicon strip tracker only. There are two options how to reconstruct muon using both information from the muon chambers and the tracker. The first one leads to collection of muons called ``tracker muons''.  The tracker muons are first reconstructed in the tracker and then they are extrapolated to the muon chambers by matching the inner track with hits in the muon chambers. The second approach matches standalone muons with inner track based on geometrical criteria. The resulting collection is called ``global muons''~\cite{Chatrchyan:2012xi}. 
 
 The PF algorithm uses both global and tracker muons to identify a PF muon. As leptons from hard scattering are expected not to have other activity in the proximity, the requirement on muon isolation is added in order to select muon candidate and reject hadrons misidentified as muons. The selected muons are then tested by several quality requirements to balance the efficiency and purity of the muon selection. Based on passing or failing the criteria, several muon IDs are assessed, e.g. loose, medium, tight. 
+
+% Matching muons to tracks measured in the silicon tracker results in a relative transverse momentum resolution for muons with $20 <\pt < 100\GeV$ of 1.3--2.0\% in the barrel and better than 6\% in the endcaps. The \pt resolution in the barrel is better than 10\% for muons with \pt up to 1\TeV~\cite{Chatrchyan:2012xi}
 
 \subsubsection{Electron}
 
