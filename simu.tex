@@ -1,0 +1,98 @@
+%Remove the word tuning
+%Explain how the simulation is working → how to simulate cluster, describe how it is done
+%Present what is the situation
+%Description of width not so great
+%Not put too much emphasis on the other tests
+%Tehn found xtalk is responsible
+%Cross talk measurement → 
+%Limitations
+%Then xtalk from MC + ePerADC
+
+\clearpage
+
+\setcounter{secnumdepth}{4}
+\chapterwithnum{Silicon strip tracker simulation}
+\setcounter{secnumdepth}{5}
+
+
+\section{CMS simulation}
+
+%motivation
+-steps overview:
+    \insertFigure{figures/SimulationFlow} % Filename = label
+                 {0.99}       % Width, in fraction of the whole page width
+                 { Simulation workflow~\cite{website:simuBasics}. }
+
+\section{Generation}
+produce MC samples for wide variaty of physicall processes -> MC event processing chain
+generate HEP events -> generate outgoing particles prouced in interactions of incoming ones
+
+Two kinds of generators
+a) general-purpose generators, eg Pythia8 and Herwig++
+- best possible description of the result of the hadron collision
+-these generators contain theoretical models for a large range of physics ascpects (hard and soft interactions, parton distributions, initial and final state parton showers, multiple interactions, fragmentation and decay)
+
+b) Matrix Element (ME) calculators, eg Powheg, MadGraph5_aMCatNLO
+-produce final state at parton level -> then the group a) generators can be used to finish the event up to hadronized level
+
+c) specific generators for eg diffractive events or cosmic events
+
+-> output: particle four-vectors
+
+\section{Simulation}
+a) detector simulation - geant 4
+-full-scale  simulation of the CMS - based on geant4
+-detailed description of the hierarchy of volumes, materials, sensitive and dead parts of detector
+-input are generated particles -> tehy are sent through detector: their deposits are traced + the underlying physics caused by passage through material is simulated -> interaction in detector saved as simulated hits (for example energy loss plus position within a sensitive volume)
+-the sim hits can come from primary (generated) or secondary (result of geant 4) particles
+-the simulation moduel is called: OscarProducer
+-output: SimHits which contein (in general), which contain information about particle traversing a simualtion volume (dE/dx, entry and exit point, (check)....)
+
+i) fullsim 
+
+-full-scale Geant4 detector simulation
+-steps of fullsim:
+	-modelling of interaction region
+	-modeleling of the passage of particles through the detector volume
+	-modelling of the physics processes when particle passes teh detector volume
+	-simulation of PU (multiple interactions per bx, events overlay)
+
+ii) fastsim
+-fatster (simulation of events speeded up ~100 times)
+-> possible to simulate more physics processes
+-used to produce large SUSY signal model scans
+-simplified geometry and simplified model of interaction in material
+
+b) detector digitization - response of the readout electronics
+
+
+- three domains: SimTracker,SimCalorimetry,SimMuon -> each of these simulate response of several subdetectors
+- these three modules are used after simulation of PU
+- pile up simulation -> MixingModule - simulates pile up (more interactions at 1 bx), but also the fact that electronics read the signal longer than 1bx (this simulation is optional) - taken from pool of MinBiassingle events
+-physics events~(signal or hard scattering events) plus pile up merged before digitization  
+- collection of the signal and forming electronic signal
+-> these samples then can eb reconstructed
+
+%fullsim
+%fastsim
+%steps -> geant4, ....
+
+%sources
+%https://twiki.cern.ch/twiki/bin/view/CMSPublic/WorkBookGenIntro
+%https://twiki.cern.ch/twiki/bin/view/CMSPublic/WorkBookSimDigi
+%https://twiki.cern.ch/twiki/bin/view/CMSPublic/SWGuideSimulation
+%https://indico.cern.ch/event/596660/timetable/ fastsim
+%https://indico.cern.ch/event/596660/contributions/2412428/attachments/1411446/2159057/Simulation_Basics_2_17.pdf
+%https://indico.cern.ch/event/596660/contributions/2412429/attachments/1411828/2159813/SekmenFSDHowITWorks170213.pdf fastsim
+
+\section{Simulation in tarcker}
+
+%geant4
+%digitization
+%magnetic field setting
+
+%in detector dir
+%TS2018_001_2 -> MC generators, detector simulatios
+%CERN-THESIS-2017-300 - Event simulation
+%TS2017_028_2 - simulation super short
+
