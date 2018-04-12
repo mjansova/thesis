@@ -57,8 +57,8 @@ The next step is to simulate the collection of the signal obtained from the GEAN
 \section{Simulation of the silicon strip tracker to the particle signal}
 
 
-Geant 4:~\cite{Lefebure:1364020}
-3.1 CMSTrackerHit
+A) Geant 4:~\cite{Lefebure:1364020}
+CMSTrackerHit
 One CMSTrackerHit object is created
 for each new particle entering a Tracker-like component (delta-rays are considered as new particles)
 for each sensitive detector unit
@@ -69,6 +69,83 @@ The information provided by the CMSTrackerHit class is:
 4) the time that the particle has been alive until it enters the detector,
 5) the total amount of energy deposited by the particle along its trajectory in the detector.
 
+
+    \insertFigure{figures/geantDeposit} % Filename = label
+                 {0.5}       % Width, in fraction of the whole page width
+                 { ~\cite{website:simuBasics}. }
+
+
+B) charge collection (CR2009\_338)
+- track in sensitive volume is divided into small segments of the same size (compared to the sensor thickness)
+-the energy is divided between these segments and for each segment the energy depesition is fluctuated by a GEANT4 routine (ask?)
+-the charge(energy) from each track segment is drifted towards strips/backplane
+- there is a diffusion of the charge in the perpendicular(ask?) plane
+- the drift is not straight but as mg. field is present, the charge carriers are deflected -> injected knowledge about the lorentz angle
+- the collected charge is multiplied by gains and converted to the ADCs
+- inject interstrip cross-talk to change the resolution of clusters and tracks - charge collected by neighbors (ask before or after ePerADC?)
+-then zero-suppression
+
+C)Flow(from Nuttens slides)
+- signal from GEANT4
+-divide charge deposit (SiLinearcChargeDivider.cc)
+-Cross-talk (SiTrivialInduceCahrgeOnStrip.cc)
+-Remove dead channels <-database (SiStripDigitizerAlgorithm.cc, write something about condition databasei and global tag)
+-APV killer for HIP (SiStripDigitizerAlgorithm.cc, VR only)
+-baseline shift (VR only, SIGaussianiTailNoiseAdder.cc)
+-baseline tilt (VR only)
+-Noise <- database (SiGaussianNoiseAdder.cc)
+-Gain at APV level <- database (SITRivialDigitalConverter.cc)
+-CMN (VR only, SiGaussianiTailNoiseAdder.cc)
+-Pedestal <- database (VR only, SIGaussianiTailNoiseAdder.cc)
+-Digitization (including saturation SiStripDigitizerAlgorithm, SiStripDigitizer)
+-to be reconstructed
+
+-parameters in simulation picture, + highligt the ones which can chhange with time
+-several changes in the detector
+
+a) temperature
+- used in difussion constant evaluation -> this constant is used to compute the drift time of the charge carriers in the sensor
+-charge drift is one of the forst steps
+-temperature of detector changed several times (in 2015 to -20, in to 2018 to ask?)
+(-more parameters used in simu are probably temperature dependent!)
+
+b)depletion and applied voltage
+SiHitDigitizer.cc
+double timeNormalisation = (moduleThickness*moduleThickness)/(2.*depletionVoltage*chargeMobility);
+SiLinearChargeCollectionDrifter.cc (drift time in the sensor)
+double driftTime = -timeNormalisation*log(1.-2*depletionVoltage*thicknessFraction/(depletionVoltage+appliedVoltage))+chargeDistributionRMS; 
+-> the drift time is dependent on dpeletion and applied voltage!!!
+SignalPoint drift (EnergyDepositUnit edu, Localvector drift, moduleThickness, timeNormalisation)
+
+c) noise
+Noise in ZeroSuppression inputs:
+void addNoise(std::vector<double> &in,size\_t& minChannel, size\_t& maxChannel, int numStrips, float noiseRMS)
+where noiseRMS used in: noiseRMS*theElectronPerADC/gainValue; gain and noiseRMS from database, describe what are the Gain values (G1, G2, GSim) -> in here it looks like it is gsim
+genNoise->generate(numStrips, threshold, noiseRMS, generatedNoise); genNoise(new GaussianTailNoiseGenerator(rndEngine)); <- is it there, what does it do?
+
+d) gains
+-used when adding noise
+-used when converting to ADC
+DigitalVecType convert(const std::vector<double>& analogSignal, edm::ESHandle<SiStripGain> \&gainHandle, unsigned int detid)
+-again changes with time
+
+e) coupling (cross talk)
+- can differ beacuse of aging of detector?
+double chargeDeposited(size\_t strip,size\_t Nstrips,double amplitude,double chargeSpread,double chargePosition)
+Determine integral and fraction of signal
+-integralUpToStrip = (strip == 0) ? 0. : (normal\_cdf( strip, chargeSpread, chargePosition) );
+-integralUpToNext = (strip+1 == Nstrips) ? 1. : ( normal\_cdf( strip+1, chargeSpread, chargePosition) );
+-percentOfSignal = integralUpToNext - integralUpToStrip;
+-return percentOfSignal * amplitude / geVperElectron
+charge spread depends on applied and depletion voltage
+
+void induce(collection\_type collection\_points,StripGeomDetUnit det,localAmplitudes,size\_t recordMinAffectedStrip, size\_t recordMaxAffectedStrip,TrackerTopology *tTopo)
+-loop over all signal points 
+-for each signal point define chargePosition(from signalpoint); first and until strip (chargePоsition±Nsigma*chargeSpread )
+-the loop over strips 
+-compute charge depositied on strip =chargeDeposited( strip, Nstrips, signalpoint->amplitude(), chargeSpread, chargePosition)
+-Strip range affected by deposit (affectedFromStrip, affectedUntilStrip) -> loop over affected strips to apply induce charge
+	-affectedStrip(localAmplitude)  += chargeDepositedOnStrip * coupling.at(abs( affectedStrip - strip ))
 
 %magnetic field setting
 
