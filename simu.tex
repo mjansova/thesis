@@ -17,82 +17,62 @@
 
 \section{CMS simulation}
 
-%motivation
--steps overview:
+The simulated samples are vital part of many analyses. For the physics analyses purposes they are used to copmare the theoretical signal and background with the measured data.  Further, the simulations are also important in development and understaning of specific analysis methods and in derivation and valiadation of calibrations, efficiencies and resolutions.
+
+
+%steps
+The CMS simulation workflow~\cite{Banerjee:2007zz, Hildreth:2017vpw, Hildreth:2015kps, website:simuBasics } is divided into several steps. At the beginning of the simulation chain the physics events are generated and then the generated final state particles are sent through the simulated detector. Following step is the simulation of response of electron electronics to particle traversing the detector. The otput of this producedure are RAW data, which can be later reconstructed and slimmed for the purposes of physics analyses. The overview of the simulation steps, which will be described in larger detail in following subsections, can be seen in Fig.~\ref{fig:figures/SimulationFlow}~\cite{website:simuBasics}. The production of the simulated samples is handled centrally~\cite{Boudoul:2015bkp} by the CMS collaboration.
+
     \insertFigure{figures/SimulationFlow} % Filename = label
                  {0.99}       % Width, in fraction of the whole page width
-                 { Simulation workflow~\cite{website:simuBasics}. }
+                 { A diagram of simulation workflow. The four-vectors of generated particles together with the detector description enter to the Geant4 simulation which output are simulated hits in the detector volume. Optionally the simulated hits from pile-up interactions can be added on top of the simulated hist from physics and the mixture of these hits are digitized in the electronics simulation. In this step the description of the electronics, for eaxample the noise and detector conditions, for example the temperature, is added. The output of digitization are RAW data~\cite{website:simuBasics}. }
 
-\section{Generation}
-produce MC samples for wide variaty of physicall processes -> MC event processing chain
-generate HEP events -> generate outgoing particles prouced in interactions of incoming ones
+\section{Monte Carlo event generators}
 
-Two kinds of generators
-a) general-purpose generators, eg Pythia8 and Herwig++
-- best possible description of the result of the hadron collision
--these generators contain theoretical models for a large range of physics ascpects (hard and soft interactions, parton distributions, initial and final state parton showers, multiple interactions, fragmentation and decay)
+The Monte Carlo~(MC) generators are basic tool designed to produce physics events according to a physics model. In the majority of cases three kinds of generators are used in CMS~\cite{website:generation, website:generationIntro}. 
 
-b) Matrix Element (ME) calculators, eg Powheg, MadGraph5_aMCatNLO
--produce final state at parton level -> then the group a) generators can be used to finish the event up to hadronized level
+\textbf{General-purpose generators}
+These are for example Pythia8~\cite{Sjostrand:2014zea} or Herwig++~\cite{Bahr:2008pv}. The provide the best possible description of the result of the proton collision. To generate outgoing particles originating from the interaction of colliding particles, many theoretical models and aspects has to be plugged in the generation process, such as the description of soft and hard interactions~(in leading order), parton distribution functions~(PDFs), initial and final state radiation~(ISR and FSR), multiple parton interactions, hadronization of partons and decay of particles~\ref{}.
 
-c) specific generators for eg diffractive events or cosmic events
+\textbf{Matrix Element calculators}
+The generators such as Powheg~\cite{Oleari:2010nx} or MadGraph5\_aMCatNLO~\cite{Alwall:2014hca} were developed to provide next-to-leading order~(NLO) claculations. These calculators give the final state description on the parton level which needs to be plugged into one of the general-purpos generators to proceed with  the full hadronization.
+
+\textbf{Specific generators}
+These genrators are used to generate specific kind of events e.g. diffractive or cosmic events.
 
 -> output: particle four-vectors
 
-\section{Simulation}
-a) detector simulation - geant 4
--full-scale  simulation of the CMS - based on geant4
--detailed description of the hierarchy of volumes, materials, sensitive and dead parts of detector
--input are generated particles -> tehy are sent through detector: their deposits are traced + the underlying physics caused by passage through material is simulated -> interaction in detector saved as simulated hits (for example energy loss plus position within a sensitive volume)
--the sim hits can come from primary (generated) or secondary (result of geant 4) particles
--the simulation moduel is called: OscarProducer
--output: SimHits which contein (in general), which contain information about particle traversing a simualtion volume (dE/dx, entry and exit point, (check)....)
+\section{Detector simulation}
 
-i) fullsim 
+To be able to compare the data and simulations, the generated particles need  to be propagated through the volume of detector. This is achieved via GEANT4~\cite{Agostinelli:2002hh ,Lefebure:1999wja} toolkit into which detailed description of the CMS detector, its active and dead material dimensions, hierarchy and properties, is plugged. The GEANT4 sends the generated particles through the detector and simulates the interactions with material and modells the physics processes which happen during the passage of the particles through detector. The output of this procedure are simulated hits left by particles interacting with the active volumes of the subdetectors. The simulated hits can originate from primary particles generated by the MC generator, or from the secondary particles which are result of the GEANT4 simulation process.
 
--full-scale Geant4 detector simulation
--steps of fullsim:
-	-modelling of interaction region
-	-modeleling of the passage of particles through the detector volume
-	-modelling of the physics processes when particle passes teh detector volume
-	-simulation of PU (multiple interactions per bx, events overlay)
+The simulation of the pile-up events is done separately from the simulation of the events of interests. The input to  the GEANT4 simulation of in-time and out-of-time pile-up is pool of Minimum Bias single interaction events.
 
-ii) fastsim
--fatster (simulation of events speeded up ~100 times)
--> possible to simulate more physics processes
--used to produce large SUSY signal model scans
--simplified geometry and simplified model of interaction in material
+This full simulation~(FullSim) is very time intensive and thus it is not suitable to simulate samples for which huge number of events is needed. For this purposes the fast simulation~(FastSim)~\cite{Sekmen:2017hzs, CMS:2010spa, Giammanco:2014bza} was developed as an alternative to the FullSim. The FastSim uses simplified detector geometry and interactions with material, what speeds the simulation by factor of around 100. The comparison of physics objects of FullSim and FastSim shows that FastSim is reliable alternative that reproduces the FullSim with around 10\% accuracy~\cite{Abdullin:2011zz, Sekmen:2017hzs} The FastSim is widely used to produce for example Supersymmetry samples, where large scans with different parameter values are needed. 
 
-b) detector digitization - response of the readout electronics
+\section{Simulation of the detector response to the particle signal}
+
+The next step is to simulate the collection of the signal obtained from the GEANT4 and the response of the readout electronics to this signal. This step is called a digitization and its input is merged collection of physics events of interest and pile-up events. There are three domains providing digitization of given siubdetectors, which are SimTracker, SimCalorimetry and SimMuon~\cite{iwebsite:simdigi}. The digitized saples are in the RAW format and can be further reconstrcutedi in a similar way as data.
+
+\section{Simulation of the silicon strip tracker to the particle signal}
 
 
-- three domains: SimTracker,SimCalorimetry,SimMuon -> each of these simulate response of several subdetectors
-- these three modules are used after simulation of PU
-- pile up simulation -> MixingModule - simulates pile up (more interactions at 1 bx), but also the fact that electronics read the signal longer than 1bx (this simulation is optional) - taken from pool of MinBiassingle events
--physics events~(signal or hard scattering events) plus pile up merged before digitization  
-- collection of the signal and forming electronic signal
--> these samples then can eb reconstructed
+Geant 4:~\cite{Lefebure:1364020}
+3.1 CMSTrackerHit
+One CMSTrackerHit object is created
+for each new particle entering a Tracker-like component (delta-rays are considered as new particles)
+for each sensitive detector unit
+The information provided by the CMSTrackerHit class is:
+1) the entry and exit point of the particle in the local reference frame of the detector unit,
+2) the energy of the particle when it enters the detector unit,
+3) the identification of the track and of the detector unit,
+4) the time that the particle has been alive until it enters the detector,
+5) the total amount of energy deposited by the particle along its trajectory in the detector.
 
-%fullsim
-%fastsim
-%steps -> geant4, ....
 
-%sources
-%https://twiki.cern.ch/twiki/bin/view/CMSPublic/WorkBookGenIntro
-%https://twiki.cern.ch/twiki/bin/view/CMSPublic/WorkBookSimDigi
-%https://twiki.cern.ch/twiki/bin/view/CMSPublic/SWGuideSimulation
-%https://indico.cern.ch/event/596660/timetable/ fastsim
-%https://indico.cern.ch/event/596660/contributions/2412428/attachments/1411446/2159057/Simulation_Basics_2_17.pdf
-%https://indico.cern.ch/event/596660/contributions/2412429/attachments/1411828/2159813/SekmenFSDHowITWorks170213.pdf fastsim
-
-\section{Simulation in tarcker}
-
-%geant4
-%digitization
 %magnetic field setting
 
 %in detector dir
 %TS2018_001_2 -> MC generators, detector simulatios
 %CERN-THESIS-2017-300 - Event simulation
 %TS2017_028_2 - simulation super short
-
