@@ -27,6 +27,8 @@ The CMS simulation workflow~\cite{Banerjee:2007zz, Hildreth:2017vpw, Hildreth:20
                  {0.99}       % Width, in fraction of the whole page width
                  { A diagram of simulation workflow. The four-vectors of generated particles together with the detector description enter to the Geant4 simulation which output are simulated hits in the detector volume. Optionally the simulated hits from pile-up interactions can be added on top of the simulated hist from physics and the mixture of these hits are digitized in the electronics simulation. In this step the description of the electronics, for eaxample the noise and detector conditions, for example the temperature, is added. The output of digitization are RAW data~\cite{website:simuBasics}. }
 
+%TODO more about OOT - loopers + electronics
+
 \section{Monte Carlo event generators}
 
 The Monte Carlo~(MC) generators are basic tool designed to produce physics events according to a physics model. In the majority of cases three kinds of generators are used in CMS~\cite{website:generation, website:generationIntro}. 
@@ -40,7 +42,6 @@ The generators such as Powheg~\cite{Oleari:2010nx} or MadGraph5\_aMCatNLO~\cite{
 \textbf{Specific generators}
 These genrators are used to generate specific kind of events e.g. diffractive or cosmic events.
 
--> output: particle four-vectors
 
 \section{Detector simulation}
 
@@ -52,11 +53,53 @@ This full simulation~(FullSim) is very time intensive and thus it is not suitabl
 
 \section{Simulation of the detector response to the particle signal}
 
-The next step is to simulate the collection of the signal obtained from the GEANT4 and the response of the readout electronics to this signal. This step is called a digitization and its input is merged collection of physics events of interest and pile-up events. There are three domains providing digitization of given siubdetectors, which are SimTracker, SimCalorimetry and SimMuon~\cite{iwebsite:simdigi}. The digitized saples are in the RAW format and can be further reconstrcutedi in a similar way as data.
+To obtain clusters, the signal from the GEANT4 and the response of the readout electronics to this signal. This step is called a digitization and its input is merged collection of physics events of interest and pile-up events. There are three domains providing digitization of given siubdetectors, which are SimTracker, SimCalorimetry and SimMuon~\cite{iwebsite:simdigi}. The digitized saples are in the RAW format and can be further reconstrcutedi in a similar way as data.
 
 \section{Simulation of the silicon strip tracker to the particle signal}
 
+In order to simulate clusters in the tracker, first the GEANT4 energy deposits have to be converted to charge carriers and then propagated through the sensor to the strips. To achieve good data and simulation agreement, the propagation has to be corrected for effects which happen physcially in the sensor, for example a diffusion. Other set of factors is applied on top of the simulated signal to mimic effects of electronics on the signal acquired during the data-taking. Signal with all corrections applied, is digitized. In the following subsections these steps are described in detail, and later, potential issues in the simulation approach are indentified and discussed.  
 
+\subsection{Simulation (digitization) workflow}
+
+%TODO Few words about, that we are truying to do realistic soimulation thus the simulation steps have to be liek in the reality
+
+\textbf{GEANT4 output}
+
+A simulated hit in the tracker produced by GEANT4 is stored in class called CMSTrackerHit~\cite{Lefebure:1364020}. The CMSTrackerHit is created for each particle entering tracker and for each sensitive detector unit. In case of silicon strip tracker one sensitive detector unit is one side of sensors of one module. The CMSTrackerHit stores information about particle entry and exit point in the reference system of the detector unit, the energy of an particle at an entrance point, total amount of energy deposited in the detector unit, the time for which particle existed before it entered detector unit and the identification of detector unit and the track. A sketch of a detector unit and information stored by GEANT4 is shown in Fig.~\ref{fig:figures/geantDeposit}. In later text, the detector unit will be reffered as module.
+
+    \insertFigure{figures/geantDeposit} % Filename = label
+                 {0.5}       % Width, in fraction of the whole page width
+                 { The sketch of information saved for each simulated hit by GEANT4. The hits are stored per detector unit~(DetID) and track~(trackID) and besides DetID and trackID they contain entry energy~($E_{ent}$), total energy deposited~($E_{loss}$), the time paricle has been alive before enetering the unit~(TOF) and the entry and exit point of the particle in the local frame~($(x_{i},y_{i},z_{i})$). REMARK: ADD CITATION HERE?}
+%~\cite{website:simuBasics}. }
+
+\textbf{Divide energy deposit}
+
+The GEANT4 hit stores the point-like total energy deposited in one module. Depending on the arrival time of particle to the module, different fraction of the charge will be read. Later the particle arrives, smaller fraction of charge is collected. To determine the delay of particle with respect of particle going at speed-of-light, time of filight of particle to given module is compared with time-of-fligt of photon to that module. According to delay between particle and photon it is determined, how far from the maximum of the  peak or deconvolution puls shape the particle signal is read and consequently the charge deposited is reduced between the puls shape value at maximum and reading time. The shchema of this time response to the signal can be seen in Fig.~\ref{fig:figures/timeResponse}.
+
+
+    \insertFigure{figures/timeResponse} % Filename = label
+                 {0.5}       % Width, in fraction of the whole page width
+                 { }
+
+In the real data-taking the energy deposition is not point-like, but the track looses its energy continuously as it traverses the module. To mimic this, the track is divided to a certain number of equdistand segments. Currently the number of sectors is evaluated as a fixed factor multiplied by expected number of strips reading a signal. The rescaled total charge is then divided to the track segments and for each segment is fluctuated according Landau function. The fluctuated charge per segment is then nomrlized to keep the sum of the segment energies equal to the intial energy loss. The local corrdinates of the track segment together with the fluctuated normalized energy deposit is saved in energy deposit unit.
+
+
+%TODO draw diagram at the end
+%puls shape figure
+%ISSUES
+%puls shape problems - puls shape same for all strips (actually reveighted at once), does not have any undershoot, is pretty outdated from here CMS NOTE 2007/027
+%charge division itself, eloss does not have to be linear
+%delta rays are missing (maybe): delta cutoff in MeV, has to be same as in Geant (0.120425 MeV corresponding to 100um range for electrons)
+
+\textbf{Charge drift}
+
+A particle passing through the module is depositing its energy via ionization of the silicon volume. The created charge carriers then drift to the electrodes. Therefore to describe the reality, in simulation, the energy deposits, repectively charge, has to be propagated separately from each track segment to the strips.
+
+%TODO finish this
+%charge is induced also by electrons
+%charge is beiing induced - no cross talk due to induction.
+
+\subsection{Potential problems}
 A) Geant 4:~\cite{Lefebure:1364020}
 CMSTrackerHit
 One CMSTrackerHit object is created
@@ -68,7 +111,7 @@ The information provided by the CMSTrackerHit class is:
 3) the identification of the track and of the detector unit,
 4) the time that the particle has been alive until it enters the detector,
 5) the total amount of energy deposited by the particle along its trajectory in the detector.
-
+-> only the total charge is recorded  (though energy deposited on subsections is simulated)
 
     \insertFigure{figures/geantDeposit} % Filename = label
                  {0.5}       % Width, in fraction of the whole page width
@@ -77,7 +120,8 @@ The information provided by the CMSTrackerHit class is:
 
 B) charge collection (CR2009\_338)
 - track in sensitive volume is divided into small segments of the same size (compared to the sensor thickness)
--the energy is divided between these segments and for each segment the energy depesition is fluctuated by a GEANT4 routine (ask?)
+-the energy is divided between these segments and for each segment the energy depesition is fluctuated by a GEANT4 routine (Sample fluctuations), the fluctuated charge is normalized to give the original total charge
+-this is done to take into account the landau fluctuations
 -the charge(energy) from each track segment is drifted towards strips/backplane
 - there is a diffusion of the charge in the perpendicular(ask?) plane
 - the drift is not straight but as mg. field is present, the charge carriers are deflected -> injected knowledge about the lorentz angle
@@ -88,6 +132,18 @@ B) charge collection (CR2009\_338)
 C)Flow(from Nuttens slides)
 - signal from GEANT4
 -divide charge deposit (SiLinearcChargeDivider.cc)
+	-hypotheses
+	-particle goes straight (ask? meaning the track goes straight?)
+	-linear division -> dE/dx constant
+	-peak of collected charge is same for all strips colelcting charge
+	-secondaries, deltra rays not modelled
+        -different width for pions and protons, not simukated? (ask?)
+-diffusion
+	-gaussian smearing of the drifted charge (and an arrival surface)
+	-small compared to the pitch size -> unlikely that it is large source of discrepancies
+	-electric field depends linearly on z
+	- no radiation damage (no traps)
+	-both charge carriers not considered (holes and electrons) - both should induce charge right?!
 -Cross-talk (SiTrivialInduceCahrgeOnStrip.cc)
 -Remove dead channels <-database (SiStripDigitizerAlgorithm.cc, write something about condition databasei and global tag)
 -APV killer for HIP (SiStripDigitizerAlgorithm.cc, VR only)
@@ -97,7 +153,7 @@ C)Flow(from Nuttens slides)
 -Gain at APV level <- database (SITRivialDigitalConverter.cc)
 -CMN (VR only, SiGaussianiTailNoiseAdder.cc)
 -Pedestal <- database (VR only, SIGaussianiTailNoiseAdder.cc)
--Digitization (including saturation SiStripDigitizerAlgorithm, SiStripDigitizer)
+-Digitization - in zero suppression mode adding a noise pers strip (including saturation SiStripDigitizerAlgorithm, SiStripDigitizer)
 -to be reconstructed
 
 -parameters in simulation picture, + highligt the ones which can chhange with time
@@ -146,6 +202,17 @@ void induce(collection\_type collection\_points,StripGeomDetUnit det,localAmplit
 -compute charge depositied on strip =chargeDeposited( strip, Nstrips, signalpoint->amplitude(), chargeSpread, chargePosition)
 -Strip range affected by deposit (affectedFromStrip, affectedUntilStrip) -> loop over affected strips to apply induce charge
 	-affectedStrip(localAmplitude)  += chargeDepositedOnStrip * coupling.at(abs( affectedStrip - strip ))
+
+
+f) pulse and deco shapes are hardcoded (timing)
+-rescale  the signal by looking to the puls shape response (TkPulsShape.h & parametrization.C)
+-not updated after change of APV settings (VFP)
+-no convolution with input signal
+-1/2 ns delay in maxima of puls shape between neighboring strips
+
+g)lorentz angle
+-drift direction compu
+
 
 %magnetic field setting
 
