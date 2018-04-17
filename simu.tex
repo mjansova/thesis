@@ -90,14 +90,56 @@ In the real data-taking the energy deposition is not point-like, but the track l
 %puls shape problems - puls shape same for all strips (actually reveighted at once), does not have any undershoot, is pretty outdated from here CMS NOTE 2007/027
 %charge division itself, eloss does not have to be linear
 %delta rays are missing (maybe): delta cutoff in MeV, has to be same as in Geant (0.120425 MeV corresponding to 100um range for electrons)
+%are not puls shapes difefrent for thick and thin sensors??
 
 \textbf{Charge drift}
 
-A particle passing through the module is depositing its energy via ionization of the silicon volume. The created charge carriers then drift to the electrodes. Therefore to describe the reality, in simulation, the energy deposits, repectively charge, has to be propagated separately from each track segment to the strips.
+%TODO holes propagates to strips
+A particle passing through the module is depositing its energy via ionization of the silicon volume. The created charge carriers then drift to the electrodes. Therefore to describe the reality, in simulation, the energy deposits, repectively charge, have to be propagated separately from each track segment to the strips. As in the barrel regions the electric field is perpendicular to the magnetic field, the drift of the charge carriers is deflected from the direction of electric field, respectively local z-axis, by the Lorentz angle. Therefore the drift direction of the charges towards the surface of sensor must be corrected accordingly to the Lorentz angle and the local magnetic field. Morover the change carriers undergo diffusion in the silicon volume during the drift and therefore a charge from each point like segment will be at the surface collcted smeared due to diffucssion effects. To estimate the difussion, first the a drift time from the track segment to the sensor surface is comupted. This drift time depends on:
+
+\begin{itemize}
+\item Sensor thickness: the drift time is longer for thicker sensors
+\item Depletion and applied voltage: influence how fast the charge carriers drift
+\item Charge mobility: influence how fast the charge carriers drift, for example mobility of holes is lower than electrons
+\item Coordinates of the track segment: used to determine distance charge has to drift through
+\item Charge distribution RMS: no idea %TODO ask
+\end{itemize}
+
+The width of cahrge distribution is then computed from the knowledge of the drift time and a difussion constant. The diffusion constant depends on the type of material the charge drifts through and the temperature of the environment. The enrgy units after applying the drift and diffusion procedure are stroed as signal points, with information about its coordinates at the surface, the energy and its spread.
 
 %TODO finish this
 %charge is induced also by electrons
 %charge is beiing induced - no cross talk due to induction.
+%point-like track segment - spread i  charge should be already there...
+%temperature changes with time
+%lorentz angle changes as well because of different voltage
+%ultimately the voltage itself play a large role
+
+\textbf{Induce charge on the strips}
+
+Once the energy deposits in form of charge are collected on the surface, it must be simulated how much of charge is read by given strip. The charge cannot be divided between strip purely based on the geometrical critearia, due to the the capacitive coupling between strips. The capacitive coupling causes that, in the case of deconvolution mode, the charge collected by one strip is partially shared with its first and second neighbouring strip on both sides. In the peak mode, only sharing between the first neighboring strip on eeach side is observed.   
+
+%more about xtalk, picture
+
+The signal point at surface is associated to the closest strip. The charge converted from energy to number of electrons, is then divided between the neighboring strips acording the charge spread orifinating from diffusion. This is done dor all signal points and after this and in case that to one strip obtains signal from more signal points, these deposits are summed. Now each strip has its assigned charged, on which the cross talk effect has to be applied. The simulation interates over all strips from left to right, and shares the charge of a given strip in between neighbors.
+
+\textbf{Final digitization}
+
+To finilaze the event few more efects must be considered. First, in the detector, several strips are dead. The information about dead channels is stored i  the databe, read by the simulation, and simulated charge on these channels is set to zero. Secondly, to mimic real conditions, the realistic noise has to be added to each strip. The noise per each strip is determined with use of data [TODO how], stored in database, and for needs of simulation read from there. The noise is storead in ADC, therefore it has to be converted to the electrons. Morover because of differences between modules in detector, the noise has to be rescaled by gains of given modules. The summed signal and noise on the strips in electrons is then converted to ADC and scaled by gain to mimic output from the detector. The simulated data in ADC and then Zero Supperssed and stroed in form as digis. 
+ 
+%TODO G1, G2, Gsim
+%TODO all the hits are accumulated for each evet!
+%TODO write something about database
+%TODO say that the procuder can be amd emore difficult by adding pile up
+ 
+%in reallity not like this at all, the carriers drift and induce charge
+%association to the closest strip - well if the center is close to middle, this is dangerous
+%cross talk not correct on the edges, first and last strips
+%no dynamics, sequential cross talk
+
+\textbf{Other features of simulation}
+-PU
+-VR
 
 \subsection{Potential problems}
 A) Geant 4:~\cite{Lefebure:1364020}
