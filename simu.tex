@@ -19,8 +19,6 @@
 
 The simulated samples are vital part of many analyses. For the physics analyses purposes they are used to copmare the theoretical signal and background with the measured data.  Further, the simulations are also important in development and understaning of specific analysis methods and in derivation and valiadation of calibrations, efficiencies and resolutions.
 
-
-%steps
 The CMS simulation workflow~\cite{Banerjee:2007zz, Hildreth:2017vpw, Hildreth:2015kps, website:simuBasics } is divided into several steps. At the beginning of the simulation chain the physics events are generated and then the generated final state particles are sent through the simulated detector. Following step is the simulation of response of electron electronics to particle traversing the detector. The otput of this producedure are RAW data, which can be later reconstructed and slimmed for the purposes of physics analyses. The overview of the simulation steps, which will be described in larger detail in following subsections, can be seen in Fig.~\ref{fig:figures/SimulationFlow}~\cite{website:simuBasics}. The production of the simulated samples is handled centrally~\cite{Boudoul:2015bkp} by the CMS collaboration.
 
     \insertFigure{figures/SimulationFlow} % Filename = label
@@ -53,17 +51,44 @@ This full simulation~(FullSim) is very time intensive and thus it is not suitabl
 
 \section{Simulation of the detector response to the particle signal}
 
-To obtain clusters, the signal from the GEANT4 and the response of the readout electronics to this signal. This step is called a digitization and its input is merged collection of physics events of interest and pile-up events. There are three domains providing digitization of given siubdetectors, which are SimTracker, SimCalorimetry and SimMuon~\cite{iwebsite:simdigi}. The digitized saples are in the RAW format and can be further reconstrcutedi in a similar way as data.
+To obtain clusters, the signal from the GEANT4 and the response of the readout electronics to this signal. This step is called a digitization and its input is merged collection of physics events of interest and pile-up events. There are three domains providing digitization of given siubdetectors, which are SimTracker, SimCalorimetry and SimMuon~\cite{iwebsite:simdigi}. The digitized saples are in the RAW format and can be further reconstrcuted in a similar way as data.
 
 \section{Simulation of the silicon strip tracker to the particle signal}
 
-In order to simulate clusters in the tracker, first the GEANT4 energy deposits have to be converted to charge carriers and then propagated through the sensor to the strips. To achieve good data and simulation agreement, the propagation has to be corrected for effects which happen physcially in the sensor, for example a diffusion. Other set of factors is applied on top of the simulated signal to mimic effects of electronics on the signal acquired during the data-taking. Signal with all corrections applied, is digitized. In the following subsections these steps are described in detail, and later, potential issues in the simulation approach are indentified and discussed.  
+In order to be able to use the simulated samples for the physics analyses puroposes and to be able to rely on them, the simulated samples have to describe the data as well as possible. In case of tracker, the output of the standard simulation are Zero Suppressed data, which are further reconstructed into clusters during the reconstruction step. These clusters are used for tracking and physics objects reconstruction, therefore best possible description of data by simulated samples at clusters level is vital.
 
-\subsection{Simulation (digitization) workflow}
+In following figures, data and simulation comparison of several important clustaer quantities is shown. For the comparison, the zero bias data sample is from run 305064 and fill 6298, is used. The produced simulated sample is minimum biasi produced in FullSim configuration. Both data and simulaten were produced in deconvolution mode. To avoid fake clusters and clusters originating from pile-up, only clusters associated with tracks are used to create plots in whole chapter.
+ 
+The cluster charge collected by one module divided by length of track in sensor, further referred as cluster charge, is shown in Fig.~\ref{fig:figures/clusterchargeRescaledalll0to0}. The data to simulation ratio fluctuates around one within around $\pm 10\%$ in the bulk of  the cluster charge distribution, but the description worsens for very small and very large cluster charges.
 
-%TODO Few words about, that we are truying to do realistic soimulation thus the simulation steps have to be liek in the reality
+    \insertFigure{figures/clusterchargeRescaledalll0to0} % Filename = label
+                 {0.5}       % Width, in fraction of the whole page width
+                 { (top) Data and simulation  comparison of cluster charge. The simulated distribution is rescaled to number of clusters in data. (bottom) Data to simulation ratio of cluster charge distributions. }
 
-\textbf{GEANT4 output}
+The cluster width depends on the sensor geometry and therefore has to be shown separately for different geometries. The possible geometries and their location can be found in Tab.~\ref{tab:trackerGeometries}. The data to simualtion comparison for inner and ouer barrel geomtries is shown in Figs.~\ref{fig:figures/widthTOB}~and~\ref{fig:figures/widthTIB}. In all cases there is very poor description of cluster width in data by the simulation. The mentioned dependency of cluster width on the geometry can be seen when comparing cluster width between IB1 and IB2 in Fig.~\ref{figures/widthTIB}. The IB1 sensors have smaller pitch with respect to IB2 and therefore the IB1 clusters arei in average wider. The sensors of IB2 and OB1 have similar pitch, but OB1 sensors are thicker which leads to larger cluster width than in case of IB2, because the particle path in a sensor is longer. Morover the cross talk is larger for OB1 than IB2, leading to larger enhancement in OB1 cluster width compared to IB2.
+
+    \insertTwoFigures{figures/widthTOB} % Filename = label
+                 {figures/clusterwidthTOBl1to4}
+                 {figures/clusterwidthTOBl5to6} % Filename = label
+                 {0.45}       % Width, in fraction of the whole page width
+                 {(left top) Data and simulation  comparison of cluster width for OB2 geometry. The simulated distribution is rescaled to number of clusters in data. (left bottom) Data to simulation ratio of cluster width distributions for OB2 geometry. (right top) Data and simulation  comparison of cluster width for OB1 geometry. The simulated distribution is rescaled to number of clusters in data. (right bottom) Data to simulation ratio of cluster width distributions for OB1 geometry. }
+
+    \insertTwoFigures{figures/widthTIB} % Filename = label
+                 {figures/clusterwidthTIBl1to2}
+                 {figures/clusterwidthTIBl3to4} % Filename = label
+                 {0.45}       % Width, in fraction of the whole page width
+                 {(left top) Data and simulation  comparison of cluster width for IB2 geometry. The simulated distribution is rescaled to number of clusters in data. (left bottom) Data to simulation ratio of cluster width distributions for IB2 geometry. (right top) Data and simulation  comparison of cluster width for IB2 geometry. The simulated distribution is rescaled to number of clusters in data. (right bottom) Data to simulation ratio of cluster width distributions for IB2 geometry. }
+
+%TODO seed charge
+
+Thus in general, the simulation tend to overestimate the cluster width, but on the other hand underestimate the charge of the seed strip. Overall the simulation of cluster charge agree with data within $\pm$10\% over a wide range of cluster charges.
+
+To understand how the clusters are simulated and what part of simulation can lead to incorrecti cluster simulation, first the simulation flow has to be described. To simulate clusters in the tracker, first the GEANT4 energy deposits have to be converted to charge carriers and then propagated through the sensor to the strips. To achieve good data and simulation agreement, the propagation has to be corrected for effects which happen physcially in the sensor, for example a diffusion. Other set of factors is applied on top of the simulated signal to mimic effects of electronics on the signal acquired during the data-taking. Signal with all corrections applied, is digitized. In the following subsections these steps are described in detail, and later, potential issues in the simulation approach are indentified and discussed.
+
+
+\subsection{Simulation (digitization) steps}
+
+\subsubsection{GEANT4 output}
 
 A simulated hit in the tracker produced by GEANT4 is stored in class called CMSTrackerHit~\cite{Lefebure:1364020}. The CMSTrackerHit is created for each particle entering tracker and for each sensitive detector unit. In case of silicon strip tracker one sensitive detector unit is one side of sensors of one module. The CMSTrackerHit stores information about particle entry and exit point in the reference system of the detector unit, the energy of an particle at an entrance point, total amount of energy deposited in the detector unit, the time for which particle existed before it entered detector unit and the identification of detector unit and the track. A sketch of a detector unit and information stored by GEANT4 is shown in Fig.~\ref{fig:figures/geantDeposit}. In later text, the detector unit will be reffered as module.
 
@@ -72,7 +97,7 @@ A simulated hit in the tracker produced by GEANT4 is stored in class called CMST
                  { The sketch of information saved for each simulated hit by GEANT4. The hits are stored per detector unit~(DetID) and track~(trackID) and besides DetID and trackID they contain entry energy~($E_{ent}$), total energy deposited~($E_{loss}$), the time paricle has been alive before enetering the unit~(TOF) and the entry and exit point of the particle in the local frame~($(x_{i},y_{i},z_{i})$). REMARK: ADD CITATION HERE?}
 %~\cite{website:simuBasics}. }
 
-\textbf{Divide energy deposit}
+\subsubsection{Divide energy deposit}
 
 The GEANT4 hit stores the point-like total energy deposited in one module. Depending on the arrival time of particle to the module, different fraction of the charge will be read. Later the particle arrives, smaller fraction of charge is collected. To determine the delay of particle with respect of particle going at speed-of-light, time of filight of particle to given module is compared with time-of-fligt of photon to that module. According to delay between particle and photon it is determined, how far from the maximum of the  peak or deconvolution puls shape the particle signal is read and consequently the charge deposited is reduced between the puls shape value at maximum and reading time. The shchema of this time response to the signal can be seen in Fig.~\ref{fig:figures/timeResponse}.
 
@@ -92,7 +117,7 @@ In the real data-taking the energy deposition is not point-like, but the track l
 %delta rays are missing (maybe): delta cutoff in MeV, has to be same as in Geant (0.120425 MeV corresponding to 100um range for electrons)
 %are not puls shapes difefrent for thick and thin sensors??
 
-\textbf{Charge drift}
+\subsubsection{Charge drift}
 
 %TODO holes propagates to strips
 A particle passing through the module is depositing its energy via ionization of the silicon volume. The created charge carriers then drift to the electrodes. Therefore to describe the reality, in simulation, the energy deposits, repectively charge, have to be propagated separately from each track segment to the strips. As in the barrel regions the electric field is perpendicular to the magnetic field, the drift of the charge carriers is deflected from the direction of electric field, respectively local z-axis, by the Lorentz angle. Therefore the drift direction of the charges towards the surface of sensor must be corrected accordingly to the Lorentz angle and the local magnetic field. Morover the change carriers undergo diffusion in the silicon volume during the drift and therefore a charge from each point like segment will be at the surface collcted smeared due to diffucssion effects. To estimate the difussion, first the a drift time from the track segment to the sensor surface is comupted. This drift time depends on:
@@ -115,7 +140,7 @@ The width of cahrge distribution is then computed from the knowledge of the drif
 %lorentz angle changes as well because of different voltage
 %ultimately the voltage itself play a large role
 
-\textbf{Induce charge on the strips}
+\subsubsection{Induce charge on the strips}
 
 Once the energy deposits in form of charge are collected on the surface, it must be simulated how much of charge is read by given strip. The charge cannot be divided between strip purely based on the geometrical critearia, due to the the capacitive coupling between strips. The capacitive coupling causes that, in the case of deconvolution mode, the charge collected by one strip is partially shared with its first and second neighbouring strip on both sides. In the peak mode, only sharing between the first neighboring strip on eeach side is observed.   
 
@@ -123,7 +148,7 @@ Once the energy deposits in form of charge are collected on the surface, it must
 
 The signal point at surface is associated to the closest strip. The charge converted from energy to number of electrons, is then divided between the neighboring strips acording the charge spread orifinating from diffusion. This is done dor all signal points and after this and in case that to one strip obtains signal from more signal points, these deposits are summed. Now each strip has its assigned charged, on which the cross talk effect has to be applied. The simulation interates over all strips from left to right, and shares the charge of a given strip in between neighbors.
 
-\textbf{Final digitization}
+\subsubsection{Final digitization}
 
 To finilaze the event few more efects must be considered. First, in the detector, several strips are dead. The information about dead channels is stored i  the databe, read by the simulation, and simulated charge on these channels is set to zero. Secondly, to mimic real conditions, the realistic noise has to be added to each strip. The noise per each strip is determined with use of data [TODO how], stored in database, and for needs of simulation read from there. The noise is storead in ADC, therefore it has to be converted to the electrons. Morover because of differences between modules in detector, the noise has to be rescaled by gains of given modules. The summed signal and noise on the strips in electrons is then converted to ADC and scaled by gain to mimic output from the detector. The simulated data in ADC and then Zero Supperssed and stroed in form as digis. 
  
@@ -137,7 +162,7 @@ To finilaze the event few more efects must be considered. First, in the detector
 %cross talk not correct on the edges, first and last strips
 %no dynamics, sequential cross talk
 
-\textbf{Other features of simulation}
+\subsubsection{Other features of simulation}
 -PU
 -VR
 
