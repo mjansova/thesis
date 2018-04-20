@@ -1,0 +1,121 @@
+
+\emptypage
+
+% ============================================================================
+%  Ackowledgements
+% ============================================================================
+\chapternonum{Acknowledgements}
+%\chapter{Acknowledgements}
+
+thank you 'n stuff
+
+\emptypage
+
+% ============================================================================
+% Table of contents
+% ============================================================================
+
+\singlespace
+\dominitoc
+\renewcommand{\leftmark}{Contents}
+
+\tableofcontents
+
+\emptypage
+
+% ============================================================================
+%   Introducton
+% ============================================================================
+
+\onehalfspacing
+\setcounter{page}{1}
+\pagenumbering{arabic}
+\chapternonum{Introduction}
+%\chapter{Introduction}
+
+% Quotes are cool
+\begin{center}
+\begin{minipage}{0.95\textwidth}
+\emph{« Do, or do not. There is no try »}\\
+\hspace*{0.4\textwidth} Master Yoda, \emph{The Empire Strikes Back}
+\end{minipage}
+\end{center}
+
+\vspace*{0.5cm}
+
+
+\input{../detector.tex}
+\input{../HIP.tex}
+\input{../simu.tex}
+
+
+% ============================================================================
+%   Bibliography
+% ============================================================================
+
+%\emptypage
+%\emptypage
+
+\singlespace
+
+\addcontentsline{toc}{chapter}{Bibliography}
+\renewcommand{\leftmark}{Bibliography}
+
+%\begin{thebibliography}{2}
+
+%    \input{../biblio.tex}
+
+%\end{thebibliography}
+
+\bibliographystyle{unsrt}
+
+\bibliography{sample_y2}
+
+\newpage
+\thispagestyle{empty}
+
+% ============================================================================
+%   Summaries
+% ============================================================================
+
+\newgeometry{top=0.8cm, bottom=0.7cm, left=0.95cm, right=0.95cm, bindingoffset=0cm}
+
+\begin{center}
+    \textbf{\Large{Mark'{e}ta Jansov'{a}}}\\
+    \textbf{\Large{Not known so far\vspace*{0.3cm}}}
+\end{center}
+
+\begin{textblock}{0}[0,0](0.5,0.32)
+{
+    \setlength{\fboxsep}{0.7pt}
+    \setlength{\fboxrule}{1pt}
+    \includegraphics[height=2.2cm]{logo/uds}
+}
+\end{textblock}
+\begin{textblock}{0}[0,0](13.4,0.28)
+{
+    \setlength{\fboxsep}{0.7pt}
+    \setlength{\fboxrule}{1pt}
+    \includegraphics[width=2.2cm]{logo/CNRS}
+}
+\end{textblock}
+\small
+\begin{framed}
+    \vspace*{-0.7cm}
+\begin{center}\textsc{Résumé}\end{center}
+    \vspace*{-0.4cm}
+    Wow much physic, very nobel prize
+
+    \textsc{Mot-clés} : physique des particules, LHC, CMS, identification des
+    jets de quark beau, recherche de nouvelle physique, supersymétrie
+\end{framed}
+\vspace*{-0.2cm}
+\begin{framed}
+    \vspace*{-0.7cm}
+\begin{center}\textsc{Abstract}\end{center}
+    \vspace*{-0.4cm}
+    Wow much physic, very nobel prize
+
+    \textsc{Keywords}: particle physics, LHC, CMS, $b$-tagging, search for new
+    physics, supersymmetry
+\end{framed}

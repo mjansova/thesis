@@ -1,0 +1,175 @@
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%           Macros           %%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%variables
+\newcommand{\SD}{standard deviation\xspace}
+
+\newcommand{\pt}{$p_{T}$\xspace}
+
+% Lists
+\newcommand{\itemList}[1]
+{
+	\begin{itemize}
+		#1
+	\end{itemize}
+}
+
+% Non-numbered chapter
+\newcommand{\chapternonum}[1]
+{
+    \chapter*{#1}
+    \addcontentsline{toc}{chapter}{#1}
+    \renewcommand{\leftmark}{#1}
+}
+
+\newcommand{\chapterwithnum}[1]
+{
+    \chapter{#1}
+    \renewcommand{\leftmark}{Chapter \thechapter\, - #1}
+}
+
+% Non-numbered section
+\newcommand{\sectionnonum}[1]
+{
+    \section*{#1}
+    \addcontentsline{toc}{section}{#1}
+}
+
+% References to figures, tables, equation
+\newcommand{\reffig}[1]{\hyperref[#1]{Figure~\ref*{#1}}}
+\newcommand{\reftab}[1]{\hyperref[#1]{Table~\ref{#1}}}
+\newcommand{\refequation}[1]{\hyperref[#1]{Equation~(\ref{#1})}}
+\newcommand{\refsection}[1]{\hyperref[#1]{Section~\ref{#1}}}
+
+% Instert and empty page
+\newcommand{\emptypage}[0]
+{
+    \newpage
+    \thispagestyle{empty}
+    \null
+    \newpage
+}
+
+%%%%%%%%%%%%%%%%%%%%%
+% Images management
+%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\insertFigure}[3]
+{
+    \begin{figure}[th!]
+        \centering
+        \includegraphics[width=#2\textwidth]{#1}
+        \caption{#3}
+        \label{fig:#1}
+    \end{figure}
+}
+
+\newcommand{\insertTwoFigures}[5]
+{
+    \begin{figure}[t!h]
+        \centering
+        \includegraphics[width=#4\textwidth]{#2}
+        \includegraphics[width=#4\textwidth]{#3}
+        \caption{#5}
+        \label{fig:#1}
+    \end{figure}
+}
+
+\newcommand{\insertThreeFigures}[6]
+{
+    \begin{figure}[t!h]
+        \centering
+        \includegraphics[width=#5\textwidth]{#2}
+        \includegraphics[width=#5\textwidth]{#3}
+        \includegraphics[width=#5\textwidth]{#4}
+        \caption{#6}
+        \label{fig:#1}
+    \end{figure}
+}
+
+\newcommand{\insertFourFigures}[7]
+{
+    \begin{figure}[t!h]
+        \centering
+        \includegraphics[width=#6\textwidth]{#2}
+        \includegraphics[width=#6\textwidth]{#3}\\
+        \includegraphics[width=#6\textwidth]{#4}
+        \includegraphics[width=#6\textwidth]{#5}
+        \caption{#7}
+        \label{fig:#1}
+    \end{figure}
+}
+
+
+%%%%%%%%%%%%%%%
+% Colored text
+%%%%%%%%%%%%%%%
+
+\newcommand{\Cgreen}[1]     { {\color{green!80!blue}{#1}}}
+\newcommand{\Cgreenb}[1]    { \textbf{\color{green!80!blue}{#1}}}
+
+\newcommand{\Cred}[1]       { {\color{red}{#1}}}
+\newcommand{\Credb}[1]      { \textbf{\color{red}{#1}}}
+
+\newcommand{\Corange}[1]    { {\color{orange}{#1}}}
+\newcommand{\Corangeb}[1]   { \textbf{\color{orange}{#1}}}
+
+\newcommand{\Cblue}[1]      { {\color{blue}{#1}}        }
+\newcommand{\Cblueb}[1]     { \textbf{\color{blue}{#1}} }
+
+\newcommand{\Cviolet}[1]    { {\color{red!50!blue}{#1}}        }
+\newcommand{\Cvioletb}[1]   { \textbf{\color{red!50!blue}{#1}} }
+
+\newcommand{\Ckingblue}[1]  { {\color{blue!33!green}{#1}}        }
+\newcommand{\Ckingblueb}[1] { \textbf{\color{blue!33!green}{#1}} }
+
+%%%%%%%%
+% Misc
+%%%%%%%%
+
+\newcommand{\todo}[1]{\textbf{\color{red!75!blue}{[To do : #1]}}}
+\newcommand{\refNeeded}[0]{\textbf{\color{red!75!blue}{[Ref needed]}}}
+
+\newcommand{\definedAs}[0]{\equiv}
+\newcommand{\orderOf}[1]{\mathcal{O}(#1)}
+
+\newcommand{\eq}[2]{\begin{equation}#2 \label{eq:#1}\end{equation}}
+\newcommand{\eqalign}[2]{\begin{align}#2 \label{eq:#1}\end{align}}
+
+\newcommand{\dslash}[0]{\slashed{\partial}}
+\newcommand{\Dslash}[0]{\slashed{D}}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%
+% Bibliography management
+%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\addReference}[4]{\bibitem{#1} #2, \emph{#3}. \small{[#4]}}
+
+\newcommand{\arXiv}[1]{\href{https://arxiv.org/abs/#1}{\texttt{arXiv:#1}}}
+\newcommand{\doi}[2]{\href{https://dx.doi.org/#1}{\texttt{#2}, \texttt{doi:#1}}}
+\newcommand{\cds}[1]{\href{https://cds.cern.ch/record/#1}{\texttt{cds:#1}}}
+\newcommand{\pas}[1]{\href{https://www.cern.ch/cms-physics/public/#1-pas.pdf}{\texttt{CMS-PAS-#1}}}
+\newcommand{\pasNoPub}[1]{\texttt{CMS-PAS-#1}}
+\newcommand{\an}[1]{\href{http://cms.cern.ch/iCMS/jsp/db_notes/noteInfo.jsp?cmsnoteid=CMS AN-#1}{\texttt{CMS-AN-#1}}}
+\newcommand{\loremipsum}[0]{Lorem ipsum dolor sit amet, ad mel dicta iisque splendide, ei mei ipsum inciderint disputando. Causae aliquam nonumes ut vix. Per ex modus laudem accusata, eu eum erant expetenda, has id consequat efficiendi. Rationibus appellantur quo ad. Eam zril ancillae hendrerit ut, sea mutat oratio dissentiunt te.
+
+Modo efficiantur interpretaris cu has, in vis adolescens deterruisset. Lorem urbanitas et duo, has primis fabellas reprehendunt ut, cetero fastidii intellegebat cum cu. Mei everti animal impedit no. Ut denique praesent percipitur qui. Sed ad movet ubique possim, ut ferri docendi qui.}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% HEP notations, analysis stuff
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\pb}          [0]{~\text{pb}}
+\newcommand{\fb}          [0]{~\text{fb}}
+\newcommand{\invfb}       [0]{~\text{fb}^{-1}}
+\newcommand{\MeV}         [0]{~\text{MeV}}
+\newcommand{\GeV}         [0]{~\text{GeV}}
+\newcommand{\TeV}         [0]{~\text{TeV}}
+\newcommand{\pT}          [0]{p_T}
+\newcommand{\mass}        [1]{m_{#1}}
+\newcommand{\abseta}      [0]{\left| \eta \right|}
+
+

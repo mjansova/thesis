@@ -1,0 +1,45 @@
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[a4paper,12pt]{book}
+
+    \input{packages.tex}
+
+    \input{macros.tex}
+
+    \input{appearance.tex}
+
+    % Img paths
+    \graphicspath{{../assets/}}
+
+\usepackage{etoolbox}
+
+\makeatletter
+\patchcmd{\ttlh@hang}{\parindent\z@}{\parindent\z@\leavevmode}{}{}
+\patchcmd{\ttlh@hang}{\noindent}{}{}{}
+\makeatother
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+    \hypersetup
+    {
+        pdfauthor={MJ},
+        pdftitle={Not known so far},
+        pdfproducer={Latex with hyperref},
+    }
+
+
+\begin{document}
+
+    \pagenumbering{roman}
+
+    \setcounter{page}{1}
+
+    \input{../title.tex}
+
+    \setcounter{page}{2}
+
+    \input{../thesis.tex}
+
+\end{document}
