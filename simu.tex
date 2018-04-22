@@ -206,7 +206,7 @@ The diffusion constant $D$ can be expressed as
 
 \eq{driftEquation}
 {
-   \vec{D}=  \frac{\mu k_{B} T}{q},
+   D=  \frac{\mu k_{B} T}{q},
 }
 
 where $\mu$ is the charge mobility, $k_{B}$ the Boltzman constant, $T$ the absolute temperature and $q$ the electrical charge of particle. Between 2017 and 2108 the temperature of the tracker was changed from -15$^{\circ}$C to -20$^{\circ}$, but this change was not propagated into simulation, therefore it is important to evaluate its effect. The cluster charge, width and seed charge are shown in Figs.~\ref{fig:figures/clusterchargeRescaledalll0to0Temperature}~and~\ref{fig:figures/seedwidthTOBTemperature}. The plots of default simulation together with variations up to $\pm 20\%$ of the temperature are showing that the dependency of cluster charge, width and seed charge on temperature is negligible. The charge mobility is intrinsically also dependent on the temperature and should be also adjusted in the simulation. Figs.~\ref{fig:figures/clusterchargeRescaledalll0to0ChargeMob}~and~\ref{fig:figures/seedwidthTOBChargeMob} are revealing a change of cluster charge, width and seed charge when altering the charge mobility by up to $\pm 20\%$. This change is again negligible. In summary there is almost no change in cluster properties due to diffusion beacuse the magnitude of diffusion is much smaller than the picth size.
@@ -232,13 +232,15 @@ where $\mu$ is the charge mobility, $k_{B}$ the Boltzman constant, $T$ the absol
                  {0.45}       % Width, in fraction of the whole page width
                  {(left top) Data and simulation  comparisons of cluster width for OB2 geometry. The default simulation (in red) was modified by injecting four different values of the charge mobility. All simulated distributions are rescaled to number of clusters in data. (left bottom) Data to simulation ratios of cluster width distributions for OB2 geometry. (right top) Data and simulation  comparisons of cluster seed charge for OB2 geometry. The default simulation (in red) was modified by injecting four different values of charge mobility. All simulated distributions are rescaled to number of clusters in data. (right bottom) Data to simulation ratios of cluster seed charge distributions for OB2 geometry. }
 
-% TODO start with remaining issues
+The Lorentz angle used in simulation is dependent on the electric field and therefore with change of voltage the Lorentz angle should be updated. The effect of the Lorentz Angle on the simulated cluster charge, width and seed charge is shown in Fig.~\ref{fig:figures/clusterchargeRescaledalll0to0LA}~and~\ref{fig:figures/seedwidthTOBLA}. It can be concluded that %TODO
+
+Overall the description of drift is simplified in the simulation. It does not take into account any radiation damages of the silicon or non-unifomities of the electric filed.
 %ISSUES
 %charge is induced also by electrons
-% TODO charge is beiing induced - no cross talk due to induction.
+% charge is beiing induced - no cross talk due to induction.
 %point-like track segment - spread i  charge should be already there...
 %temperature changes with time
-% TODO lorentz angle changes as well because of different voltage
+%lorentz angle changes as well because of different voltage
 %ultimately the voltage itself play a large role
 %charge mobility
 
@@ -246,23 +248,40 @@ where $\mu$ is the charge mobility, $k_{B}$ the Boltzman constant, $T$ the absol
 
 Once the energy deposits in form of charge are collected on the surface, it must be simulated how much of charge is read by given strip. The charge cannot be divided between strip purely based on the geometrical critearia, due to the the capacitive coupling between strips. The capacitive coupling causes that, in the case of deconvolution mode, the charge collected by one strip is partially shared with its first and second neighbouring strip on both sides. In the peak mode, only sharing between the first neighboring strip on eeach side is observed.   
 
-%more about xtalk, picture
-
 The signal point at surface is associated to the closest strip. The charge converted from energy to number of electrons, is then divided between the neighboring strips acording the charge spread orifinating from diffusion. This is done dor all signal points and after this and in case that to one strip obtains signal from more signal points, these deposits are summed. Now each strip has its assigned charged, on which the cross talk effect has to be applied. The simulation interates over all strips from left to right, and shares the charge of a given strip in between neighbors.
+
+In the reallity, the charge is being induced on the strips already once the electrons and holes start to drift to backplane and strips, respectively, and at that time both kind of cross talks start to play their roles. The simulation decomposes these steps, first only holes towards the strips are drifted, second the charge on the strips is collected and then the cross talk caused by capacitive coupling is applied. Moreover, the cross talk could change in time due to radation damages of moules and is in principle dependent also on volatge [TODO ask]. To evaluate, what would be an impact of not corect description od cross talk, the Figs.~\ref{fig:figures/clusterchargeRescaledalll0to0XT}~and~\ref{fig:figures/seedwidthTOBXT} show cluster charge, width and seed charge for seevral different cross talk configuration. In these plots we see that .............TODO........  and therefore the correct values of cross talk are vital for good data and simulation agreement.
+
+With aging of the silicon sensors the conversion between energy and electrons can evolve. The data and simulations comparisons of cluster charge, width and seed charge are shown in Figs.~\ref{fig:}~and~\ref{fig:}. Again set of simulations produced by changing the conversion factor up to $\pm 20\%$ is plotted as well. In the figures it can be noticed that change of conversion factor between deposited energy and electrons in the given range leads to significant changes in  But from the plots it can be concluded that only a change of this conversion factor would not be able to provide good data and simulation agreement in all these three quantities.
+
+    \insertFigure{figures/clusterchargeRescaledalll0to0GeVPerElectron} % Filename = label
+                 {0.5}       % Width, in fraction of the whole page width
+                 { (top) Data and simulation comparisons of cluster charge. The default simulation (in red) was modified by injecting four different values of the conversion factor between deposited energy and electrons. All the simulated distribution are rescaled to number of clusters in data. (bottom) Data to simulation ratios of cluster charge distributions. }
+
+    \insertTwoFigures{figures/seedwidthTOBGeVPerElectron} % Filename = label %TDO continue here
+                 {figures/clusterwidthTOBl1to4GeVPerElectron}
+                 {figures/clusterseedchargeRescaledTOBl1to4GeVPerElectron} % Filename = label
+                 {0.45}       % Width, in fraction of the whole page width
+                 {(left top) Data and simulation  comparisons of cluster width for OB2 geometry. The default simulation (in red) was modified by injecting four different values of the conversion factor between deposited energy and electrons. All simulated distributions are rescaled to number of clusters in data. (left bottom) Data to simulation ratios of cluster width distributions for OB2 geometry. (right top) Data and simulation  comparisons of cluster seed charge for OB2 geometry. The default simulation (in red) was modified by injecting four different values of conversion factor between deposited energy and electrons. All simulated distributions are rescaled to number of clusters in data. (right bottom) Data to simulation ratios of cluster seed charge distributions for OB2 geometry. }
+
+%TODO more about xtalk, picture
+%in reallity not like this at all, the carriers drift and induce charge
+%association to the closest strip - well if the center is close to middle, this is dangerous
+%cross talk not correct on the edges, first and last strips
+%no dynamics, sequential cross talk
+%maximal cluster charge and seed charge at different time because of the puls shapes
+%the emasurements of cross talk  are done in a way that not only capacitive coupling is inside
 
 \subsubsection{Final digitization}
 
 To finilaze the event few more efects must be considered. First, in the detector, several strips are dead. The information about dead channels is stored i  the databe, read by the simulation, and simulated charge on these channels is set to zero. Secondly, to mimic real conditions, the realistic noise has to be added to each strip. The noise per each strip is determined with use of data [TODO how], stored in database, and for needs of simulation read from there. The noise is storead in ADC, therefore it has to be converted to the electrons. Morover because of differences between modules in detector, the noise has to be rescaled by gains of given modules. The summed signal and noise on the strips in electrons is then converted to ADC and scaled by gain to mimic output from the detector. The simulated data in ADC and then Zero Supperssed and stroed in form as digis. 
  
+%olt seed noise
 %TODO G1, G2, Gsim
 %TODO all the hits are accumulated for each evet!
 %TODO write something about database
 %TODO say that the procuder can be amd emore difficult by adding pile up
  
-%in reallity not like this at all, the carriers drift and induce charge
-%association to the closest strip - well if the center is close to middle, this is dangerous
-%cross talk not correct on the edges, first and last strips
-%no dynamics, sequential cross talk
 
 \subsubsection{Other features of simulation}
 -PU
@@ -381,6 +400,10 @@ f) pulse and deco shapes are hardcoded (timing)
 
 g)lorentz angle
 -drift direction compu
+
+
+\section{cross talk}
+actually the calue of cross talk we inject into MC can compensate for other effects and therefore does not have to agree with simualtions.
 
 
 %magnetic field setting
