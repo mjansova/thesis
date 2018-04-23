@@ -232,9 +232,20 @@ where $\mu$ is the charge mobility, $k_{B}$ the Boltzman constant, $T$ the absol
                  {0.45}       % Width, in fraction of the whole page width
                  {(left top) Data and simulation  comparisons of cluster width for OB2 geometry. The default simulation (in red) was modified by injecting four different values of the charge mobility. All simulated distributions are rescaled to number of clusters in data. (left bottom) Data to simulation ratios of cluster width distributions for OB2 geometry. (right top) Data and simulation  comparisons of cluster seed charge for OB2 geometry. The default simulation (in red) was modified by injecting four different values of charge mobility. All simulated distributions are rescaled to number of clusters in data. (right bottom) Data to simulation ratios of cluster seed charge distributions for OB2 geometry. }
 
-The Lorentz angle used in simulation is dependent on the electric field and therefore with change of voltage the Lorentz angle should be updated. The effect of the Lorentz Angle on the simulated cluster charge, width and seed charge is shown in Fig.~\ref{fig:figures/clusterchargeRescaledalll0to0LA}~and~\ref{fig:figures/seedwidthTOBLA}. It can be concluded that %TODO
+The Lorentz angle used in simulation is dependent on the electric field and therefore with change of voltage the Lorentz angle should be updated. The effect of the Lorentz Angle on the simulated cluster charge, width and seed charge is shown in Fig.~\ref{fig:figures/clusterchargeRescaledalll0to0LA}~and~\ref{fig:figures/seedwidthTOBLA}. It can be concluded that %TODO explain how the tuned differ from default
 
-Overall the description of drift is simplified in the simulation. It does not take into account any radiation damages of the silicon or non-unifomities of the electric filed.
+
+    \insertFigure{figures/clusterchargeRescaledalll0to0LA} % Filename = label
+                 {0.5}       % Width, in fraction of the whole page width
+                 { (top) Data and simulation comparisons of cluster charge. The default simulation (in red) was modified by injecting four different values of the Lorentz angle. All the simulated distribution are rescaled to number of clusters in data. (bottom) Data to simulation ratios of cluster charge distributions. }
+
+    \insertTwoFigures{figures/seedwidthTOBLA} % Filename = label %TDO continue here
+                 {figures/clusterwidthTOBl1to4LA}
+                 {figures/clusterseedchargeRescaledTOBl1to4LA} % Filename = label
+                 {0.45}       % Width, in fraction of the whole page width
+                 {(left top) Data and simulation  comparisons of cluster width for OB2 geometry. The default simulation (in red) was modified by injecting four different values of the Lorentz angle. All simulated distributions are rescaled to number of clusters in data. (left bottom) Data to simulation ratios of cluster width distributions for OB2 geometry. (right top) Data and simulation  comparisons of cluster seed charge for OB2 geometry. The default simulation (in red) was modified by injecting four different values of Lorentz angle. All simulated distributions are rescaled to number of clusters in data. (right bottom) Data to simulation ratios of cluster seed charge distributions for OB2 geometry. }
+
+Overall the description of the drift is simplified in the simulation. It does not take into account any radiation damages of the silicon or non-unifomities of the electric filed.
 %ISSUES
 %charge is induced also by electrons
 % charge is beiing induced - no cross talk due to induction.
@@ -250,7 +261,23 @@ Once the energy deposits in form of charge are collected on the surface, it must
 
 The signal point at surface is associated to the closest strip. The charge converted from energy to number of electrons, is then divided between the neighboring strips acording the charge spread orifinating from diffusion. This is done dor all signal points and after this and in case that to one strip obtains signal from more signal points, these deposits are summed. Now each strip has its assigned charged, on which the cross talk effect has to be applied. The simulation interates over all strips from left to right, and shares the charge of a given strip in between neighbors.
 
-In the reallity, the charge is being induced on the strips already once the electrons and holes start to drift to backplane and strips, respectively, and at that time both kind of cross talks start to play their roles. The simulation decomposes these steps, first only holes towards the strips are drifted, second the charge on the strips is collected and then the cross talk caused by capacitive coupling is applied. Moreover, the cross talk could change in time due to radation damages of moules and is in principle dependent also on volatge [TODO ask]. To evaluate, what would be an impact of not corect description od cross talk, the Figs.~\ref{fig:figures/clusterchargeRescaledalll0to0XT}~and~\ref{fig:figures/seedwidthTOBXT} show cluster charge, width and seed charge for seevral different cross talk configuration. In these plots we see that .............TODO........  and therefore the correct values of cross talk are vital for good data and simulation agreement.
+In the reallity, the charge is being induced on the strips already once the electrons and holes start to drift to backplane and strips, respectively, and at that time both kind of cross talks start to play their roles. The simulation decomposes these steps, first only holes towards the strips are drifted, second the charge on the strips is collected and then the cross talk caused by capacitive coupling is applied. Moreover, the cross talk could change in time due to radation damages of moules and is in principle dependent also on volatge [TODO ask]. To evaluate, what would be an impact of not corect description od cross talk, the Figs.~\ref{fig:figures/clusterchargeRescaledalll0to0coupling}~and~\ref{fig:figures/seedwidthTOBcouplig} show cluster charge, width and seed charge for seevral different cross talk configuration. In these plots we see that .............TODO........  and therefore the correct values of cross talk are vital for good data and simulation agreement.
+
+
+    \insertFigure{figures/clusterchargeRescaledalll0to0coupling} % Filename = label
+                 {0.5}       % Width, in fraction of the whole page width
+                 { (top) Data and simulation comparisons of cluster charge. The default simulation (in red) was modified by injecting five different combinations of capacitive coupling parameters. All simulated distributions are rescaled to number of clusters in data. (bottom) Data to simulation ratios of cluster charge distributions. }
+
+    \insertTwoFigures{figures/seedwidthTOBcoupling} % Filename = label %TDO continue here
+                 {figures/clusterwidthTOBl1to4coupling}
+                 {figures/clusterseedchargeRescaledTOBl1to4coupling} % Filename = label
+                 {0.45}       % Width, in fraction of the whole page width
+                 {(left top) Data and simulation comparisons of cluster width for OB2 geometry. The default simulation (in red) was modified by injecting five different combinations of capacitive coupling parameters. All simulated distributions are rescaled to number of clusters in data. (left bottom) Data to simulation ratios of cluster width distributions for OB2 geometry. (right top) Data and simulation  comparisons of cluster seed charge for OB2 geometry. The default simulation (in red) was modified by injecting five different combinations of capacitive coupling parameters. All simulated distributions are rescaled to number of clusters in data. (right bottom) Data to simulation ratios of cluster seed charge distributions for OB2 geometry. }
+
+%TODO xtalk
+%large effect on the width -> only parameter on which the width is really very sensitive
+%tuned on cluster width (chi2) -> better description of width and seed charge
+%cluster charge not changing much - could be adjusted with convertion parameters, which will be emntioned later
 
 With aging of the silicon sensors the conversion between energy and electrons can evolve. The data and simulations comparisons of cluster charge, width and seed charge are shown in Figs.~\ref{fig:}~and~\ref{fig:}. Again set of simulations produced by changing the conversion factor up to $\pm 20\%$ is plotted as well. In the figures it can be noticed that change of conversion factor between deposited energy and electrons in the given range leads to significant changes in  But from the plots it can be concluded that only a change of this conversion factor would not be able to provide good data and simulation agreement in all these three quantities.
 
@@ -264,7 +291,7 @@ With aging of the silicon sensors the conversion between energy and electrons ca
                  {0.45}       % Width, in fraction of the whole page width
                  {(left top) Data and simulation  comparisons of cluster width for OB2 geometry. The default simulation (in red) was modified by injecting four different values of the conversion factor between deposited energy and electrons. All simulated distributions are rescaled to number of clusters in data. (left bottom) Data to simulation ratios of cluster width distributions for OB2 geometry. (right top) Data and simulation  comparisons of cluster seed charge for OB2 geometry. The default simulation (in red) was modified by injecting four different values of conversion factor between deposited energy and electrons. All simulated distributions are rescaled to number of clusters in data. (right bottom) Data to simulation ratios of cluster seed charge distributions for OB2 geometry. }
 
-%TODO more about xtalk, picture
+%TODO more about xtalk
 %in reallity not like this at all, the carriers drift and induce charge
 %association to the closest strip - well if the center is close to middle, this is dangerous
 %cross talk not correct on the edges, first and last strips
@@ -274,18 +301,49 @@ With aging of the silicon sensors the conversion between energy and electrons ca
 
 \subsubsection{Final digitization}
 
-To finilaze the event few more efects must be considered. First, in the detector, several strips are dead. The information about dead channels is stored i  the databe, read by the simulation, and simulated charge on these channels is set to zero. Secondly, to mimic real conditions, the realistic noise has to be added to each strip. The noise per each strip is determined with use of data [TODO how], stored in database, and for needs of simulation read from there. The noise is storead in ADC, therefore it has to be converted to the electrons. Morover because of differences between modules in detector, the noise has to be rescaled by gains of given modules. The summed signal and noise on the strips in electrons is then converted to ADC and scaled by gain to mimic output from the detector. The simulated data in ADC and then Zero Supperssed and stroed in form as digis. 
+To finilaze the event few more efects must be considered. First, in the detector, several strips are dead. The information about dead channels is stored in the database, read by the simulation, and simulated charge on these channels is set to zero. Secondly, to mimic real conditions, the realistic noise has to be added to each strip. The noise per each strip is determined from the the fluctiuation of the strip charge after pedestal and CMN subtraction in data runs when no collision was present, is stored in database, and for needs of simulation read from there. The noise is storead in ADC, therefore it has to be converted to the electrons by ePerADC conversion factor. Morover because of differences between modules in detector, the noise has to be rescaled by gains of given modules to correct for module differences. The gain~(Gsim) used in simulation is determined from G1 and G2 gains measured in data, which are described in Sec.~\ref{sec:localreco}. The current choice computation of Gsim, takes G1 from data and smears G1 by random smearing to take into account differences on the sensor level.
+
+ The summed signal and noise on the strips in electrons is then converted to ADC by ePerADC factor and scaled by Gsim to mimic output from the detector. During the reconstruction step, both data and simulation are corrected by 1/(G1$\times$G2) to eliminate module differences. Therefore it would be possible not to apply any gain on the simulated data as simulation itself no differences between same modules are intorduced. For the first simulations, indeed, no gains were applied, but later it was decided to apply gains to be able to simulate stauration effects. In FED, the charge in ADC is truncated into 8-bit range, therefore the GSim is applied to mimic the realistic output of given APV. The simulated data in ADC and then Zero Supperssed and stroed as digis.
  
-%olt seed noise
+
+The gains and noise are strongly dependent on tracker operating temperature and radiation damage and therefore they are mesured several times per year and updated regularly for needs of data reconstruction. These values are not propagated to the simulation, using values from different database, which are updated whith much smaller frequency. The difference of noise and gain between data and simulation can lead to the different zero suppresion results. If the noise is larger in one case than other, it can appear that a strip with a given charge can fail the S/N threshold criterium in one case and pass in other. This effect can lead to discrepancy in cluster width and charge between data and simulation. To evaluate current status, the cluster seed noise rescaled by Gsim, further called only seed noise, is shown in Fig.~\ref{clusterseednoiseTOB2}. From the plots it is obvious, that the difference in the seed noise between data and simulation is huge. This finding triggered the update of these conditions by the responsibles of the tracker local reconstruction group. The updated [TODO lets wait for Marco] 
+
+Similarly as the conversion factor between energy and electrons, the conversion factor betveen electorns and ADC is sensitive to the aging of modules. The comparisons of data, default simulation and simulations with chaged eperADC factor within up to  $\pm 20\%$ from original value in the cluster charge, width and seed charge are shown in Figs.~\ref{fig:figures/clusterchargeRescaledalll0to0ElectronPerADC}~and~\ref{fig:figures/seedwidthTOBElectronPerADC}. By its nature the impact on th cluster quantities is very similar as of the previous conversion factor, but again the conversion factor alone is not responsible for non-description of data by simulation.  
+
+
+    \insertFigure{figures/clusterchargeRescaledalll0to0ElectronPerADC} % Filename = label
+                 {0.5}       % Width, in fraction of the whole page width
+                 { (top) Data and simulation comparisons of cluster charge. The default simulation (in red) was modified by injecting four different values of the conversion factor between electrons and ADC. All the simulated distribution are rescaled to number of clusters in data. (bottom) Data to simulation ratios of cluster charge distributions. }
+
+    \insertTwoFigures{figures/seedwidthTOBElectronPerADC} % Filename = label %TDO continue here
+                 {figures/clusterwidthTOBl1to4ElectronPerADC}
+                 {figures/clusterseedchargeRescaledTOBl1to4ElectronPerADC} % Filename = label
+                 {0.45}       % Width, in fraction of the whole page width
+                 {(left top) Data and simulation  comparisons of cluster width for OB2 geometry. The default simulation (in red) was modified by injecting four different values of the conversion factor between electrons and ADC. All simulated distributions are rescaled to number of clusters in data. (left bottom) Data to simulation ratios of cluster width distributions for OB2 geometry. (right top) Data and simulation  comparisons of cluster seed charge for OB2 geometry. The default simulation (in red) was modified by injecting four different values of conversion factor between electrons and ADC. All simulated distributions are rescaled to number of clusters in data. (right bottom) Data to simulation ratios of cluster seed charge distributions for OB2 geometry. }
+
+    \insertFigure{figures/clusterseednoiseTOB2} % Filename = label
+                 {0.5}       % Width, in fraction of the whole page width
+                 { (top) Data and simulation comparisons of cluster seed noise. The simulated distribution is rescaled to number of clusters in data. (bottom) Data to simulation ratio of cluster seed noise distributions. }
+
+%TODO plot seed noise
+%TODO plot e per ADC
 %TODO G1, G2, Gsim
 %TODO all the hits are accumulated for each evet!
 %TODO write something about database
-%TODO say that the procuder can be amd emore difficult by adding pile up
  
-
 \subsubsection{Other features of simulation}
 -PU
 -VR
+%TODO say that the procuder can be amd emore difficult by adding pile up
+
+\subsubsection{Possible improvement of the simualtion}
+
+The first step how to imporve the description of data is update of the conditions
+-first nose gains and bad channels need to be updated
+-then plug in cross talk
+- then if neeeded tune one fo the conversion factors
+
+In the previous sections several limitiations and simplifications in simulation process vere identified. In further steps the simulation could be improved to mimic more realistically hoe the clusters are created inCMS detector.
 
 \subsection{Potential problems}
 A) Geant 4:~\cite{Lefebure:1364020}
@@ -402,8 +460,10 @@ g)lorentz angle
 -drift direction compu
 
 
-\section{cross talk}
-actually the calue of cross talk we inject into MC can compensate for other effects and therefore does not have to agree with simualtions.
+\section{Cross talk measurement}
+%after seeing what effect could cross talk tuning did, we decided to remeasure the cross talk which was measured last in ...?
+%actually the calue of cross talk we inject into MC can compensate for other effects and therefore does not have to agree with simualtions.
+%TODO more about xtalk, picture
 
 
 %magnetic field setting
