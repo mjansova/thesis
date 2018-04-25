@@ -408,17 +408,75 @@ The second option is to measure cross talk parameters from data. In following, t
 	-Use muons which have hits in the bottom part of DTs
 	-Look only for hits in the bottom part of the tracker
 
--plot timing per track %TODO
+
 -plot timing per track data- compare resolution %TODO
 -plot free inverse beta track %TODO
+-plot timing per track %TODO
+
+    \insertTwoFigures{figures/mutimebeta} % Filename = label
+                 {figures/timeBot}
+                 {figures/freeInverseBetaBot} % Filename = label
+                 {0.45}       % Width, in fraction of the whole page width
+                 {(left) (right)}
+
+- plot rescaled charge as time %TODO chargePerUnitLayers
+Minimizer is Linear
+Chi2                      =      52.1124
+NDf                       =           17
+p0                        =      3380.72   +/-   7.96476     
+p1                        =     -13.6418   +/-   1.55822     
+p2                        =     -3.83894   +/-   0.264411
 - plot rescaled charge as time for different dist %TODO
+
+    \insertTwoFigures{figures/chargeVsTime} % Filename = label
+                 {figures/chargeAsTime}
+                 {figures/chargeAsTimeDist} % Filename = label
+                 {0.45}       % Width, in fraction of the whole page width
+                 {(left) (right)}
+
 TOB2:
 -eta pm one,two as a function of time %TODO
+
+    \insertTwoFigures{figures/etaAsTime} % Filename = label
+                 {figures/etaOneaAsTimeTOB2bottommuBottom}
+                 {figures/etaTwoAsTimeTOB2bottommuBottom} % Filename = label
+                 {0.45}       % Width, in fraction of the whole page width
+                 {(left) (right)}
+
 -eta pm one, two as function of dist (in time window) %TODO
+
+    \insertTwoFigures{figures/etaAsDist} % Filename = label
+                 {figures/etaOneaAsDistTOB2bottommuBottom}
+                 {figures/etaTwoAsDistTOB2bottommuBottom} % Filename = label
+                 {0.45}       % Width, in fraction of the whole page width
+                 {(left) (right)}
+
+
 -eta pm one, two as function of time for layers %TODO
+
+
+    \insertTwoFigures{figures/etaAsLayers} % Filename = label
+                 {figures/etaOneaAsTimeLayerTOB2bottommuBottom}
+                 {figures/etaTwoAsTimeLayerTOB2bottommuBottom} % Filename = label
+                 {0.45}       % Width, in fraction of the whole page width
+                 {(left) (right)}
+
 -eta pm one, two as function of time for mono/stereo %TODO
 
+
+    \insertTwoFigures{figures/etaAsMonoStereo} % Filename = label
+                 {figures/etaOneaAsTimeMonoStereoTOB2bottommuBottom}
+                 {figures/etaTwoAsTimeMonoStereoTOB2bottommuBottom} % Filename = label
+                 {0.45}       % Width, in fraction of the whole page width
+                 {(left) (right)}
+
 -evaluate timing small time and dist ->  plot for OB2 with  and then values for remaining %TODO
+
+    \insertTwoFigures{figures/xtalkTOB2} % Filename = label
+                 {figures/narrowTrackSharing1TOB2bottommuBottom}
+                 {figures/narrowTrackSharing2TOB2bottommuBottom} % Filename = label
+                 {0.45}       % Width, in fraction of the whole page width
+                 {(left) (right)}
 -compare with before
 -say what was not taken into account before (timing, dist dependency)
 %TODO should I say sth more about other hits and tracks we do not use?
