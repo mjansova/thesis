@@ -414,72 +414,49 @@ The distribution of time and free inverse beta for the bottom legs of the muons 
                  {figures/timeBot}
                  {figures/freeInverseBetaBot} % Filename = label
                  {0.45}       % Width, in fraction of the whole page width
-                 {(left) 2018 CRUZET VR data (right)}
+                 {(left) The time distribution of bottom bottom legs of 2018 CRUZET VR data. (right) The time distribution of bottom bottom legs of 2018 CRUZET VR data.}
 
 
     \insertFigure{figures/timeColl} % Filename = label
                  {0.5}       % Width, in fraction of the whole page width
-                 { (top) i2017 era F single muon data (bottom)  }
+                 { The timing distribution of 2017 era F muons originating from collisions.  }
 
 
-The timing of tracker is tuned in a way that the cluster charge is required to be maximal. Such timing adjustments are done with particles originating from collision, thus their production time is fixed to zero.In the left plot of Fig.~ 
+The timing of tracker is tuned in a way that the cluster charge is required to be maximal. Such timing adjustments are done with particles originating from collision, thus their production time is fixed to zero. [TODO how actually is the timing optimized] Therefore to confirm that the cosmic is in alignment with the collsion one, the mean of cluster charge as a function of muon time as shown In the left plot of Fig.~\ref{fig:figures/chargeVsTime} can be studied. This distribution was fitted with gaussian giving a mean $\mu = -1.8 \pm 0.2$, which is not comaptible with zero within its uncertainty, but the sihft is smaller than the resolution effect. There is a bias in the time measurement leading from the fact, that cosmic muons do not have to pass through the interaction point, but the muon time is extrapolated to the interaction point. Right plot of Fig.~\ref{fig:figures/chargeVsTime} is again revealing the mean of cluster charge as a function of time, but four different cases of tracks paasing at different closest distances from the IP. The closest distance, further refferd only as ``distance'', of the track from the IP  is determined as a shortest destance between any point on the track and the IP. On the plot it can be noticed, that the meam charge at the maximum is largerst for the closest tracks to the IP. But the maxima are at the same positions, therefore the distance of the  track from IP is not causing any major shift of the chage distribution in time, but it acts more as a resolution effect. 
 
-
-  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
-   1  Constant     3.39435e+03   7.97716e+00   4.20941e-03   2.42023e-05
-   2  Mean        -1.82332e+00   1.70530e-01  -1.23780e-04   1.02297e-03
-   3  Sigma        2.05388e+01   7.24243e-01   6.33711e-06   3.88536e-03
-- plot rescaled charge as time for different dist %TODO
 
     \insertTwoFigures{figures/chargeVsTime} % Filename = label
                  {figures/chargeAsTime}
                  {figures/chargeAsTimeDist} % Filename = label
                  {0.45}       % Width, in fraction of the whole page width
-                 {(left) (right)}
+                 {(left) The profile of cluster charge distribution as a function of time for 2018 VR CRUZET data. The measured data were fitted by gaussian distribution. (right) The profile of cluster charge distribution as a function of time for four different distances of the muon track from the IP. }
 
-TOB2:
--eta pm one,two as a function of time %TODO
+As suggested above, the cross talk depends on time and therefore to obtain the cross talk transfereble to collsion coditions, the cross talk needs to be measured close to the time equal zero. To prove this hypothesis, the $\eta \pm 1$ and $\eta \pm 2$ distribution were filled with a cluster information from muons in 4~ns window, fitted by a gaussian, which eman was used to evaluate evolution of charge sharing as a function of time for OB2 geometry are shown in Fig.~\ref{fig:figures/etaAsTime}. Each bin of this figure corresponds to the middle of the 4~ns interval, i.e. the bin corresponding to time zero integrated over clusters from muon arriving to the IP at time window $\pm 2$~ns. The $\eta \pm 1$ and $\eta \pm 2$ distributions resulting from muons within this time window, together with the gaussian fit are shown in Fig.~\ref{fig:figures/xtalkTOB2}. In Fig.~\ref{fig:figures/etaAsTime} it can be clearly seen taht the the charge sharing is smaller for muons arriving to a given module before a collsion particle would and larger for muons passing a given module later than particlefrom collsion would. Given this observation it is necessary to impose the selection on muon arrival time to $0 \pm 2$~ns with regard to the time resolution from the DTs.
 
     \insertTwoFigures{figures/etaAsTime} % Filename = label
                  {figures/etaOneaAsTimeTOB2bottommuBottom}
                  {figures/etaTwoAsTimeTOB2bottommuBottom} % Filename = label
                  {0.45}       % Width, in fraction of the whole page width
-                 {(left) (right)}
-
--eta pm one, two as function of dist (in time window) %TODO
-
-    \insertTwoFigures{figures/etaAsDist} % Filename = label
-                 {figures/etaOneaAsDistTOB2bottommuBottom}
-                 {figures/etaTwoAsDistTOB2bottommuBottom} % Filename = label
-                 {0.45}       % Width, in fraction of the whole page width
-                 {(left) (right)}
-
-
--eta pm one, two as function of time for layers %TODO
-
-
-    \insertTwoFigures{figures/etaAsLayers} % Filename = label
-                 {figures/etaOneaAsTimeLayerTOB2bottommuBottom}
-                 {figures/etaTwoAsTimeLayerTOB2bottommuBottom} % Filename = label
-                 {0.45}       % Width, in fraction of the whole page width
-                 {(left) grouping in 6 ns(right)}
-
--eta pm one, two as function of time for mono/stereo %TODO
-
-
-    \insertTwoFigures{figures/etaAsMonoStereo} % Filename = label
-                 {figures/etaOneaAsTimeMonoStereoTOB2bottommuBottom}
-                 {figures/etaTwoAsTimeMonoStereoTOB2bottommuBottom} % Filename = label
-                 {0.45}       % Width, in fraction of the whole page width
-                 {(left) grouping in 6ns (right)}
-
--evaluate timing small time and dist ->  plot for OB2 with  and then values for remaining %TODO
+                 {(left) The evolution of the charge shared to the first neighboring strip as a function of time for OB2 geometry in 2018 CRUZET VR data.  (right) The evolution of the charge shared to the second neighboring strip as a function of time for OB2 geometry in 2018 CRUZET VR data. }
 
     \insertTwoFigures{figures/xtalkTOB2} % Filename = label
                  {figures/narrowTrackSharing1TOB2bottommuBottom}
                  {figures/narrowTrackSharing2TOB2bottommuBottom} % Filename = label
                  {0.45}       % Width, in fraction of the whole page width
-                 {(left) (right)}
+                 {(left) The $\eta \pm 1$  distribution for muon tracks in time winfow $0 \pm 2$~ns for the OB2 geometry in 2018 VR CRUZET data together with the gaussian fit. (right)The $\eta \pm 2$  distribution for muon tracks in time winfow $0 \pm 2$~ns for the OB2 geometry in 2018 VR CRUZET data together with the gaussian fit.  }
+
+
+
+After rejecting the muon tracks outside of the $0 \pm 2$~ns window, the evolution of the $\eta \pm 1$ and $\eta \pm 2$ as a funcion of sitance from IP can be seen in Fig.~\ref{fig:figures/etaAsDist}. Both $\eta \pm 1$ and $\eta \pm 2$ are changing and fluctuiating quickly as a function of distance and do not exhibit any clear trend. 
+
+    \insertTwoFigures{figures/etaAsDist} % Filename = label
+                 {figures/etaOneaAsDistTOB2bottommuBottom}
+                 {figures/etaTwoAsDistTOB2bottommuBottom} % Filename = label
+                 {0.45}       % Width, in fraction of the whole page width
+                 {(left) The evolution of the charge shared to the first neighboring strip as a function of the track distance from the IP for OB2 geometry in 2018 CRUZET VR data.  (right) The evolution of the charge shared to the second neighboring strip as a function of the track distance from the IP for OB2 geometry in 2018 CRUZET VR data. }
+
+The cross talk parameters are comupted from Eq.~\ref{eq:fractions} for all barrel geometries in time window of $0 \pm 2$~ns from the fit of corresponding  $\eta \pm 1$ and $\eta \pm 2$ as shown for OB2 in Fig.~\ref{fig:figures/xtalkTOB2}. The measured values together with the values currently used in the simulation are recored in Tab.~\ref{tab:}.
+
 -compare with before
 -say what was not taken into account before (timing, dist dependency)
 
@@ -503,6 +480,52 @@ x0 0.725506 +- 0.00815634
 x1 0.100057 +- 0.00297439
 x2 0.0371896 +- 0.00279007
 
+no dist constraint
+
+TIB1
+x0 0.735166 +- 0.00548764
+x1 0.0999837 +- 0.0020313
+x2 0.0324333 +- 0.00184455
+
+TIB2
+x0 0.788092 +- 0.00563935
+x1 0.0848766 +- 0.0022456
+x2 0.0210776 +- 0.00170524
+
+TOB2
+x0 0.713665 +- 0.00205651
+x1 0.108941 +- 0.000838398
+x2 0.0342262 +- 0.000595308
+
+
+TOB1
+x0 0.669421 +- 0.00325537
+x1 0.12028 +- 0.00119996
+x2 0.0450097 +- 0.00109975
+-eta pm one, two as function of time for mono/stereo %TODO
+
+
+-eta pm one, two as function of time for layers %TODO
+
+
+    \insertTwoFigures{figures/etaAsLayers} % Filename = label
+                 {figures/etaOneaAsTimeLayerTOB2bottommuBottom}
+                 {figures/etaTwoAsTimeLayerTOB2bottommuBottom} % Filename = label
+                 {0.45}       % Width, in fraction of the whole page width
+                 {(left) grouping in 6 ns(right)}
+
+
+    \insertTwoFigures{figures/etaAsMonoStereo} % Filename = label
+                 {figures/etaOneaAsTimeMonoStereoTOB2bottommuBottom}
+                 {figures/etaTwoAsTimeMonoStereoTOB2bottommuBottom} % Filename = label
+                 {0.45}       % Width, in fraction of the whole page width
+                 {(left) grouping in 6ns (right)}
+
+
+
+-evaluate timing small time and dist ->  plot for OB2 with  and then values for remaining %TODO
+
+
 
 %TODO plug the measured cross talkinto the simulation
 %TODO should I say sth more about other hits and tracks we do not use?
@@ -512,3 +535,9 @@ x2 0.0371896 +- 0.00279007
 \subsubsection{Cross talk tuning}
 
 This will come after the conditions are updated
+
+  %the fit of charge distribution
+  %NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+  % 1  Constant     3.39435e+03   7.97716e+00   4.20941e-03   2.42023e-05
+  % 2  Mean        -1.82332e+00   1.70530e-01  -1.23780e-04   1.02297e-03
+  % 3  Sigma        2.05388e+01   7.24243e-01   6.33711e-06   3.88536e-03
