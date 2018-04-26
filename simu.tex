@@ -363,69 +363,72 @@ The second option is to measure cross talk parameters from data. In following, t
 
 \subsection{Cross talk  measurement~\label{sec:xtalk}}
 
-%after seeing what effect could cross talk tuning did, we decided to remeasure the cross talk which was measured last in ...?
-%actually the calue of cross talk we inject into MC can compensate for other effects and therefore does not have to agree with simualtions.
-%TODO more about xtalk, picture
+The cross talk injected in simulation was measured from CRUZET VR data at the beginning of Run~I. After identifing that outdated cross talk could lead into large discrepancies between data and simulation, we decided that the cross talk needs to be remeasured. The data used for cross talk measurement were taken in March 2018 in the virging raw mode. These data are CRUZET, meaning that the detector magnet was at 0~T that the during data taking, no collsiion was present and only cosmic muons were triggered. The trigger used during this data-taking, was first designed for triggering cosmics during collsiions, which was requested by tracker aligniment group. It was chosen becuase it increases the probability of triggering muons which pass through tracker. The CDC trigger bit~\ref{website:trigger} assumes that muon passes through whole tracker in around 30~ns, meaning that the top leg of the muon in the top part of the detector should eb seen at bunch crossing equal to minus one, and the bottom leg in the bottom part at bunch crossing eqaul to zero. Moreover the two legs should be back to back, leading to requrement on agle between the legs to be $\pi \pm 1/6\pi$. The further restrain on cosmics passing through tracker, the criteraia on phi and eta are imposed. The top leg must pass the cut $|\phi|<1/2\pi \pm 1/3\pi$ and the bottom leg $|\phi|<3/2\pi \pm 1/3\pi$, the eta of muon is required to satisfy $|\eta|<1.202$. The requirement on $\eta$ results in muons which are almost exclusively mesured by DTs and not CSCs. In totality 145854 of CRUZET VR events in runs 312627, 312972, 312973, 312974 and 312977 were taken and saved.
 
+The data with no magnetic field are important to decompose effects of Lorentz angle from the cross talk, furthermore data need to be taken in the VR mode in order not to suppress the strips which are reading charge becasue of cross talk, but small enough to be zero suppressed. At the first step, the strategy of previous cross talk emasurement was reused. In case of no cross talk, if the track passes through volume of sensor belonging to one strip, the total charge $Q$ should be read by one strip only. But as shown in Fig.~\ref{fig:figures/crossTalk}, due to the cross talk effect, the charge will be shared to two neighboring strips on each side and the charge collected by this seed strip will not be $Q$ but only a fraction $x_{0}$.The neighboring strips will obtain smallref ractions $x_{1} and x_{2}$ of this charge. The total charge has to be conserved, leading in requirement on the fractions to be $1=x_{0}+2x_{1}+2_{x2}$. To study such charge sharing, the selection on the angle of track imposed, in order to reduce probability that the track passed through sensor area belonging to more strips. The selection on the track was chosen to be same as in previous measurement:
+
+\eq{narrowTrack}
+{
+|\mathrm{tan}\theta \mathrm{cos}\phi| < 0.5 \times (pitch/thickness),
+}
+
+which is ensuring, that the track is perpendicular to the sensor plane. The track passing such criterium is shown in Fig.~\ref{fig:figures/moduleCT} and is denoted as ``accept''. On contrary tracks like the one denoted as ``reject'' are rejected by this criterium. Furthermore quality criteria on number of hits in the track larger than 6 and $\chi^{2}/dof$ of the track are imposed to select only good tracks. The cross talk can be then measured from the strip charges of clsuters originating from accepted tracks. For the purpose of the cross talk measurement, each cluster is reconstructed from pedestal and CMN subtracted digis with no truncation, as five strips wide cluster with the seed in middle. The the fraction of shared charge can be comuted as
+
+
+\eq{fractions}
+{
+x_{i} = \frac{\eta_{i}}{1+2\eta_{1}+2{\eta_{2}}} ,
+}
+
+with $\eta_{i}$ defined as
+
+\eq{etas}
+{
+\eta_{i} = \frac{q_{\pm i}}{q_{0}} = \frac{x_{i}}{1-2x_{1}+2{x_{2}}} ,
+}
+
+where i=1,2, $x_{1}$ is fraction of charge read by first neighboring strip,  $x_{2}$ is fraction of charge read by second neighboring strip and $x_{0}$ is obtained from normalization condition. The $q_{0}$ is charge read by seed strip and $q_{i}$ charge registered by the neighboring strips. In practice, distributions of $q_{\pm 1}/q_{0}$ and $q_{\pm 2}/q_{0}$ are each filled twice per clusters and  fitted separately by Guassian distributions, avoiding the tails. The mean values of these distributions are inserted in the Eq.\ref{eq:fractions} in order to comute the fraction of charge shared to neigboring strips. The results of cross talk measuremet from Run~I together with current results can be seen in Tab.~\ref{tab:xtalkresults}. During the Run~1 measyrement, it was realized that the cross talk differes for each module geometry and thus it needs to be measured separately for each geometry. In the table only the cross talk measurement in the barrels are present, as due to the eta cut in thei chosen trigger for current data-taking, the tracks passing the disks and endcaps are suppressed. 
 
     \insertFigure{figures/crossTalk} % Filename = label
                  {0.5}       % Width, in fraction of the whole page width
-                 { A schema. }
+                 { A schema of charge sharing between neighboring strips. }
 
     \insertFigure{figures/moduleCT} % Filename = label
                  {0.5}       % Width, in fraction of the whole page width
-                 { A schema. }
+                 { A schematic view of the the track selection for the cross talk measurement. }
 
+As discussed, the observed puls shapes for the seed strip and the neighboring strips have different shapes and they peak at different time, leading to conclusion that the cross talk evolves as function of time. To test such hypothesis the timing information about muon is required. The time of muon is given at IP and details of its computation can be found in Sec.~\ref{sec:muonTiming}.  In the data acquired in 2018 two kinds of muons were observed. Ones which have hits only in top part of DTs as sketched in the left part of Fig.~\ref{fig:figures/muonTracks}, further reffered as ``top muson'',  and others having hits only in bottom part of DTs as shown in right part of Fig.~\ref{fig:figures/muonTracks}, in later reffered as ``bottom muons''. In around 90\% of cases both top and bottom muon is present in one event, they are two legs of the same muon, but both have different time. 
+
+The goal of this analysis is to find muons which passed the IP at the same time as muon in collsion would be produced. Hawing such information it is possible to study the evolution of cross talk for muons which passed the interaction point during, before or after the collision time. The collsion muon would be produced at $time_{IP}^{InOut}=0$ and would move from IP outside exactly like the bottom muon. This is not case for top muon and terefore the timing information of the top muon is disregarded and only the time of the bottom muon is associated with the track reconstructed in the tracker. 
+
+As also displayed in the right part of Fig.~\ref{fig:figures/muonTracks}, there are two kind of hits left in the tracker by cosmics. Ones in top part of tracker in green, reffered as ``top hits'' and others in blue in bottom part, refefred as ``bottom hits''. The timing of tracker, i.e. the sampling of a puls shape in cosmics is the same as collision and is tuned for collisions. Therefore to obtain same cross talk as in collsions, the cosmic muon has to arrive to a given module at the same time as muon from collision would arrive to that module. The situation is simple for bottom hits, for which in case of collsion as cosmic muon being at IP at same time, the arrival time to a given module has to be the same. In case of top hits, the collsiion muons goes from oputside towards the given module and then IP, while the collsion muon the direction is opposite, it starts at IP and then passses through a given module and continues towards outside of CMS. Therefore in this case both cosmic and collision muon with the same time at IP, the time when they pass given module in top part of tracker is different, and the cosmic muon arrives there before the collision one. For this reason of timing mismatch in top aprt of the tracker, only hits in bottom part of the tracker can be used.
 
     \insertFigure{figures/muonTracks} % Filename = label
                  {0.99}       % Width, in fraction of the whole page width
-                 { A schema. }
+                 { A schema of possible configuration of muon legs and hits in the tracker. }
 
--2018 VR CRUZET data
--0T mg filed
--why we need such data
--runs: 312627, 312972, 312973, 312974, 312977
--145854 events
--explain how cross talk can be measured eta pm one/two
--x0, x1, x2 -> +norm
--no ZS to get even strips with negative values - tell how and why
--cut on narrow track (|tanθcosΦ|<0.5x(pitch/thickness)) - say why
--NumberOfValidTrackerHits > 6
--NormalizedChi2 of track < 10.0
--selection on good tracks (chi2, enough of tracks)?
--trigger bit (L1\_CDC\_SingleMu\_3\_er1p2\_TOP120\_DPHI2p618\_3p142 (first designed for triggering cosmics during collisions) web:https://its.cern.ch/jira/browse/CMSLITDPG-74 
-
--muon timing
-	-due to trigger critaeria, only almost hits in DTs
-	-in out vs out in
-	-assumption the track goes through the IP -> problem with distance of track from the interaction point
-
--4 types of hits - in one event many cases with both bottom and top track
--only one case of hit has good timing and same direction as collision muons
--be aware of dist from IP
-
-- strategy
-	-Use muons which have hits in the bottom part of DTs
-	-Look only for hits in the bottom part of the tracker
-
-
--plot timing per track data- compare resolution %TODO
--plot free inverse beta track %TODO
--plot timing per track %TODO
+The distribution of time and free inverse beta for the bottom legs of the muons are shown in Fig.~\ref{fig:figuresmutimebeta}. As expected, the free inverse beta has largest population around one, meaning, that the direction is from interaction point outwards and that the muon speed is close to speed of light. In principle cosmic muon timing should be uniform because of the random arrival time of cosmics to the interaction point. But as mentioned in~\cite{Chatrchyan:2009ig}, the trigger is efficiency is highest for muons arriving to the interaction point in time window of $\pm 5$~ns around the collision time. The time distribution in Fig.~\ref{fig:figures/mutimebeta} peaks around -3.5~ns simaillarly as observed in the note on muon timing~\cite{Traczyk:1365029}. The muons with time is zero, passed the interaction point at time, the collision muon would be produced at IP. The resolution, computed as FWHM, of the time distribution is 15.7~ns. To evaluate which part of the resolution is caused by resolution of time measuremrnt in DTs, the timing distribution of muons produced in collsioni with a gaussian fit is shown in Fig~\ref{fig:figures/timeColl}. The collision muons are produced at time is equal to zero, tehrefore there is no abiguity on production time as for the cosmic muons. But still there is an assumption that muon travel at speed of light. The resolution computed from the fit is 3.6~ns. The cosmic muon timing distribution is more that four times larger because of the natural spread in cosmic arrivel times, but also bias in time can appear due to the assumption in the time computation that the muon passes through the interaction point.
+ 
 
     \insertTwoFigures{figures/mutimebeta} % Filename = label
                  {figures/timeBot}
                  {figures/freeInverseBetaBot} % Filename = label
                  {0.45}       % Width, in fraction of the whole page width
-                 {(left) (right)}
+                 {(left) 2018 CRUZET VR data (right)}
 
-- plot rescaled charge as time %TODO chargePerUnitLayers
-Minimizer is Linear
-Chi2                      =      52.1124
-NDf                       =           17
-p0                        =      3380.72   +/-   7.96476     
-p1                        =     -13.6418   +/-   1.55822     
-p2                        =     -3.83894   +/-   0.264411
+
+    \insertFigure{figures/timeColl} % Filename = label
+                 {0.5}       % Width, in fraction of the whole page width
+                 { (top) i2017 era F single muon data (bottom)  }
+
+
+The timing of tracker is tuned in a way that the cluster charge is required to be maximal. Such timing adjustments are done with particles originating from collision, thus their production time is fixed to zero.In the left plot of Fig.~ 
+
+
+  NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
+   1  Constant     3.39435e+03   7.97716e+00   4.20941e-03   2.42023e-05
+   2  Mean        -1.82332e+00   1.70530e-01  -1.23780e-04   1.02297e-03
+   3  Sigma        2.05388e+01   7.24243e-01   6.33711e-06   3.88536e-03
 - plot rescaled charge as time for different dist %TODO
 
     \insertTwoFigures{figures/chargeVsTime} % Filename = label
@@ -459,7 +462,7 @@ TOB2:
                  {figures/etaOneaAsTimeLayerTOB2bottommuBottom}
                  {figures/etaTwoAsTimeLayerTOB2bottommuBottom} % Filename = label
                  {0.45}       % Width, in fraction of the whole page width
-                 {(left) (right)}
+                 {(left) grouping in 6 ns(right)}
 
 -eta pm one, two as function of time for mono/stereo %TODO
 
@@ -468,7 +471,7 @@ TOB2:
                  {figures/etaOneaAsTimeMonoStereoTOB2bottommuBottom}
                  {figures/etaTwoAsTimeMonoStereoTOB2bottommuBottom} % Filename = label
                  {0.45}       % Width, in fraction of the whole page width
-                 {(left) (right)}
+                 {(left) grouping in 6ns (right)}
 
 -evaluate timing small time and dist ->  plot for OB2 with  and then values for remaining %TODO
 
@@ -479,8 +482,33 @@ TOB2:
                  {(left) (right)}
 -compare with before
 -say what was not taken into account before (timing, dist dependency)
-%TODO should I say sth more about other hits and tracks we do not use?
 
+TIB1
+x0 0.725506 +- 0.00815634
+x1 0.100057 +- 0.00297439
+x2 0.0371896 +- 0.00279007
+
+TIB2
+x0 0.795078 +- 0.0104821
+x1 0.0845729 +- 0.00427595
+x2 0.0178882 +- 0.00303061
+
+TOB2
+x0 0.704474 +- 0.00391049
+x1 0.112763 +- 0.00156127
+x2 0.0349995 +- 0.00117704
+
+TOB1
+x0 0.725506 +- 0.00815634
+x1 0.100057 +- 0.00297439
+x2 0.0371896 +- 0.00279007
+
+
+%TODO plug the measured cross talkinto the simulation
+%TODO should I say sth more about other hits and tracks we do not use?
+%In ideal case it would be best to acquire 0T collision VR data, which is not CMS priority. 
+
+%actually the calue of cross talk we inject into MC can compensate for other effects and therefore does not have to agree with simualtions.
 \subsubsection{Cross talk tuning}
 
 This will come after the conditions are updated
