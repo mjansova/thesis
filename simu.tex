@@ -387,7 +387,7 @@ with $\eta_{i}$ defined as
 \eta_{i} = \frac{q_{\pm i}}{q_{0}} = \frac{x_{i}}{1-2x_{1}+2{x_{2}}} ,
 }
 
-where i=1,2, $x_{1}$ is fraction of charge read by first neighboring strip,  $x_{2}$ is fraction of charge read by second neighboring strip and $x_{0}$ is obtained from normalization condition. The $q_{0}$ is charge read by seed strip and $q_{i}$ charge registered by the neighboring strips. In practice, distributions of $q_{\pm 1}/q_{0}$ and $q_{\pm 2}/q_{0}$ are each filled twice per clusters and  fitted separately by Guassian distributions, avoiding the tails. The mean values of these distributions are inserted in the Eq.\ref{eq:fractions} in order to comute the fraction of charge shared to neigboring strips. The results of cross talk measuremet from Run~I together with current results can be seen in Tab.~\ref{tab:xtalkresults}. During the Run~1 measyrement, it was realized that the cross talk differes for each module geometry and thus it needs to be measured separately for each geometry. In the table only the cross talk measurement in the barrels are present, as due to the eta cut in thei chosen trigger for current data-taking, the tracks passing the disks and endcaps are suppressed. 
+where i=1,2, $x_{1}$ is fraction of charge read by first neighboring strip,  $x_{2}$ is fraction of charge read by second neighboring strip and $x_{0}$ is obtained from normalization condition. The $q_{0}$ is charge read by seed strip and $q_{i}$ charge registered by the neighboring strips. In practice, distributions of $q_{\pm 1}/q_{0}$ and $q_{\pm 2}/q_{0}$ are each filled twice per clusters and  fitted separately by Guassian distributions, avoiding the tails. The mean values of these distributions are inserted in the Eq.\ref{eq:fractions} in order to comute the fraction of charge shared to neigboring strips. The results of cross talk measuremet from Run~I together with current results can be seen in Tab.~\ref{tab:measuredXtalk}. During the Run~1 measyrement, it was realized that the cross talk differes for each module geometry and thus it needs to be measured separately for each geometry. In the table only the cross talk measurement in the barrels are present, as due to the eta cut in thei chosen trigger for current data-taking, the tracks passing the disks and endcaps are suppressed. 
 
     \insertFigure{figures/crossTalk} % Filename = label
                  {0.5}       % Width, in fraction of the whole page width
@@ -455,53 +455,40 @@ After rejecting the muon tracks outside of the $0 \pm 2$~ns window, the evolutio
                  {0.45}       % Width, in fraction of the whole page width
                  {(left) The evolution of the charge shared to the first neighboring strip as a function of the track distance from the IP for OB2 geometry in 2018 CRUZET VR data.  (right) The evolution of the charge shared to the second neighboring strip as a function of the track distance from the IP for OB2 geometry in 2018 CRUZET VR data. }
 
-The cross talk parameters are comupted from Eq.~\ref{eq:fractions} for all barrel geometries in time window of $0 \pm 2$~ns from the fit of corresponding  $\eta \pm 1$ and $\eta \pm 2$ as shown for OB2 in Fig.~\ref{fig:figures/xtalkTOB2}. The measured values together with the values currently used in the simulation are recored in Tab.~\ref{tab:}.
+The cross talk parameters are comupted from Eq.~\ref{eq:fractions} for all barrel geometries in time window of $0 \pm 2$~ns from the fit of corresponding  $\eta \pm 1$ and $\eta \pm 2$ as shown for OB2 in Fig.~\ref{fig:figures/xtalkTOB2}. The measured values together with the values currently used in the simulation are recored in Tab.~\ref{tab:measuredXtalk}.
+
+
+\begin{table}[h]
+\begin{center}
+\begin{tabular}{|l|l|l|l|l|}
+\hline
+Geometry & Type & $x_{0}$ & $x_{1}$ & $x_{2}$ \\
+\hline
+\hline
+IB1 & curent measurement & $0.735 \pm 0.005$ & $0.100 \pm 0.002$ & $0.032 \pm 0.002$ \\
+IB1 & currently in simulation & $ 0.775 $ & $ 0.096 $ & $0.017 $  \\
+\hline
+IB2 &  curent measurement & $0.788 \pm 0.006$ & $0.085 \pm 0.002$ & $0.021 \pm 0.002$   \\
+IB2 & currently in simulation &  $0.830 $ & $0.076 $ & $ 0.009$   \\
+\hline
+OB2 &  curent measurement & $0.714 \pm 0.002$ & $0.120 \pm 0.001$ & $0.045 \pm 0.001$  \\
+OB2 & currently in simulation &   $0.725 $ & $0.110 $ & $ 0.027 $  \\
+\hline
+OB1 &  curent measurement &  $0.669 \pm 0.002$ & $0.120 \pm 0.001$ & $0.045 \pm 0.001$  \\
+OB1 & currently in simulation &  $0.687 $ & $0.122 $ & $ 0.034 $ \\
+\hline
+\end{tabular}
+\caption[Table caption text]{The cross talk measured in 2018 data and the cross talk values used currenly in simulation for barrel geometries. }
+\label{tab:measuredXtalk}
+\end{center}
+\end{table}
+
+In the Tab.~\ref{tab:measuredXtalk} it can be noticed, that in all cases the sharing of the charge increased. During the previous cross talk measurement, no timing information was takin into account and therefore part of the change can originate from including the time information to evaluate the cross talk. But there is also real change of cross talk due to the radiation effects. The radiation is different for each layer and as the cross talk changes with the radiation damage of the sensor, each layer within one geometry should have different cross talk. To prove this the cross talk dependency as a function of time is shown for four layers of OB2 separately. The plots were obtained similarly as plots in Fig.~\ref{fig:figures/etaAsLayers}, but this time the time window for each bin is 6~ns in order to gain in statistics. The cross talk for all alyers is compatible within the error bars, but it can be seen, that for all points the sharing is higher for dirst two layers, than for layer three and four. The fist two layers are composed of double-sided modules, while the second two have only one side of sensors. In the double sided modules, ste sensors are back to back, therefore a particle going from IP outside is entering one sensor from strips and second from backplane. As there is a cross talk which is caused by movement of charge carriers, this cross talk could be different depending on from which side particle enters and therefore there can be a difefrent cross talk between mono and stereo side of one layer. The charge sharing as a function of time, for decomposed mono and stereo modules of OB2 layer one and two is shown in Fig.~\ref{fig:figures/etaAsMonoStereo}. In these plots no clear evidence of different charge sharing dor mono and stereo layers is observed.
+
 
 -compare with before
 -say what was not taken into account before (timing, dist dependency)
 
-TIB1
-x0 0.725506 +- 0.00815634
-x1 0.100057 +- 0.00297439
-x2 0.0371896 +- 0.00279007
-
-TIB2
-x0 0.795078 +- 0.0104821
-x1 0.0845729 +- 0.00427595
-x2 0.0178882 +- 0.00303061
-
-TOB2
-x0 0.704474 +- 0.00391049
-x1 0.112763 +- 0.00156127
-x2 0.0349995 +- 0.00117704
-
-TOB1
-x0 0.725506 +- 0.00815634
-x1 0.100057 +- 0.00297439
-x2 0.0371896 +- 0.00279007
-
-no dist constraint
-
-TIB1
-x0 0.735166 +- 0.00548764
-x1 0.0999837 +- 0.0020313
-x2 0.0324333 +- 0.00184455
-
-TIB2
-x0 0.788092 +- 0.00563935
-x1 0.0848766 +- 0.0022456
-x2 0.0210776 +- 0.00170524
-
-TOB2
-x0 0.713665 +- 0.00205651
-x1 0.108941 +- 0.000838398
-x2 0.0342262 +- 0.000595308
-
-
-TOB1
-x0 0.669421 +- 0.00325537
-x1 0.12028 +- 0.00119996
-x2 0.0450097 +- 0.00109975
 -eta pm one, two as function of time for mono/stereo %TODO
 
 
@@ -523,6 +510,8 @@ x2 0.0450097 +- 0.00109975
 
 
 
+The newly emasyred cross talk was injected to simualtion and compared with data and default simualtion.
+
 -evaluate timing small time and dist ->  plot for OB2 with  and then values for remaining %TODO
 
 
@@ -541,3 +530,24 @@ This will come after the conditions are updated
   % 1  Constant     3.39435e+03   7.97716e+00   4.20941e-03   2.42023e-05
   % 2  Mean        -1.82332e+00   1.70530e-01  -1.23780e-04   1.02297e-03
   % 3  Sigma        2.05388e+01   7.24243e-01   6.33711e-06   3.88536e-03
+
+%dist<20
+%TIB1
+%x0 0.725506 +- 0.00815634
+%x1 0.100057 +- 0.00297439
+%x2 0.0371896 +- 0.00279007
+
+%TIB2
+%x0 0.795078 +- 0.0104821
+%x1 0.0845729 +- 0.00427595
+%x2 0.0178882 +- 0.00303061
+
+%TOB2
+%x0 0.704474 +- 0.00391049
+%x1 0.112763 +- 0.00156127
+%x2 0.0349995 +- 0.00117704
+
+%TOB1
+%x0 0.725506 +- 0.00815634
+%x1 0.100057 +- 0.00297439
+%x2 0.0371896 +- 0.00279007
