@@ -471,7 +471,7 @@ IB1 & currently in simulation & $ 0.775 $ & $ 0.096 $ & $0.017 $  \\
 IB2 &  curent measurement & $0.788 \pm 0.006$ & $0.085 \pm 0.002$ & $0.021 \pm 0.002$   \\
 IB2 & currently in simulation &  $0.830 $ & $0.076 $ & $ 0.009$   \\
 \hline
-OB2 &  curent measurement & $0.714 \pm 0.002$ & $0.120 \pm 0.001$ & $0.045 \pm 0.001$  \\
+OB2 &  curent measurement & $0.714 \pm 0.002$ & $0.109 \pm 0.001$ & $0.034 \pm 0.001$  \\
 OB2 & currently in simulation &   $0.725 $ & $0.110 $ & $ 0.027 $  \\
 \hline
 OB1 &  curent measurement &  $0.669 \pm 0.002$ & $0.120 \pm 0.001$ & $0.045 \pm 0.001$  \\
@@ -483,37 +483,40 @@ OB1 & currently in simulation &  $0.687 $ & $0.122 $ & $ 0.034 $ \\
 \end{center}
 \end{table}
 
-In the Tab.~\ref{tab:measuredXtalk} it can be noticed, that in all cases the sharing of the charge increased. During the previous cross talk measurement, no timing information was takin into account and therefore part of the change can originate from including the time information to evaluate the cross talk. But there is also real change of cross talk due to the radiation effects. The radiation is different for each layer and as the cross talk changes with the radiation damage of the sensor, each layer within one geometry should have different cross talk. To prove this the cross talk dependency as a function of time is shown for four layers of OB2 separately. The plots were obtained similarly as plots in Fig.~\ref{fig:figures/etaAsLayers}, but this time the time window for each bin is 6~ns in order to gain in statistics. The cross talk for all alyers is compatible within the error bars, but it can be seen, that for all points the sharing is higher for dirst two layers, than for layer three and four. The fist two layers are composed of double-sided modules, while the second two have only one side of sensors. In the double sided modules, ste sensors are back to back, therefore a particle going from IP outside is entering one sensor from strips and second from backplane. As there is a cross talk which is caused by movement of charge carriers, this cross talk could be different depending on from which side particle enters and therefore there can be a difefrent cross talk between mono and stereo side of one layer. The charge sharing as a function of time, for decomposed mono and stereo modules of OB2 layer one and two is shown in Fig.~\ref{fig:figures/etaAsMonoStereo}. In these plots no clear evidence of different charge sharing dor mono and stereo layers is observed.
-
-
--compare with before
--say what was not taken into account before (timing, dist dependency)
-
--eta pm one, two as function of time for mono/stereo %TODO
-
-
--eta pm one, two as function of time for layers %TODO
+In the Tab.~\ref{tab:measuredXtalk} it can be noticed, that in all cases the sharing of the charge increased. During the previous cross talk measurement, no timing information was takin into account and therefore part of the change can originate from including the time information to evaluate the cross talk. But there is also real change of cross talk due to the radiation effects. The radiation is different for each layer and as the cross talk changes with the radiation damage of the sensor, each layer within one geometry should have different cross talk. To prove this the cross talk dependency as a function of time is shown for four layers of OB2 separately. The plots were obtained similarly as plots in Fig.~\ref{fig:figures/etaAsLayers}, but this time the time window for each bin is 6~ns in order to gain in statistics. The cross talk for all alyers is compatible within the error bars, but it can be seen, that for all points the sharing is higher for dirst two layers, than for layer three and four. The fist two layers are composed of double-sided modules, while the second two have only one side of sensors. In the double sided modules, ste sensors are back to back, therefore a particle going from IP outside is entering one sensor from strips and second from backplane. As there is a cross talk which is caused by movement of charge carriers, this cross talk could be different depending on from which side particle enters and therefore there can be a difefrent cross talk between mono and stereo side of one layer. The charge sharing as a function of time, for decomposed mono and stereo modules of OB2 layer one and two is shown in Fig.~\ref{fig:figures/etaAsMonoStereo}. In these plots, du to the lack of statistics,  no clear evidence of different charge sharing dor mono and stereo layers is observed.
 
 
     \insertTwoFigures{figures/etaAsLayers} % Filename = label
                  {figures/etaOneaAsTimeLayerTOB2bottommuBottom}
                  {figures/etaTwoAsTimeLayerTOB2bottommuBottom} % Filename = label
                  {0.45}       % Width, in fraction of the whole page width
-                 {(left) grouping in 6 ns(right)}
+                 {(left) The evolution of the charge shared to the first neighboring strip as a function of time for four layers of OB2 geometry, measured in 2018 CRUZET VR data.  (right) The evolution of the charge shared to the second neighboring strip as a function of time for four layers of OB2 geometry, measured in 2018 CRUZET VR data. }
 
 
     \insertTwoFigures{figures/etaAsMonoStereo} % Filename = label
                  {figures/etaOneaAsTimeMonoStereoTOB2bottommuBottom}
                  {figures/etaTwoAsTimeMonoStereoTOB2bottommuBottom} % Filename = label
                  {0.45}       % Width, in fraction of the whole page width
-                 {(left) grouping in 6ns (right)}
+                 {(left) The evolution of the charge shared to the first neighboring strip as a function of time for mono and stereo sensors of first two OB2 layers, measured in 2018 CRUZET VR data.  (right) The evolution of the charge shared to the second neighboring strip as a function of time for mono and stereo sensors of first two OB2 layersy, measured in 2018 CRUZET VR data. }
 
 
 
-The newly emasyred cross talk was injected to simualtion and compared with data and default simualtion.
+To evaluate if the new corss talk measuremrnt contributes to improvement of data and simulation agreement, it was injected to simualtion and compared with data and default simualtion. The cluster charge, width and seed charge distribution are shown in Fig.\ref{fig:figures/clusterchargeRescaledalll0to0XTm}~and~\ref{seedwidthTOBXTm}. In the plots it is obvious, that newly emasured parameters even worsened the overall cluster width and seed charge distribution. For OB2, the measured cross talk fractions $(x_{0}, x_{1}, x_{2})$ are (0.714, 0.109, 0.034). When tuning the cross talk parameters in Sec.~\ref{sec:induce} to best describe the cluster width in data, the obtained fractions are (0.814,0.070,0.023). Therefore in data larger charge sharing is observed, than it would be needed in simulation. This could be caused by the fact, that the simulation is simplified and many parts of the simulation are oudated. Thus the cross talk in simulation is not purely describing cross talk, but it is compenseting for other effects. 
 
--evaluate timing small time and dist ->  plot for OB2 with  and then values for remaining %TODO
 
+    \insertFigure{figures/clusterchargeRescaledalll0to0XTm} % Filename = label
+                 {0.5}       % Width, in fraction of the whole page width
+                 { (top) Data and simulation comparisons of cluster charge. The default simulation (in red) was modified by injecting the measured values of capacitive coupling parameters. All simulated distributions are rescaled to number of clusters in data. (bottom) Data to simulation ratios of cluster charge distributions. }
+
+    \insertTwoFigures{figures/seedwidthTOBXTm} % Filename = label %TDO continue here
+                 {figures/clusterwidthTOBl1to4XTm}
+                 {figures/clusterseedchargeRescaledTOBl1to4XTm} % Filename = label
+                 {0.45}       % Width, in fraction of the whole page width
+                 {(left top) Data and simulation comparisons of cluster width for OB2 geometry. The default simulation (in red) was modified by injecting the measured values of capacitive coupling parameters. All simulated distributions are rescaled to number of clusters in data. (left bottom) Data to simulation ratios of cluster width distributions for OB2 geometry. (right top) Data and simulation  comparisons of cluster seed charge for OB2 geometry. The default simulation (in red) was modified by  injecting the measured values of capacitive coupling parameters. All simulated distributions are rescaled to number of clusters in data. (right bottom) Data to simulation ratios of cluster seed charge distributions for OB2 geometry. }
+
+In this section the results of cross talk measureemnt were shown. The cross talk parameters used in simulation were measured at the beginning of Run~I, and as shwown in this section, the cross talk changes with the aging of deetctor and therefore it had to be remeasured. It was also shown that the cross talk changes as a gunction of particle arrival time to the module, which was not taken into account during the Run~I measurements. The newly emasured cross talk did not help to improve the description of cluster charge properties of data by simualtion, elading to a conclusion, that the cross talk in simulation os compensating for other non-descriptions. To achive a good data and simulation agreement, we have decided to use the parameters in simulation which describe the data the ebst, as presented in Sec.~\ref{sec:induce}. 
+
+The cosen approach is to first update detector conditions, which are bade channels, noise and gains and which could affect the cluster width and charge. Then the matrix of the simulations with different cross talk parameters is produced and these simulations are compared to data. The agreement between data and simulations are compared based on $\chi^{2}$ test of cluster width distribution compatibility. The cross talk parameters of sample with the best $\chi^{2}$ can then be injected into simulation. The cross talk parameters influence largely the cluster widt and seed charge, but much less the cluster charge. If after tuning there is need for better description of cluster charge or seed charge, one of the cobersion factors, either GeV per electorn or electron per ADC can be similarly tuned. These conversion factors are influencing the cluster width only slightly.
 
 
 %TODO plug the measured cross talkinto the simulation
@@ -523,7 +526,7 @@ The newly emasyred cross talk was injected to simualtion and compared with data 
 %actually the calue of cross talk we inject into MC can compensate for other effects and therefore does not have to agree with simualtions.
 \subsubsection{Cross talk tuning}
 
-This will come after the conditions are updated
+This will come after the conditions are updated...
 
   %the fit of charge distribution
   %NO.   NAME      VALUE            ERROR          SIZE      DERIVATIVE 
