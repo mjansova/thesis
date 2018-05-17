@@ -49,7 +49,7 @@ The observed inefficiencies were shown to depend on the distance to the interact
 
 \subsection{Investigating the highly ionizing particles}
 
-Among the various possible explanations of the observed hit inefficiencies, the hypothesis of Highly Ionizing Particles~(HIP) was considered with a great interest. To understand the effect of the HIP on the hit efficiency, it is required to first discuss the energy loss mechanism for charged particles in silicon. The main energy loss mechanism for charged particle in tracker silicon sensors is via the electromagnetic interaction, mainly via ionization described by the Bethe-Bloch formula~\cite{Groom:2000sm}. Beyond it, the incoming particle can also deposit energy in sensors via elastic and inelastic nuclear interactions with the silicoeventThese two interactions result in a nuclear recoil for the elastic case and a nuclear recoil and fragmentation in case of inelastic interaction. A sufficiently energetic recoiled nucleus can also induce displacement of the other nuclei in its proximity. All affected nuclei as well as the nuclear fragments undergo energy loss by ionization, resulting in large and very localized energy depositions in the silicon volume. 
+Among the various possible explanations of the observed hit inefficiencies, the hypothesis of Highly Ionizing Particles~(HIP) was considered with a great interest. To understand the effect of the HIP on the hit efficiency, it is required to first discuss the energy loss mechanism for charged particles in silicon. The main energy loss mechanism for charged particle in tracker silicon sensors is via the electromagnetic interaction, mainly via ionization described by the Bethe-Bloch formula~\cite{Groom:2000sm}. Beyond it, the incoming particle can also deposit energy in sensors via elastic and inelastic nuclear interactions with the silicon nucleus. These two interactions result in a nuclear recoil for the elastic case and a nuclear recoil and fragmentation in case of inelastic interaction. A sufficiently energetic recoiled nucleus can also induce displacement of the other nuclei in its proximity. All affected nuclei as well as the nuclear fragments undergo energy loss by ionization, resulting in large and very localized energy depositions in the silicon volume. 
 
 By simulation of these interactions in the silicon, it has been shown that elastic interactions do not lead to high energy depositions, while inelastic interactions can induce energy deposits up to about 100~MeV in 500~$\mathrm{\mu m}$ thick tracker sensors, which represents an energy deposit approximately 1000 times larger than by ionization only~\cite{Huhtinen:2002yda}. The Most Probable Value~(MPV) of the energy deposition in these sensors, originating from the inelastic interaction has been found to be around 10~MeV, corresponding to 100 times larger deposits w.r.t. to majority of particles originating from collisions~\cite{Adam:2005pz}. The readout electronics of the tracker modules is designed for energy deposits up to around ten times higher than expected, thus such large energy deposits are resulting in saturation of the electronics, dead-time in the charge collection and a hit inefficiency. 
 
@@ -149,7 +149,7 @@ For testing purposes the FED is able to operate in other modes than the ZS mode.
 
 %The noise can be correlated between channels, like in case of the CMN, but also due to the electronics capacitive coupling. Anti-correlation of noise between neighboring channels originating from the inter-strip capacitance has been observed~\cite{Lutz:1987wd}. As the total charge on all channels must be conserved, in case of upward fluctuation on one strip, the downward fluctuation must occur on neighboring strips leading to anti-correlation of noise between neighboring channels.
 
-\subsection{The offline data treatment}
+\subsection{The offline data treatment~\label{sec:localreco}}
 
 
 The data collected by the FED are then treated offline. A clustering procedure is applied on the ZS digis. The default clustering algorithm is called the ``three threshold algorithm'', posing thresholds on the seed strip~(strip with the largest signal), on the neighboring strips and on the cluster charge in terms of signal-to-noise ratio. The seed must pass the requirement of S/N>3, adjacent strips can be added if their S/N is larger than two. On top of these requirements, the total cluster charge~(the sum of the charges of all channels) must be five times larger than the total cluster noise $\sigma_{cluster}$ which is defined as
@@ -172,7 +172,7 @@ During clustering, the strip charge is calibrated by two factors: the tick-mark 
 
 Secondly, the particle gain is correcting for the differences at the sensor level. This gain is determined from the ionization of the silicon sensitive volume per unit of length of the particle traversing the sensor. The MPV of the ionization per unit of length is then used to equalize the response of different sensors to the MIP charge. 
 
-These calibrations need to be determined frequently as they are affected of the aging of the detector~(e.g. fibers and lasers for G2,  sensors for G1) or some change of the operating conditions~(e.g. temperature).
+These calibrations need to be determined frequently as they are affected of the aging of the detector~(e.g. fibers and lasers for G2,  sensors for G1) or some change of the operating conditions~(e.g. temperature). During this step the cluster charge is corrected by factor 1/(G1$\times$G2).
 
 For the further reconstruction steps the clusters are converted to hits, whose position is obtained from charge-weighted positions of the channels in the cluster, corrected for the Lorentz drift in case of barrels, where the magnetic field is perpendicular to the module plane. In case of stereo modules, the matching of hits between the two tilted modules is done. The resolution on the hit position is also assessed at this step.
 
@@ -547,13 +547,13 @@ The average cluster charge shown in the left plot of Fig.~\ref{fig:figures/avClu
 Events/ & Average cluster  & Average cluster & Average cluster & Fraction of clusters \\
 Quantities  & charge~[ADC] & multiplicity & width~[strip] & larger than 10 strips \\
 \hline
-HIP & 1083 & 1.116 & 8 & 0.08 \\
+HIP & 1094 & 1.254 & 8 & 0.08 \\
 \hline
-After HIP & 330 & 0.087 & 8 & 0.17 \\
+After HIP & 254 & 0.099 & 9 & 0.18 \\
 \hline
-Collision non-HIP & 427 & 0.492 & 5 & 0.05 \\
+Collision non-HIP & 426 & 0.712 & 5 & 0.05 \\
 \hline
-Non-collision, non-HIP & 239 & 0.003 & 3 & 0.03 \\
+Non-collision, non-HIP & 219 & 0.002 & 4 & 0.03 \\
 \hline
 \end{tabular}}
 \caption[Table caption text]{The average cluster charge, multiplicity and width and the fraction of clusters larger than 10 strips for four categories defined in Tab.~\ref{tab:eventCategories} for run 281604. These quantities are computed from both on-track and off-track clusters.}
@@ -566,10 +566,10 @@ To understand the properties of the fake clusters, the average cluster multiplic
 
 \eq{fakeEstimation}
 {
-   p_{fake} = f_{HIP}\times T  \times mult_{fake} \times \sigma_{position} ,
+   p_{fake} = p_{HIP}(PU)\times T \times p(track)/PU  \times N_{fake} \times PU^2 \times  \frac{\sigma_{position}}{N_{strips} \times pitch}  ,
 }
 
-where the time window $T$ is the number of bunch crossings in one orbit for which the fake clusters are observed, and the position resolution $\sigma_{position}$ is the estimate of the space window around the reconstructed track in which the fake cluster is close enough to be used for the track reconstruction to the total space window of one APV. The $mult_{HIP}$ is the average fake multiplicity over the time window $T$. A cluster is used for the track reconstruction if it passes a certain charge threshold, which depends on the thickness of the sensor and the track inclination. Considering a normal track, the cluster charge cut for the sensors of the first layer of the TOB, which have thickness of 500~$\mu$m, is around 140~ADC in the case of the tightest cut. As shown inthe left plot of Fig.~\ref{fig:figures/avClusterMultiplicitySecondT}, in average all fake clusters pass this requirement. Using the Eq.~\ref{eq:fakeEstimation}, with $f_{HIP} = 0.0024$, $T = 18$, $mult_{HIP} = $  and $\sigma_{position} = 40 \mathrm{\mu m}$ divided by the number of strips in APV times the pitch, the lower limit on the probability to have at least one fake cluster in the first layer of the TOB after the HIP event has been calculated to be  of order of $7 \times 10^{-5}$. This probability is fortunately very low, but is just a lower limit as there are only 7 consecutive events and the behavior of fake clusters after these events is unknown.
+where the time window $T$ is the number of bunch crossings in one orbit for which the fake clusters are observed, and the position resolution $\sigma_{position}$ is the estimate of the space window around the reconstructed track in which the fake cluster is close enough to be used for the track reconstruction to the total space window of one APV. The $N_{HIP}$ is the average fake multiplicity over the time window $T$. A cluster is used for the track reconstruction if it passes a certain charge threshold, which depends on the thickness of the sensor and the track inclination. Considering a normal track, the cluster charge cut for the sensors of the first layer of the TOB, which have thickness of 500~$\mu$m, is around 140~ADC in the case of the tightest cut. As shown inthe left plot of Fig.~\ref{fig:figures/avClusterMultiplicitySecondT}, in average all fake clusters pass this requirement. Using the Eq.~\ref{eq:fakeEstimation}, with $f_{HIP} = 0.0024$, $T = 18$, $N_{fake} =0.087 $  and $\sigma_{position} = 2 \sqrt{2} 40 \mathrm{\mu m}$ divided by the number of strips in APV times the pitch, the lower limit on the probability to have at least one fake cluster in the first layer of the TOB after the HIP event has been calculated to be  of order of $0.002\%$. This probability is fortunately very low, but is just a lower limit as there are only 7 consecutive events and the behavior of fake clusters after these events is unknown. %TODO APE, CPE and computation of fake per track, NStrips, pitch
 
 
 %TODO tmr - baseline recovery non uniform, show first the plot rms mult and rms  width _ correlation of fakes with rms  and then show the baseline vs rms
@@ -634,6 +634,7 @@ Moreover as previously, bot computed probabilities of the HIP events can be bias
 %I am wrong with the window for which the hip can be selected
 %be aware pitch-> prob -> not that teh prob of interaction itsef changes with pitch, but the chnace to saturate
 %be cautious wit coparison with tob - for given nr of charge particles passing trough the tracker, this is the prob of observing a HIP _. then I can say it is not same quantity and it cannot be directly compared-> they only used pions (so even the cross section is differt)
+%no tracking used -> give argument of tracking influenced by HIP
 
     \insertTwoFigures{figures/fracHIP2T}
                  {figures/fracHIP2} % Filename = label

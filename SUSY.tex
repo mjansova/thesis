@@ -1,19 +1,150 @@
 \chapter{SUSY}
 
+the particle physics is described by the SM which is formulated within quantum field theory model
+-brief intorducation to standard model its particles and interactions
+-then electrowek breakinga nd higgs mechanism
+- then shortcommings of SM, need for extension
+-the most popular extenion of SM is supersymmetry -> symmetry between fermions and bosons
+
+
+
 \section{QFT}
 
 -fields and particles
 -lagrangian
 -feynman diagram
-
+-probably move that to SM : interactions
 
 \section{SM and its shortcomings}
 
--sm intro
--particles
+
+-sm intro, more about sm can be seen in this book~\cite{9783527406012} %griffiths
+-renormalizable quantumn field theory, derived from gauge symmetries ~\cite{tHooft:1971qjg, Weinberg:1967tq}
+-formulation started in 1960s, completed in 2012 with discovery of higgs boson~\cite{Chatrchyan:2012xdj, Aad:2012tfa}
+-describes all known particle and fundamental interactions (except of gravity)  
+
+SM is field theory which is renormalizable and built on (local) symmetries principles.
+The SM is QFT  within the particles and interactions are quantized fields
+-there is QCD describing strong interactions and QED describing quantum electrodynamics, unification of weak and elmag
+
+%In QFT a particle is entity localized at position (x,y,z) depends on time. A field is not localized wich spreads over a space-time region. The goal gof the QFT is to compute 
+
+In classical mechanics, the motion is described by Euler-Lagrange equation~\cite{9783527411887}. This equation has only time derivatives and in order to build a relativistic theory, the space derivatives have to be added and therefore Eulare-Lagrange iquation is generalized into formulation
+
+\eq{EL}
+{
+ \partial_{\mu}(\pdv{\mathcal{L}}{(\partial_{\mu}\phi_{i})}) = \pdv{\mathcal{L}}{\phi_{i}}
+}
+
+
+The basic building block of  QFT is a lagrangian which depends on fileds $\phi_{i}$, their space-time drivatives. In case of scalar field (spin-0) he lagrangian can be written in form 
+
+\eq{kglagrangian}
+{
+ \mathcal{L} = \frac{1}{2}(\partial_{\mu} \phi)}(\partial^{\mu} \phi) - \frac{1}{2} (\frac{mc}{\hbar})^{2} 
+}
+
+which after plugging into the Euler-Lagrange equation~\ref{eq:EL} gives Klein-Gordon equation
+
+\eq{kgEq}
+{
+ \partial_{\mu)}\partial^{\mu}_\phi) + (\frac{mc}{\hbar})^{2} \phi = 0
+}
+
+ describing a scalar particle. Similarly the field of half spin particle is a spinor field $\psi$. The solution of Euler-Largrange equation wrt to $\bar{\psi}$ with Lagrangian
+
+
+\eq{dirlagrangian}
+{
+ \mathcal{L} = i \hbar c \bar{\psi} \gamma^{\mu} \partial_{\mu} \psi -mc^{2} \bar{\psi} \psi
+}
+
+is Dirac equation describing half-spin particles.
+
+\eq{dirEq}
+{
+  \gamma^{\mu} \partial_{\mu} \psi - \frac{mc}{\bar{h}} = 0.
+}
+
+Similarly, equations for particles with different spins can be derived.
+
+In the equations above, only non-interacting fields are described. The Dirac Lagrangian~\ref{dirlagrangian} is invariant under global phase space transformation~($\psi \to e^{i\theta} \psi$), but is not invariant under local phase transformation $\psi \to e^{i\theta (x)} \psi$. To preserve invariance of Lagrangian~\ref{dirlagrangian}, the term $-(q\bar{\psi}\gamma^{\mu}\psi)A_{\mu}$, with $A_{\mu}$ which transforms as $A_{\mu} \to A_{\mu} + \partial_{\mu} \lambda$ can be added. The $\A_{\mu}$ is a new vector~(spin-1) field. To obtain full Lagrangian, also  the free field Lagrangian for vector field must be also added to Lagrangian~\ref{dirlagrangian}. The summed Lagrangian is locally invariant only in case when field $A_{\mu}$ is masless and it generates electrdynamics, where the field $\A_{\mu}$ corresponds to the electromagnetic potential.
+
+Thei global transformation of potential $\psi$ can be uderstood as multiplication by unitary martux $U$ $\psi \to U \psi$, which was in given example $1 \times \1$. The explained example of quantum electrodynamics is $U(1)$ theory as the group of such matrcies is U(1). Similar strategy of global and local phase invariance of Lagrangian can be appliead on other groups, which was found to be the way how to generate interaction of Standard Model.
+
+PARTICLES:
+-wihinn SM two kinds of partciles - half spin fermions and integer spin bosons
+-interaction -> exchange of boson
+-sm group SU(3)C x SU(2)L x U(1)Y -> strong and electroweak interactions -> 8 gluons + 2W bosons+Z+gamma (fields of G, W and B -> W and B mix to create gamma and Z)
+-fermions can be divided into  quarks which participate in strong end electroweak interactions and leptons which undergo only weak interactions
+
+    \insertFigure{figures/SMparticles} % Filename = label
+                 {0.99}       % Width, in fraction of the whole page width
+                 { List of SM particles. }
+
+
+INTERACTIONS
+-sm lagrangian (CERN-thesis-2017-005) -> without higgs
 -interactions (electroweak, QCD)
 -19 free parameters (nine fermion masses, one scalar mass, three coupling parameters, four quark mixing parameters, higgs vacuum expectation value, strong cp violating phase)
 -perturbative theory (LO, NLO)
+
+
+ELECTROWEAK symmetry breaking:
+Yang-Mills~\cite{Yang:1954ek} -> nonabelian gauge theory
+-> in this theory gauge bosons are masless - gauge symmetry do not alow mass terms in lagrangian
+-symmetry breaking -> apperance og goldstone~\cite{Goldstone:1961eq} bosons (one for each generator of broken symmetry?!) , goldosnes are masless spin-0
+-1960s - the goldstone bosons cancel and give mass to other bosons -> generation of mass for Ws and Z bosons ~\cite{Englert:1964et, Higgs:1964ia, Guralnik:1964eu, Higgs:1966ev}
+Higgs lagrangian
+
+\eq{lagHiggs}
+{
+    \mathcal{L}_{Higgs} =  (D_{\mu}\Phi)^{\dagger} (D^{\mu}\Phi) - V(\Phi),
+}
+
+where ``Maxican hat potential'' is (if $\mu^2> 0$ )
+
+\eq{potHiggs}
+{
+    V(\Phi) =  -\mu^{2}\Phi^{\dagger}\Phi + \lambda(Phi^{\dagger}\Phi)^{2},
+}
+
+$\Phi$ is a complex field. It is self-interacting SU(2)L doublet, weak hypercharge 1/2
+
+
+\eq{doubletHiggs}
+{
+    \Phi = \binom{\phi^{+}}{\phi^{0}} ,
+}
+
+the minimum of potential is at value not SU(2)L x U(1)Y invariant -> $\Phi$ has non-zero vacuum expectation value
+
+
+\eq{solutionHiggs}
+{
+    \langle \Phi \rangle_{0} = \frac{1}{\sqrt{2}}U(x)\binom{0}{v} ,
+}
+
+with
+
+\eq{vDef}
+{
+v = \sqrt{\frac{\mu^{2}}{\lambda}}
+}
+
+$U(x)$ is unitray transformation that rotates between the dengenerated fields.
+
+The Higgs potential gives mass to bosons via first term of Eq.~\ref{eq:lagHiggs}.
+
+\eq{solutionHiggs2}
+{
+    \Phi(x) = \frac{1}{\sqrt{2}}U(x)\binom{0}{v+H(x)} ,
+}
+
+-> Higgs boson appears when moving from minimum of potential ~\ref{Higgs:1964ia, Higgs:1964pj}
+
+Fermions get mass via interaction with $\Phi$ filed~\cite{Weinberg:1967tq}
+
 
 issues
 
@@ -91,3 +222,8 @@ SUSY
 	-lightest neutralino is the LSP
 	-other assumptions on the sfermion masses, trilinear couplings and flavor violation
 	->reduction of parameters to 19
+		-higgsino mass parameter and pseudo-scalar higgs mass 
+		-ration of Higgs vauum expectation values
+		-soft gaugino masses (bino, wino, gluino
+		-sfermion masses
+		-trilinear couplings
