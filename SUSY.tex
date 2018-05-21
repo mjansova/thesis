@@ -1,4 +1,4 @@
-\chapter{SUSY}
+\chapter{Supersymmetry as a possible extension of the Standard Model}
 
 the particle physics is described by the SM which is formulated within quantum field theory model
 -brief intorducation to standard model its particles and interactions
@@ -6,177 +6,205 @@ the particle physics is described by the SM which is formulated within quantum f
 - then shortcommings of SM, need for extension
 -the most popular extenion of SM is supersymmetry -> symmetry between fermions and bosons
 
-\section{SM and its shortcomings}
+\section{Standard Model and its shortcomings}
 
+Standard Model~(SM) of particle physics is model based on Quantum Field Theory~(QFT) and derived from gauge symmetries~\cite{9783527406012}. The symmetry group of the SM is
 
--sm intro, more about sm can be seen in this book~\cite{9783527406012} %griffiths
--renormalizable quantumn field theory, derived from gauge symmetries ~\cite{tHooft:1971qjg, Weinberg:1967tq}
--formulation started in 1960s, completed in 2012 with discovery of higgs boson~\cite{Chatrchyan:2012xdj, Aad:2012tfa}
--describes all known particle and fundamental interactions (except of gravity)  
-- the SM is $SU(3)_{C} \otimes SU(2)_{L} \otimes U(1)_{Y} $ group as will be shown later TODO
-- the SM there are matter fileds which are quark and leptons -> half spin particles - fermions. The quarks have colors and electroweak charges (intract strongly and electroweakly) while leptons have only electroweak charges (only EW interaction).
-- within sm there are three generations of leptons and three generations of quark , each quark is present in three colors. Up to know, there is no explanation why there are three lepton generations.
--leptons have full number charge, while quarks do not (smae chareg in up or wown generation)
--top row q = +2/3e , where e is the electron charge, 
-- bottom row q = -1/3 e.
--interaction -> exchange of boson
--There are 12 carriers of forrce with integer spin of 1. There mediators of the electroweak interaction is masless photon~$\gamma$ and massive $W^{\pm}$ an $Z$ bosons which gain their mass through breaking of electroweak symmetry as explained in later text.  The gauge bosons of strong interaction are eight masless gluons, each holding uniquei charge which is combination of two (anti)colors. The photon and  gluons are masless, indicating that strong and lectromagnetic symmetries are unbroken. The last particle belonging to th SM is Higgs boson which is a consequence? of EW symmetry breaking. The overview of all SM particles can be seen in Fig.~\ref{fig:figures/SMparticles}
+\eq{SMgroup}
+{
+SU(3)_{C} \otimes SU(2)_{L} \otimes U(1)_{Y},
+}
+
+where $C$ stands for the color charge of strong interaction, $L$ left-handed particles, which have, unlike the right-handed ones, non-zero weak isospin and $Y$ for hypercharge. The SM group will be discussed part by part in following sections.
+
+The Standard Model started to be formulated in 1960s and was finished in 2012, when last particle of the SM, the Higgs boson, was discovered by ATLAS and CMS experiments~\cite{Chatrchyan:2012xdj, Aad:2012tfa}. It describes all fundamental interactions (except gravity), which are electroweak~(EW) and strong interactions and all known particles. There are two kinds of particles in the SM, fermions with half-integer spin and bosons with integer spin.
+
+Fermions can be divided into leptons and quarks. There are three generation of leptions which are electron~$e$, muon~$\mu$, tau~$\tau$ generation with their corresponding neutrinos~($\nu_{e},~\nu_{\mu},~\nu_{\tau}$). Leptons have integer charge in multiples of elementary charge~$e$ and do not have color and therefore interact only via electroweak interaction as they can have non-zero ispospin and hypercharge. There are also theree generation of quarks, first is formed by up~($u$) and down~($d$) quarks, second by charm~($c$) and strange~($s$) quarks and third by top~($t$) and bottom~($b$) quarks. The $u,~c,~t$ have charge of $2/3~e$ and $d,~s,~b$ have charge of $-1/3~e$. Each quark exist in three color versions, red, green and blue and thus quarks can participate in strong intearction. Quarks can hold isospin and hypercharge and thus the can also interact via electroweak interaction. Due the the phenomena reffered as ``color confinement'', quarks are always bound in hadron and cannot be separated.
+
+The interaction in SM are mediated via an exchange of (gauge) bosons. There are 12 bosons with spin of one. There mediators of the electroweak interaction is masless photon~$\gamma$, massive $W^{\pm}$ and $Z$ bosons. The $W^{\pm}$ and $Z$ bosons gain their mass through breaking of electroweak symmetry as explained in later text. The gauge bosons of strong interaction are eight masless gluons, each holding unique color charge which is combination of colors and anticolors. The gluons are masless, indicating that strong symmetry is unbroken. The last particle belonging to the SM is Higgs boson which arises from EW symmetry breaking. The overview of all SM particles can be seen in Fig.~\ref{fig:figures/SMparticles}.
+
 
     \insertFigure{figures/SMparticles} % Filename = label
-                 {0.99}       % Width, in fraction of the whole page width
-                 { List of SM particles. }
+                 {0.5}       % Width, in fraction of the whole page width
+                 { Overview of the particles present in the Standard Model.}
 
--mass within SM undefined, it needs to be determined experimentally
--gloons mediating between color-charged particles, photon between electromagnetically charged, etc...
+%-sm intro, more about sm can be seen in this book~\cite{9783527406012} %griffiths
+%-renormalizable quantumn field theory, derived from gauge symmetries ~\cite{tHooft:1971qjg, Weinberg:1967tq}
+%-formulation started in 1960s, completed in 2012 with discovery of higgs boson~\cite{Chatrchyan:2012xdj, Aad:2012tfa}
+%-describes all known particle and fundamental interactions (except of gravity)  
+%- the SM is $SU(3)_{C} \otimes SU(2)_{L} \otimes U(1)_{Y} $ group as will be shown later
+%- the SM there are matter fileds which are quark and leptons -> half spin particles - fermions. The quarks have colors and electroweak charges (intract strongly and electroweakly) while leptons have only electroweak charges (only EW interaction).
+%- within sm there are three generations of leptons and three generations of quark , each quark is present in three colors. Up to know, there is no explanation why there are three lepton generations.
+%-leptons have full number charge, while quarks do not (smae chareg in up or wown generation)
+%-top row q = +2/3e , where e is the electron charge, 
+%- bottom row q = -1/3 e.
+%-interaction -> exchange of boson
+%-carrier of force
+% TODO The masses of the SM particles cannot be predicted, they have to be measured
 
--to build SM which is a field theory, we must firts understand basics of QFT.
 
-\subsection{Quantum field theory}
+The SM is a field theory, which is requiring invariance towards certain transformations of involved Lagrangians. To better understand the derivation and the features of the SM, the basics of quantum field theory and gauge transformations are given in following sections. Then, building on the QFT, more details about fundamental interactions are given.
 
-In classical mechanics, the motion is described by Euler-Lagrange equation~\cite{9783527411887}. This equation has only time derivatives and in order to build a relativistic theory, the space derivatives have to be added and therefore Eulare-Lagrange iquation is generalized into formulation
+\subsection{Quantum field theory and gauge symmetries}
+
+In classical mechanics, the motion of some system can be calculated by sloving the Euler-Lagrange equations~\cite{9783527411887}. These equations can be generalized in order to build a relativistic theory, in which the space and time coordinates must be treated similarly. In the relativistic case, the classical Euler-Lagrange equation is generalized into formulation
 
 \eq{EL}
 {
- \partial_{\mu}(\pdv{\mathcal{L}}{(\partial_{\mu}\phi_{i})}) = \pdv{\mathcal{L}}{\phi_{i}}
+ \partial_{\mu}(\pdv{\mathcal{L}}{(\partial_{\mu}\phi_{i})}) = \pdv{\mathcal{L}}{\phi_{i}},~i=1,2,3,4
 }
 
 
-The basic building block of  QFT is a lagrangian which depends on fileds $\phi_{i}$, their space-time drivatives. In case of scalar field (spin-0) he lagrangian can be written in form 
+The basic building block of a QFT is a Lagrangian which depends on fileds $\phi_{i}$ and  their space-time drivatives. In the case of scalar field (spin-0) the Lagrangian can be written in form 
 
 \eq{kglagrangian}
 {
- \mathcal{L} = \frac{1}{2}(\partial_{\mu} \phi)(\partial^{\mu} \phi) - \frac{1}{2} (\frac{mc}{\hbar})^{2} 
+ \mathcal{L}_{Klein-Gordon} = \frac{1}{2}(\partial_{\mu} \phi)(\partial^{\mu} \phi) - \frac{1}{2} (\frac{mc}{\hbar})^{2},
 }
 
-which after plugging into the Euler-Lagrange equation~\ref{eq:EL} gives Klein-Gordon equation
+where $m$ is a mass, $\hbar$ is Planck constant and $c$ is the speed of light of the. From now on, the standard convention of $\hbar = c = 1$ is used. The scalar field Lagrangian~\ref{eq:kglagrangian} plugged into the Euler-Lagrange equation~\ref{eq:EL} gives Klein-Gordon equation
 
 \eq{kgEq}
 {
- \partial_{\mu)}\partial^{\mu}_\phi) + (\frac{mc}{\hbar})^{2} \phi = 0
+ \partial_{\mu}\partial^{\mu}_\phi + m^{2} \phi = 0
 }
 
- describing a scalar particle. Similarly the field of half spin particle is a spinor field $\psi$. The solution of Euler-Largrange equation wrt to $\bar{\psi}$ with Lagrangian
+describing a scalar particle of mass $m$. The field of half-spin particle is a two-component spinor field $\psi$. The solution of Euler-Largrange equation w.r.t. to $\bar{\psi}$ using Lagrangian
 
 
 \eq{dirlagrangian}
 {
- \mathcal{L} = i \bar{\psi} \gamma^{\mu} \partial_{\mu} \psi -mc^{2} \bar{\psi} \psi
+ \mathcal{L}_{Dirac} = i \bar{\psi} \gamma^{\mu} \partial_{\mu} \psi -m^{2} \bar{\psi} \psi
 }
 
-is Dirac equation describing half-spin particles.
+is Dirac equation describing half-spin particle of mass $m$:
 
 \eq{dirEq}
 {
-  \gamma^{\mu} \partial_{\mu} \psi - \frac{mc}{\bar{h}} = 0.
+  i \gamma^{\mu} \partial_{\mu} \psi - m \psi = 0.
 }
 
-Similarly, equations for particles with different spins can be derived.
+Equations describing  particles with different spins can be derived similarly.
 
-In the equations above, only non-interacting fields are described. The Dirac Lagrangian~\ref{dirlagrangian} is invariant under global phase space transformation~($\psi \to e^{i\theta} \psi$), but is not invariant under local phase transformation $\psi \to e^{i\theta (x)} \psi$. To preserve invariance of Lagrangian~\ref{dirlagrangian}, the term $-(q\bar{\psi}\gamma^{\mu}\psi)A_{\mu}$, with $A_{\mu}$ which transforms as $A_{\mu} \to A_{\mu} + \partial_{\mu} \lambda$ can be added. The $A_{\mu}$ is a new vector~(spin-1) field. To obtain full Lagrangian, also  the free field Lagrangian for vector field must be also added to Lagrangian~\ref{dirlagrangian}. The summed Lagrangian is locally invariant only in case when field $A_{\mu}$ is masless and it generates electrdynamics, where the field $A_{\mu}$ corresponds to the electromagnetic potential.
+In the equations above, only non-interacting fields are present. To include interactions between fields, the impact of local ang global transformations of the fileds on the corersponding Lagrangian must be studied.  The Dirac Lagrangian~\ref{eq:dirlagrangian} is invariant under global phase transformation
+\eq{globalTrans}
+{
+\psi \to e^{i\theta} \psi, 
+}
 
-Thei global transformation of potential $\psi$ can be uderstood as multiplication by unitary martux $U$ $\psi \to U \psi$, which was in given example $1 \times 1$. The explained example of quantum electrodynamics is $U(1)$ theory as the group of such matrcies is U(1). Similar strategy of global and local phase invariance of Lagrangian can be appliead on other groups, which was found to be the way how to generate interaction of Standard Model.
+with phase $\theta$ being arbitrary real number. But this Lagrangian is not invariant under local phase transformation 
 
-\section{EW interaction}
+\eq{localTrans}
+{
+\psi \to e^{i\theta (x)} \psi,
+}
 
-In 1954 Yang and Mills applied local and global invariance on SU(2) group and later Glashow, Salam and Weinberg shown, that if group SU(2)$\times$U(1) is considered, the weak and electormagnetic interaction can be unified. Moreover they divided the left and right chiral components of the fermion fields into $\Psi_L$ composed of two spinors and one-spinor $\Psi_R$. Thei locally invariant Lagrangian of electroweak intractions~(without symmetry breaking) was found to be
+where phase $\theta(x)$ is this time dependent on the space time coordinate. To preserve invariance of Lagrangian~\ref{eq:dirlagrangian}, the term $-(q\bar{\psi}\gamma^{\mu}\psi)A_{\mu}$, with $A_{\mu}$ which transforms as $A_{\mu} \to A_{\mu} + \partial_{\mu} \lambda$ can be added to the Dirac Lagrangian. The $A_{\mu}$ is a new vector~(spin-1) field. To obtain full Lagrangian, also the free field Lagrangian for vector field must be added to the Dirac Lagrangian~\ref{eq:dirlagrangian}. The summed Lagrangian is locally invariant only in case when field $A_{\mu}$ is masless. Such lagrangian generates quantum electrodynamics~(QED), where the field $A_{\mu}$ corresponds to the electromagnetic potential.
+
+Thei global transformation of potential $\psi$ can be uderstood as multiplication of a field by an unitary matrix $U$ ($\psi \to U \psi$). In given example of quantum electrodynamics, the size of matrix is $1 \times 1$ and therefore it is $U(1)$ theory as the group of such matrcies is U(1). Similar strategy of global and local phase invariance of Lagrangian can be appliead on other groups, which was found to be the way how to generate the Standard Model.
+
+\subsection{Electroweak interaction}
+
+In 1954 Yang and Mills~\cite{Yang:1954ek} applied local and global invariance on $SU(2)$ group to describe weak interaction and later Glashow, Salam and Weinberg~\cite{Glashow:1961tr, Salam:1968rm, Weinberg:1967tq} shown, that if group $SU(2) \otimes U(1)$ is considered, the weak and electormagnetic interaction can be unified. Moreover they divided the left and right chiral components of the fermion fields into $\Psi_L$ composed of two spinors~(doublet) and one-spinor~(singlet) $\Psi_R$. The locally invariant Lagrangian of electroweak intractions (without symmetry breaking) was found to be
 
 \eq{EWlagrangian}
 {
- \mathcal{L} = - \frac{1}{4} \sum_{a=1}^{3} F_{\mu\nu}^{a} F^{a\mu\nu} - \frac{1}{4} B_{\mu\nu}B^{\mu\nu} +  i \bar{\Psi_L} \gamma^{\mu} D_{\mu} \partial_{\mu} \Psi_{L} +  i \bar{\Psi_R} \gamma^{\mu} D_{\mu} \partial_{\mu} \Psi_{R},
+\mathcal{L}_{EW} = - \frac{1}{4} \sum_{a=1}^{3} F_{\mu\nu}^{a} F^{a\mu\nu} - \frac{1}{4} B_{\mu\nu}B^{\mu\nu} +  i \bar{\Psi_L} \gamma^{\mu} D_{\mu} \partial_{\mu} \Psi_{L} +  i \bar{\Psi_R} \gamma^{\mu} D_{\mu} \partial_{\mu} \Psi_{R},
 }
 
-where in case of SU(2) group
+where in case of $SU(2)$ group the covariant derviative $D_{\mu}$ is
 
 \eq{weakCovariant}
 {
    D_{\mu} = \partial_{\mu} - ig\sum_{a=1}^{3}t^{a}W_{\mu}^{a},~a=1,2,3
 }
 
-where $T^{a}$ are generators of group composed by Pauli matrices and $g$ is a constant. The $T_{3}$ component is called weak isospin. The covariant derivation for U(1) group is
+where matrices $t^{a}$ are generators of group composed by Pauli matrices and $g$ is a constant. The $t_{3}$ component is called weak isospin. The covariant derivative $D_{\mu}$ for $U(1)$ group is
 
 \eq{weakCovariant}
 {
-   D_{\mu} = \partial_{\mu} - ig'YB_{\mu}
+   D_{\mu} = \partial_{\mu} - ig'YB_{\mu},
 }
-where $Y$ is the weak isocharge. The chareg of the particles $Q$ is then given by realtion of their isopin and hypercharge $Q= t_{3} + \frac{1}{2}Y$ (or I3???).
 
-Were $B_{\mu}$ and $W_{\mu}^{a}$ are the gauge fields, $\Psi_{R,L}$ is the right and left component of fermion field,  $D_{\mu}$ is the covariant derivation and $\gamma_{\mu}$ are the Dirac matrices.i The tensors $F_{\mu\nu}$ are composed of fields $W^{a}_{\mu}$ and tnesor $B_{\mu\nu}$ of dewrivatives of $B_{\mu}$ field
+where $Y$ is the weak hypercharge and $g'$ is a constant . The charge $Q$ of a particle is then given by relation between its isopin and hypercharge $Q= t_{3} + \frac{1}{2}Y$.
 
-The lagrangian is often  denoted as be for gauge group SU2()L $\times$ U(1)Y, where TODO
+In presented equations $B_{\mu}$ and $W_{\mu}^{a}$ are the gauge fields, $\Psi_{R,L}$ is the right and left component of fermion field, $D_{\mu}$ is the covariant derivative and $\gamma_{\mu}$ are the Dirac matrices. The tensors $F_{\mu\nu}$ is composed of fields $W^{a}_{\mu}$ and their derivatives and tensor $B_{\mu\nu}$ is composed  of derivatives of $B_{\mu}$ field.
 
- This group produces two masless gauge fields $W^{1}$ and $W^2$ which mix and create $W^{+}$ and $W^{-}$ bosons. These bosons interact only with left componets of the chiral field (maximum parity violation). The remaining $W^{3}$ and $B$ gauge fields interact with both left and right handed fermions and they mix into $Z$ boson and electromagnetic $\gamma$. As mentioned previously all these bosons have to be masless in order to perserve local and global gauge invariance.
+The group of electroweak interactions is often denoted as $SU(2)_{L} \otimes U(1)_{Y}$, where $L$ is related to difference of behavior of left- and right-handed fileds w.r.t weak interactions and $Y$ denotes the weak hypercharge. This group produces two masless gauge fields $W^{1}$ and $W^2$ which mix and create $W^{+}$ and $W^{-}$ bosons. These bosons interact only with left-handed componets of the fermion field (maximum parity violation). The remaining $W^{3}$ and $B$ gauge fields interact with both left- and right-handed fermions and they mix into $Z$ boson and electromagnetic $\gamma$. As mentioned previously all these bosons have to be masless in order to perserve local and global gauge invariance, but experimentally, the $W^{\pm}$ and $Z$ bosons were found to be a massive and therefore the electroweak symmetry must be broken. It is also important to note, that EW Lagrangian gives maximum parity violation for neutrino and therefore there is only left component of the neutrino field exist, not right one.
 
-The electromagnetic charge is $e= g\mathrm{sin}\theta_{W} = g'\mathrm{cos}\theta_{W} $, where $\theta_{W}$ is Weinberg mixing angle which was experimentally measured to be of around $30^{\circ}$.
+%The electric charge can be is $e= g\mathrm{sin}\theta_{W} = g'\mathrm{cos}\theta_{W} $, where $\theta_{W}$ is Weinberg mixing angle which was experimentally measured to be of around $30^{\circ}$.
+%The weak isospinhas only non-zero value for left-handed components.
+%-isospin, hypercharge TODO
+%-no right neutrino  TODO
 
-The weak isospinhas only non-zero value for left-handed components.
--isospin, hypercharge TODO
--no right neutrino  TODO
+\subsection{Qunatum Chromodynamics}
 
-\section{QCD}
-
-The theory of strong intreactions, called Quantum Chromodynamics~(QCD) is based on SU(3) group. The corresponding lagranigian of QCD is
--red, blue, greeen
+The theory of strong intreaction, called Quantum Chromodynamics~(QCD) is based on $SU(3)$ group. The corresponding lagranigian of QCD is
 
 \eq{QCDlagrangian}
 {
-\mathcal{L} = -\frac{1}{4} \sum_{a=1}^{8} F_{\mu \nu}^{a} F^{a \mu \nu} + \sum_{j=1}^{n_f} \bar{q}_{j}(i D_{\mu}\gamma^{\mu} -m_{j})q_{j} ,
+\mathcal{L}_{QCD} = -\frac{1}{4} \sum_{a=1}^{8} F_{\mu \nu}^{a} F^{a \mu \nu} + \sum_{j=1}^{n_f} \bar{q}_{j}(i D_{\mu}\gamma^{\mu} -m_{j})q_{j} ,
 }
 
-where $q_{j}$ are the quark fields which are summed over the number of different favours $n_{f}$. Tensors $F_{\mu \nu}$ are combination of gluon fields and ints derviatives. with covariant derivative
+where $q_{j}$ are the quark fields which are summed over the number of different favours $n_{f}$ and $m$ is a mass. The quark filed $q_{j}$ is composed of three quark spinors, one for each color. Tensors $F_{\mu \nu}$ are combination of gluon fields $g_{\mu}$ and its derviatives. The covariant derivative in this case is
 
 \eq{QCDdervative}
 {
-   D_{\mu} = \partial_{\mu} - i\sqrt{4 \pi \alpha_{s}} \sum_{a=1}^{8} t^{a} g_{\mu}^{a},~a=1,...,8
+   D_{\mu} = \partial_{\mu} - i\sqrt{4 \pi \alpha_{s}} \sum_{a=1}^{8} t^{a} g_{\mu}^{a},~a=1,...,8 , 
 }
 
-where $\alpha_{s}$ is strong coupling constant and $g_{\mu}$ the gluon fields.
+where $\alpha_{s}$ is strong coupling constant and $g_{\mu}$ are gluon fields. The objects which can interact via strong interactions must have a color, which is in case of quarks red, green or blue and in case of gluon a eight different combinations of colors and anticolors.
+
+The coupling of colored objects is weak at short distances~(asymptotic freedom)~\cite{Gross:1973id}, but it grows with distance~(confinment)~\cite{Wilson:1974sk}. Therefore colored objects always have to be bound inside colorless hadrons, where they are quasi-free and never can be observed separately. There are two kinds of hadrons, baryons holding three quarks of different colors and mesons composed of two quarks, one of certain color and second of corresponding anticolor.
+
+%-asymptotic freedom - the coupling depends on the distance, , it is very weak at short distances (asymtotic freedom) nut grows in distance (confinment - bound hadron states)
+%-confinment -> color must remain neutral , not possinle to separate individual quarks and gluons, always are bound in colorless hadrons - baryons of mesons.
+%-hadronization - formation of colorless objects (say more) 
+%-color
+
+%INTERACTIONS
+%-sm lagrangian (CERN-thesis-2017-005) -> without higgs
+%-interactions (electroweak, QCD)
+%TODO -19 free parameters (nine fermion masses, one scalar mass, three coupling parameters, four quark mixing parameters, higgs vacuum expectation value, strong cp violating phase)
+%TODO -perturbative theory (LO, NLO)
 
 
--asymptotic freedom - the coupling depends on the distance, , it is very weak at short distances (asymtotic freedom) nut grows in distance (confinment - bound hadron states)
--confinment -> color must remain neutral , not possinle to separate individual quarks and gluons, always are bound in colorless hadrons - baryons of mesons.
--hadronization - formation of colorless objects (say more) 
--color
 
-INTERACTIONS
--sm lagrangian (CERN-thesis-2017-005) -> without higgs
--interactions (electroweak, QCD)
--19 free parameters (nine fermion masses, one scalar mass, three coupling parameters, four quark mixing parameters, higgs vacuum expectation value, strong cp violating phase)
--perturbative theory (LO, NLO)
+\subsection{Electroweak symmetry breaking}
 
-
-ELECTROWEAK symmetry breaking: TODO strat here
-Yang-Mills~\cite{Yang:1954ek} -> nonabelian gauge theory
--> in this theory gauge bosons are masless - gauge symmetry do not alow mass terms in lagrangian
--symmetry breaking -> apperance og goldstone~\cite{Goldstone:1961eq} bosons (one for each generator of broken symmetry?!) , goldosnes are masless spin-0
--1960s - the goldstone bosons cancel and give mass to other bosons -> generation of mass for Ws and Z bosons ~\cite{Englert:1964et, Higgs:1964ia, Guralnik:1964eu, Higgs:1966ev}
-Higgs lagrangian
+As discussed, the $W^{\pm}$ and $Z$ bosons are massive, but the mass term for these bosons cannot be incomporated into the Largangian of electroweak interaction, becuase it would break the invariance of Lagrangian under local phase transformation. This problem was solved by ``Higgs mechanism'', based on phenomenon reffered as ``spontaneous symmetry breaking'' of SU(2) symmetry~\cite{Englert:1964et, Higgs:1964ia, Guralnik:1964eu}. The Higgs mechanism introduces a new complex scalar field $\phi$. The Lagrangian for this field and its interactions can be expressed as 
 
 \eq{lagHiggs}
 {
-    \mathcal{L}_{Higgs} =  (D_{\mu}\Phi)^{\dagger} (D^{\mu}\Phi) - V(\Phi),
+    \mathcal{L}_{Higgs} =  (D_{\mu}\Phi)^{\dagger} (D^{\mu}\Phi) - V(\Phi^{\dagger}\Phi),
 }
 
-where ``Maxican hat potential'' is (if $\mu^2> 0$ )
-
-\eq{potHiggs}
-{
-    V(\Phi) =  - \farc{1}{2} \mu^{2}\Phi^{\dagger}\Phi + \frac{1}{4} \lambda(Phi^{\dagger}\Phi)^{2},
-}
-
-$\Phi$ is a complex field. It is self-interacting SU(2)L doublet, weak hypercharge 1/2
+where $D_{\mu}$ is the the covariant derivativei, $V(\Phi^{\dagger}\Phi)$ is the Higgs poptential and $\Phi$ is doublet of scalar fields defined as
 
 
 \eq{doubletHiggs}
 {
-    \Phi = \binom{\phi^{+}}{\phi^{0}} ,
+    \Phi = \binom{\phi^{+}}{\phi^{0}}.
 }
 
-the minimum of potential is at value not SU(2)L x U(1)Y invariant -> $\Phi$ has non-zero vacuum expectation value
+The Higgs potential $V(\Phi^{\dagger}\Phi)$ is
 
+\eq{potHiggs}
+{
+    V(\Phi^{\dagger}\Phi) =  - \frac{1}{2} \mu^{2}\Phi^{\dagger}\Phi + \frac{1}{4} \lambda(Phi^{\dagger}\Phi)^{2},
+}
+
+%$\Phi$ is a complex field. It is self-interacting SU(2)L doublet, weak hypercharge 1/2
+
+    \insertFigure{figures/mexicanHat} % Filename = label
+                 {0.5}       % Width, in fraction of the whole page width
+                 { A shape of the Higgs potential $V$ for the complex field $\phi$ with positive values of real parameters $\mu^{2}$ and $\lambda$.}
+
+where $\mu$ and $\lambda$ are real parameters. In case when both $\mu^{2}$ and $\lambda$ are positive numbers, the potential $V(\Phi^{\dagger}\Phi)$ takes shape of a ``Mexican hat'', as shown in Fig.~\ref{fig:figure/mexicanHat}. The shape of the potential is such, that the value of field $\Phi$ at the ground state, i.e. vacuum expectation value~(VEV) of the field $\Phi$ is non-zero. The ground state is degenarate and can be chosen to be
 
 \eq{solutionHiggs}
 {
-    \langle \Phi \rangle_{0} = \frac{1}{\sqrt{2}}U(x)\binom{0}{v} ,
+    \langle 0 \Phi 0 \rangle = \frac{1}{\sqrt{2}}\binom{0}{v} ,
 }
 
 with
@@ -186,19 +214,34 @@ with
 v = \sqrt{\frac{\mu^{2}}{\lambda}}
 }
 
-$U(x)$ is unitray transformation that rotates between the dengenerated fields.
-
-The Higgs potential gives mass to bosons via first term of Eq.~\ref{eq:lagHiggs}.
+being the energy of the ground state of field $\Phi$. Then the excitation of the field $\Phi$ can be written as follows
 
 \eq{solutionHiggs2}
 {
-    \Phi(x) = \frac{1}{\sqrt{2}}U(x)\binom{0}{v+\frac{H(x)}}} ,
+    \Phi = \frac{1}{\sqrt{2}}\binom{0}{v+H},
 }
 
--> Higgs boson appears when moving from minimum of potential ~\ref{Higgs:1964ia, Higgs:1964pj}
+where $H$ is the Higgs boson. The vector bosons $W^{\pm}$ and $Z$ become massive via interaction with Higgs field present in the first term of Higgs Lagrangian~\ref{eq:lagHiggs}. The masses of the fermions can be also generated via interaction of fermion field  $\Psi$ with Higgs field $H$ by adding new term of type $\bar{\Psi}_{L} \Phi \Psi_{R} + h.c.$ to the lagrangian of the Standard Model. It can be noticed that the interaction with the Higgs field flips the chirality of fermion from left to right and vice versa. Therefore masses of neutrinos cannot be generated in this way, as there are only left-handed neutrinos in the SM. The parameters $\mu$ and $\lambda$ of the Higgs potential are not predicted by the Standard Model and are measured experimentally.
 
-Fermions get mass via interaction with $\Phi$ filed~\cite{Weinberg:1967tq}
--hiigs flips the chirality, this is why neurino cannot have a mass within SM
+%Fermions get mass via interaction with $\Phi$ filed~\cite{Weinberg:1967tq}
+%-hiigs flips the chirality, this is why neurino cannot have a mass within SM
+%ELECTROWEAK symmetry breaking: TODO strat here
+%Yang-Mills~\cite{Yang:1954ek} -> nonabelian gauge theory
+%-new scalar field predicted by Higgs Englert and Brout in 1964~\cite{Higgs:1964pj, Englert:1964et}
+%-discovery in 2012 by CMS and ATLAS
+%-> in this theory gauge bosons are masless - gauge symmetry do not alow mass terms in lagrangian
+%-based on spontaneous symmetry breaking principles -> apperance og goldstone~\cite{Goldstone:1961eq} bosons (one for each generator of broken symmetry?!) , goldosnes are masless spin-0
+%-> do not speak about goldstone
+%-non-zero ground state - vev
+%-degenerated state -> infinite nr of minima on on circle of phi(1) and phi(2)- complex field -> this gives us a chance to fix phi as we want. 
+%-1960s - the goldstone bosons cancel and give mass to other bosons -> generation of mass for Ws and Z bosons -> Hoggs mechanism ~\cite{Englert:1964et, Higgs:1964ia, Guralnik:1964eu,}% Higgs:1966ev}
+%-parameter v is vacum expectation value - v =sqrt(-mh2/lambda)
+%-Goldstone theorem -> masless states -> masless states are absorbed by the evctor bosnons
+%-lambda and higgs mass must be experimentally measured
+%- v and mH value? (Hoss)
+%Higgs lagrangian
+% TODO \section{Feynman diagrams} ?
+%+perturbative theory
 
 issues
 
@@ -242,6 +285,9 @@ strong QCD lagrangian introducing the phase theta - close to zero, despite the t
 -in SM large differences between quarks
 -why there should be three fermion families
 
+remaining stuff:
+-19 free parameters (nine fermion masses, one scalar mass, three coupling parameters, four quark mixing parameters, higgs vacuum expectation value, strong cp violating phase)
+-perturbative theory (LO, NLO)
 
 \section{BSM physics}
 
