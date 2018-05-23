@@ -345,34 +345,114 @@ In the Standard Model, the coupling constants are dependent on energy. At higher
 %-19 free parameters (nine fermion masses, one scalar mass, three coupling parameters, four quark mixing parameters, higgs vacuum expectation value, strong cp violating phase)
 %-perturbative theory (LO, NLO)
 
-\section{BSM physics}
+\section{Supersymmetry}
 
-BSM theories
--SM works fine, but we need to extend it -> we can add either additional symetries, space-time dimensions or field content
+- said before: SM works fine, but we need to extend it -> we can add either additional symetries, space-time dimensions or field content
+- one of the possibility how to extend is susy 
+- it addresses many issues of SM
 
-SUSY
+\textbf{generalities}
+SUSY~\cite{Martin:1997ns}
 -around 70's
--Golfand and Likhtman -> new symmetry Q -> Q|f> -> |b>; Q|b> -> |f> -> later Haag, Lopuszanski and Sohnius said that such symmetry corresponds to supersymmetry
+-Golfand and Likhtman -> new symmetry Q -> Q|f> -> |b>; Q|b> -> |f> (transformation) -> later Haag, Lopuszanski and Sohnius said that such symmetry corresponds to supersymmetry
 -to each fermion a boson  with same quantum numbers (except of spin)
+-particles in supermulitples, where there is same number of fermionic and boisonic degrees of freedom
+-mass degeneration of particles in supermultiplet (from commutation relation of Q)
+-particles in supermultiplet have same quantum, numbers under the SU(3)xSU(2)xU(1) transformation
+-supermultiplet SM particle + susy partner, just differening by spin (1/2) -> bit more complicated I guess
+-parters of fermions are sfermions, and partner of bosons are inos, tilde for susy particles
 -partner of praticle is superpartner and they form superfield
 -spin differs by 1/2
+-same interactions of SUSY particles as the SM ones (for example only scalar partners of left handed fermions interact with partners of W boson)
+-two SUSY Higgs boson doublets are needed (in order to keep the theory renormalizable)
 -superpartner should have the same mass -> not observed -> susy must be broken (for now we just add a term into the lagrangian)
 -motivation:
 	-solve hierarchy problem (superpartnes have equal masses and cancel the loop corrections) - in case of "soft breaking" susy prevents the quadratic divergencies and there are only logarithmic + small fine tuning
 	-> naturalness of susy related to the mass difference between particle and its superpartner (Q: then if the susy partner of eg electron is very heavy does not it induce the divergencies? )
--MSSM
--most used SUSY relization is MSSM -> minimal -> adding the minimum number of fields to the SM to become supersymmetric
+
+-susy breaking - not much known about its mechanism, there are several hypothesis (models)
+-susy solves naturalnes problem, bosons opposite sign of corerction to delta mass -> fine tuning can be removed, if the coupling constants are the same, just differ by sign (and it is actually true)
+	-> the loop diagram
+-susy soles dm candidate - lsp
+-susy solves the unification - susy modifies the energy evolution of coupling constants 
+
+-constraints on lsp from dm relic density~\cite{Ade:2015xua}
+-commputation relations of susy operators?
+
+\eq{lagSUSY}
+{
+    \mathcal{L} =  \mathcal{L}_{SUSY} +  \mathcal{L}_{soft} = \mathcal{L}_{free} + \mathcal{L}_{int} + \mathcal{L}_{soft}    ,
+}
+
+-first term is susy invariant and second breaks the symmetry -> different mass then partners
+
+\textbf{MSSM}
+-most used SUSY relization is MSSM -> minimal -> adding the minimum number of fields~(particles) to the SM to become supersymmetric
+- no additional gauge interactions
+-table of supermultiplets?! (CERN-THESIS-2015-390) -> these are the particles before "mixing"
 -adding sfermions and gauginos - left and right handed fermions -> e.g two selectrons
--for Higgs more complicated- one higgsino is not enough, but second SU(2) doublet is needed to avoid a gauge anomaly.
+-for Higgs more complicated- one higgsino is not enough, but second SU(2) doublet is needed to avoid a gauge anomaly. (give mass to up and down type of quarks?) -> even there must be two SM doublets
+-both higgs doublets have to have non-zero vev
+-large mixing between sfermions states (because of large Yukawa coupling which is dependent on mass?), mixing of the second and first generation smaller, du to smaller Yukawa
+-it is likely that right-handed states are lighter than left-handed
+-winos and binos mix after ew symmetry breaking -> winos, zino, photino , but they mix to give mass eingenstates
+	-4 neutralinos which are mix of neutral bino, wino and higgsinos
+	-two charginos (each can be negative or positive) - which are mix of charged winos and higgsinos
+-only gluinos do not mix to give some mass eingenstates
 -mass eigenstates do not have to be flavor eigenstates
 -combinations of electroweak gauginos and higgsions make charginos and neutralinos
 -mixing between left and right superpartners 
 -spectrum of sparticles
--conservation of R-party by construction $R=(-1)^{2S+3B+L} $
+-MSSM - more than 100 new parameters than in SM
+	-majority from symmetry breaking
+	-it can be constrained by using pMSSM (with 19 free parameters), where no assumptions on the breaking mechanism 
+
+\begin{table}[h]
+\begin{center}
+\begin{tabular}{|c|c|c|c|}
+\hline
+Names & Spin  & Gauge Eigenstates & Mass Eigenstates  \\
+\hline
+        &   & $\tilde{u}_{L}~\tilde{u}_{R}~\tilde{d}_{L}~\tilde{d}_{R}$  & (same) \\
+squarks & 0 & $\tilde{s}_{L}~\tilde{s}_{R}~\tilde{c}_{L}~\tilde{c}_{R}$  & (same) \\
+        &   & $\tilde{t}_{L}~\tilde{t}_{R}~\tilde{b}_{L}~\tilde{b}_{R}$  & $\tilde{t}_{1}~\tilde{t}_{2}~\tilde{b}_{1}~\tilde{b}_{2}$ \\
+\hline
+         &   & $\tilde{e}_{L}~\tilde{e}_{R}~\tilde{\nu}_{e}$  & (same) \\
+sleptons & 0 & $\tilde{\mu}_{L}~\tilde{\mu}_{R}~\tilde{\nu}_{\mu}$  & (same) \\
+         &   & $\tilde{\tau}_{L}~\tilde{\tau}_{R}~\tilde{\nu}_{\tau}$  & $\tilde{\tau}_{1}~\tilde{\tau}_{2}~\tilde{\nu}_{\tau}$ \\
+\hline
+neutralinos & 1/2 & $\tilde{B}_{0}~\tilde{W}_{0}~\tilde{H}_{u}^{0}~\tilde{H}_{d}^{0}$  & $\tilde{\chi}_{1}^{0}~\tilde{\chi}_{2}^{0}~\tilde{\chi}_{3}^{0}~\tilde{\chi}_{4}^{0} $ \\
+\hline
+charginos & 1/2 & $\tilde{W}_{\pm}~\tilde{H}_{u}^{+}~\tilde{H}_{d}^{-}$  & $\tilde{\chi}_{1}^{\pm}~\tilde{\chi}_{2}^{\pm} $ \\
+\hline
+gluino & 1/2 & $\tilde{g}$  & (same) \\
+\hline
+gravitino & 3/2 & $\tilde{G}$  & (same) \\
+\hline
+\end{tabular}
+\caption[Table caption text]{\cite{Martin:1997ns}. }
+\label{tab:SUSYspectrum}
+\end{center}
+\end{table}
+
+-L,R helicity
+-105 mssm + 19 sm parameters
+
+\textbf{conservation of R-party by construction }
 	-> pair production of sparticles
         -> decay only to odd nr of sparticles
         -> LSP is stable -> dark matter candidate
--MSSM - more than 100 new parameters than in SM
+-in susy lagrangian there can be interaction between susy particles and sm particles -> there can be lepton or baryon number valiation
+-but this was restricted by SM , because proton could decay, wat was not observed~\cite{Nishino:2009aa}
+-to avoid this: R-parity requirement added:  $P_R=(-1)^{3(B-L)+2s } $, where B is baryon number, L is lepton numbver and s is spin of particle
+-it must be conserved
+-all susy particles negative r-parity, sm ones positive
+	-> lsp is stable (interacts only weakly - good dm candidate)
+	-> decay to odd number of susy particles
+	-> at colliders, susy particles produced in pair
+-there are rpv models, but the lsp is not stable
+
+\textbf{pmssm}
 -> too many parameters - problem for phenomenological and experimental models
 -> pMSSM - phenomenological MSSM -> reduction of number of parameters by assuming
 	- there is no new source of CP vilation
@@ -384,3 +464,32 @@ SUSY
 		-soft gaugino masses (bino, wino, gluino
 		-sfermion masses
 		-trilinear couplings
+
+\textbf{simplified model spectra}
+lhc reference~\cite{Alves:2011wf, Alwall:2008ag}
+cms reference~\cite{Chatrchyan:2013sza}
+-part of the parameter space of the MSSM
+-described set of particles, their possible production and decay chain
+-in simplified models considering only production process of the primary particles?
+-each aprticle diracte or cascade decay
+-each decay ends with lsp (neutralino, gravitino)
+-relationship between particle masses, production cross section, decay modes, branching ratios (usually 100\%)
+-stop decay channels
+-mass of intermediate particle
+$m_int = x m_mother + (1-x)m_LSP $
+T2 (T6) prefix - qaurk-squark production
+T2, T2bb, T2tt, T6ttww, T2bW
+	-each squark - two body decay to lighter flavours and chargino/neutralino
+
+
+\textbf{stop (third generation)}
+-stops gives the largest conbtribution to the higgs mass
+-there should not be much tuning in the higgs mass -> constraint on stop mass to be at energy level of order of 1~TeV (max) -> then fine tuning of the order of 10\%
+-phase space of stop decay?!
+-stop 1 or sbottom 1 probably the lightest squarks  -> because of mixing between R and L 
+
+\textbf{Run I results on the stop}
+
+-combined 1 and 2 lep: http://cms-results.web.cern.ch/cms-results/public-results/publications/SUS-14-015/index.html
+-one lep alone: http://cms-results.web.cern.ch/cms-results/public-results/publications/SUS-13-011/index.html
+-fully hadronic: http://cms-results.web.cern.ch/cms-results/public-results/publications/SUS-13-023/index.html , http://cms-results.web.cern.ch/cms-results/public-results/publications/SUS-14-001/index.html
