@@ -15,90 +15,97 @@
 \setcounter{secnumdepth}{5}
 
 
-\section{CMS simulation}
+The simulated samples are a vital part of many analyses. For the physics analysis purposes they are used to compare the theoretical signal and background with the measured data. Further, the simulations are also important for the development and understanding of specific analysis methods and in derivation and validation of calibrations. The detector performance indicators such as resolutions and efficiencies rely as well to a large extent on the simulation.
 
-The simulated samples are vital part of many analyses. For the physics analyses purposes they are used to compare the theoretical signal and background with the measured data. Further, the simulations are also important in development and understanding of specific analysis methods and in derivation and validation of calibrations, efficiencies and resolutions.
+In the section~\ref{sec:CMSsimu} the general simulation work-flow of the CMS is introduced. In the following section~\ref{sec:trackerSimu} a deeper explanation of the simulation of particle charge deposits in the CMS silicon strip tracker is given. In this section the effects of tracker ageing ans simplifications in simulation on the quality of simulated samples are also discussed.
 
-The CMS simulation work-flow~\cite{Banerjee:2007zz, Hildreth:2017vpw, Hildreth:2015kps} is divided into several steps. At the beginning of the simulation chain the physics events are generated and then the final state particles produced by generator are sent through the simulated detector. Next step is the simulation of response of the detector electronics to particle traversing the detector. The output of this procedure are RAW data, which can be later reconstructed and slimmed for the purposes of physics analyses. The overview of the simulation steps, which are described in larger detail in following subsections, can be seen in Fig.~\ref{fig:figures/SimulationFlow}~\cite{website:simuBasics}. The production of the simulated samples is handled centrally~\cite{Boudoul:2015bkp} by the CMS collaboration.
+\section{An introduction to the CMS simulation~\label{sec:CMSsimu}}
+
+The CMS simulation work-flow~\cite{Banerjee:2007zz, Hildreth:2017vpw, Hildreth:2015kps} is divided into several steps. At the beginning of the simulation chain the physics events are generated. This step generates particles and their kinematics resulting from the interaction between colliding particles. The final state particles produced by generator are sent by GEANT4 through the ``simulated'' detector in which these particles interact and leave energy deposits. Next step is the simulation of the response of the detector and its electronics to particle traversing the detector. The output of this procedure are RAW data, which can be later reconstructed and slimmed for the purposes of physics analyses. The overview of the simulation steps, which are described in larger detail in the following subsections, can be seen in Fig.~\ref{fig:figures/SimulationFlow}~\cite{website:simuBasics}. The official production of the simulated samples is handled centrally~\cite{Boudoul:2015bkp} by the CMS collaboration.
 
     \insertFigure{figures/SimulationFlow} % Filename = label
                  {0.99}       % Width, in fraction of the whole page width
                  { A diagram of the simulation work-flow. The four-vectors of generated particles together with the detector description enter to the GEANT4 simulation which output are simulated hits in the detector volume. Optionally the simulated hits from pile-up interactions can be added on top of the simulated hits from physics and the mixture of these hits are digitized during the electronics simulation. In this step the description of the electronics, for example the noise and the detector conditions, for example the temperature, is added. The output of digitization are RAW data~\cite{website:simuBasics}. }
 
 
-\subsection{Monte Carlo event generators}
+\subsection{Step 1: Monte Carlo event generation}
 
-The Monte Carlo~(MC) generators are a basic tool designed to produce physics events according to a physics model. In the majority of cases three kinds of generators are used by CMS collaboration~\cite{website:generation, website:generationIntro}. 
+The Monte Carlo~(MC) generator is a tool designed to produce physics events according to a physics model. In the majority of cases three kinds of generators are used by the CMS collaboration~\cite{website:generation, website:generationIntro}. 
 
-\textbf{General-purpose generators}
-These are for example Pythia8~\cite{Sjostrand:2014zea} or Herwig++~\cite{Bahr:2008pv}. They provide the best possible description of the result of the proton collision. To generate outgoing particles originating from the interaction of colliding particles, many theoretical models and aspects has to be plugged in the generation process, such as the description of soft and hard interactions in the leading order, parton distribution functions~(PDFs), initial and final state radiation~(ISR and FSR), multiple parton interactions, hadronization of partons and decay of particles.
+\textbf{General-purpose generators: }
+These are for example Pythia~8~\cite{Sjostrand:2014zea} or Herwig++~\cite{Bahr:2008pv}. They provide the description of the result of the proton collision. To generate outgoing particles originating from the interaction of colliding particles, many theoretical models and aspects have to be plugged in the generation process, such as the description of soft and hard interactions in the leading order, parton distribution functions~(PDFs), initial and final state radiations~(ISR and FSR), multiple parton interactions, hadronization of partons and decay of particles.
 
-\textbf{Matrix Element calculators}
-The generators such as Powheg~\cite{Oleari:2010nx} or MadGraph5\_aMCatNLO~\cite{Alwall:2014hca} were developed to provide next-to-leading order~(NLO) calculations. These calculators give the final state description on the parton level which needs to be plugged into one of the general-purpose generators to proceed with the full hadronization.
+\textbf{Matrix Element calculators: }
+The generators such as Powheg~\cite{Oleari:2010nx} or MadGraph5\_aMCatNLO~\cite{Alwall:2014hca} were developed to provide next-to-leading order~(NLO) calculations. These calculators give the final state description on the parton level which needs to be plugged into one of the general-purpose generators to generate radiations and proceed with the full hadronization.
 
-\textbf{Specific generators}
+\textbf{Specific generators: }
 These generators are used to generate specific kind of events e.g. diffractive or cosmic events.
 
-\subsection{Detector simulation}
+\subsection{Step 2: Simulation of the particle interactions in the detector}
 
-To be able to describe data by simulations, the generated particles need to be propagated through the volume of the CMS detector. This is achieved via GEANT4~\cite{Agostinelli:2002hh, Lefebure:1999wja} toolkit, into which detailed description of the CMS detector, its active and dead material dimensions, hierarchy and properties, is plugged. The GEANT4 propagates the generated particles through the detector, simulates the interactions with material and models the physics processes which happen during the passage of the particles through the detector. The output of this procedure are simulated hits left by particles interacting with the active volumes of the subdetectors. The simulated hits can originate from primary particles generated by the MC generator, or from the secondary particles which are result of the GEANT4 simulation process.
+To be able to describe data by simulations, the generated particles need to be propagated through the volume of the CMS detector. This is achieved via the GEANT4~\cite{Agostinelli:2002hh, Lefebure:1999wja} toolkit, into which a detailed description of the CMS detector, its active and inactive material dimensions, layout and properties, are plugged. The GEANT4 toolkit propagates the generated particles through the detector, simulates the interactions with material and models the physics processes which happen during the passage of the particles through the detector. This procedure gives as output the simulated hits left by particles interacting with the active volumes of the subdetectors. These simulated hits can originate from primary particles generated by the MC generator, or from the secondary particles which are the result of the GEANT4 simulation process.
 
-The simulation of the pile-up events is done separately from the simulation of the events of interests. The input to the GEANT4 simulation of in-time and out-of-time pile-up is pool of Minimum Bias single interaction events.
+The simulation of the pile-up events is done separately from the simulation of the events of interest. The input to the GEANT4 simulation of in-time and out-of-time pile-up is a pool of Minimum Bias single interaction events. To simulate a given luminosity profile a specific distribution of the number of interactions per bunch crossing is chosen. 
 
 %TODO more about OOT - loopers + electronics
 
-This Full Simulation~(FullSim) is very time intensive and thus it is not suitable to simulate samples for which huge number of events is needed. For this purposes the Fast Simulation~(FastSim)~\cite{Sekmen:2017hzs, CMS:2010spa, Giammanco:2014bza} was developed as an alternative to the FullSim. The FastSim uses simplified detector geometry and interactions with material, what speeds the simulation by factor of around 100. The comparison of physics objects of FullSim and FastSim shows that FastSim is reliable alternative that reproduces the FullSim with around 10\% accuracy~\cite{Abdullin:2011zz, Sekmen:2017hzs}. The FastSim is widely used to produce for example Supersymmetry samples, where large scans with different parameter values are needed.
+The complete simulation performed with GEANT4, also called Full Simulation~(FullSim), is very time intensive and thus it is not suitable to simulate samples for which huge number of events is needed. For this purposes a Fast Simulation~(FastSim)~\cite{Sekmen:2017hzs, CMS:2010spa, Giammanco:2014bza} was developed as an alternative to the FullSim. The FastSim uses a simplified detector geometry and interactions with material, which speeds the simulation by factor of around 100. The comparison of physics objects of FullSim and FastSim shows that FastSim is a reliable alternative that reproduces the FullSim high level objects within around 10\% accuracy~\cite{Sekmen:2017hzs, Abdullin:2011zz}. The FastSim is widely used to produce for example samples of supersymmetric processes, where large scans with different parameter values are needed.
 
-\subsection{Simulation of the detector response to the particle signal}
+\subsection{Step 3: Simulation of the detector and electronics response to the particle signal}
 
-To obtain output electronic signal from the detector, the signal hits from the GEANT4 are collected by subdetectors. Then the response of the readout electronics to the collected signal is simulated. This step is called digitization and its input is merged collection of physics events of interest and pile-up events. There are three domains providing digitization of given subdetectors, which are SimTracker, SimCalorimetry and SimMuon~\cite{website:simdigi}. The digitized samples are in the RAW format and can be further reconstructed in a similar way as data.
+To obtain the output electronic signal from the detector, the signal hits from GEANT4 are collected by subdetectors. Then the response of the readout electronics to the collected signal is simulated. This step is called the digitization and its input is a merged collection of physics events of interest and pile-up events. There are three domains providing digitization of given subdetectors, which are SimTracker, SimCalorimetry and SimMuon~\cite{website:simdigi}. The digitized samples are in the RAW format and can be further reconstructed in a similar way as data.
 
 \newpage
 
-\section{Simulation of the silicon strip tracker response to the particle signal}
+\section{Simulation of the silicon strip tracker response to the particle signal~\label{sec:trackerSimu}}
 
-In order to use the simulated samples for the analyses purposes and to be able to rely on them, they have to describe the data as well as possible. In case of tracker, the output of the standard simulation are zero suppressed data, which are further reconstructed into clusters during the reconstruction step. These clusters are used for tracking and physics objects reconstruction, therefore the best possible description of data by simulated samples at clusters level is necessary.
+In order to use the simulated samples for the analysis purposes and to be able to rely on them, they have to describe the data as well as possible. In case of the tracker, the output of the standard simulation is composed of zero suppressed data, which are further reconstructed into clusters during the reconstruction step. These clusters are used for tracking and physics objects reconstruction, therefore the best possible description of data by simulated samples at cluster level is necessary.
 
-In following figures, data and simulation comparisons of several important cluster quantities are shown. For these comparison, the zero bias data sample from run 305064 and fill 6298, is used. The produced simulated sample is minimum bias in the FullSim configuration. Both data and simulated samples were produced in deconvolution mode. To avoid fake clusters and clusters originating from pile-up, only clusters associated with tracks are used to create plots in the whole chapter.
+The following Figs.~\ref{fig:figures/clusterchargeRescaledalll0to0simulation} to \ref{fig:figures/seedTOB} show data and simulation comparisons of several important cluster quantities. The ``zero bias'' data sample from year 2017, run 305064 and fill 6298 are compared to a simulated sample of minimum bias events produced in the FullSim configuration. Both data and simulated samples were produced in deconvolution mode. To avoid fake clusters and clusters originating from pile-up, only clusters associated with tracks are used to create the plots in the whole chapter.
  
-The cluster charge collected by one APV divided by the length of track in a sensor, further referred as ``cluster charge'', is shown in Fig.~\ref{fig:figures/clusterchargeRescaledalll0to0}. The data to simulation ratio fluctuates around one within around $1 \pm 0.1$ in the bulk of the cluster charge distribution, but the description worsens for very small and very large cluster charges. Overall the cluster charge distribution in simulation is more narrow than in data. [TODO would not be better to use (data-MC)/data instead of data/MC in the ratio plot?]
+The charge from a given track collected by an APV is divided by the track length in a sensor, further referred as ``cluster charge'', is shown in Fig.~\ref{fig:figures/clusterchargeRescaledalll0to0simulation}. The data to simulation ratio fluctuates around 1 within around $\pm 0.1$ in the bulk of the cluster charge distribution, but the description worsens for very small and very large cluster charges. Overall the cluster charge distribution in simulation is narrower than in data. 
 
-    \insertFigure{figures/clusterchargeRescaledalll0to0} % Filename = label
+%[TODO would not be better to use (data-MC)/data instead of data/MC in the ratio plot?]
+
+    \insertFigure{figures/clusterchargeRescaledalll0to0simulation} % Filename = label
                  {0.5}       % Width, in fraction of the whole page width
-                 { (top) Data and simulation comparison of cluster charge. The simulated distribution is rescaled to the number of clusters in data. (bottom) Data to simulation ratio of cluster charge distribution. }
+                 { Data and simulation comparison of on-track cluster charge divided by the track length. The simulated distribution is rescaled to the number of clusters in data. Bottom plot represents data to simulation ratio. }
 
-The cluster width depends on the sensor geometry and therefore has to be shown separately for different geometries. The possible geometries and their location in the tracker can be found in Tab.~\ref{tab:trackerGeometries}. The data to simulation comparisons for inner and outer barrel geometries are shown in Figs.~\ref{fig:figures/widthTOB}~and~\ref{fig:figures/widthTIB}. In all cases there is very poor description of cluster width of data by the simulation. The mentioned dependency of cluster width on the geometry can be seen when comparing cluster width between IB1 and IB2 in Fig.~\ref{fig:figures/widthTIB}. The IB1 sensors have smaller pitch with respect to IB2 and therefore the IB1 clusters are in average wider, as in case of IB1 larger number of strips would collect charge from the same track. The sensors of IB2 and OB1 have similar pitch, but OB1 sensors are thicker which leads to larger cluster width in OB1 than in case of IB2, because the particle path in a sensor is longer. Moreover the cross talk is larger for OB1 than IB2, leading to larger enhancement in OB1 cluster width compared to IB2.
+The cluster width depends on the sensor geometry and therefore has to be shown separately for different geometries. The possible geometries and their location in the tracker can be found in Tab.~\ref{tab:trackerGeometries}. The data to simulation comparisons for inner and outer barrel geometries are shown in Figs.~\ref{fig:figures/widthTIB}~and~\ref{fig:figures/widthTOB}. In all cases there is a very poor description of the cluster width in data by the simulation. The mentioned dependency of the cluster width on the geometry can be seen for example when comparing cluster width between different barrel geometries. The IB1 sensors have a smaller pitch with respect to IB2 ones and therefore the IB1 clusters are in average wider, as in the IB1 case a larger number of strips would collect charge from the same track. The sensors of IB2 and OB1 have a similar pitch, but OB1 sensors are thicker which leads to a larger cluster width in OB1 than in IB2, because the particle path in a sensor is longer. Moreover the cross talk is larger for OB1 than IB2, leading to a larger enhancement in OB1 cluster width compared to IB2.
 
-    \insertTwoFigures{figures/widthTOB} % Filename = label
-                 {figures/clusterwidthTOBl1to4}
-                 {figures/clusterwidthTOBl5to6} % Filename = label
-                 {0.45}       % Width, in fraction of the whole page width
-                 {(left top) Data and simulation comparison of cluster width for OB2 geometry. The simulated distribution is rescaled to the number of clusters in data. (left bottom) Data to simulation ratio of cluster width distribution for OB2 geometry. (right top) Data and simulation comparison of cluster width for OB1 geometry. The simulated distribution is rescaled to the number of clusters in data. (right bottom) Data to simulation ratio of cluster width distribution for OB1 geometry. }
 
     \insertTwoFigures{figures/widthTIB} % Filename = label
-                 {figures/clusterwidthTIBl1to2}
-                 {figures/clusterwidthTIBl3to4} % Filename = label
+                 {figures/clusterwidthTIBl1to2simulation}
+                 {figures/clusterwidthTIBl3to4simulation} % Filename = label
                  {0.45}       % Width, in fraction of the whole page width
-                 {(left top) Data and simulation comparison of cluster width for IB1 geometry. The simulated distribution is rescaled to the number of clusters in data. (left bottom) Data to simulation ratio of cluster width distribution for IB1 geometry. (right top) Data and simulation comparison of cluster width for IB2 geometry. The simulated distribution is rescaled to the number of clusters in data. (right bottom) Data to simulation ratio of cluster width distribution for IB2 geometry. }
+                 { Distribution of the on-track cluster width for IB1 (left) and IB2 (right) geometry in data and simulation. The simulated distribution is rescaled to the number of clusters in data. Bottom plots represent data to simulation ratio for given geometry. }
 
-The other important quantity describing cluster, is charge on the strip reading the most of the charge from all strips in cluster rescaled to track path in sensor, which is later referred as ``cluster seed charge''. The cluster seed charge in Figs.~\ref{fig:figures/seedTOB}~and~\ref{fig:figures/seedTIB} is again dependent on the module geometry and therefore is shown for four different barrel geometries. In the plots it can be seen that in all cases the simulation in average predicts lower cluster seed charge and there is a clean trend in data to simulation ratio. It can also be observed that with larger pitch, the seed charge increases, as the charge from larger part of sensitive volume is read by one strip. Moreover difference in seed charge for IB2 and OB1 are observed. These two have similar pitch size and difference between the module thickness is taken into account by rescaling the collected charge by the path length. The difference between them is, that the cross talk is larger for OB2, leading to smaller seed charge.
-
-
-    \insertTwoFigures{figures/seedTOB} % Filename = label %TDO continue here
-                 {figures/clusterseedchargeRescaledTOBl1to4}
-                 {figures/clusterseedchargeRescaledTOBl5to6} % Filename = label
+    \insertTwoFigures{figures/widthTOB} % Filename = label
+                 {figures/clusterwidthTOBl1to4simulation}
+                 {figures/clusterwidthTOBl5to6simulation} % Filename = label
                  {0.45}       % Width, in fraction of the whole page width
-                 {(left top) Data and simulation comparison of cluster seed charge for OB2 geometry. The simulated distribution is rescaled to the number of clusters in data. (left bottom) Data to simulation ratio of cluster seed charge distribution for OB2 geometry. (right top) Data and simulation comparison of cluster seed charge for OB1 geometry. The simulated distribution is rescaled to the number of clusters in data. (right bottom) Data to simulation ratio of cluster seed charge distribution for OB1 geometry. }
+                 { Distribution of the on-track cluster width for OB2 (left) and OB1 (right) geometry in data and simulation. The simulated distribution is rescaled to the number of clusters in data. Bottom plots represent data to simulation ratio for given geometry. }
+
+
+Another important quantity is the charge on the strip having the largest charge among all strips in cluster rescaled to track path in sensor, which is later referred as ``cluster seed charge''. The cluster seed charge shown in Figs.~\ref{fig:figures/seedTOB}~and~\ref{fig:figures/seedTIB} is also dependent on the module geometry and therefore is shown for four different barrel geometries. In these plots, it can be seen that the simulation in average predicts in all cases a lower cluster seed charge, a clear trend in data to simulation ratio is present. It can also be observed that with a larger pitch, the seed charge increases, as the charge from a larger part of sensitive volume is read by one strip. Moreover differences in the seed charge for IB2 and OB1 are observed. These two parts of the detector have a similar pitch size and difference in the module thickness is taken into account by rescaling the collected charge by the path length. The difference between the two geometries comes from a larger cross talk in OB2, leading to a smaller seed charge.
+
 
     \insertTwoFigures{figures/seedTIB} % Filename = label %TDO continue here
-                 {figures/clusterseedchargeRescaledTIBl1to2}
-                 {figures/clusterseedchargeRescaledTIBl3to4} % Filename = label
+                 {figures/clusterseedchargeRescaledTIBl1to2simulation}
+                 {figures/clusterseedchargeRescaledTIBl3to4simulation} % Filename = label
                  {0.45}       % Width, in fraction of the whole page width
-                 {(left top) Data and simulation  comparison of cluster seed charge for IB1 geometry. The simulated distribution is rescaled to the number of clusters in data. (left bottom) Data to simulation ratio of cluster seed charge distribution for IB1 geometry. (right top) Data and simulation comparison of cluster seed charge for IB2 geometry. The simulated distribution is rescaled to the number of clusters in data. (right bottom) Data to simulation ratio of cluster seed charge distribution for IB2 geometry. }
+                 {(left top) Data and simulation  comparison of cluster seed charge for IB1 geometry. The simulated distribution is rescaled to the number of clusters in data. (left bottom) Data to simulation ratio of cluster seed charge distribution for IB1 geometry. (right top) Data and simulation comparison of on-track cluster seed charge for IB2 geometry. The simulated distribution is rescaled to the number of clusters in data. (right bottom) Data to simulation ratio of cluster seed charge distribution for IB2 geometry. }
 
-To summarize, in general the simulation tend to overestimate the cluster width, but on the other hand to underestimate the charge on the seed strip. Overall the simulation to data ratio is within $1 \pm 1$ over a wide range of cluster charges.  Therefore it is necessary to identify sources leading to observed data and simulation disagreement and propose needed corrections.
+    \insertTwoFigures{figures/seedTOB} % Filename = label %TDO continue here
+                 {figures/clusterseedchargeRescaledTOBl1to4simulation}
+                 {figures/clusterseedchargeRescaledTOBl5to6simulation} % Filename = label
+                 {0.45}       % Width, in fraction of the whole page width
+                 {(left top) Data and simulation comparison of on-track cluster seed charge for OB2 geometry. The simulated distribution is rescaled to the number of clusters in data. (left bottom) Data to simulation ratio of cluster seed charge distribution for OB2 geometry. (right top) Data and simulation comparison of on-track cluster seed charge for OB1 geometry. The simulated distribution is rescaled to the number of clusters in data. (right bottom) Data to simulation ratio of cluster seed charge distribution for OB1 geometry. }
 
-To understand how the clusters are simulated and what part of simulation can lead to incorrect cluster simulation, first the simulation flow has to be described. To simulate clusters in the tracker, first the GEANT4 energy deposits in form of charge carriers is propagated through the sensor and collected by the strips. To achieve good data and simulation agreement, the propagation has to be corrected for effects which happen physically in the sensor, for example a diffusion. Other set of factors is applied on top of the simulated signal to mimic effects of electronics on the signal acquired during the data-taking. The analogue signal with all corrections applied, is digitized. The flow of the simulation steps is shown in Fig.~\ref{fig:figures/trackerSimulationFlow}. In the following subsections these steps are described in detail, and later, potential issues in the simulation approach are identified and discussed. For simplicity, in majority of cases, the cluster seed charge and with distributions are shown only for OB2 geometry. As the standard data-taking mode is zero suppression with APVs operating in deconvolution mode, the simulation steps are described in these conditions. Other possibilities will be shortly discussed as well.
+
+To summarize, in general the simulation tend to overestimate the cluster width, but on the other hand to underestimate the charge on the seed strip. Overall the simulation to data ratio is within $1 \pm 0.1$ over a wide range of cluster charges.  Therefore it is necessary to identify sources leading to observed data and simulation disagreement and propose needed corrections.
+
+To understand how the clusters are simulated and what part of simulation can lead to incorrect cluster simulation, first the simulation flow has to be described. To simulate clusters in the tracker, first the GEANT4 energy deposits in form of charge carriers is propagated through the sensor and collected by the strips. To achieve good data and simulation agreement, the propagation has to be corrected for effects which happen physically in the sensor, for example the thermal diffusion. Other set of factors is applied on top of the simulated signal to mimic effects of electronics on the signal acquired during the data-taking. The analogue signal with all corrections applied, is digitized. The flow of the simulation steps is shown in Fig.~\ref{fig:figures/trackerSimulationFlow}. In the following subsections these steps are described in detail, and later, potential issues in the simulation approach are identified and discussed. For simplicity, in majority of cases, the cluster seed charge and with distributions are shown only for OB2 geometry. As the standard data-taking mode is zero suppression with APVs operating in deconvolution mode, the simulation steps are described in these conditions. Other possibilities will be shortly discussed as well.
 
     \insertFigure{figures/trackerSimulationFlow} % Filename = label
                  {0.99}       % Width, in fraction of the whole page width
@@ -134,7 +141,7 @@ The charge of each track segment is being fluctuated by GEANT4 routine. This rou
 
     \insertFigure{figures/clusterchargeRescaledalll0to0DeltaProdCut} % Filename = label
                  {0.5}       % Width, in fraction of the whole page width
-                 { (top) Data and simulation comparisons of cluster charge. The default simulation (in red) was modified by injecting four different values of the delta ray production cutoff. All the simulated distribution are rescaled to the number of clusters in data. (bottom) Data to simulation ratios of cluster charge distributions. }
+                 { (top) Data and simulation comparisons of on-track cluster charge. The default simulation (in red) was modified by injecting four different values of the delta ray production cutoff. All the simulated distribution are rescaled to the number of clusters in data. (bottom) Data to simulation ratios of cluster charge distributions. }
 
     \insertTwoFigures{figures/seedwidthTOBDeltaProdCut} % Filename = label %TDO continue here
                  {figures/clusterwidthTOBl1to4DeltaProdCut}
@@ -186,7 +193,7 @@ The diffusion is dependent on the drift time which depends on the applied and de
 
     \insertFigure{figures/clusterchargeRescaledalll0to0AV} % Filename = label
                  {0.5}       % Width, in fraction of the whole page width
-                 { (top) Data and simulation comparisons of cluster charge. The default simulation (in red) was modified by injecting four different values of the applied voltage. All simulated distribution are rescaled to the number of clusters in data. (bottom) Data to simulation ratios of cluster charge distributions. }
+                 { (top) Data and simulation comparisons of on-track cluster charge. The default simulation (in red) was modified by injecting four different values of the applied voltage. All simulated distribution are rescaled to the number of clusters in data. (bottom) Data to simulation ratios of cluster charge distributions. }
 
     \insertTwoFigures{figures/seedwidthTOBAV} % Filename = label %TDO continue here
                  {figures/clusterwidthTOBl1to4AV}
@@ -197,7 +204,7 @@ The diffusion is dependent on the drift time which depends on the applied and de
 
     \insertFigure{figures/clusterchargeRescaledalll0to0DV} % Filename = label
                  {0.5}       % Width, in fraction of the whole page width
-                 { (top) Data and simulation comparisons of cluster charge. The default simulation (in red) was modified by injecting four different values of the depletion voltage. All simulated distribution are rescaled to the number of clusters in data. (bottom) Data to simulation ratios of cluster charge distributions. }
+                 { (top) Data and simulation comparisons of on-track cluster charge. The default simulation (in red) was modified by injecting four different values of the depletion voltage. All simulated distribution are rescaled to the number of clusters in data. (bottom) Data to simulation ratios of cluster charge distributions. }
 
     \insertTwoFigures{figures/seedwidthTOBDV} % Filename = label %TDO continue here
                  {figures/clusterwidthTOBl1to4DV}
@@ -217,7 +224,7 @@ where $\mu$ is the charge mobility, $k_{B}$ the Boltzmann constant, $T$ the abso
 
     \insertFigure{figures/clusterchargeRescaledalll0to0Temperature} % Filename = label
                  {0.5}       % Width, in fraction of the whole page width
-                 { (top) Data and simulation comparisons of cluster charge. The default simulation (in red) was modified by injecting four different values of the temperature. All simulated distribution are rescaled to the number of clusters in data. (bottom) Data to simulation ratios of cluster charge distributions. }
+                 { (top) Data and simulation comparisons of on-track cluster charge. The default simulation (in red) was modified by injecting four different values of the temperature. All simulated distribution are rescaled to the number of clusters in data. (bottom) Data to simulation ratios of cluster charge distributions. }
 
     \insertTwoFigures{figures/seedwidthTOBTemperature} % Filename = label %TDO continue here
                  {figures/clusterwidthTOBl1to4Temperature}
@@ -227,7 +234,7 @@ where $\mu$ is the charge mobility, $k_{B}$ the Boltzmann constant, $T$ the abso
 
     \insertFigure{figures/clusterchargeRescaledalll0to0ChargeMob} % Filename = label
                  {0.5}       % Width, in fraction of the whole page width
-                 { (top) Data and simulation comparisons of cluster charge. The default simulation (in red) was modified by injecting four different values of the charge mobility. All simulated distribution are rescaled to number of clusters in data. (bottom) Data to simulation ratios of cluster charge distributions. }
+                 { (top) Data and simulation comparisons of on-track cluster charge. The default simulation (in red) was modified by injecting four different values of the charge mobility. All simulated distribution are rescaled to number of clusters in data. (bottom) Data to simulation ratios of cluster charge distributions. }
 
     \insertTwoFigures{figures/seedwidthTOBChargeMob} % Filename = label %TDO continue here
                  {figures/clusterwidthTOBl1to4ChargeMob}
@@ -240,7 +247,7 @@ The Lorentz angle used in simulation is dependent on the electric field and ther
 
     \insertFigure{figures/clusterchargeRescaledalll0to0LA} % Filename = label
                  {0.5}       % Width, in fraction of the whole page width
-                 { (top) Data and simulation comparisons of cluster charge. The default simulation (in red) was modified by injecting four different values of the Lorentz angle. All simulated distribution are rescaled to the number of clusters in data. (bottom) Data to simulation ratios of cluster charge distributions. }
+                 { (top) Data and simulation comparisons of on-track cluster charge. The default simulation (in red) was modified by injecting four different values of the Lorentz angle. All simulated distribution are rescaled to the number of clusters in data. (bottom) Data to simulation ratios of cluster charge distributions. }
 
     \insertTwoFigures{figures/seedwidthTOBLA} % Filename = label %TDO continue here
                  {figures/clusterwidthTOBl1to4LA}
@@ -270,19 +277,19 @@ In reality, the charge is being induced on the strips already once the electrons
 
     \insertFigure{figures/clusterchargeRescaledalll0to0coupling} % Filename = label
                  {0.5}       % Width, in fraction of the whole page width
-                 { (top) Data and simulation comparisons of cluster charge. The default simulation (in red) was modified by injecting five different combinations of the capacitive coupling parameters. All simulated distributions are rescaled to the number of clusters in data. (bottom) Data to simulation ratios of cluster charge distributions. }
+                 { (top) Data and simulation comparisons of on-track cluster charge. The default simulation (in red) was modified by injecting five different combinations of the capacitive coupling parameters. All simulated distributions are rescaled to the number of clusters in data. (bottom) Data to simulation ratios of cluster charge distributions. }
 
     \insertTwoFigures{figures/seedwidthTOBcoupling} % Filename = label %TDO continue here
                  {figures/clusterwidthTOBl1to4coupling}
                  {figures/clusterseedchargeRescaledTOBl1to4coupling} % Filename = label
                  {0.45}       % Width, in fraction of the whole page width
-                 {(left top) Data and simulation comparisons of cluster width for OB2 geometry. The default simulation (in red) was modified by injecting five different combinations of the capacitive coupling parameters. All simulated distributions are rescaled to the number of clusters in data. (left bottom) Data to simulation ratios of cluster width distributions for OB2 geometry. (right top) Data and simulation comparisons of cluster seed charge for OB2 geometry. The default simulation (in red) was modified by injecting five different combinations of the capacitive coupling parameters. All simulated distributions are rescaled to the number of clusters in data. (right bottom) Data to simulation ratios of cluster seed charge distributions for OB2 geometry. }
+                 {(left top) Data and simulation comparisons of on-track cluster width for OB2 geometry. The default simulation (in red) was modified by injecting five different combinations of the capacitive coupling parameters. All simulated distributions are rescaled to the number of clusters in data. (left bottom) Data to simulation ratios of cluster width distributions for OB2 geometry. (right top) Data and simulation comparisons of on-track cluster seed charge for OB2 geometry. The default simulation (in red) was modified by injecting five different combinations of the capacitive coupling parameters. All simulated distributions are rescaled to the number of clusters in data. (right bottom) Data to simulation ratios of cluster seed charge distributions for OB2 geometry. }
 
 With aging of the modules the conversion between energy and electrons can evolve. The data and simulations comparisons of cluster charge, width and seed charge are shown in Figs.~\ref{fig:figures/clusterchargeRescaledalll0to0GeVPerElectron}~and~\ref{fig:figures/seedwidthTOBGeVPerElectron}. Again, set of simulations produced by changing the conversion factor up to $\pm 20\%$ from its default value is plotted as well. In these figures it can be noticed that change of conversion factor between deposited energy and electrons in the given range leads to significant changes in all cluster quantities. But from the plots it can be concluded that only a change of this conversion factor would not be able to provide good data and simulation agreement in all these three quantities.
 
     \insertFigure{figures/clusterchargeRescaledalll0to0GeVPerElectron} % Filename = label
                  {0.5}       % Width, in fraction of the whole page width
-                 { (top) Data and simulation comparisons of cluster charge. The default simulation (in red) was modified by injecting four different values of the conversion factor between deposited energy and electrons. All simulated distributions are rescaled to the number of clusters in data. (bottom) Data to simulation ratios of cluster charge distributions. }
+                 { (top) Data and simulation comparisons of on-track cluster charge. The default simulation (in red) was modified by injecting four different values of the conversion factor between deposited energy and electrons. All simulated distributions are rescaled to the number of clusters in data. (bottom) Data to simulation ratios of cluster charge distributions. }
 
     \insertTwoFigures{figures/seedwidthTOBGeVPerElectron} % Filename = label %TDO continue here
                  {figures/clusterwidthTOBl1to4GeVPerElectron}
@@ -311,12 +318,12 @@ Similarly as the conversion factor between energy and electrons, the conversion 
 
     \insertFigure{figures/clusterseednoiseTOB2} % Filename = label
                  {0.5}       % Width, in fraction of the whole page width
-                 { (top) Data and simulation comparison of cluster seed noise. The simulated distribution is rescaled to the number of clusters in data. (bottom) Data to simulation ratio of cluster seed noise distributions. }
+                 { (top) Data and simulation comparison of on-track cluster seed noise. The simulated distribution is rescaled to the number of clusters in data. (bottom) Data to simulation ratio of cluster seed noise distributions. }
 
 
     \insertFigure{figures/clusterchargeRescaledalll0to0ElectronPerADC} % Filename = label
                  {0.5}       % Width, in fraction of the whole page width
-                 { (top) Data and simulation comparisons of cluster charge. The default simulation (in red) was modified by injecting four different values of the conversion factor between electrons and ADC. All simulated distribution are rescaled to the number of clusters in data. (bottom) Data to simulation ratios of cluster charge distributions. }
+                 { (top) Data and simulation comparisons of on-track cluster charge. The default simulation (in red) was modified by injecting four different values of the conversion factor between electrons and ADC. All simulated distribution are rescaled to the number of clusters in data. (bottom) Data to simulation ratios of cluster charge distributions. }
 
     \insertTwoFigures{figures/seedwidthTOBElectronPerADC} % Filename = label %TDO continue here
                  {figures/clusterwidthTOBl1to4ElectronPerADC}
@@ -503,13 +510,13 @@ To evaluate if the new cross talk measurement contributes to improvement of data
 
     \insertFigure{figures/clusterchargeRescaledalll0to0XTm} % Filename = label
                  {0.5}       % Width, in fraction of the whole page width
-                 { (top) Data and simulation comparisons of cluster charge. The default simulation (in red) was modified by injecting the measured values of capacitive coupling parameters. All simulated distributions are rescaled to the number of clusters in data. (bottom) Data to simulation ratios of cluster charge distributions. }
+                 { (top) Data and simulation comparisons of on-track cluster charge. The default simulation (in red) was modified by injecting the measured values of capacitive coupling parameters. All simulated distributions are rescaled to the number of clusters in data. (bottom) Data to simulation ratios of cluster charge distributions. }
 
     \insertTwoFigures{figures/seedwidthTOBXTm} % Filename = label %TDO continue here
                  {figures/clusterwidthTOBl1to4XTm}
                  {figures/clusterseedchargeRescaledTOBl1to4XTm} % Filename = label
                  {0.45}       % Width, in fraction of the whole page width
-                 {(left top) Data and simulation comparisons of cluster width for OB2 geometry. The default simulation (in red) was modified by injecting the measured values of capacitive coupling parameters. All simulated distributions are rescaled to the number of clusters in data. (left bottom) Data to simulation ratios of cluster width distributions for OB2 geometry. (right top) Data and simulation comparisons of cluster seed charge for OB2 geometry. The default simulation (in red) was modified by  injecting the measured values of capacitive coupling parameters. All simulated distributions are rescaled to the number of clusters in data. (right bottom) Data to simulation ratios of cluster seed charge distributions for OB2 geometry. }
+                 {(left top) Data and simulation comparisons of on-track cluster width for OB2 geometry. The default simulation (in red) was modified by injecting the measured values of capacitive coupling parameters. All simulated distributions are rescaled to the number of clusters in data. (left bottom) Data to simulation ratios of cluster width distributions for OB2 geometry. (right top) Data and simulation comparisons of on-track cluster seed charge for OB2 geometry. The default simulation (in red) was modified by  injecting the measured values of capacitive coupling parameters. All simulated distributions are rescaled to the number of clusters in data. (right bottom) Data to simulation ratios of cluster seed charge distributions for OB2 geometry. }
 
 In this section the results on cross talk measurement were shown. The cross talk parameters used in simulation were measured at the beginning of Run~I, and as demonstrated in this section, the cross talk changes with aging of the detector and therefore it had to be remeasured. It was also shown that the cross talk changes as a function of particle arrival time to the module, which was not taken into account during the Run~I measurements. The newly measured cross talk did not help to improve the description of cluster properties of data by simulation, leading to a conclusion, that the cross talk needed in simulation is compensating for other non-descriptions. To achieve a good data and simulation agreement, we have decided to plug into simulation the parameters  which describe the data the best, as presented in Sec.~\ref{sec:induce}. Also the cross talk could not be measured for disk and endcaps due to the geometrical restrictions of muons, but the approach of Sec.~\ref{sec:induce} can give results on all partitions.
 
