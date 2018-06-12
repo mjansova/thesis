@@ -1,0 +1,160 @@
+\chapter{stop}
+
+\section{introduction}
+- mtoivation
+	short conclusion of susy chapter - light stop, 1-lep, high xsection -> basic or sth more like Alex?
+-signature  and possible decays
+	SMS, T2TT, T2bW. T2tb, decay cascades, feynam diagrams
+-plane od delta M
+	search in delta M plane
+
+-general intro
+	- I worked on more versions of analyses, but only one introfuced and than the differences, and then some chosen personal contribution
+
+-delta M around top mass challenging kinematics -> looks like SM tt -> this region is called stealthy region
+-for t2bW when W becomes on-shell also difficult kinematics
+
+\section{search strategy}
+
+-give general idea
+	-overview
+
+reduce SM background
+binned approach in variables which tend to reduce signal
+
+-variables
+	MET significance?!
+	MT -formula; suppress largely tt1l background; and also single top and W+jets; kinematic endpoint at W mass
+	MT2W - formula; explanation; supress lost lepton (already suppressed by requiring no additional lepton, but not enough); tries to reconstruct the event under tt2l and one undetected lepton assumption; for signal large delta M leads to alrge MT2W, while small delta M has lage MT2W; endpoint at top mass
+	tmod - formula; chi2 like variable how well the event agrees with tt2l hypothesis, similar behavior to Mt2W; removing some of the terms from oifficial topness helps the discrimination; works better at low jet multiplicities than MT2W
+	min dphi (jet, MET) - formula
+        Njets
+
+-signal regions
+	- first vertex in event pass the good quality criteria
+	- pass one lepton selection
+	- reject additional (veto) leptons
+	- at least two jets
+	-at leats one b-tag
+	-MT>150
+	-dphi>0.8
+	+ compressed, boosted high delta M, low delta M, High delta M regions (in 2015)
+
+-control regions
+
+-backgrounds 
+	what type of
+
+-baseline selection
+	exactly one good lepton
+	MT, MET
+	MT2W (2015) below and above 200GeV -> in compressed spectra the MT2W is small (similar to background), in large mass spliting it can strongly suppress tt2l
+	3 or 4 jets - boosted topologies (2015)
+        compressed spectra (2015) tmod instead of MT2W + two jets - jets are soft, the only visible ones are from b-tag hadronization
+
+-binning in
+	MET
+	MT2W (2015)
+	
+-triggers
+	single lepton and MET triggers
+	double lepton - to check kinematics of lost lepton
+	single photon - to check MET resolution
+
+-MC samples
+	fastsim
+
+-objects and event selection
+	vertex selection 
+	lepton selection - high pt isolated lepton, no veto lepton to reduce tt2l
+	isolated track veto - tracker isolation to avoid taus
+	hadronic tau veto (2015) - additional to the isolation, or selects additional taus
+	jets - ak4 (pt>30, eta<2.4), medium working point for btag(CsVv2) (2015)
+	MET - sum of PF candidates, type-1 corrected - jet energy correction applied to the jets in MET calculation, MET filters
+
+-SF, rewighting
+
+-compressed spectra
+	ISR jets
+	recoil, enhance MET
+
+\subsection{background estimation}
+
+-data driven + simulation
+-general idea
+-MET extrapolation?
+-transfer factors
+-scale factors - take into account differences in lepton, b-tagging etc efficiency
+-composition of backgrouns - percentage
+
+\subsubsection{Z to nunu}
+
+-ttZ, WZ, ZZ
+-2015 dataset taken from simulation -> small stats
+-large in high MET and MT2W regions
+
+-2017
+-ZZ still taken from simulation
+-3l scale factor -> normalization
+
+\subsection{single lepton}
+
+-sensitive to MET and MT
+-W+jets, tt1l
+- tt1l -> constrained kinematics of W due to top, so MT tail is just due to MET resolution
+-W+jets, no kinematics constraint, MT tail due to of shell W production (W width) 
+-W+jets, zero b-tag control region
+-tt1l -> negligible, estimation from simulation
+
+-1 lep neutrino from W decay
+
+ESTIMATIN:
+-data driven, similar as for the lost lepton
+-CR contamination N CR,data,Wjets,0btag = N CR,data,0btag - N CR,MC,ninWjets,0btag
+-MET and NJET extrapolation (2015)
+-W+b modelling systematics
+
+\subsection{Lost lepton}
+-dominant background after MET and MT selections
+-tt2l wit both Ws decaying leptonically and one lepton lost
+-largest contribution is the tt2l, then single top and then ttV and diboson processes.
+-dilepton control region
+-misreconstruction of lepton - 1 lepton and large MET
+-two enutrinos lare MT and MT2W
+
+ESTIMATON:
+- N data,SR (ll) / N data,CR (ll) = N MC,SR (ll) / N MC,CR(ll) -> get N data,SR
+-MET and Njet extrapolation (2015) -> additional transfer factor
+-good modeling of njet and MET needed -> mismodelling in ssimu leads to mismodelling in TF -> special emu CR -> additional SF due to mismodelling
+-gamma plus jets -> MET resolution > bin migrations - gamma pt spectrum reveighted to match neutrino pt spectrum, from reweighted events METmodified = reconstructed-MET + pTgamma
+
+
+-systematics
+
+
+\section{differences in previous analyses}
+
+\section{selected topics}
+
+\textbf{W-tagging}
+
+-motivation
+	high delta M regim - boost -> jets merge
+-techniques
+	larger radius jets
+	tau ratios - N subjetiness
+	different masses-> grooming techniques
+	
+-results
+	end of 2015 - slide 8,9 - results on different ak8 W-tagging categories (18/11); lumi=2 1/fb
+	mid of 2016 -update of previous study - lumi=2.26 fb; ak8+ak10 tagging; tables slide 7, 11 -> mo improvement with ak8, but slight improvement with ak10 
+
+-results from Sicheng with top tagging
+	-resolved top tagger - 3ak4 jets
+	-second presentation (31/01 same as 12 feb?), slide 6 - interesting plot, slide 10,11 significance table
+        -merged top tagger - boosted objects
+		slide 4, 5, 6
+
+\textbf{depndence of discriminating variables on nvertex}
+-not much to say
+	
