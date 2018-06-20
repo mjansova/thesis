@@ -519,16 +519,16 @@ The cross talk parameters are computed from Eq.~\ref{eq:fractions} for all barre
 Geometry & Type & $x_{0}$ & $x_{1}$ & $x_{2}$ \\
 \hline
 \hline
-IB1 & current measurement & $ 0.848 \pm 0.017 $ & $0.063 \pm 0.008 $ & $0.013 \pm 0.003 $ \\
+IB1 & current measurement & $ 0.836 \pm 0.009 $ & $0.070 \pm 0.004 $ & $0.012 \pm 0.002 $ \\
 IB1 & currently in simulation & $ 0.775 $ & $ 0.096 $ & $0.017 $  \\
 \hline
-IB2 &  current measurement & $0.878 \pm 0.021 $ & $0.053 \pm 0.006 $ & $0.008 \pm $ 0.003   \\
+IB2 &  current measurement & $0.862 \pm 0.008 $ & $0.059 \pm 0.003 $ & $0.010 \pm  0.002 $  \\
 IB2 & currently in simulation &  $0.830 $ & $0.076 $ & $ 0.009$   \\
 \hline
-OB2 &  current measurement & $0.808 \pm 0.020 $ & $0.079 \pm 0.006 $ & $0.017 \pm 0.004$  \\
+OB2 &  current measurement & $0.792 \pm 0.009 $ & $0.083 \pm 0.003 $ & $0.020 \pm 0.002$  \\
 OB2 & currently in simulation &   $0.725 $ & $0.110 $ & $ 0.027 $  \\
 \hline
-OB1 &  current measurement &  $0.769 \pm 0.021 $ & $0.093 \pm 0.006 $ & $0.023 \pm 0.004 $  \\
+OB1 &  current measurement &  $0.746 \pm 0.009 $ & $0.100 \pm 0.003 $ & $0.027 \pm 0.002 $  \\
 OB1 & currently in simulation &  $0.687 $ & $0.122 $ & $ 0.034 $ \\
 \hline
 \end{tabular}
@@ -536,6 +536,19 @@ OB1 & currently in simulation &  $0.687 $ & $0.122 $ & $ 0.034 $ \\
 \label{tab:measuredXtalk}
 \end{center}
 \end{table}
+
+
+%IB1 & current measurement & $ 0.848 \pm 0.017 $ & $0.063 \pm 0.008 $ & $0.013 \pm 0.003 $ \\
+%IB1 & currently in simulation & $ 0.775 $ & $ 0.096 $ & $0.017 $  \\
+%\hline
+%IB2 &  current measurement & $0.878 \pm 0.021 $ & $0.053 \pm 0.006 $ & $0.008 \pm $ 0.003   \\
+%IB2 & currently in simulation &  $0.830 $ & $0.076 $ & $ 0.009$   \\
+%\hline
+%OB2 &  current measurement & $0.808 \pm 0.020 $ & $0.079 \pm 0.006 $ & $0.017 \pm 0.004$  \\
+%OB2 & currently in simulation &   $0.725 $ & $0.110 $ & $ 0.027 $  \\
+%\hline
+%OB1 &  current measurement &  $0.769 \pm 0.021 $ & $0.093 \pm 0.006 $ & $0.023 \pm 0.004 $  \\
+%OB1 & currently in simulation &  $0.687 $ & $0.122 $ & $ 0.034 $ \\
 
 In the Tab.~\ref{tab:measuredXtalk} it can be noticed, that in all cases the sharing of the charge decreased. During the previous cross talk measurement, no timing information was taken into account and therefore part of the change can originate from including the time information to evaluate the cross talk. But there is also real change of cross talk due to the radiation effects. The radiation is different for each layer and as the cross talk changes with the radiation damage of the module, each layer within one geometry should have different cross talk. To prove this the $\eta_{\pm 1}$ and $\eta_{\pm 2}$ dependency on time is shown in Fig.~\ref{fig:figures/etaAsLayers} for four layers of OB2 separately. The plots were obtained similarly as plots in Fig.~\ref{fig:figures/etaAsTime}, but this time the time window for each bin is 6~ns in order to gain in statistics. In the $\eta_{\pm 1}$ and $\eta_{\pm 2}$ distributions can be seen, that in  case of $\eta_{\pm 1}$ the sharing is larger for the first two layers, than of layer three and four. There is also visible difference in charge sharing between layer three and four. 
 
@@ -604,6 +617,51 @@ To evaluate if the new cross talk measurement contributes to an improvement in t
 In this section the results on the cross talk measurement were shown. The cross talk parameters used in simulation were measured at the beginning of Run~I, and as demonstrated in this section, the cross talk changes with aging of the detector and therefore it had to be remeasured. It was also shown that the cross talk depends on the particle arrival time to the module, which was not taken into account during the Run~I measurements. The newly measured cross talk improved the description of cluster properties of data by simulation althoug minor discrepanices can be still observed. These non-descriptions can be caused by the outdated database conditions and therefore they are being updated for the 2018 simualted samples. If after the update of database conditions there are discrepancies between data and simulation in the cluster charge, it a sign that the conversion factor between energy and electrons or electons and ADC has to be updated as well. These conversion factors have only minor influence on the cluster width. The cross-talk was found to be only parameter in the simulation which strongly influences the cluster width, therefore if the update of database conditions leads to large discrepancies in cluster width, it means that the simulation is over-simplified and update of cross-talk is not sufficient to well described the cluster propertiesin data. In such case the cross talk can be tuned to best described data as described in section~\ref{sec:induce}. In this case the cross talk parameter would not purelya ccount for the cross talk effect but would compansate for other effects not described in the simulation.
 
 Due to the limitations of data used to measure cross talk, it is not possible to evaluate cross talk in the disks and endcapes. To update cross talk also for disk and endcapes, dedicated data-taking would be required. Another option is again to deetrmine cross-talk parameters from the data and simulation comparison as described in section~\ref{sec:induce}. If the second approach is chosen, it is necesary first to update detector conditions, which are bad channels, noise and gains. These conditions are obtained from data and can affect the cluster width and charge. Then the matrix of the simulations with different cross talk parameters would be produced and these simulations would be compared to data. The agreement between data and simulations would be established based on a $\chi^{2}$ test of the cluster width distribution compatibility. The cross talk parameters of the sample with the best $\chi^{2}$ can then be injected into simulation. 
+
+
+
+\begin{table}[h]
+\begin{center}
+\begin{tabular}{|l|l|l|l|l|}
+\hline
+Geometry & Type & $x_{0}$ & $x_{1}$ & $x_{2}$ \\
+\hline
+\hline
+W1a &  new values & 0.8571 & 0.0608 & 0.0106 \\
+W1a &  currently in simulation & 0.786 & 0.093 & 0.014 \\
+\hline
+W2a &  new values & 0.8861 & 0.049 & 0.008 \\
+W2a &  currently in simulation & 0.7964 & 0.0914 & 0.0104 \\
+\hline
+W3a &  new values & 0.8984 & 0.0494 & 0.0014 \\
+W3a &  currently in simulation & 0.8164 & 0.09 & 0.0018 \\
+\hline
+W1b &  new values & 0.8827 & 0.0518 & 0.0068 \\
+W1b &  currently in simulation & 0.822 & 0.08 & 0.009 \\
+\hline
+W2b &  new values & 0.8943 & 0.0483 & 0.0046 \\
+W2b &  currently in simulation & 0.888 & 0.05 & 0.006 \\
+\hline
+W3b &  new values & 0.8611 & 0.0573 & 0.0121 \\
+W3b &  currently in simulation & 0.848 & 0.06 & 0.016 \\
+\hline
+W4 &  new values & 0.8881 & 0.0544 & 0.0015 \\
+W4 &  currently in simulation & 0.876 & 0.06 & 0.002 \\
+\hline
+W5 &  new values & 0.7997 & 0.077 & 0.0231 \\
+W5 &  currently in simulation & 0.7566 & 0.0913 & 0.0304 \\
+\hline
+W6 &  new values & 0.8067 & 0.0769 & 0.0198 \\
+W6 &  currently in simulation & 0.762 & 0.093 & 0.026 \\
+\hline
+W7 &  new values & 0.7883 & 0.0888 & 0.0171 \\
+W7 &  currently in simulation & 0.7828 & 0.0862 & 0.0224 \\
+\hline
+\end{tabular}
+\caption[Table caption text]{The cross talk  }
+\label{tab:measuredXtalkTODTEC}
+\end{center}
+\end{table}
 
 %, leading to a conclusion, that the cross talk needed in simulation is compensating for other non-descriptions. To achieve a good data and simulation agreement, we have decided to plug into simulation the parameters  which describe the data the best, as presented in Sec.~\ref{sec:induce}. Also the cross talk could not be measured for disk and endcaps due to the geometrical restrictions of muons, but the approach of Sec.~\ref{sec:induce} can give results on all partitions.
 

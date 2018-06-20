@@ -1,12 +1,30 @@
-\chapter{stop}
+\chapter{Stop}
 
-\section{introduction}
+\section{Introduction and motivation}
+
+The supersymmetry was found to be the most popular extention of the Standard Model, due to its capabality to adress many shortcomings of the SM. Among others it provides solution to the naturalness probelm and provieds dark matter candidate. Supersymmetry introduces a supersymmetric partner to each SM particle, which have the same quantum numbers except of spin differing by 1/2. This chapter is focused on the production of the suppersymetric partners of the stop quarks, reffered as ``stops''~($\tilde{t}$). There are two scalar stops $\tilde{t}_{R}$ and  $\tilde{t}_{L}$ as there is left and right component of the SM fermion field. These two stops mix into mass eigenstates $\tilde{t}_{1}$ and $\tilde{t}_{2}$,  $\tilde{t}_{1}$ being the lighter one. Due to the naturalnes constraint the ligter stop should have mass in TeV range. Morover the Higss mass measurements give condition that $\sqrt{m_{\tilde{t}_{1}} m_{\tilde{t}_{2}}}$ should be around 600~GeV. In this chapter a SUSY model, in which the R-parity is conserved and the LSP is the lightest neutralino~($\tilde{\chi}^{0}_{1}$), is considered. Furthermore only direct production of stop pair is assumed.
+
+Depending on the mass difference between stop and neutralino, $\Delta m =  \tilde{\chi}^{0}_{1}$, several decay modes of the stop quark are possible. The stops can decay via two, three or four body decays to final states with b or c quarks.
+
+
+
+-intro what we focus on
+
 - mtoivation
+	two stpos of different mass, stop1 and stop2
 	short conclusion of susy chapter - light stop, 1-lep, high xsection -> basic or sth more like Alex?
+	single lepton high br and low backgrounds
+	targeting few posssible decay chains
+	can be destinguished from backgrounds when cutting on MET, MT...
+	32\% of directly produced stops decay to final states with one lepton
 -signature  and possible decays
 	SMS, T2TT, T2bW. T2tb, decay cascades, feynam diagrams
+	r parity conservation
+	
+
 -plane od delta M
 	search in delta M plane
+
 
 -general intro
 	- I worked on more versions of analyses, but only one introfuced and than the differences, and then some chosen personal contribution
@@ -14,14 +32,47 @@
 -delta M around top mass challenging kinematics -> looks like SM tt -> this region is called stealthy region
 -for t2bW when W becomes on-shell also difficult kinematics
 
-\section{search strategy}
 
+
+\subsection{Overview/General idea}
 -give general idea
 	-overview
 
 reduce SM background
 binned approach in variables which tend to reduce signal
 
+\subsection{Signal topologies}
+
+The preseneted analysis focus on the kinematic region where $\Delta m > m(W)+m(b)$ and on three different decay modes.
+
+All final , but the kinematics differ depending on the decay mode and $\Delta m$. The  $\Delta m$ plane is shown in Fig.~\ref{fig:figures/dmplane}.
+
+    \insertFigure{figures/dmplane} % Filename = label
+                 {0.99}       % Width, in fraction of the whole page width
+                 { dm plane ~\cite{Aad:2014kra}. }
+
+
+The stop quark can either decay to top quark and neutralino, or b quark and chargino
+-what they are, how they look like
+-t2tt, t2bw,...
+    \insertTwoFigures{figures/stopdecays}
+                 {figures/T2tt} % Filename = label
+                 {figures/T6bbW} % Filename = label
+                 {0.45}       % Width, in fraction of the whole page width
+                 { decay diagrams ~\cite{website:SUSYdiagrams}. }
+
+    \insertFigure{figures/T4tbW} % Filename = label
+                 {0.99}       % Width, in fraction of the whole page width
+                 { mixed decay diagram ~\cite{website:SUSYdiagrams}. }
+-> the motivate variables and backgrounds
+
+
+
+
+
+\subsection{Variables}
+-put picture of some of my presentetions with rounds (midterm probably)i
+leptonic diagram~\cite{CMS:2016vew}
 -variables
 	MET significance?!
 	MT -formula; suppress largely tt1l background; and also single top and W+jets; kinematic endpoint at W mass
@@ -29,8 +80,62 @@ binned approach in variables which tend to reduce signal
 	tmod - formula; chi2 like variable how well the event agrees with tt2l hypothesis, similar behavior to Mt2W; removing some of the terms from oifficial topness helps the discrimination; works better at low jet multiplicities than MT2W
 	min dphi (jet, MET) - formula
         Njets
+	Mlb
 
--signal regions
+\subsection{Backgrounds}
+-backgrounds 
+	what type of
+-how they look like, how they can be distingusehed from signal
+	tt2l - lost lepton does not obey MT<MW
+	W+jets - offshel Ws - no endpoint at W mass
+	Znunu no bound Mt<MW
+
+\subsection{Triggers, data and simulated samples}
+
+	single lepton and MET triggers
+	double lepton - to check kinematics of lost lepton
+	single photon - to check MET resolution
+
+-MC samples
+	fastsim
+
+\subsection{Objects and event selection}
+	vertex selection 
+	lepton selection - high pt isolated lepton, no veto lepton to reduce tt2l
+	isolated track veto - tracker isolation to avoid taus
+	hadronic tau veto (2015) - additional to the isolation, or selects additional taus
+	jets - ak4 (pt>30, eta<2.4), medium working point for btag(CsVv2) (2015)
+	MET - sum of PF candidates, type-1 corrected - jet energy correction applied to the jets in MET calculation, MET filters
+
+
+\section{Search strategy - latest analysis}
+- preselection (baseline selection), nr of jets, min dphi, MT, MET
+then binning in 4 search variables
+	N jets - we expect 4, but jet can be lost if neutralino and chargino are mass degenerated (soft jet), or if jets are merged
+        	(ICHEP 2,3 and 4+ jets, now 2 and three jets bins merged)
+	tMod - during ichep only at some search regions otherwise MT2W, now with more stats, this variable can be used everywhere (tmod<0 compressed, tmod>10 large dm, in between bulk)
+	Mlb >175(T2bW or W+jets like), Mlb<175 (T2tt) invariant mass of closest b jet to lepton and lepton
+		fir regions with high mlb and tmod large contribution of W+jets -> modification of b-tagging - 1 and more tight b-jets
+	MET
+	-> 27 search regions (exclusive)
+
++ compressed mW<dm<mt
+	same preselection plus
+	ISR -> 5th jet, leading jet not b-tagged
+	soft lepton - pT<150GeV
+	boosted top quarks dphi(lep,MET)<2
+	min dphi(jet,MET)>0.5
+        -> 4 MET bins
+in totality 31 signal regions
+
+\subsection{Baseline selection}
+	exactly one good lepton
+	MT, MET
+	MT2W (2015) below and above 200GeV -> in compressed spectra the MT2W is small (similar to background), in large mass spliting it can strongly suppress tt2l
+	3 or 4 jets - boosted topologies (2015)
+        compressed spectra (2015) tmod instead of MT2W + two jets - jets are soft, the only visible ones are from b-tag hadronization
+
+\subsection{Signal regions}
 	- first vertex in event pass the good quality criteria
 	- pass one lepton selection
 	- reject additional (veto) leptons
@@ -40,45 +145,23 @@ binned approach in variables which tend to reduce signal
 	-dphi>0.8
 	+ compressed, boosted high delta M, low delta M, High delta M regions (in 2015)
 
--control regions
+-\subsection{Control regions}
 
--backgrounds 
-	what type of
 
--baseline selection
-	exactly one good lepton
-	MT, MET
-	MT2W (2015) below and above 200GeV -> in compressed spectra the MT2W is small (similar to background), in large mass spliting it can strongly suppress tt2l
-	3 or 4 jets - boosted topologies (2015)
-        compressed spectra (2015) tmod instead of MT2W + two jets - jets are soft, the only visible ones are from b-tag hadronization
 
 -binning in
 	MET
 	MT2W (2015)
 	
--triggers
-	single lepton and MET triggers
-	double lepton - to check kinematics of lost lepton
-	single photon - to check MET resolution
 
--MC samples
-	fastsim
-
--objects and event selection
-	vertex selection 
-	lepton selection - high pt isolated lepton, no veto lepton to reduce tt2l
-	isolated track veto - tracker isolation to avoid taus
-	hadronic tau veto (2015) - additional to the isolation, or selects additional taus
-	jets - ak4 (pt>30, eta<2.4), medium working point for btag(CsVv2) (2015)
-	MET - sum of PF candidates, type-1 corrected - jet energy correction applied to the jets in MET calculation, MET filters
-
+\subsection{Undefined}
 -SF, rewighting
 
 -compressed spectra
 	ISR jets
 	recoil, enhance MET
 
-\subsection{background estimation}
+\subsection{Background estimation}
 
 -data driven + simulation
 -general idea
@@ -97,7 +180,7 @@ binned approach in variables which tend to reduce signal
 -ZZ still taken from simulation
 -3l scale factor -> normalization
 
-\subsection{single lepton}
+\subsection{Single lepton}
 
 -sensitive to MET and MT
 -W+jets, tt1l
@@ -115,6 +198,7 @@ ESTIMATIN:
 -W+b modelling systematics
 
 \subsection{Lost lepton}
+
 -dominant background after MET and MT selections
 -tt2l wit both Ws decaying leptonically and one lepton lost
 -largest contribution is the tt2l, then single top and then ttV and diboson processes.
@@ -131,30 +215,35 @@ ESTIMATON:
 
 -systematics
 
+\subsection{Results and interpretation}
 
-\section{differences in previous analyses}
+\section{Differences in previous analyses}
 
-\section{selected topics}
+\section{Selected topics}
 
-\textbf{W-tagging}
+\subsection{W-tagging}
 
--motivation
+\textbf{Motivation}
+
 	high delta M regim - boost -> jets merge
--techniques
+
+\textbf{Techniques}
 	larger radius jets
 	tau ratios - N subjetiness
 	different masses-> grooming techniques
 	
--results
+\textbf{Results}
 	end of 2015 - slide 8,9 - results on different ak8 W-tagging categories (18/11); lumi=2 1/fb
 	mid of 2016 -update of previous study - lumi=2.26 fb; ak8+ak10 tagging; tables slide 7, 11 -> mo improvement with ak8, but slight improvement with ak10 
 
--results from Sicheng with top tagging
+
+\textbf{Perspectives}
+	-results from Sicheng with top tagging
 	-resolved top tagger - 3ak4 jets
 	-second presentation (31/01 same as 12 feb?), slide 6 - interesting plot, slide 10,11 significance table
         -merged top tagger - boosted objects
 		slide 4, 5, 6
 
-\textbf{depndence of discriminating variables on nvertex}
+\subsection{Depndence of discriminating variables on pileup}
 -not much to say
 	
