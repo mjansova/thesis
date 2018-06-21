@@ -2,9 +2,9 @@
 
 \section{Introduction and motivation}
 
-The supersymmetry was found to be the most popular extention of the Standard Model, due to its capabality to adress many shortcomings of the SM. Among others it provides solution to the naturalness probelm and provieds dark matter candidate. Supersymmetry introduces a supersymmetric partner to each SM particle, which have the same quantum numbers except of spin differing by 1/2. This chapter is focused on the production of the suppersymetric partners of the stop quarks, reffered as ``stops''~($\tilde{t}$). There are two scalar stops $\tilde{t}_{R}$ and  $\tilde{t}_{L}$ as there is left and right component of the SM fermion field. These two stops mix into mass eigenstates $\tilde{t}_{1}$ and $\tilde{t}_{2}$,  $\tilde{t}_{1}$ being the lighter one. Due to the naturalnes constraint the ligter stop should have mass in TeV range. Morover the Higss mass measurements give condition that $\sqrt{m_{\tilde{t}_{1}} m_{\tilde{t}_{2}}}$ should be around 600~GeV. In this chapter a SUSY model, in which the R-parity is conserved and the LSP is the lightest neutralino~($\tilde{\chi}^{0}_{1}$), is considered. Furthermore only direct production of stop pair is assumed.
+The supersymmetry was found to be the most popular extention of the Standard Model, due to its capabality to adress many shortcomings of the SM. Among others it provides solution to the naturalness probelm and provieds dark matter candidate. Supersymmetry introduces a supersymmetric partner to each SM particle, which have the same quantum numbers except of spin differing by 1/2. This chapter is focused on the production of the suppersymetric partners of the stop quarks, reffered as ``stops''~($\tilde{t}$). There are two scalar stops $\tilde{t}_{R}$ and  $\tilde{t}_{L}$ as there is left and right component of the SM fermion field. These two stops mix into mass eigenstates $\tilde{t}_{1}$ and $\tilde{t}_{2}$,  $\tilde{t}_{1}$ being the lighter one. Due to the naturalnes constraint the ligter stop should have mass in TeV range. Morover the Higss mass measurements give condition that $\sqrt{m_{\tilde{t}_{1}} m_{\tilde{t}_{2}}}$ should be around 600~GeV. In this chapter a SUSY model, in which the R-parity is conserved and the LSP is the lightest neutralino~($\tilde{\chi}^{0}_{1}$), is considered. Furthermore only direct stop pair production is assumed.
 
-Depending on the mass difference between stop and neutralino, $\Delta m =  \tilde{\chi}^{0}_{1}$, several decay modes of the stop quark are possible. The stops can decay via two, three or four body decays to final states with b or c quarks.
+Depending on the mass difference between stop and neutralino, $\Delta m =  \tilde{\chi}^{0}_{1}$, several decay modes of the stop quark are possible. The stops can decay via two, three or four body decays to final states with b or c quarks. This chapter discribes search for top squark pair production in pp collisions at sqrt(s)=13~TeV using single lepton events~\cite{Sirunyan:2017xse}. As I was also involved in previous versions of this analysis~\cite{Sirunyan:2016jpr, CMS:2016vew}, the differences between the three analyses are briefly discussed.
 
 
 
@@ -34,43 +34,151 @@ Depending on the mass difference between stop and neutralino, $\Delta m =  \tild
 
 
 
-\subsection{Overview/General idea}
--give general idea
-	-overview
-
-reduce SM background
-binned approach in variables which tend to reduce signal
 
 \subsection{Signal topologies}
 
-The preseneted analysis focus on the kinematic region where $\Delta m > m(W)+m(b)$ and on three different decay modes.
-
-All final , but the kinematics differ depending on the decay mode and $\Delta m$. The  $\Delta m$ plane is shown in Fig.~\ref{fig:figures/dmplane}.
+The preseneted analysis focus on the kinematic region where $\Delta m > m(W)+m(b)$ and on three different decay modes of the stop pair.  All modes lead to states with two b-jets, two W-bosons and two neutralinos, but the kinematics differ depending on the decay mode and $\Delta m$. The $\Delta m$ plane is shown in Fig.~\ref{fig:figures/dmplane}. In the part of the plane where $\Delta m < m(t)$, often reffered as ``compressed spectra'' region, the decay producs are soft and often not reconstructed. On the other hand when the $\Delta m$ is large, boosted topologies can be expected. 
 
     \insertFigure{figures/dmplane} % Filename = label
                  {0.99}       % Width, in fraction of the whole page width
                  { dm plane ~\cite{Aad:2014kra}. }
 
+In this analysis thei targeted final states are with one leptonically and one haronically decaying W-boson, resulting in one charged lepton in final state. The advange of this one lepton channel is its relatively high branching ratio, around 32\% of directly produced stop pairs decay to final states with one lepton, and low occurance of the Standard model backgrounds. 
 
-The stop quark can either decay to top quark and neutralino, or b quark and chargino
--what they are, how they look like
--t2tt, t2bw,...
+The first of the three considered decay chains of the stop pair shown in the left part of Fig.~\ref{figures/stopdecays} is reffered as ``T2tt'', where both stops decay to top quark and neutralino, followed by decay of each top quark to W-boson and b-quark:
+
+\eq{t2tt}
+{
+    \tilde{t}_{1} \bar{\tilde{t}}_{1} \to t \bar{t} \tilde{\chi}^{0}_{1} \tilde{\chi}^{0}_{1} \to b \bar{b} W^{+} W^{-} \tilde{\chi}^{0}_{1} \tilde{\chi}^{0}_{1}.
+}
+
+The second possibility depicted in the right part of Fig.~\ref{figures/stopdecays} is reffered as ``T2bW'' and in this case both stop quarks decay via intermediary chargino:
+
+\eq{t2bW}
+{
+    \tilde{t}_{1} \bar{\tilde{t}}_{1} \to b \bar{b} \tilde{\chi}^{+}_{1} \tilde{\chi}^{-}_{1} \to b \bar{b} W^{+} W^{-} \tilde{\chi}^{0}_{1} \tilde{\chi}^{0}_{1}.
+}
+
     \insertTwoFigures{figures/stopdecays}
                  {figures/T2tt} % Filename = label
-                 {figures/T6bbW} % Filename = label
+                 {figures/T6bbWW} % Filename = label
                  {0.45}       % Width, in fraction of the whole page width
                  { decay diagrams ~\cite{website:SUSYdiagrams}. }
 
+In the T2bW the chargino mass is fixed to halfway between the mass of stop and neutralino. The third decay shown in Fig.~\ref{figures/T4tbW} combines the previous two. In this case, reffered as ``T2tb'' one of the stops decay to top quark and neutralino and the second to bottom quark and chargino.
+
+\eq{t2tb}
+{
+    \tilde{t}_{1} \bar{\tilde{t}}_{1} \to t b \tilde{\chi}^{0}_{1} \tilde{\chi}^{+}_{1} \to b \bar{b} W^{+} W^{-} \tilde{\chi}^{0}_{1} \tilde{\chi}^{0}_{1}.
+}
+
     \insertFigure{figures/T4tbW} % Filename = label
-                 {0.99}       % Width, in fraction of the whole page width
+                 {0.5}       % Width, in fraction of the whole page width
                  { mixed decay diagram ~\cite{website:SUSYdiagrams}. }
+
+In T2tb the chargino and neutralino are almost mass degenerate, the chargino mass is fixed by relation $m_{\tilde{\chi}_{1}^{\pm}} = m_{\tilde{\chi}_{1}^{0}} + 5~\mathrm{GeV}$  motivated by cosmological observations. Because of this small difference between chargino and neutralino masses, the W-boson is produced ofshell and its decay producst have low transverse momenta and are probably not reconstructed. If the jets from hadronically decaying W-boson are not reconstructed, only the two b-jets are present in this signal topology, what is being one of the motivation to search for final states with less jets than the four expected.
+
+
+-what they are, how they look like
+-t2tt, t2bw,...
+
 -> the motivate variables and backgrounds
 
 
 
+\subsection{Analysis strategy}
 
+Because of the two neutralinos, the signal processes (T2tt, T2bW and T2tb)  can have final state signature largery differing from the background processes coming from Standard Model. This knowledge of the signal and background signature is used to define the baseline search region, in which the SM background is supressed. This baseline search region is then divided to smaller signal regions with help of discriminating variables. These variables are useful to define signal regions where some of the signals are enriched or some fo the backgrounds are more reduced. The remaining backround is estimated from data-driven techniques or simulations for each signal region. In teh baseline search region there are three groups of backgrounds present. 
 
-\subsection{Variables}
+The leading background is ``Lost lepton'' background mainly coming mainly from $\mathrm{t\bar{t}} \to 2 \ell$ processes, where both W-bosons decay into leptons and one of the charged leptons is lost because of acceptance or other critearia. This background is reduced by applying veto on second lepton, which was misreconstructed, but even after this it remains the largest backround. The subleding background is ``One lepton'' background, which mainly composed of W+jets and $\mathrm{t\bar{t}} \to 1 \ell$ processes in which the W-boson decays leptonically. The last relevant background is denoted ``$Z \to \nu \bar{\nu}$'' and comes from processes such as $t\bar{t}Z$ and $WZ$ in which the Z-boson decays to two neutrinos and one of the W-bosons leptonically.  
+
+The signal and estimated background yields are compared with data in the signal regions and in case that no excess from the SM is observed, the exclusion limits can be put on given signal models.
+
+In the following two subsections \ref{sec:variables}, the variables designed for definition of baseline search region and its division to signal regions will be introduced and justified on the exaples of signal topologies.  It is also discussed why and how much the backgrounds should be suppressed with regard to the choice of the variables. In the end the final definition of the baseline and signal regions for the presented analysis is revealed.
+
+%binned approach in variables which tend to reduce signal
+%single top?
+
+\subsection{Variables~\label{sec:variables}}
+
+\textbf{Number of leptons~($N_{\ell}$)}
+
+The presented search focuses on final states with one charged lepton and therefore requirement on number of leptons to be equal to one must be imposed. The lepton is either electron or muon and the events with tau leptons are rejected.
+
+\textbf{Number of jets~($N_{J}$)}
+
+As shown on example in blue on the left of Fig.~\ref{fig:figures/T2ttlep1}, four jets are expected in the final state. But as already discussed, because of the low mass diffference between chargino and neutralino in case of T2tb, the two jets from hadronically decaying W-boson have low \pt and thus they do not have to be reconstructed and only two jets are expected. In case of high $\Delta m$ the decay products of stops can be boosted and thus two or more jets can be merged into one, resulting to reduced number of reconstructed jets in final state. The baseline requirement is to have at least two jets, but this variable is also used for the definition of signal regions targeting different topologies.
+
+    \insertTwoFigures{figures/T2ttlep1}
+                 {figures/T2ttlepJET} % Filename = label
+                 {figures/T2ttlepMET} % Filename = label
+                 {0.45}       % Width, in fraction of the whole page width
+                 { decay diagrams ~\cite{website:SUSYdiagrams}. }
+
+\textbf{Number of b-jets~($N_{b}$)}
+
+In the left diagram of Fig.~\ref{fig:figures/T2ttlep1} it can be also noticed that two of the jets in green are originating from the b-quark. For this reason number of b-tagged jets selected by medium working point of CSVv2 are one of the disriminating variables. In the signal regions where W+jets background is dominant, the tighti b-tagging working point is used to further suppress it, as teh jets are expected to be mainly composed of light flavours.
+
+\textbf{Missing transverse energy~(MET or $E_{T}^{miss}$)}
+
+Right diagram of Fig.~\ref{figures/T2ttlep1} shows that in the final staes of the signal processes there are two neutralinos and neutrino originating from the leptonicallyd ecaying W-boson. These particles escape detector and cause missing energy in transverse plane, reffered as ``Missing transverse energy''. This variable is very powerful in rejection of SM backgrounds bacouse they tend to have small values of MET as the sources of the MET are more limited than in case of signal. Therefore the basline selection requires MET to be larger than 250~GeV. The distribution of the MET in the baseline search region for all relevant backrounds and selected signal points is shown in the left plot of Fig.~\ref{fig:figures/METMT}. In this Figure the one lepton background is decomposed to ``1l from top'' composed of $t \bar{t} \to 1\ell$ and ``1l not from top'' populated by W+jets processes. The MET was also found to be good variable for definiton of signal regions.
+
+Because of the two neutrinos and misreconstrcuted lepton in lost lepton background, the MET of this background can be very large
+
+\textbf{Transverse mass of lepton-MET system~($M_{T}$)}
+
+The MET in combination with the $M_{T}$ defined as
+
+\eq{MT}
+{
+ M_{T} = \sqrt{2 p_{T}^{\ell} E_{T}^{miss} (1 - \mathrm{cos}(\phi)) } ,
+}
+
+where $p_{T}^{ell}$ is the transverse momentum of lepton and $\phi$ is the angle between momentum of lepton and MET, ensure dramatic reduction of the SM backround. The $M_{T}$ is  designed to suppress backgrounds where both lepton and MET (neutrino) come from one W-boson. In such case the $M_{T}$ has an endpoint at W-boson mass. As shown in the left diagram of Fig.~\ref{fig:figures/T2ttlep2} for the signal the leptonically decaying W-boson is not the only source of MET and therefore it has no endpoint.
+
+    \insertTwoFigures{figures/T2ttlep2}
+                 {figures/T2ttlepMT} % Filename = label
+                 {figures/T2ttlepDPHI} % Filename = label
+                 {0.45}       % Width, in fraction of the whole page width
+                 { decay diagrams ~\cite{website:SUSYdiagrams}. }
+
+The baseline selection on  $M_{T}$ variable was chosen to be  larger than 150~GeV, which supresses hugely mainly one lepton bacgrounds. In case of $t \bar{t} \to 1\ell $ the $M_{T}$ has an endpoint at W-boson mass ($\sim$ 80~GeV). %@MJ@ TODO to be continued
+For the lost lepton background there is no endpoint as the MET does not originate from one W-boson.
+
+%TODO plot MT
+
+    \insertTwoFigures{figures/METMT}
+                 {figures/LogMET2j} % Filename = label
+                 {figures/LogMT2j} % Filename = label
+                 {0.45}       % Width, in fraction of the whole page width
+                 { decay diagrams ~\cite{website:SUSYdiagrams}. }
+
+\textbf{Minimal azimuthal angle between direction and  one of the two leading jets and MET~(min$\Delta \phi (j_{1,2}, E_{T}^{miss})$ )}
+
+In the backgrounds where the neutrino is only source of the MET it is probable that the neutrino is close to the b-quark  originating from the same top decay. This mainly appears for $t\bar{t} \to 1\ell$ process as shown in the left plot of Fig.~\ref{fig:figures/DPHIMLB}. In case of the signal, as depicted in the right diagram of Fig.~\ref{fig:figures/T2ttlep2}, there are more sources of MET and therefore there is no constraint on this variable. The chosen baseline requirement on min$\Delta \phi (j_{1,2}, E_{T}^{miss})$ to be larger than 0.8 is considerably reducing the SM backgrounds but leads to the relatively small reduction of the signal.
+
+    \insertTwoFigures{figures/DPHIMLB}
+                 {figures/LogMDPhi2j} % Filename = label
+                 {figures/LogMlb2j} % Filename = label
+                 {0.45}       % Width, in fraction of the whole page width
+                 { decay diagrams ~\cite{website:SUSYdiagrams}. }
+\textbf{Invariant mass of the reconstructed lepton and the closest b-quark~($M_{\ell b}$)}
+
+In case that lepton and b-jet come from one top, there is a bound on the $M_{\ell b}$ variable wich is
+
+\eq{Mlb}
+{
+ M_{t} \sqrt{1 - \frac{M_{W}^{2}}{M_{t}^{2}} } \approx 153~\mathrm{GeV} ,
+}
+
+where $M_{W}$ is the mass of the top quark and $M_{W}$ the W-boson mass. This limit is true for backgrounds coming from $t\bar{t}$ decay, but also for T2tt signal. On the other hand there is no limit for W+jets backgrounds and T2bW signal. Therefore this variable is not suitable for baseline region definition, as puting a constraint on it would considerably reduce the signal but it can be used to define signal regions with enriched one kind of signal and supressed one type of the background. The distribution of  $M_{\ell b}$ for all relevant signals and different backgrounds in the baseline search region is shown in Fig.~\ref{fig:figures/Log_Mlb_2j} TODO
+
+\textbf{Modified topness~($t_{mod}$)}
+
+\textbf{MT2W~($N_{J}$)}
+
+\textbf{Number of W-tags~($N_{J}$)}
+
 -put picture of some of my presentetions with rounds (midterm probably)i
 leptonic diagram~\cite{CMS:2016vew}
 -variables
@@ -157,7 +265,7 @@ in totality 31 signal regions
 \subsection{Undefined}
 -SF, rewighting
 
--compressed spectra
+\subsection{compressed spectra}
 	ISR jets
 	recoil, enhance MET
 
