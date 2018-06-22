@@ -1,4 +1,4 @@
-\chapter{Stop}
+chapter{Stop}
 
 \section{Introduction and motivation}
 
@@ -32,12 +32,14 @@ Depending on the mass difference between stop and neutralino, $\Delta m =  \tild
 -delta M around top mass challenging kinematics -> looks like SM tt -> this region is called stealthy region
 -for t2bW when W becomes on-shell also difficult kinematics
 
+-analysis is kind of general, one search targeting all signals (~except of corridor)
 
-
+\subsection{Statistical methods}
+-significance -> for W-tagging
 
 \subsection{Signal topologies}
 
-The preseneted analysis focus on the kinematic region where $\Delta m > m(W)+m(b)$ and on three different decay modes of the stop pair.  All modes lead to states with two b-jets, two W-bosons and two neutralinos, but the kinematics differ depending on the decay mode and $\Delta m$. The $\Delta m$ plane is shown in Fig.~\ref{fig:figures/dmplane}. In the part of the plane where $\Delta m < m(t)$, often reffered as ``compressed spectra'' region, the decay producs are soft and often not reconstructed. On the other hand when the $\Delta m$ is large, boosted topologies can be expected. 
+The preseneted analysis focus on the kinematic region where $\Delta m > m_W+m_b$ and on three different decay modes of the stop pair.  All modes lead to states with two b-jets, two W-bosons and two neutralinos, but the kinematics differ depending on the decay mode and $\Delta m$. The $\Delta m$ plane is shown in Fig.~\ref{fig:figures/dmplane}. In the part of the plane where $\Delta m < m_t$, often reffered as ``compressed spectra'' region, the decay producs are soft and often not reconstructed. On the other hand when the $\Delta m$ is large, boosted topologies can be expected. 
 
     \insertFigure{figures/dmplane} % Filename = label
                  {0.99}       % Width, in fraction of the whole page width
@@ -109,11 +111,13 @@ The presented search focuses on final states with one charged lepton and therefo
 
 As shown on example in blue on the left of Fig.~\ref{fig:figures/T2ttlep1}, four jets are expected in the final state. But as already discussed, because of the low mass diffference between chargino and neutralino in case of T2tb, the two jets from hadronically decaying W-boson have low \pt and thus they do not have to be reconstructed and only two jets are expected. In case of high $\Delta m$ the decay products of stops can be boosted and thus two or more jets can be merged into one, resulting to reduced number of reconstructed jets in final state. The baseline requirement is to have at least two jets, but this variable is also used for the definition of signal regions targeting different topologies.
 
+%TODO jets PT, eta, jet wp
+
     \insertTwoFigures{figures/T2ttlep1}
                  {figures/T2ttlepJET} % Filename = label
                  {figures/T2ttlepMET} % Filename = label
                  {0.45}       % Width, in fraction of the whole page width
-                 { decay diagrams ~\cite{website:SUSYdiagrams}. }
+                 { decay diagrams ~\cite{CMS:2016vew}. }
 
 \textbf{Number of b-jets~($N_{b}$)}
 
@@ -123,7 +127,7 @@ In the left diagram of Fig.~\ref{fig:figures/T2ttlep1} it can be also noticed th
 
 Right diagram of Fig.~\ref{figures/T2ttlep1} shows that in the final staes of the signal processes there are two neutralinos and neutrino originating from the leptonicallyd ecaying W-boson. These particles escape detector and cause missing energy in transverse plane, reffered as ``Missing transverse energy''. This variable is very powerful in rejection of SM backgrounds bacouse they tend to have small values of MET as the sources of the MET are more limited than in case of signal. Therefore the basline selection requires MET to be larger than 250~GeV. The distribution of the MET in the baseline search region for all relevant backrounds and selected signal points is shown in the left plot of Fig.~\ref{fig:figures/METMT}. In this Figure the one lepton background is decomposed to ``1l from top'' composed of $t \bar{t} \to 1\ell$ and ``1l not from top'' populated by W+jets processes. The MET was also found to be good variable for definiton of signal regions.
 
-Because of the two neutrinos and misreconstrcuted lepton in lost lepton background, the MET of this background can be very large
+Because of the two neutrinos and misreconstrcuted lepton in lost lepton background, the MET of this background can be very large, which also applies for $Z \to \nu \bar{\nu}$ background, where the source of MET are three neutrinos.
 
 \textbf{Transverse mass of lepton-MET system~($M_{T}$)}
 
@@ -140,18 +144,15 @@ where $p_{T}^{ell}$ is the transverse momentum of lepton and $\phi$ is the angle
                  {figures/T2ttlepMT} % Filename = label
                  {figures/T2ttlepDPHI} % Filename = label
                  {0.45}       % Width, in fraction of the whole page width
-                 { decay diagrams ~\cite{website:SUSYdiagrams}. }
+                 { decay diagrams ~\cite{CMS:2016vew}. }
 
-The baseline selection on  $M_{T}$ variable was chosen to be  larger than 150~GeV, which supresses hugely mainly one lepton bacgrounds. In case of $t \bar{t} \to 1\ell $ the $M_{T}$ has an endpoint at W-boson mass ($\sim$ 80~GeV). %@MJ@ TODO to be continued
-For the lost lepton background there is no endpoint as the MET does not originate from one W-boson.
-
-%TODO plot MT
+The baseline selection on  $M_{T}$ variable was chosen to be  larger than 150~GeV, which supresses hugely mainly one lepton bacgrounds. The leton and MET in both  W+jets and $t \bar{t} \to 1\ell$ originate from one W-boson and thus their $M_{T}$ should have endpoint at W-boson mass~($\sim$80~GeV). It can be seen in the right plot of Fig.~\ref{fig:figures/METMT}, that indeeed the bulk of the one lepton events have low $M_{T}$, but there are tails with high $M_{T}$. In case of $t \bar{t} \to 1\ell$ the top quark constraints the kinematics of W-boson and therefore the tail in $M_{T}$  is mainly caused by MET resolution. The situation is different for W+jets, where the kinematics permits offshel production of W-boson and consequesntly $M_{W^{*}}> 80$~GeV. For the lost lepton and $Z \to \nu \bar{\nu}$ backgrounds there is no endpoint as the MET does not originate from one W-boson.
 
     \insertTwoFigures{figures/METMT}
                  {figures/LogMET2j} % Filename = label
                  {figures/LogMT2j} % Filename = label
                  {0.45}       % Width, in fraction of the whole page width
-                 { decay diagrams ~\cite{website:SUSYdiagrams}. }
+                 { decay diagrams ~\cite{website:stopSupp}. }
 
 \textbf{Minimal azimuthal angle between direction and  one of the two leading jets and MET~(min$\Delta \phi (j_{1,2}, E_{T}^{miss})$ )}
 
@@ -161,23 +162,149 @@ In the backgrounds where the neutrino is only source of the MET it is probable t
                  {figures/LogMDPhi2j} % Filename = label
                  {figures/LogMlb2j} % Filename = label
                  {0.45}       % Width, in fraction of the whole page width
-                 { decay diagrams ~\cite{website:SUSYdiagrams}. }
+                 { decay diagrams ~\cite{website:stopSupp}. }
+
 \textbf{Invariant mass of the reconstructed lepton and the closest b-quark~($M_{\ell b}$)}
 
-In case that lepton and b-jet come from one top, there is a bound on the $M_{\ell b}$ variable wich is
+In case that lepton and b-jet come from one top as displayed in Fig.~\ref{fig:figures/T2ttlepMlb} , there is a bound on the $M_{\ell b}$ variable wich is
 
 \eq{Mlb}
 {
  M_{t} \sqrt{1 - \frac{M_{W}^{2}}{M_{t}^{2}} } \approx 153~\mathrm{GeV} ,
 }
 
-where $M_{W}$ is the mass of the top quark and $M_{W}$ the W-boson mass. This limit is true for backgrounds coming from $t\bar{t}$ decay, but also for T2tt signal. On the other hand there is no limit for W+jets backgrounds and T2bW signal. Therefore this variable is not suitable for baseline region definition, as puting a constraint on it would considerably reduce the signal but it can be used to define signal regions with enriched one kind of signal and supressed one type of the background. The distribution of  $M_{\ell b}$ for all relevant signals and different backgrounds in the baseline search region is shown in Fig.~\ref{fig:figures/Log_Mlb_2j} TODO
+where $M_{W}$ is the mass of the top quark and $M_{W}$ the W-boson mass. This limit is true for backgrounds coming from $t\bar{t}$ decay, but also for T2tt signal. On the other hand there is no limit for W+jets backgrounds and T2bW signal. Therefore this variable is not suitable for baseline region definition, as puting a constraint on it would considerably reduce the signal but it can be used to define signal regions with enriched one kind of signal and supressed one type of the background. The distribution of  $M_{\ell b}$ for all relevant signals and different backgrounds in the baseline search region is shown in Fig.~\ref{fig:figures/DPHIMLB}, where it can be clearly noticed that low $M_{\ell b}$ part of distribution si more lost lepton and T2tt-like, while high $M_{\ell b}$ is mainly populated by W+jets and T2bW-like signal.
+
+    \insertFigure{figures/T2ttlepMlb}
+                 {0.5}       % Width, in fraction of the whole page width
+                 { decay diagrams ~\cite{CMS:2016vew}. }
 
 \textbf{Modified topness~($t_{mod}$)}
 
-\textbf{MT2W~($N_{J}$)}
+The topness is $\chi^{2}$-like type of variable developed to supress background coming from $t \bar{t} \to 2\ell$ processes, where one lepton in misreconstructed. It aim is to discriminate how well an even agrees with $t \bar{t} \to 2\ell$ hypothesis. It was discovered that removing several terms from topness variable, improves the signal disrimination in this analysis. The new variable called ``modified topness''~($t_{mod}$) is defined as
+
+
+\eq{tmod}
+{
+ t_{mod} = \mathrm{ln(\mathrm{min}S)},~where~S(\vec{p}_{W}, p_{\nu, z} ) = \frac{(m_{W}^{2}- (p_{\nu}+p_{\ell})^2 )^2 }{a_{W}^{4}} + \frac{(m_{t}^{2}- (p_{b_{2}}+p_{W})^2 )^2 }{a_{t}^{4}},
+}
+
+with $m_{W}$ and  $m_{t}$ is the mass of W-boson and top quark, ${p}_{W}$, ${p}_{\nu}$, ${p}_{\ell}$, ${p}_{b_{2}}$ are momenta of W-boson, neutrino, lepton and b-jet. The parameters $a_{W} =5$~GeV and $a_{t}=15$~GeV are the resolution parameters. The first term in Eq.~\ref{eq:tmod} aims to reconstruct mass of the W-boson which lepton was reconstructed and the purpose of second term is reconstruct the top mass of the leg, where lepton was lost. There are more options how to chose  b-jet. Several options were studied for case of this analysis following procedure was chosen. The modified topness is computed for three jets with highest CSVv2 discriminator. Then the jet which lead to the smallest modified topness is chosen.
+
+Different backgrounds and signal models with different $\Delta m$ populates $t_{mod}$ distribution shown in Fig.~\ref{fig:figures/Logtmod2j} diferently, therefore this variable is valuable for definition of signal regiions.
+
+    \insertFigure{figures/Logtmod2j}
+                 {0.5}       % Width, in fraction of the whole page width
+                 { decay diagrams ~\cite{website:stopSupp}. }
+
+\textbf{$M_{T2}^{W}$}
+
+The purpose of $M_{T2}^{W}$ is similar as of modified topness, to reduce the lost lepton background. This variably simillarly tries to reconstruct event under $t \bar{t} \to \ell \ell$ with one lost lepton hypothesis. The $M_{T2}^{W}$ has an endpoint at top mass for $t\bar{t}$ events with lost lepton. It would be possible to use this variable for baseline selection and requiring high values of $M_{T2}^{W}$, but it was found out that signals with low $\Delta m$ also lead to small $M_{T2}^{W}$. In the past versions of analysis the $M_{T2}^{W}$ was used for definition of signal regions. The $M_{T2}^{W}$ has very similar behavior as $t_{mod}$ and with more statistics collected it was found out that $t_{mod}$ is more discrimininat in full analysis phase-space than $M_{T2}^{W}$ and therefore in current analysis $M_{T2}^{W}$ is not used anymore.
 
 \textbf{Number of W-tags~($N_{J}$)}
+
+In case of high  $\Delta m$ signals the top quarks are expected to be significantly boosted. As in the SM the top quark is the heaviest particle, similar source of boost of top quarks is not present within SM and therefore tagging of boosted objects could help the signal discrimination. As show in Fig.~\ref{fig:figures/boostedTopologies} when the momentum of hadronic top is low, three resolved ak4 jets are observed. With growing boost of the top guark, the jets originating from W-boson or all three jets of the top quark can be merged into one fat jet. The merged jets can be taged by special W- or top-tagging techniques.
+
+    \insertFigure{figures/boostedTopologies}
+                 {0.99}       % Width, in fraction of the whole page width
+                 { W, top tag }
+
+
+Part of my contribution to the presented stop searches was study of W-tagging techniques and evaluation of its benefits for the stop search. The study was performed based on results of single lepton stop analysis~\cite{Sirunyan:2016jpr} which is using data collected at center-of-mass energy of 13~TeV in 2015 which correspond to integrated luminosity of 2.3~fb$^-1$. This analysis defines four kinds of signal regions targeting signals with different kinematics. In case of this study we focused only on region groups with high $\Delta m $ reffered as ``High $\Delta m$'' and ``Boosted High $\Delta m$'' defined in Table~\ref{tab:SRnoW}. This study redifines the signal regions with use of number of W-tagged jets~($N_{W}$) instead of \MET, but keeps the number of the signal regions the same. The proposed signal regions are shown in Table~\ref{tab:SRW}.
+
+\begin{table}[h]
+\begin{center}
+\begin{tabular}{|l|l|l|l|}
+\hline
+Name            & $N_{J}$  & $M_{T2}^{W}$~[GeV] & $E_{T}^{miss}$~[GeV]  \\
+\hline
+\hline
+                & $\geq$4  & >200                & 250<$E_{T}^{miss}$<350   \\
+High $\Delta m$ & $\geq$4  & >200                & 350<$E_{T}^{miss}$<450   \\
+                & $\geq$4  & >200                & $E_{T}^{miss}$>450   \\
+\hline
+Boosted High $\Delta m$ & 3  & >200                & 250<$E_{T}^{miss}$<350   \\
+                        & 3  & >200                & $E_{T}^{miss}$>350   \\
+\hline
+\end{tabular}
+\caption[Table caption text]{2015 default sr definitions. }
+\label{tab:SRnoW}
+\end{center}
+\end{table}
+
+\begin{table}[h]
+\begin{center}
+\begin{tabular}{|l|l|l|l|l|}
+\hline
+Name            & $N_{J}$  & $M_{T2}^{W}$~[GeV]            & $E_{T}^{miss}$~[GeV]    & $N_{W}$ \\
+\hline
+\hline
+                          & $\geq$4  & >200                & 250<$E_{T}^{miss}$<350   & --   \\
+High $\Delta m$ W-tagging & $\geq$4  & >200                & $E_{T}^{miss}$>350       & 0    \\
+                          & $\geq$4  & >200                & $E_{T}^{miss}$>350       & 1    \\
+\hline
+Boosted High $\Delta m$ W-tagging & 3  & >200              & $E_{T}^{miss}$>250 & 0  \\
+                                  & 3  & >200              & $E_{T}^{miss}$>250 & 1  \\
+\hline
+\end{tabular}
+\caption[Table caption text]{2015 default sr definitions. }
+\label{tab:SRW}
+\end{center}
+\end{table}
+
+
+The standard jets used in analysis are clusterized by ak4 algorithm with cone size of 0.4. The boosted W-jets are expected to be ``fat'' and therefore they need to be reclustered with different cone size. In the study two possibilities were exploited, ak8 jets with cone size of 0.8 and ak10 jets with cone size of 1.0. The merged W-jet should have large transverse momentum and mass around the mass of W-boson. To discriminate if the jet is merged jet originating from a W-boson, a requirement on its mass can be posed. The raw mass  of the jet is contaminated by the initial state radiation, underlying events and pile-up and tehrefore it must be cleand from these contributions. Several ``grooming techniques'' of the jet mass were developed by CMS, but in this study only pruned mass is used, as it was recomended technique for the merged W-jets. The pruning procedure~\cite{Ellis:2009su} rejects large angle and soft constituents during reclustering iterations. Another variable used in W-tagging is called N-subjettiness~($\tau_{N}$) which aim is to disriminate how the jet is consistent with N-jet hypothesis. The N-subjettiness ratio $\tau_{21} = \tau_{2}/\tau{1}$ has high disriminating power for merged W-jets and therefore in this study the requirement on jet $\tau_{21}$ is used to tag merged W-jets. Taking into acount the discriminating variables, two definitions of W-tagged jets reffered as ``ak8-W'' and ``ak10-W'' defined in Table~\ref{tab:Wtags} are established.
+
+
+
+\begin{table}[h]
+\begin{center}
+\begin{tabular}{|l|l|l|l|l|}
+\hline
+Name            & Clustering algorithm &      pruned mass $m_{W,p}$ [GeV]  &        $\tau_{21}$  & \pt [GeV]  \\
+\hline
+\hline
+ak8-W  &        ak8                     &   60<$m_{W,p}$<100               & <0.5   & >200  \\
+\hline
+ak10-W  &        ak10                     &   60<$m_{W,p}$<100               & <0.5   & >200  \\
+\hline
+\end{tabular}
+\caption[Table caption text]{ W-tag definition. }
+\label{tab:Wtags}
+\end{center}
+\end{table}
+
+To evaluate the benefits of the W-tagging  the expected significance in the default signal regions in Table.~\ref{tab:SRnoW} was compared to expected significance in proposedi W-tagging signal regions in Table.~\ref{tab:SRnoW}. For this comparison all relevant backgrounds and three different T2tt signal points with different stop and neutralino mass $(m_{\tilde{t}_{1}}, m_{\tilde{\chi}}^{0}_{1})$ were used. Thsese signal point are (900,1), (800,300) and (650,450). In this study the significances for two different luminosity options of 2.3~fb$^{-1}$ and 10~fb$^{-1}$, two different options of W-tagging defined in Table~\ref{tab:Wtags} and different combinations of default and W-tagged signal regions were computed. The best performing combination of signal regions was found to be combination of ``High $\Delta m$ W-tagging'' with ``High $\Delta m$'' regions as shown in Table~\ref{tab:taggingResults}. In this table the significances of the best performing combination of signal regions for both ak8-W and ak10-W is shown together with significances of default signal regions for three signal points and integrated luminosity of 2.3~$fb^{-1}$. It can be noticed, that using ak10 jets leads to larger significance than ak8 jets. Although there is an increase in the significance up to around 20~\% in some cases, the increase is not that large to support usage of complicated and time consuming W-taggers which have gain only for high $\Delta m$ signals. Also in this study no systematic uncertainties were evaluated. But when studying the significances for different luminosities it was found that with growing luminosity the gain in significance when using W-tagging is inreasing and therefore the W-tagging is interesting option for analyses with larger integrated luminosity. 
+
+%Table results
+\begin{table}[h]
+\begin{center}
+\begin{tabular}{|l|l|l|l|}
+\hline
+Signal point             & --      & ak8-W & ak10-W \\
+\hline
+                       & High $\Delta m$ +           &  High $\Delta m$ W-tagging +  &   High $\Delta m$ W-tagging +  \\
+                       &  Boosted High $\Delta m$    & Boosted High $\Delta m$       &   Boosted High $\Delta m$  \\
+\hline
+\hline
+(900,1) &     2.68 & 2.63 & 3.43  \\
+\hline
+(800,300) &   3.58 & 3.76 & 4.61  \\
+\hline
+(650,450) &   0.38 & 0.39 & 0.44  \\
+\hline
+\end{tabular}
+\caption[Table caption text]{tagging results for 2.3fb. }
+\label{tab:taggingResults}
+\end{center}
+\end{table}
+
+
+%-expected significance, reject backfround hypothesis
+%TODO do not forget this mainstram analysis stuff and dedicated compressed T2tt
+
+
+--------------------------
 
 -put picture of some of my presentetions with rounds (midterm probably)i
 leptonic diagram~\cite{CMS:2016vew}
