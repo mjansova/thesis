@@ -1,4 +1,8 @@
-chapter{Stop}
+<5\% -> signal hypothesis rejected at the 95\% confidence level -> exclusion
+- express p-value as the significance associated to it as the pdf is gaussian
+-z=5, significance = 2.8x10-7
+
+-LHC - profile likelihood\chapter{Stop}
 
 \section{Introduction and motivation}
 
@@ -35,7 +39,91 @@ Depending on the mass difference between stop and neutralino, $\Delta m =  \tild
 -analysis is kind of general, one search targeting all signals (~except of corridor)
 
 \subsection{Statistical methods}
+
+CMS uses modified frequentis method reffered as ``CLs'' method~\cite{Read:2002hq, Junk:1999kv, Cowan:2010js, CMS-NOTE-2011-005} to compute excusion limits
+Define tw hypoyhesis null hypothesis H0n background only and denote B as background yield
+Define H1 alternative hypothesis, where b+mu s are signal and background yields and mu is the signal sternght -> mu=0 for background only and 1 fors+b hypothesis
+The statistics for CLs method is burdened by many systematical uncertainties which are treated as nuisiance parameters $\Theta$ -> then background and signal expectations are function of theta s(theta), b(theta)
+
+
+To compute an observed limit we can buil a likelihood function $\mathcal{data|\mu, \theta}$
+
+\eq{likelihood}
+{
+\mathcal{data|\mu, \theta} = Poisson(data| \mu s(\theta) +b(\theta)) p(\tilde{\tehta}|\theta),
+}
+
+where $p(\tilde{\theta}\theta)$ is the pdfs for a nuisicance parameter $\theta$ with $\tilde{\theta}$ being the default value of the nuisance parameter and data for this purpose ferref to the information about observed data and expected signal and background yields. In case of binned Likelihood the term $Poisson(data| \mu s(\theta) +b(\theta))$ can be expressed as
+
+
+\eq{binnedlikelihood}
+{
+Poisson(data| \mu s(\theta) +b(\theta)) p(\tilde{\theta}|\theta) = \prod_{i} \frac{\mu s_{i}+b_{i}}{n_{i}!} e^{-\mu s_{i}-b_{i}},
+}
+
+which is a product  of Poisson probabilities to observe $n_{i}$ events in bin $i$. Having the Likelihood function, the compatibility of data with background only or background plus signal hypothesis can be tested with help of test statistics $\tilde{q}_{\mu}$ which is in for of the profile likelihood ratio
+
+\eq{pLR}
+{
+\tilde{q}_{\mu} = -2 \mathrm{ln } \frac{ \mathcal{L}(data| \mu , \hat{\theta}_{\mu}) } {\mathcal{L}(data| \hat{\mu} , \hat{\theta})}, 0 \leq \hat{\mu} \leq \mu ,
+}
+
+where $\mu$ is a free parameter, $\hat{\theta}_{\mu}$ are conditional maximum likelihood estimators of parameters $\theta$ given the parameter $\mu$ and measured data. The $\hat{\mu}$ and $\hat{\theta}$ are the parameter estimators at the global mximum of likelihood. The condition $\hat{\mu} \geq 0 $ express that the rate of signal cannot be negative and $\hat{\mu} \leq \mu $ is constraint to consider only one-sided confidence interval 
+	  
+Once having the masured data, the observed value of profile likelihood ratio~\ref{pLR} $\tilde{q}_{\mu}^{obs}$ can be computed and the maximum lakelihood estimators of $\theta$ best describing the observed data can be evaluatedi for both background only and background plus signal hypothesis. The CLs method defines two p-values, the first one is $p_{\mu}$ testing the compatibility of observation with signal plus background hypothesis and the second testing the compatibility of observation with background only hypothesis. The CLs for given signal strenght $\mu$ is then defined as
+
+\eq{cls}
+{
+CL_{s}(\mu) = \frac{p_{\mu}}{1-p_{b}},
+}
+
+where $p_{\mu}$ can be writes as
+
+\eq{pmu}
+{
+P(\tilde{q}_{\mu} \geq \tilde{q}_{\mu}^{obs}|s+b)
+}
+
+and $1-p_{b}$ as
+
+\eq{pb}
+{
+P(\tilde{q}_{\mu} \geq \tilde{q}_{\mu}^{obs}|b).
+}
+
+When $\mu$ is set to one and $\mathrm{CL_{s}} \leq \alpha $ where in case of exclusion limits $\alpha = 0.05$ the signal plus background hypothesis is excluded at $1-\alpha$ (=95\%) CLs confidence level. In the case of SMS the $\mu$ is not fixed to one and therefore the exclusion limits are set on the cross section times branching ratio of given SMS model. In such procedure the signal strength $\mu$ starts at zero and it is increased up to the point where CLs = 0.05. If for a given signal point the cross section is limited to a lower value than the theoertical cross section, the signal point is excluded. The contour line is drown at the place where limit on cross section is equal to the theoretical cross section.
+
+The expected limits can be determined by similar method using generated background only pseudo-data instead of observed data. 
+
+Assuming that the test statistics has Gaussian tail  the p-value can be converted to the significance $Z$ with help of convention
+
+\eq{significance}
+{
+ p = \int_Z^{\infty} \frac{1}{\sqrt{2\pi}} e^{-x^{2}/2} dx,
+}
+
+where if considering backgroun only hypothesis, the significance of 5 standard deviations corresponds to $p_{b} = 2.8 \times 10^{-7} $ suggest that the background only hypothesis is excluded at $5 \sigma$ in favour of backgroun plu signal hypothesis. %TODO check that
+
+
 -significance -> for W-tagging
+
+-HO background only hypothesis (null hypothesis) -background
+--H1 alternative hyothesis - signal
+-discovery reject H0 in favour of H1
+-exclusion reject H1 in favour of H0
+-step 1 define null and alternative hypothesis
+-step2 define test statistics undr the null hypothesis
+-from observation reject of accept null hypothesis
+-definition of thest statistics
+	N= mu S + B
+	test stat Q = -2ln (L(H0)/L(H1))-> likelihood ratio
+- pvalue is measure of the icompatibility of the date with tested hypothesis
+-when testing s+b hypothesis alpha = 5\%. p(S+B)<5\% -> signal hypothesis rejected at the 95\% confidence level -> exclusion
+- express p-value as the significance associated to it as the pdf is gaussian
+-z=5, significance = 2.8x10-7
+
+-LHC - profile likelihood
+-CLS~\cite{Read:2002hq, Junk:1999kv}
 
 \subsection{Signal topologies}
 
