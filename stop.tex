@@ -435,7 +435,11 @@ In the previous versions of analysis there is lower number of the signal regions
 %	ISR jets
 %	recoil, enhance MET
 
-\section{Background estimation}
+\section{Background estimations}
+
+After the baseline search region selection, tehre are three categories of relevant background from  the SM processes. The lost lepton background coming from $t\bar{t} \to 2 \ell$ and single-top processes where one of the leptons in misreconstructed makes the largest contribution in the signal regions with low $M_{\ell b}$ and at least four jets. This background is estimated with help of dilepton control samples. The one lepton background is represented by W+jets and $t\bar{t} \to 1\ell$ processes. These backgrounds are largely suppressed by \MET and $M_{T}$ cuts. After these cuts the yield of $t\bar{t} \to 1\ell$ process is the signal region is small and can be estimated from simulation. The W+jets lead to larger contribution especially in bins with high $M_{\ell b}$ and are estimated from zero b-tag control samples. $Z \to \nu \bar{\nu}$ is the last relevant background and it arises from $t\bar{t}Z$ and $WZ$ processes, where the z-bososn decays to neutrinos and one W-boson decays leptonically. The yields of $Z \to \nu \bar{\nu}$ in the signal region are estimated from simulation and are normalized by overall normalization factor obtaind from three lepton control region.  
+
+In the described version of analysis my responsibility was to provide estimation of the $Z \to \nu \bar{\nu}$ background. In this secton this background is described first and than building on knowledge $Z \to \nu \bar{\nu}$ background estimation method, the other background estimates are intorduced.
 
 -backgrounds 
 	what type of
@@ -450,16 +454,110 @@ In the previous versions of analysis there is lower number of the signal regions
 -transfer factors
 -scale factors - take into account differences in lepton, b-tagging etc efficiency
 -composition of backgrouns - percentage
+-strategy of background estimations?
 
-\subsection{Z to nunu}
+\subsection{$Z \to \nu \bar{\nu}$ background estimation}
 
--ttZ, WZ, ZZ
--2015 dataset taken from simulation -> small stats
--large in high MET and MT2W regions
+The $Z \to \nu \bar{\nu}$ backround, which arises from $t\bar{t}Z$ and $WZ$ processes with one elptonically decaying W-boson and Z-boson decaying to neutrinos is overall the smallest relevant group of backgrounds, but it is largely enhanced in high \MET and $t_{mod}$ signal regions. The main contribution to the $Z \to \nu \bar{\nu}$ background arises from  the $t\bar{t}Z$ process, however at low jet multiplicities, the $WZ$ process ebcomes an important part of this background.  The previous versions of this analysis estimated this background purely from simualtion, because of the small yield in the three lepton control region. Now with larger statistics, the normalziation of both processes is derived from data-driven method, but the shape is taken from simulation. 
 
--2017
--ZZ still taken from simulation
--3l scale factor -> normalization
+  
+To explain the data-driven beackground estimation technique, first only one signal~(SR) and control~(CR) region is considered. The control region for this kind of background is three lepton control region, in which th Z-boson decay to two leptons instead of two neutrinos. The relationship between data~($N^{Data}$) and MC~($N^{MC}$) yields in the signal (SR) and control (CR) region can be written followingly
+
+\eq{bkgEst}
+{
+\frac{N^{Data,~SR}}{N^{Data,~CR}}  = \frac{N^{MC,~SR}}{N^{MC,~CR}},
+}
+
+therefore the estimated background yield in the signal region~($N^{Data~estimate,~SR}$) can be obtained from the simulated yield in signal region~($N^{MC,~SR}$) and the scale factor~($SF^{CR}$) determined from control region by rewriting Eq.~\ref{eq:bkgEst} as
+
+\eq{bkgEst2}
+{
+N^{Data~estimate,~SR}  = N^{MC,~SR} \times  \frac{N^{Data,~CR}}{ N^{MC,~CR}} = N^{MC,~SR} \times  SF^{CR},
+}
+
+in the analysis there is not only one signal region and thus the background yield estimation in Eq.~\ref{eq:bkgEst2} needs to be performed for each signal region separately. Ideally there is same number of signal regions as control regions, which should be defined the same as the control regions, just with change of one requirement, in case of $Z \to \nu \bar{\nu}$ the lepton multiplicity. Consequently there should be same number of scale factors as signal regions.  But there is not enough of statistics to define as many three lepton signal regions asi the signal ones and therefore for the $Z \to \nu \bar{\nu}$ only one control region is used, leading to one scale factor. However the scale facor is determined for each procces ($t\bar{t}Z$, $WZ$) separately. For the $Z \to \nu \bar{\nu}$ background the Eq.~\ref{eq:bkgEst2} can be rewritten as
+
+\eq{ZnunuEst}
+{
+N_{proc}^{Data~estimate, SR}  = N_{proc}^{MC, SR} \times SF_{proc}^{CR3l},
+}
+
+where the scale factor $SF_{proc}^{CR3l}$ is determined for each process from a template fit of $N_{b}$ distribution in the three lepton control region as described in the following subsection.
+
+\subsubsection{Scale factors from the three lepton control region}
+
+
+The scale factors for the $t\bar{t}Z$ and  $WZ$ were determined in paper~\cite{Sirunyan:2017uyt} which searches for BSM physics in final states with two leptons of same sign, \MET, and jets, and here the procedure of their estimation is briefly summarized. These normalization scale factors are determined from the distribution of number of b-jets in three lepton control region defined by requirements:
+
+\begin{itemize}
+\item Two leptons passing nominal isolation and identification, one of \pt>25~GeV and second of \pt>20~GeV
+\item Third lepton of \pt>10~GeV passes tight identification and must have opposite sign and same flavour as one of the leptons above and the lepton flavour must have mass within $\pm$15~GeV window around Z-boson mass
+\item $H_{T}$ = $\sum_{jets} p_{T}$>80~GeV
+\item $N_{J} \geq 2$ with \pt>40~GeV
+\item No cut on b-jets
+\item \MET>30~GeV.
+
+\end{itemize}
+
+The $t\bar{t}Z$ and  $WZ$ are expected to have different number of b-jets and therefore the number of b-jets is discriminateing avriable between these processes. The zero b-jet bin of the the control region is composed around 70\% by the $WZ$ process, while the $t\bar{t}Z$ process represent around 70\% to the rest of the b-jet distribution. Except of these processes there is contribution to the control region from processes collectively denoted as ``rare SM'' and ``$X+\gamma$'' processes. The rare SM arises from diboson (ZZ), triboson (WWW, WWZ, WZZ, ZZZ), Higgs (HZZ, VH), same-sign WW from double-parton scattering (DPS WW), and rare top (tZq and t\bar{t}t\bar{t}) processes decaying to three leptons. The second group of contribution is ``$X+\gamma$'', to which belong processes where one of the selected leptons is and electron from unidentified photon conversion. Such processes are $W\gamma$, $Z\gamma$, $t\bar{t}\gamma$ and $t\gamma$.
+
+The distribution of number of b-jets in data is then simultaneously fitted by these four components. This fit procedure results in scale factors for $t\bar{t}Z$ of $1.14 \pm 0.30$ and for $WZ$ of $1.26 \pm 0.09$, which are defined as a ratio of data to simulation ratio in the three lepton control region. The uncertainty on the scale factors comprise both statistical uncertainty and uncertainties affecting the shape of the b-jet distribution in simulation. The post-fit distribution of number of b-jets in the three lepton control region is shown in Fig.~\ref{fig:figures/nbtagspostfit}.
+
+    \insertFigure{figures/nbtagspostfit} % Filename = label
+                 {0.5}       % Width, in fraction of the whole page width
+                 { WZ, ttZ norm ~\cite{Sirunyan:2017uyt}. }
+
+
+The final estimates of the $t\bar{t}Z$ and $WZ$ yields computed according to Eq.~\ref{eq:ZnunuEst} are shown in Table~\ref{tab:YZnunu}. The uncertainties on the yields includes both statistical and systematic uncertainties which are described in section~\ref{sec:systematics}
+
+
+\begin{table}[h]
+\begin{center}
+\begin{tabular}{|l|ccc|}
+\hline
+&
+\textbf{ttZ}    &
+\textbf{WZ}     &
+\textbf{Total}  \\
+\hline
+\textbf{ A 250$<E_T^{miss}<$350}         & 3.33 $\pm$ 0.96       & 1.38 $\pm$ 0.58       & 4.71 $\pm$ 1.21       \\
+\textbf{ A 350$<E_T^{miss}<$450}         & 1.85 $\pm$ 0.53       & 0.21 $\pm$ 0.53       & 2.05 $\pm$ 0.75       \\
+\textbf{ A 450$<E_T^{miss}<$600}         & 1.15 $\pm$ 0.33       & 0.47 $\pm$ 0.39       & 1.62 $\pm$ 0.53       \\
+\textbf{ A $E_T^{miss}>$600}     & 0.36 $\pm$ 0.11       & 0.36 $\pm$ 0.41       & 0.71 $\pm$ 0.40       \\
+\textbf{ B 250$<E_T^{miss}<$450}         & 0.61 $\pm$ 0.18       & 0.93 $\pm$ 0.47       & 1.54 $\pm$ 0.52       \\
+\textbf{ B 450$<E_T^{miss}<$600}         & 0.15 $\pm$ 0.05       & 0.20 $\pm$ 0.34       & 0.35 $\pm$ 0.33       \\
+\textbf{ B $E_T^{miss}>$600}     & 0.09 $\pm$ 0.03       & 0.02 $\pm$ 0.26       & 0.11 $\pm$ 0.26       \\
+\textbf{ C 250$<E_T^{miss}<$350}         & 14.28 $\pm$ 3.84      & 0.10 $\pm$ 0.62       & 14.38 $\pm$ 3.92      \\
+\textbf{ C 350$<E_T^{miss}<$450}         & 3.83 $\pm$ 1.06       & 0.60 $\pm$ 0.48       & 4.43 $\pm$ 1.23       \\
+\textbf{ C 450$<E_T^{miss}<$550}         & 1.06 $\pm$ 0.31       & 0.73 $\pm$ 0.39       & 1.79 $\pm$ 0.52       \\
+\textbf{ C 550$<E_T^{miss}<$650}         & 0.40 $\pm$ 0.12       & 0.00 $\pm$ 0.00       & 0.40 $\pm$ 0.12       \\
+\textbf{ C $E_T^{miss}>$650}     & 0.20 $\pm$ 0.06       & 0.00 $\pm$ 0.00       & 0.20 $\pm$ 0.06       \\
+\textbf{ D 250$<E_T^{miss}<$350}         & 2.06 $\pm$ 0.56       & 0.95 $\pm$ 0.63       & 3.01 $\pm$ 0.91       \\
+\textbf{ D 350$<E_T^{miss}<$450}         & 0.62 $\pm$ 0.18       & 0.55 $\pm$ 0.40       & 1.18 $\pm$ 0.41       \\
+\textbf{ D 450$<E_T^{miss}<$550}         & 0.24 $\pm$ 0.07       & 0.21 $\pm$ 0.22       & 0.45 $\pm$ 0.24       \\
+\textbf{ D $E_T^{miss}>$550}     & 0.09 $\pm$ 0.03       & 0.00 $\pm$ 0.00       & 0.09 $\pm$ 0.03       \\
+\textbf{ E 250$<E_T^{miss}<$350}         & 7.88 $\pm$ 2.14       & 0.40 $\pm$ 0.44       & 8.27 $\pm$ 2.21       \\
+\textbf{ E 350$<E_T^{miss}<$550}         & 3.34 $\pm$ 0.94       & 0.52 $\pm$ 0.39       & 3.87 $\pm$ 1.07       \\
+\textbf{ E $E_T^{miss}>$550}     & 0.26 $\pm$ 0.08       & 0.03 $\pm$ 0.25       & 0.29 $\pm$ 0.26       \\
+\textbf{ F 250$<E_T^{miss}<$450}         & 0.98 $\pm$ 0.27       & 0.13 $\pm$ 0.17       & 1.11 $\pm$ 0.33       \\
+\textbf{ F $E_T^{miss}>$450}     & 0.21 $\pm$ 0.06       & 0.00 $\pm$ 0.00       & 0.21 $\pm$ 0.06       \\
+\textbf{ G 250$<E_T^{miss}<$350}         & 2.89 $\pm$ 0.78       & 0.14 $\pm$ 0.15       & 3.03 $\pm$ 0.81       \\
+\textbf{ G 350$<E_T^{miss}<$450}         & 2.51 $\pm$ 0.71       & 0.16 $\pm$ 0.18       & 2.67 $\pm$ 0.77       \\
+\textbf{ G 450$<E_T^{miss}<$600}         & 1.80 $\pm$ 0.50       & 0.16 $\pm$ 0.16       & 1.96 $\pm$ 0.54       \\
+\textbf{ G $E_T^{miss}>$600}     & 0.70 $\pm$ 0.20       & 0.00 $\pm$ 0.00       & 0.70 $\pm$ 0.23       \\
+\textbf{ H 250$<E_T^{miss}<$450}         & 0.37 $\pm$ 0.11       & 0.00 $\pm$ 0.00       & 0.37 $\pm$ 0.11       \\
+\textbf{ H $E_T^{miss}>$450}     & 0.33 $\pm$ 0.10       & 0.16 $\pm$ 0.17       & 0.49 $\pm$ 0.20       \\
+\hline
+\textbf{ I 250$<E_T^{miss}<$350}         & 3.66 $\pm$ 1.01       & 0.66 $\pm$ 0.43       & 4.33 $\pm$ 1.16       \\
+\textbf{ I 350$<E_T^{miss}<$450}         & 1.57 $\pm$ 0.45       & 0.35 $\pm$ 0.34       & 1.93 $\pm$ 0.59       \\
+\textbf{ I 450$<E_T^{miss}<$550}         & 0.58 $\pm$ 0.17       & 0.19 $\pm$ 0.20       & 0.77 $\pm$ 0.27       \\
+\textbf{ I $E_T^{miss}>$550}     & 0.41 $\pm$ 0.13       & 0.17 $\pm$ 0.17       & 0.58 $\pm$ 0.22       \\
+\hline
+\end{tabular}
+\caption[Table caption text]{znunu yields SRs A-I. }
+\label{tab:YZnunu}
+\end{center}
+\end{table}
 
 \subsection{Single lepton}
 
@@ -494,7 +592,100 @@ ESTIMATON:
 -gamma plus jets -> MET resolution > bin migrations - gamma pt spectrum reveighted to match neutrino pt spectrum, from reweighted events METmodified = reconstructed-MET + pTgamma
 
 
-\subsection{Systematic uncertainties}
+\subsection{Systematic uncertainties~\label{sec:systematics}}
+
+    \insertTwoFigures{figures/ttZUnc}
+                 {figures/AB250lessMETlessInfCanFrank} % Filename = label
+                 {figures/CDEFGH250lessMETlessInfCanFrank} % Filename = label
+                 {0.49}       % Width, in fraction of the whole page width
+                 { ttZ (theoretical?) uncertainty. }
+\begin{table}[h]
+\begin{center}
+\noindent\hrulefill
+\smallskip\noindent
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{|l|cccccccccccc|}
+\hline
+&
+\textbf{MC stat.}  &
+\textbf{$SF_{l}$}        &
+\textbf{$SF_{b}$(light)}    &
+\textbf{$SF_{b}$(heavy)}    &
+\textbf{PU}         &
+\textbf{PDF}  &
+\textbf{$\alpha_{S}$}       &
+\textbf{Scales}   &
+\textbf{$SF_{ISR(n_{jets})}$}   &
+\textbf{JES}  &
+\textbf{Norm.}        &
+\textbf{Total}  \\
+\hline
+\textbf{ A 250$<E_T^{miss}<$350}         & 11.88         & 0.31          & 1.58          & 1.23          & 3.00          & 0.23          & 0.86          & 3.86          & 7.12          & 2.55          & 20.70         & 25.60         \\
+\textbf{ A 350$<E_T^{miss}<$450}         & 25.04         & 0.35          & 3.63          & 0.77          & 3.00          & 3.33          & 0.61          & 1.31          & 9.09          & 0.37          & 24.38         & 36.61         \\
+\textbf{ A 450$<E_T^{miss}<$600}         & 23.87         & 0.37          & 1.34          & 1.34          & 3.00          & 0.45          & 0.39          & 2.47          & 7.02          & 0.46          & 20.77         & 32.71         \\
+\textbf{ A $<E_T^{miss}>$600}    & 51.43         & 0.41          & 2.87          & 1.74          & 3.00          & 8.04          & 0.36          & 2.37          & 5.13          & 10.54         & 16.77         & 56.17         \\
+\textbf{ B 250$<E_T^{miss}<$450}         & 29.98         & 0.50          & 1.67          & 1.23          & 3.00          & 1.17          & 0.76          & 2.86          & 3.97          & 1.01          & 14.74         & 34.01         \\
+\textbf{ B 450$<E_T^{miss}<$600}         & 86.04         & 0.77          & 5.28          & 1.26          & 3.00          & 0.45          & 0.40          & 2.47          & 4.00          & 32.62         & 15.46         & 93.63         \\
+\textbf{ B $<E_T^{miss}>$600}    & 228.31        & 2.65          & 19.40         & 1.64          & 3.00          & 8.03          & 0.36          & 2.37          & 8.12          & 44.04         & 22.72         & 234.76        \\
+\textbf{ C 250$<E_T^{miss}<$350}         & 4.56          & 0.45          & 0.06          & 0.68          & 3.00          & 0.81          & 0.60          & 1.77          & 0.40          & 4.78          & 26.18         & 27.26         \\
+\textbf{ C 350$<E_T^{miss}<$450}         & 10.85         & 0.35          & 0.48          & 0.66          & 3.00          & 2.01          & 1.23          & 5.00          & 0.99          & 6.85          & 23.73         & 27.73         \\
+\textbf{ C 450$<E_T^{miss}<$550}         & 20.70         & 0.31          & 4.53          & 0.26          & 3.00          & 1.89          & 1.34          & 4.86          & 2.03          & 4.52          & 18.54         & 29.25         \\
+\textbf{ C 550$<E_T^{miss}<$650}         & 9.20          & 0.38          & 0.77          & 0.38          & 3.00          & 4.90          & 1.86          & 3.67          & 3.67          & 2.14          & 26.32         & 29.09         \\
+\textbf{ C $<E_T^{miss}>$650}    & 12.73         & 0.45          & 0.20          & 0.40          & 3.00          & 8.11          & 3.08          & 4.23          & 4.92          & 5.74          & 26.32         & 31.85         \\
+\textbf{ D 250$<E_T^{miss}<$350}         & 19.82         & 0.31          & 0.72          & 0.41          & 3.00          & 0.81          & 0.60          & 1.76          & 0.82          & 9.76          & 20.24         & 30.20         \\
+\textbf{ D 350$<E_T^{miss}<$450}         & 27.58         & 0.32          & 1.82          & 1.08          & 3.00          & 2.02          & 1.23          & 4.99          & 1.63          & 10.79         & 17.33         & 34.98         \\
+\textbf{ D 450$<E_T^{miss}<$550}         & 47.40         & 0.33          & 4.96          & 0.22          & 3.00          & 1.88          & 1.33          & 4.85          & 2.24          & 17.87         & 17.31         & 54.17         \\
+\textbf{ D $<E_T^{miss}>$550}    & 18.94         & 0.44          & 0.06          & 0.83          & 3.00          & 7.53          & 2.44          & 2.55          & 7.31          & 7.15          & 26.32         & 35.14         \\
+\textbf{ E 250$<E_T^{miss}<$350}         & 5.55          & 0.42          & 0.65          & 0.74          & 3.00          & 0.81          & 0.60          & 1.77          & 2.52          & 3.80          & 25.40         & 26.66         \\
+\textbf{ E 350$<E_T^{miss}<$550}         & 10.40         & 0.40          & 0.01          & 0.83          & 3.00          & 1.97          & 1.26          & 4.96          & 0.66          & 7.23          & 23.72         & 27.63         \\
+\textbf{ E $<E_T^{miss}>$550}    & 87.72         & 0.77          & 7.05          & 0.02          & 3.00          & 7.55          & 2.47          & 2.51          & 2.26          & 1.66          & 24.61         & 91.86         \\
+\textbf{ F 250$<E_T^{miss}<$450}         & 16.02         & 0.42          & 0.06          & 0.31          & 3.00          & 1.16          & 0.78          & 2.70          & 2.10          & 4.41          & 24.07         & 29.63         \\
+\textbf{ F $<E_T^{miss}>$450}    & 12.82         & 0.47          & 0.40          & 0.57          & 3.00          & 3.72          & 1.70          & 3.91          & 2.22          & 3.37          & 26.33         & 30.26         \\
+\textbf{ G 250$<E_T^{miss}<$350}         & 5.75          & 0.39          & 0.01          & 1.71          & 3.00          & 0.81          & 0.60          & 1.77          & 2.09          & 3.44          & 25.42         & 26.68         \\
+\textbf{ G 350$<E_T^{miss}<$450}         & 7.06          & 0.43          & 0.05          & 1.35          & 3.00          & 2.01          & 1.23          & 5.00          & 1.79          & 9.62          & 25.14         & 28.63         \\
+\textbf{ G 450$<E_T^{miss}<$600}         & 9.01          & 0.37          & 0.19          & 1.27          & 3.00          & 2.63          & 1.54          & 4.72          & 0.51          & 5.15          & 24.77         & 27.64         \\
+\textbf{ G $<E_T^{miss}>$600}    & 7.00          & 0.47          & 0.19          & 1.01          & 3.00          & 8.01          & 2.34          & 1.74          & 0.68          & 15.62         & 26.32         & 32.70         \\
+\textbf{ H 250$<E_T^{miss}<$450}         & 9.94          & 0.49          & 0.05          & 0.07          & 3.00          & 1.17          & 0.79          & 2.72          & 2.06          & 4.60          & 26.32         & 28.91         \\
+\textbf{ H $<E_T^{miss}>$450}    & 34.01         & 0.43          & 0.04          & 0.88          & 3.00          & 3.71          & 1.70          & 3.91          & 0.93          & 2.41          & 19.94         & 40.03         \\
+\textbf{ I 250$<E_T^{miss}<$350}         & 9.76          & 0.38          & 0.78          & 0.47          & 3.00          & 0.21          & 0.32          & 3.91          & 4.30          & 5.32          & 23.38         & 26.72         \\
+\textbf{ I 350$<E_T^{miss}<$450}         & 17.91         & 0.35          & 0.76          & 0.60          & 3.00          & 1.99          & 1.41          & 5.88          & 4.56          & 6.05          & 22.78         & 30.79         \\
+\textbf{ I 450$<E_T^{miss}<$550}         & 25.04         & 0.51          & 4.83          & 0.35          & 3.00          & 1.89          & 1.62          & 4.90          & 5.38          & 4.89          & 21.64         & 34.80         \\
+\textbf{ I $<E_T^{miss}>$550}    & 29.62         & 0.40          & 0.22          & 0.68          & 3.00          & 1.82          & 1.55          & 7.48          & 4.76          & 6.34          & 20.76         & 37.98         \\
+\hline
+\end{tabular}}
+\caption[Table caption text]{znunu syst SRs A-I. }
+\label{tab:SystZnunu}
+\end{center}
+\end{table}
+
+
+\begin{table}[h]
+\begin{center}
+\begin{tabular}{|l|l|}
+\hline
+\textbf{Source}       & \textbf{Typical range of values} [\%]                       \\
+\hline
+\textbf{MC statistics}      &  4-87   \\
+\hline
+\textbf{Lepton efficiencies}              &  <3  \\
+\textbf{b-tagging SF (light flavor)}      &  1-19  \\
+\textbf{b-tagging SF (heavy flavor)}      &  <2  \\
+\textbf{Jet energy scale}                 &  1-44  \\
+\textbf{Pile-up}                          &  <3  \\
+\hline
+\textbf{PDF}                 &  1-8  \\
+\textbf{$\alpha_{S}$}                 &  1-3  \\
+\textbf{Scales}                 &  1-8  \\
+\textbf{$SF_{ISR(n_{jets})}$}                 &  1-9  \\
+\textbf{Normalization}                 &  15-26  \\
+\hline
+\textbf{Total}                 &  26-94  \\
+\hline
+\end{tabular}
+\caption[Table caption text]{summmary znunu syst }
+\label{tab:SysZnunuSum}
+\end{center}
+\end{table}
 
 \section{Results and interpretation}
 
