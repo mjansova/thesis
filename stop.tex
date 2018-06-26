@@ -441,20 +441,6 @@ After the baseline search region selection, tehre are three categories of releva
 
 In the described version of analysis my responsibility was to provide estimation of the $Z \to \nu \bar{\nu}$ background. In this secton this background is described first and than building on knowledge $Z \to \nu \bar{\nu}$ background estimation method, the other background estimates are intorduced.
 
--backgrounds 
-	what type of
--how they look like, how they can be distingusehed from signal
-	tt2l - lost lepton does not obey MT<MW
-	W+jets - offshel Ws - no endpoint at W mass
-	Znunu no bound Mt<MW
-
--data driven + simulation
--general idea
--MET extrapolation?
--transfer factors
--scale factors - take into account differences in lepton, b-tagging etc efficiency
--composition of backgrouns - percentage
--strategy of background estimations?
 
 \subsection{$Z \to \nu \bar{\nu}$ background estimation}
 
@@ -499,7 +485,7 @@ The scale factors for the $t\bar{t}Z$ and  $WZ$ were determined in paper~\cite{S
 
 \end{itemize}
 
-The $t\bar{t}Z$ and  $WZ$ are expected to have different number of b-jets and therefore the number of b-jets is discriminateing avriable between these processes. The zero b-jet bin of the the control region is composed around 70\% by the $WZ$ process, while the $t\bar{t}Z$ process represent around 70\% to the rest of the b-jet distribution. Except of these processes there is contribution to the control region from processes collectively denoted as ``rare SM'' and ``$X+\gamma$'' processes. The rare SM arises from diboson (ZZ), triboson (WWW, WWZ, WZZ, ZZZ), Higgs (HZZ, VH), same-sign WW from double-parton scattering (DPS WW), and rare top (tZq and t\bar{t}t\bar{t}) processes decaying to three leptons. The second group of contribution is ``$X+\gamma$'', to which belong processes where one of the selected leptons is and electron from unidentified photon conversion. Such processes are $W\gamma$, $Z\gamma$, $t\bar{t}\gamma$ and $t\gamma$.
+The $t\bar{t}Z$ and  $WZ$ are expected to have different number of b-jets and therefore the number of b-jets is discriminateing avriable between these processes. The zero b-jet bin of the the control region is composed around 70\% by the $WZ$ process, while the $t\bar{t}Z$ process represent around 70\% to the rest of the b-jet distribution. Except of these processes there is contribution to the control region from processes collectively denoted as ``rare SM'' and ``$X+\gamma$'' processes. The rare SM arises from diboson (ZZ), triboson (WWW, WWZ, WZZ, ZZZ), Higgs (HZZ, VH), same-sign WW from double-parton scattering (DPS WW), and rare top (tZq and $\mathrm{t\bar{t}t\bar{t}}$) processes decaying to three leptons. The second group of contribution is ``$X+\gamma$'', to which belong processes where one of the selected leptons is and electron from unidentified photon conversion. Such processes are $W\gamma$, $Z\gamma$, $t\bar{t}\gamma$ and $t\gamma$.
 
 The distribution of number of b-jets in data is then simultaneously fitted by these four components. This fit procedure results in scale factors for $t\bar{t}Z$ of $1.14 \pm 0.30$ and for $WZ$ of $1.26 \pm 0.09$, which are defined as a ratio of data to simulation ratio in the three lepton control region. The uncertainty on the scale factors comprise both statistical uncertainty and uncertainties affecting the shape of the b-jet distribution in simulation. The post-fit distribution of number of b-jets in the three lepton control region is shown in Fig.~\ref{fig:figures/nbtagspostfit}.
 
@@ -508,7 +494,7 @@ The distribution of number of b-jets in data is then simultaneously fitted by th
                  { WZ, ttZ norm ~\cite{Sirunyan:2017uyt}. }
 
 
-The final estimates of the $t\bar{t}Z$ and $WZ$ yields computed according to Eq.~\ref{eq:ZnunuEst} are shown in Table~\ref{tab:YZnunu}. The uncertainties on the yields includes both statistical and systematic uncertainties which are described in section~\ref{sec:systematics}
+The final estimates of the $t\bar{t}Z$ and $WZ$ yields computed according to Eq.~\ref{eq:ZnunuEst} are shown in Table~\ref{tab:YZnunu}. The simulated yields are corrected for different lepton and b-tagging efficiencies in data and simulation which is standard procedure for all background estimations.  The uncertainties on the estimates includes both statistical and systematic uncertainties which are described in section~\ref{sec:systematics}
 
 
 \begin{table}[h]
@@ -559,38 +545,54 @@ The final estimates of the $t\bar{t}Z$ and $WZ$ yields computed according to Eq.
 \end{center}
 \end{table}
 
-\subsection{Single lepton}
 
--sensitive to MET and MT
--W+jets, tt1l
-- tt1l -> constrained kinematics of W due to top, so MT tail is just due to MET resolution
--W+jets, no kinematics constraint, MT tail due to of shell W production (W width) 
--W+jets, zero b-tag control region
--tt1l -> negligible, estimation from simulation
+\subsection{Lost lepton background estimation}
 
--1 lep neutrino from W decay
+The lost lepton background composed of $t\bar{t} \to 2\ell$, single top, $t\bar{t}V$ and diboson processes where one lepton is misreconstructed, is dominant background because of the large tails in \MET and $M_{T}$ distribution caused by two neutrinos and not reconstructed lepton. The majority of lost lepton background arises from the $t\bar{t} \to 2\ell$ process. The background yields in the signal regions are  estimated according to Eq.\ref{eq:bkgEst2} from the dilepton control regions. These control regions have purity above 95\% in studied processes and therefore no correction for contamination from other processes is not needed. 
 
-ESTIMATIN:
--data driven, similar as for the lost lepton
--CR contamination N CR,data,Wjets,0btag = N CR,data,0btag - N CR,MC,ninWjets,0btag
--MET and NJET extrapolation (2015)
--W+b modelling systematics
+The control regions pass the same selection as the signal regions, except of the veto on the second lepton, which is reversed. Because of small yields in high \MET control regions, several control regions differing only by \MET range has to be merged. Due to this combination of the control regions, the background estimate in the signal regions has to be corrected by corresponding intrapolation factor. The lost lepton background estimate in signal region can be then 
 
-\subsection{Lost lepton}
+\eq{bkgEstLL}
+{
+N^{Data~estimate,~SR}_{lost~\ell}  = N^{MC,~SR}_{lost~\ell} \times  \frac{N^{Data,~CR}_{\ell}}{ N^{MC,~CR}_{\ell}} \times \frac{N^{MC,~SR,~E_{T}^{miss}~bin}_{lost~\ell}}{ N^{MC,~SR}_{lost~\ell}},
+}
 
--dominant background after MET and MT selections
--tt2l wit both Ws decaying leptonically and one lepton lost
--largest contribution is the tt2l, then single top and then ttV and diboson processes.
--dilepton control region
--misreconstruction of lepton - 1 lepton and large MET
--two enutrinos lare MT and MT2W
+where the first term on right side denotes the simulated yield in the signal region, second term corresponds to data to simulation scale factor in the control region and third factor is simulation based intrapolation factor, which is equal to one in case that the given control region was not merge with another one.
 
-ESTIMATON:
-- N data,SR (ll) / N data,CR (ll) = N MC,SR (ll) / N MC,CR(ll) -> get N data,SR
--MET and Njet extrapolation (2015) -> additional transfer factor
--good modeling of njet and MET needed -> mismodelling in ssimu leads to mismodelling in TF -> special emu CR -> additional SF due to mismodelling
--gamma plus jets -> MET resolution > bin migrations - gamma pt spectrum reveighted to match neutrino pt spectrum, from reweighted events METmodified = reconstructed-MET + pTgamma
+The described extrapolation of control regions in \MET could lead to unprecise estimates in case that the \MET shape in data and MC differ. For this reason the shape of the \MET is checked in enriched top quark region with electron muon pair in the final state. Then the data to simulation ratio in \MET bins is used as a correction of the simulated \MET spectra. 
 
+%Additional correction factor obtained from studies of $\gamma$+jets processes is applied on background estimates to take into account differeneces in \MET resolution in data and simulation causing different migration between 
+%An additional correction factor is used to take into account  ??!!
+%gamma plus jets -> MET resolution > bin migrations - gamma pt spectrum reveighted to match neutrino pt spectrum, from reweighted events METmodified = reconstructed-MET + pTgamma -check that
+%->ask about that -> not really clear from the papaer
+
+\subsection{One lepton background estimation}
+
+
+The  one lepton backround is the subleading background compsed of W+jets and $t\bar{t} \to 1\ell$ processes. The W+jets is the largest aprt of the one lepton background and is estimated from conrol regions with zero b-jets. The control regions are defined in a same way as signal regions, only the b-jet requirement is reversed. The   $t\bar{t} \to 1\ell$ represents only small contribution to the one elpton background and therefore is taken directly from the simulation.
+
+In the zero b-jet control regions, the $M_{\ell b}$ variable needs to be redefined as there is no b-jet. Instead of the closest b-jet, the jet with highest CSVv2 discriminator is used to define $M_{\ell b}$ in this case. Contrary to the previous background estimations there is enough statistics to define corresponding zero b-tag control region to each signal region. On the other hand the control regions are not pure in W+jets process and the background estimates have to account for the contamination by non-W+jets processes in the control regions. The W+jets background estimation in the signal regions can be then written as
+
+\eq{bkgEstWJ}
+{
+N^{Data~estimate,~SR}_{W+jets,~\geq~1btag}  = N^{MC,~SR}_{W+jets,~\geq~1btag} \times  \frac{N^{Data,~CR}_{W+jets,~0btag}}{ N^{MC,~CR}_{W+jets,~0btag}},
+}
+
+where the first term on right side denotes the simulated yield in the signal region and second term corresponds to data to simulation scale factor in the control region for W+jets process. Because of the contamination of conrol regions by other processes the $N^{Data,~CR}_{W+jets,~0btag}$ is defined followingly
+
+
+\eq{bkgEstWJT2}
+{
+N^{Data,~CR}_{W+jets,~0btag} = N^{Data,~CR}_{all,~0btag} \times \frac{N^{MC,~CR}_{W+jets,~0btag}}{ N^{MC,~CR}_{all,~0btag}} ,
+}
+
+where the second term on the right side is simulation based factor which corrects data yields in control region for non-W+jets processes.
+
+Because of the $M_{\ell b}$ redefinition, in this case it hase to be investigated if the shape of this variable agree in the control and signal regions. The study based on simulations confirmed, that the two shapes are in agreement. 
+
+
+From the simulation the contribution to the total background from $t\bar{t} \to 1\ell$ process is lower than 10\% and therefore it is resonable to estimate the background yield directly from simualtion. The $t\bar{t} \to 1\ell$ process appears in signal regions mainly due to the \MET resolution. As this background is purely estimated from simulation the mismodelling of the \MET resolution could case imprecise estimation. The \MET resolution is checked with help of $\gamma$+jets data and simulated samples. The $\gamma$ \pt spectrum in data and simulation is reweighted to match the neutrino \pt spectrum in the $t\bar{t} \to 1\ell$. Then the modified \MET is computed as a sum of reweighted $\gamma$ \pt and the reconstructed \MET. The data to simulation ratio in the modified \MET distribution then can reveal the \MET resolution mismodelling. It was found out that the difference between data and simulation in modified \MET are up to 40\%, but this mismodelling is only taken into account as a systematic uncertainty. %really true? 
+ 
 
 \subsection{Systematic uncertainties~\label{sec:systematics}}
 
