@@ -494,7 +494,7 @@ The distribution of number of b-jets in data is then simultaneously fitted by th
                  { WZ, ttZ norm ~\cite{Sirunyan:2017uyt}. }
 
 
-The final estimates of the $t\bar{t}Z$ and $WZ$ yields computed according to Eq.~\ref{eq:ZnunuEst} are shown in Table~\ref{tab:YZnunu}. The simulated yields are corrected for different lepton and b-tagging efficiencies in data and simulation which is standard procedure for all background estimations.  The uncertainties on the estimates includes both statistical and systematic uncertainties which are described in section~\ref{sec:systematics}
+The final estimates of the $t\bar{t}Z$ and $WZ$ yields computed according to Eq.~\ref{eq:ZnunuEst} are shown in Table~\ref{tab:YZnunu}. The simulated events are corrected for different lepton and b-tagging efficiencies in data and simulation which is standard procedure for all background estimations. On top of this the events in $t\bar{t}Z$ and $t\bar{t}$ samples are reweighted in order to improve modelling of jets coming from ISR. The uncertainties on the estimates includes both statistical and systematic uncertainties which are described in section~\ref{sec:systematics}.
 
 
 \begin{table}[h]
@@ -561,6 +561,8 @@ where the first term on right side denotes the simulated yield in the signal reg
 
 The described extrapolation of control regions in \MET could lead to unprecise estimates in case that the \MET shape in data and MC differ. For this reason the shape of the \MET is checked in enriched top quark region with electron muon pair in the final state. Then the data to simulation ratio in \MET bins is used as a correction of the simulated \MET spectra. 
 
+The final estimates of the lost lepton background in the signal regions are shown in table of Fig.~\ref{fig:figures/Table005}, together with uncertainties including both statistical and systematic uncertainties which are described in section~\ref{sec:systematics}
+
 %Additional correction factor obtained from studies of $\gamma$+jets processes is applied on background estimates to take into account differeneces in \MET resolution in data and simulation causing different migration between 
 %An additional correction factor is used to take into account  ??!!
 %gamma plus jets -> MET resolution > bin migrations - gamma pt spectrum reveighted to match neutrino pt spectrum, from reweighted events METmodified = reconstructed-MET + pTgamma -check that
@@ -594,13 +596,63 @@ Because of the $M_{\ell b}$ redefinition, in this case it hase to be investigate
 From the simulation the contribution to the total background from $t\bar{t} \to 1\ell$ process is lower than 10\% and therefore it is resonable to estimate the background yield directly from simualtion. The $t\bar{t} \to 1\ell$ process appears in signal regions mainly due to the \MET resolution. As this background is purely estimated from simulation the mismodelling of the \MET resolution could case imprecise estimation. The \MET resolution is checked with help of $\gamma$+jets data and simulated samples. The $\gamma$ \pt spectrum in data and simulation is reweighted to match the neutrino \pt spectrum in the $t\bar{t} \to 1\ell$. Then the modified \MET is computed as a sum of reweighted $\gamma$ \pt and the reconstructed \MET. The data to simulation ratio in the modified \MET distribution then can reveal the \MET resolution mismodelling. It was found out that the difference between data and simulation in modified \MET are up to 40\%, but this mismodelling is only taken into account as a systematic uncertainty. %really true? 
  
 
+The final estimates of the one lepton background in the signal regions are shown in table of Fig.~\ref{fig:figures/Table005}, together with uncertainties including both statistical and systematic uncertainties which are described in section~\ref{sec:systematics}.
+
 \subsection{Systematic uncertainties~\label{sec:systematics}}
+
+There are several uncertainties entering into the background estimations, one is the uncertainty due to limited statistics in simulated and control data samples and others arise for example from the differences in modelling of objects in data and simulation. Many uncertainties are common to all background estimates and therefore here again, due to my personal involvment, first the systematic uncertainties for the $Z \to \nu bar{\nu}$ uncertainties are described.  Then the differences for other background estimates are discussed.
+
+\subsubsection{Systematic uncertainties on the $Z \to \nu \bar{\nu}$ background estimation}
+
+There are two kinds of systematic uncertainties affecting the background estimates. The first group is reffered as ``theoretical uncertainties'' and consists of the uncertainties arising from the choice of factorization and renormalization scale, PDFs and $\alpha_{S}$. As for the $Z \nu \bar{\nu}$ processes the background yields in signal regions are taken from simulation and only normalized by overall factor determined by the data-driven method, these estimates are sesitive to the migrations of events between signal regions due to imprecise modelling of the tehoretical parameters in the simulation. Because of the limited statistics in the signal regions large fluctuations driven by the statisctics were observed when varying the theoretical parameters. To avoid this for evaluation of systematic uncertainties, the binning of signal regions in $M_{\ell b}$ and $t_{mod}$ was removed and only binning in \MET and $N_{J}$ was kept. Effectively we grouped signal regions accros grops A--B and C--H, the corridor region is treated separately. To be sure that the uncertainty is not underestimated due to grouping in $M_{\ell b}$ and $t_{mod}$ the distribution of these variables for varied theoretical parameters were studied. Only small variations in shape of $M_{\ell b}$ and $t_{mod}$ were observed when varying the theoretical parameters, compared to the shapes of \MET and $N_{J}$. In these grouped regions, the relative uncertainty on the background estimated isevaluated and then applied on to the corresponding search signal regions background estimates obtain the absoule uncertainties. In the following paragraphs the tehoretical uncertainties are discussed one by one.
+
+
+\textbf{Factorization and renormalization scale}
+
+The cross section of a given process is dependeds on the choice factorization and renormalziation scales. The theoretical $t\bar{t}Z$ cross section at 13~TeV obtained in~\ref{deFlorian:2016spz} is 839.3~fb. the quothed scale uncertainty is around 10\%. As the normalization of the background estimate is derived from data, the scale uncertainty should only influence the shapes and consequently the migration of events between signal regions. In this analysis both renormalziation and factorization scales are varied simultaneously, while keeping cross section constant. The uncertainty is then evaluated from the change of background estimates when varying the scales. The scale uncertainty on the $Z \to \nu \bar{\nu}$ estimate in  each signal region is shown in Table~\ref{tab:SysZnunu}, overall it is lower than 10\%.
+
+%The central value for renormalization and factorization scales is set to μ0=Mt+MV/2.
+%For the NLO QCD part of the calculation scale uncertainties are estimated by independent variations of
+%renormalization and factorization scales in the range μ/2≤μR,μF≤2μ, with 1/2≤μR/μF≤2,while for PDF and αs uncertainties the PDF4LHC15 prescription is used. The resulting uncertainties are applied also to NLO EW correction effects
+%str 156 handbook
+
+\textbf{PDFs}
+
+%The uncertainty on the $t\bar{t}Z$ cross section quoted in~\ref{deFlorian:2016spz} is 2.8\%
+
+The NNPDF3.0~\cite{Ball:2014uwa} set of parton distribution functions~(PDFs) is used for production of simulated samples. To evaluate the uncertainty arising from PDFs, 100 variations were computed and each was used to calculate an event weight $y_{i,n}$, where $i$ denotes i-th event and $n$ the n-th variation. Then the stadard deviation of the PDF variations for an event $i$ computed as
+
+\eq{pdfVar}
+{
+\sigma_{i} = \sqrt{\frac{1}{99} \sum_{n=1}^{100} (y_{i,n} - \bar{y}_{i})^{2}}, ~with~ \bar{y}_{i} = \frac{1}{100} \sum_{n=1}^{100} y_{i,n},
+}
+
+is used to evaluate the PDF uncertainties. Here again only shape uncertainties are taken into account by keeping the normalization constatnt. The uncertainties due to PDFs go up to 10\% as shown in Table~\ref{tab:SysZnunu} for $Z \to \nu \bar{\nu}$ estimates in all signal regions.
+
+\textbf{$\alpha_{S}$}
+
+The unceratinties on the background estimates coming from $\alpha_{S}$ are as well evaluated with help of the event weights. The defalut value of $\alpha_{S}$ which is 0.118 is varied to 0.117 and 0.119.  The intereset is in the shape uncertainties and therefore again the normalization is forced to be constant when varying $\alpha_{S}$. The final uncertainties are of order of 3\% and are show in Table~\ref{tab:SysZnunu} for all $Z \to \nu \bar{\nu}$ background estimates.
+
+
+The Fig.~\ref{fig:figures/ttZUnc} shows the $t\bar{t}Z$ \MET distribution in grouped regions of A--B~(left) and C--H(right) with a band corresponding to combined scales, PDFs and $\alpha_{S}$ uncertainties. It can be noticed taht the uncertainties are very small for low \MET, but grow with \MET up to around 10\%.
 
     \insertTwoFigures{figures/ttZUnc}
                  {figures/AB250lessMETlessInfCanFrank} % Filename = label
                  {figures/CDEFGH250lessMETlessInfCanFrank} % Filename = label
                  {0.49}       % Width, in fraction of the whole page width
                  { ttZ (theoretical?) uncertainty. }
+
+
+The second group of systematic uncertainties is reffered as ``experimental uncertainties''. Part of the uncertainties originate from uncertainties on scale factors, which are light and heavy flavour b-tagging and lepton scale factors. The uncertainties evlauated variations of scale factors as persribed by corresponding POGs~(Physics objects Groups) are present in Table.~\ref{tab:SysZnunu} for $Z \to \nu \bar{\nu}$ background estimates. The uncertainty on the b-tagging and lepton sclae factors is typically of order of few percent, except of few outliers caused by limited statistics in simulated samples.
+
+Another source of uncertainty arises from the Jet Energy Scale~(JES). The Jet Energy Corrections~(JEC) must be applied on the reconstructed jets to have correct energy scale of the jets. The uncertaintes from variations of JES are of order of few percent, alhough in few signal regions with small statistics they can reach up to three or four tens of percent. The uncertainty arising from differences in pile-up profile in data and simulation was found to be extremely sensitive to the limited statistics and therefore for $Z \nu bar{\nu}$ processes only one gloabl uncertainty was evaluated by varying the PU in the baseline search region. The systematic uncertainty on PU was determined to be lower than one percent, but the conservative estimate of 3\% is used. As for $t\bar{t}Z$ process the ISR reweighting was applied, the uncertainty arising from this procedure must be evaluated by varuing the ISR weight. The uncertainty introduced by ISR reweighting was evaluated to be lower than 10\%.
+
+The dominant ucertainty comes from limited statistics in the simulated samples. The statistical uncertainty varies from around 5\% to 90\% and in one signal region reaches up to 228\%.
+
+The breakedown of the systematic uncertainties on the $Z \nu \bar{\nu}$  background estimates in all signal regions is shown in Table~\ref{tab:SysZnunu}. The summarized typical order of magnitude of these uncertainties is presented in table~\ref{tab:SysZnunuSum}.
+
+%Like all experimentally-reconstructed objects, jets need to be calibrated in order to have the correct energy scale: this is the aim of the jet energy corrections (JEC). 
+
 \begin{table}[h]
 \begin{center}
 \noindent\hrulefill
@@ -656,7 +708,7 @@ From the simulation the contribution to the total background from $t\bar{t} \to 
 \hline
 \end{tabular}}
 \caption[Table caption text]{znunu syst SRs A-I. }
-\label{tab:SystZnunu}
+\label{tab:SysZnunu}
 \end{center}
 \end{table}
 
@@ -667,7 +719,7 @@ From the simulation the contribution to the total background from $t\bar{t} \to 
 \hline
 \textbf{Source}       & \textbf{Typical range of values} [\%]                       \\
 \hline
-\textbf{MC statistics}      &  4-87   \\
+\textbf{MC statistics}      &  5-88   \\
 \hline
 \textbf{Lepton efficiencies}              &  <3  \\
 \textbf{b-tagging SF (light flavor)}      &  1-19  \\
@@ -689,11 +741,83 @@ From the simulation the contribution to the total background from $t\bar{t} \to 
 \end{center}
 \end{table}
 
+\subsubsection{Systematic uncertainties on the lost lepton background estimation}
+
+As for $Z \nu \bar{nu}$ the uncertainties on the lost lepton background estimates contain the uncertainties due to limited statistics in simulation, ISR reweighting, PU, JES, PDFs, scales, $\alpha_{S}$, b-tagging and lepton scale factors  applied as well, although many of them largely cancel in $N^{MC,~SR}_{lost \ell}\ N^{MC,~CR}_{\ell\ell}$ ratio used for estimation of lost lepton background yields in SRs.
+
+Except of these uncertainties following uncertaintes have to be evaluated:
+
+\begin{itemize} 
+\item Uncertainty from the limited statistic of data in control regions
+\item Uncertainty arising from the efficiency of dilepton trigger used for CR samples
+\item Uncertainty on the \MET resolution which can cause migration of events in between signal regions
+\item Uncertainty arising from different \MET shape in data and simualtion; the shape difference can again cause migration of events in between signal regions
+\item Uncertainty on efficiency of hadronic tau and isolated track vetos %why we do not have this?
+\end{itemize}
+
+
+Here again the dominat uncertainty arise from the limited statistics data and simulation which can go up to around 60\%.
+
+
+\subsubsection{Systematic uncertainties on the one lepton background estimation}
+
+The uncertainties on the W+jets background estimates are very similar to the previous cases as they contain uncertainties due to limited statistics in simulation, PU, JES, PDFs, scales, $\alpha_{S}$, b-tagging and lepton scale factors  applied as well, although many of them largely cancel in $N^{MC,~SR}_{lost \ell}\ N^{MC,~CR}_{\ell\ell}$ ratio used for estimation of lost lepton background yields in SRs.
+
+Except of these uncertainties following uncertaintes have to be evaluated:
+
+\begin{itemize} 
+\item Uncertainty from the limited statistic of data in control regions
+%\item Uncertainty on the \MET resolution which can cause migration of events in between signal regions
+\item Uncertainty on W+b cross section
+\item Uncertainty on the contamination of control regions
+\end{itemize}
+
+In tjis case the dominat uncertainties arise from the limited statistics in data and simulation and also from the contamination of control regions by non-W+jets processes. These uncertainties can reach up to 90\%.
+
+The uncertainty on $t\bar{t} \to 1\ell$ estimates was evaluated to be 100\% from the studies of the \MET resolution.
+
+\subsubsection{Uncertainties on the signal yields}
+
+The signal uncertainties are evaluated similarly as the background ones.  As previously the largest source of uncertainty is the limited statistics in the simulated samples which varies from 5 to 25\%. The subleading uncertainties come from JES, ISR and PU modelling. Th signal uncertainties with their typicall values are summarized in table of Fig.~\ref{fig:figures/Table006}.
+
+    \insertFigure{figures/Table006} % Filename = label
+                 {0.7}       % Width, in fraction of the whole page width
+                 { signal uncertainties ~\cite{Sirunyan:2017xse}. }
+
+\textbf{Pile-up uncertainty}
+
+For the 2015 version of analysis~\cite{Sirunyan:2016jpr} I performed studies of the dependency of the $M_{T}$ and \MET distributions in signal on the pile-up. The results of these study were used to assess one of the systematic uncertainties on the signal yields.
+
+To difference in the $M_{T}$ and \MET distrubutions as a function of pile-up was evaluated staring from the baseline search region, removing requirement on $M_{T}$ and \MET, respectively. The total number of events $N$ was divided into bins in the number of primary vertices in the events $N_{vtx}$. In each $N_{vtx}$ bin $i$ the number of events passing the criterum $M_{T}$>150~GeV~($N_{i,M_{T}>150}$) (\MET>250~GeV~($N_{i,E_{T}^{miss}>250}$)) were divided by the total number of events in bin $i$~($N_{i}$) and scaled by $N$. The evolutions of variable $N_{i,M_{T}>150}/N_{i} \times N$ and $N_{i,E_{T}^{miss}>250}/N_{i} \times N$ as a function of $N_{vtx}$ for T2tt signal points (225,25--150) are shown in Fig.~\ref{fig:figures/pileupUnc}. In the figures it can be noticed that  the distrunution are not flat and varying $N_{vtx}$ by five units leads to uncertainty up to around 7\%. This value was used as an uncertainty for low $\Delta m$ signals. The variations are smaller for high $\Delta m$ signals, leading to uncertainty up to 2\%.
+
+    \insertTwoFigures{figures/pileupUnc}
+                 {figures/tailnrMT22525to150nNEW} % Filename = label
+                 {figures/tailnrMET22525to150nNEW} % Filename = label
+                 {0.49}       % Width, in fraction of the whole page width
+                 { nvtx in MT and MET. }
+\newpage
 \section{Results and interpretation}
 
-\section{Differences in previous analyses}
 
-\section{Selected topics}
+    \insertFigure{figures/Table005} % Filename = label
+                 {0.99}       % Width, in fraction of the whole page width
+                 { result table ~\cite{Sirunyan:2017xse}. }
+
+    \insertFigure{figures/resultPlot} % Filename = label
+                 {0.75}       % Width, in fraction of the whole page width
+                 { result plot ~\cite{Sirunyan:2017xse}. }
+
+
+    \insertTwoFigures{figures/limitPlots}
+                 {figures/limitT2tt} % Filename = label
+                 {figures/limitT2bW} % Filename = label
+                 {0.49}       % Width, in fraction of the whole page width
+                 { limit plots t2tt and t2bW  ~\cite{Sirunyan:2017xse}}
+
+    \insertFigure{figures/limitT2tb} % Filename = label
+                 {0.5}       % Width, in fraction of the whole page width
+                 { limit plot t2tb ~\cite{Sirunyan:2017xse}. }
+%tables and plots
 
 \subsection{Perspectives: W/top-tagging ?}
 
