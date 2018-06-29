@@ -209,7 +209,7 @@ The muon going through DTs deposits its energy by ionization of the gas. The cre
 The timing measurements are combined to produce, among others, the following variables: 
 
 \begin{description}
-\item [TimeAtIPInOut]
+\item [$time_{IP}^{InOut}$]
 This variable corresponds to the time at which a muon was present at the interaction point, assuming that the muon moves at the speed of light from the IP outside of CMS. It is computed as a weighted average of the measured $\delta t$ values, where in case of the DTs each weight is equal to N-2, with N being the number of hits in the segment of DTs to which the the hit belongs. The error on the time measurement is computed as
 
 \eq{timingResol}
@@ -219,11 +219,11 @@ This variable corresponds to the time at which a muon was present at the interac
 
 where the weight $w_{i}$ is defined as $w_i = 1/\sigma_{i}^2$ with $\sigma_{i}$ being a single hit resolution, $t_{i}$ is single timing measurement~($\delta t$) and $\bar{t}$ is the weighted average of the $\delta t$ measurements.
 
-\item[TimeAtIPOutIn]
-The TimeAtIPOutIn is the muon time at the interaction point assuming that the muon moves from the outside of the CMS detector towards the IP. During the calculation, each $\delta t$ measurement is increased by twice the time-of-flight~(TOF) of the in-time muon from IP to the DT cell measuring the $\delta t$. Then the computation of timing continues as for the TimeAtIPInOut.
+\item[$time_{IP}^{OutIn}$ ]
+The $time_{IP}^{OutIn}$ is the muon time at the interaction point assuming that the muon moves from the outside of the CMS detector towards the IP. During the calculation, each $\delta t$ measurement is increased by twice the time-of-flight~(TOF) of the in-time muon from IP to the DT cell measuring the $\delta t$. Then the computation of timing continues as for the $time_{IP}^{InOut}$.
 
 \item[Direction]
-The direction variable provides a simple and robust estimate if the muon traveled from the IP out or in the opposite way. The evaluation takes into account the errors on the TimeAtIPOutIn and TimeAtIPInOut variables and assumes that the correct time hypothesis has the smallest error.
+The direction variable provides a simple and robust estimate if the muon traveled from the IP out or in the opposite way. The evaluation takes into account the errors on the $time_{IP}^{OutIn}$ and $time_{IP}^{InOut}$ variables and assumes that the correct time hypothesis has the smallest error.
 
 \item[Free inverse beta]
 This variable is the free $c/v$, where $c$ is the speed of light and $v$ the speed of the muon. The word ``free'' indicates that neither the production time, the direction nor the velocity is assumed and that all three are free parameters. It is obtained from the fit of muon time-of-flight measurements.
