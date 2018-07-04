@@ -11,7 +11,7 @@
 \clearpage
 
 \setcounter{secnumdepth}{4}
-\chapterwithnum{Silicon strip tracker simulation}
+\chapterwithnum{Silicon strip tracker simulation~\label{ch:simu}}
 \setcounter{secnumdepth}{5}
 
 
@@ -47,7 +47,6 @@ To be able to describe data by simulations, the generated particles need to be p
 
 The simulation of the pile-up events is done separately from the simulation of the events of interest. The input to the GEANT4 simulation of in-time and out-of-time pile-up is a pool of Minimum Bias single interaction events. To simulate a given luminosity profile a specific distribution of the number of interactions per bunch crossing is chosen. 
 
-%TODO more about OOT - loopers + electronics
 
 The complete simulation performed with GEANT4, also called Full Simulation~(FullSim), is very time intensive and thus it is not suitable to simulate samples for which huge number of events is needed. For this purposes a Fast Simulation~(FastSim)~\cite{Sekmen:2017hzs, CMS:2010spa, Giammanco:2014bza} was developed as an alternative to the FullSim. The FastSim uses a simplified detector geometry and interactions with material, which speeds the simulation by factor of around 100. The comparison of physics objects of FullSim and FastSim shows that FastSim is a reliable alternative that reproduces the FullSim high level objects within around 10\% accuracy~\cite{Sekmen:2017hzs, Abdullin:2011zz}. The FastSim is widely used to produce for example samples of supersymmetric processes, where large scans with different parameter values are needed.
 
@@ -65,7 +64,6 @@ The following Figs.~\ref{fig:figures/clusterchargeRescaledalll0to0simulation} to
  
 The charge from a given track collected by an APV is divided by the track length in a sensor, further referred as ``cluster charge'', is shown in Fig.~\ref{fig:figures/clusterchargeRescaledalll0to0simulation}. The data to simulation ratio fluctuates around 1 within around $\pm 0.1$ in the bulk of the cluster charge distribution, but the description worsens for very small and very large cluster charges. Overall the cluster charge distribution in simulation is narrower than in data. 
 
-%[TODO would not be better to use (data-MC)/data instead of data/MC in the ratio plot?]
 
     \insertFigure{figures/clusterchargeRescaledalll0to0simulation} % Filename = label
                  {0.5}       % Width, in fraction of the whole page width
@@ -310,7 +308,7 @@ In reality, the charge is induced on the strips already once the electrons and h
 
     \insertFigure{figures/clusterchargeRescaledTOBl1to4XT} % Filename = label
                  {0.5}       % Width, in fraction of the whole page width
-                 { Data and simulation comparison of on-track cluster charge divided by the track lengthn for OB2 geometry and for different values of the cross talk~$XT$.  The simulated distributions are rescaled to the number of clusters in data.  Bottom plot represents data to simulation ratios. }
+                 { Data and simulation comparison of on-track cluster charge divided by the track length for OB2 geometry and for different values of the cross talk~$XT$.  The simulated distributions are rescaled to the number of clusters in data.  Bottom plot represents data to simulation ratios. }
 
     \insertTwoFigures{figures/seedwidthTOBXT} % Filename = label %TDO continue here
                  {figures/clusterwidthTOBl1to4XT}
@@ -324,7 +322,7 @@ With the ageing of the modules, the conversion between the energy and the number
 
     \insertFigure{figures/clusterchargeRescaledalll0to0Ee} % Filename = label
                  {0.5}       % Width, in fraction of the whole page width
-                 { Data and simulation comparison of on-track cluster charge divided by the track lengthn for OB2 geometry and for different values of the conversion factor between deposited energy and electrons~($Ee$). The simulated distributions are rescaled to the number of clusters in data.  Bottom plot represents data to simulation ratios. }
+                 { Data and simulation comparison of on-track cluster charge divided by the track length for OB2 geometry and for different values of the conversion factor between deposited energy and electrons~($Ee$). The simulated distributions are rescaled to the number of clusters in data.  Bottom plot represents data to simulation ratios. }
 
     \insertTwoFigures{figures/seedwidthTOBEe} % Filename = label %TDO continue here
                  {figures/clusterwidthTOBl1to4Ee}
@@ -392,20 +390,15 @@ Besides the standard zero suppressed simulation, the tracker digitization step b
 
 \section{Improvement of the simulation}
 
-As identified in the above sections the change of cross talk parameters could lead to a better description of data by simulation. There are two possibilities how to update cross talk parameters. The first possibility was already introduced in subsection~\ref{sec:induce} and it is to produce a matrix of samples, each changing the two free cross talk parameters by step. Then it can be estimated via a $\chi^{2}$ test, which simulated cluster width distribution fits the one in data. Before such tuning of the cross talk, it is necessary to perform an update of the bad channels, noise and gains in the simulation. The noise and gains are measured conditions, which are influencing the cluster properties and therefore it is indispensable to update them prior to the cross talk tuning.
+As identified in the above sections the change of cross talk parameters could lead to a better description of data by simulation. There are several possibilities how to update cross talk parameters. The first possibility was already introduced in subsection~\ref{sec:induce} and it is tune cross talk from data to simulation comparision. A matrix of samples with each of the two independent cross talk parameters changed in steps can be produced. Then the cross talk which is best improving description of data by simulation is chosen. Before such tuning of the cross talk, it is necessary to perform an update of the bad channels, noise and gains in the simulation as their update after tuning could destroy the data simulation agreement. The noise and gains are measured conditions, which are influencing the cluster properties and therefore it is indispensable to update them prior to the cross talk tuning.
 
-The second option is to measure the cross talk parameters from data. In following subsection~\ref{sec:xtalk}, the results on the cross talk measurement are presented and then compared with the results obtained by the tuning of cross talk from data and simulations comparisons.
+%and it is to produce a matrix of samples, each changing the two free cross talk parameters by step. Then it can be estimated via a $\chi^{2}$ test, which simulated cluster width distribution fits the one in data.
 
-%The first step how to imporve the description of data is update of the conditions
-%-first nose gains and bad channels need to be updated
-%-then plug in cross talk
-%- then if neeeded tune one fo the conversion factors
-%-In the previous sections several limitiations and simplifications in simulation process vere identified. In further steps the simulation could be improved to mimic more realistically hoe the clusters are created inCMS detector.
-
+The second option is to measure the cross talk parameters from data. In following subsection~\ref{sec:xtalk}, the results on the cross talk measurement are presented and then compared with the results obtained by the tuning of cross talk from data and simulations comparisons. Because of the low statistics in TID and TEC, the cross talk could be measured only in barrels. To obtain cross talk parameters a third option was developed, which combines measurement drom data and tuning based on data to simulation comparison.
 
 \subsection{Cross talk  measurement~\label{sec:xtalk}}
 
-The cross talk used in simulation was obtained by a measurement on CRUZET VR data at the beginning of Run~I. After identifying that the outdated cross talk could lead to large discrepancies between data and simulation, the decision  to remeasure the cross talk was taken. The new data for the cross talk measurement were taken in the virgin raw mode at the end of March 2018. These data are CRUZET, implying that there was no magnetic field and no collisions in the detector during the data taking therefore only cosmic muons were triggered. The trigger used during this data-taking, was first designed for triggering cosmics during collisions~(CDC), which was requested by the tracker alignment group. It advantage is that it increases the probability of triggering muons which passed through the tracker. The CDC trigger bit~\cite{website:trigger} assumes that muon passes through the whole CMS in around 30~ns, implying that the top leg of the muon should be seen in top part of detector at bunch crossing equal to minus one, and the bottom leg in the bottom part of detector at bunch crossing equal to zero. Moreover the two legs should be back to back, leading to the requirement on angle between the legs to be $\pi \pm 1/6\pi$. To further enhance cosmics passing through the tracker, the criteria on phi and eta are imposed. The top leg must pass the requirement $|\phi|<1/2\pi \pm 1/3\pi$ and the bottom leg $|\phi|<3/2\pi \pm 1/3\pi$, the eta of muon is required to satisfy $|\eta|<1.202$. The requirement on $\eta$ results in muons which are almost exclusively measured by DTs only. In totality 145854 of CRUZET VR events in runs 312627, 312972, 312973, 312974 and 312977 were taken and saved.
+The cross talk used in simulation was obtained by a measurement in CRUZET VR data at the beginning of Run~I. After identifying that the outdated cross talk could lead to large discrepancies between data and simulation, the decision  to remeasure the cross talk was taken. The new data for the cross talk measurement were taken in the virgin raw mode at the end of March 2018. These data are CRUZET, implying that there was no magnetic field and no collisions in the detector during the data taking therefore only cosmic muons were triggered. The trigger used during this data-taking, was first designed for triggering cosmics during collisions~(CDC), which was requested by the tracker alignment group. It advantage is that it increases the probability of triggering muons which passed through the tracker. The CDC trigger bit~\cite{website:trigger} assumes that muon passes through the whole CMS in around 30~ns, implying that the top leg of the muon should be seen in top part of detector at bunch crossing equal to minus one, and the bottom leg in the bottom part of detector at bunch crossing equal to zero. Moreover the two legs should be back to back, leading to the requirement on angle between the legs to be $\pi \pm 1/6\pi$. To further enhance cosmics passing through the tracker, the criteria on phi and eta are imposed. The top leg must pass the requirement $|\phi|<1/2\pi \pm 1/3\pi$ and the bottom leg $|\phi|<3/2\pi \pm 1/3\pi$, the eta of muon is required to satisfy $|\eta|<1.202$. The requirement on $\eta$ results in muons which are almost exclusively measured by DTs only. In totality 145854 of CRUZET VR events in runs 312627, 312972, 312973, 312974 and 312977 were taken and saved.
 
 The data with zero magnetic field are important to decompose effects of Lorentz angle from the cross talk. Furthermore the data need to be in the VR mode in order not to suppress the strips which have non-zero charge because of the cross talk, but which is small enough to be zero suppressed. At first, the strategy of the previous cross talk measurement was reused. When there is no cross talk effect, the total charge $Q$ should be collected only by one strip in case that the track passes only through the sensitive volume of the sensor belonging to one strip. But as shown in Fig.~\ref{fig:figures/crossTalk}, due to the cross talk effect, the charge is shared with two neighboring strips on each side and the charge collected by this seed strip is not $Q$ but only a fraction $x_{0}$ of the original charge $Q$.The neighboring strips obtain smaller fractions $x_{1}$ and $x_{2}$ of this charge $Q$. The total charge has to be conserved, leading in requirement on the fractions to be $1=x_{0}+2x_{1}+2x_{2}$. To study such charge sharing, the selection on the angle of the track imposed, in order to reduce probability that the track traverses the sensor area belonging to more strips. The selection on the track was chosen to be the same as in previous measurement:
 
@@ -429,7 +422,7 @@ with $\eta_{i}$ defined as
 \eta_{\pm i} = \frac{q_{\pm i}}{q_{0}} = \frac{x_{i}}{1-2x_{1}-2{x_{2}}} ,
 }
 
-where i=1,2, $x_{1}$ is fraction of the charge recieved by the first neighboring strip,  $x_{2}$ is fraction of charge recieved by the second neighboring strip and $x_{0}$ is obtained from the normalization condition. $q_{0}$ is the charge read by the seed strip and $q_{i}$ the charge registered by the neighboring strips. The distributions of $q_{\pm 1}/q_{0}$ and $q_{\pm 2}/q_{0}$ are each filled twice per clusters and fitted separately by Gaussian function, avoiding the tails. The mean values of these distributions are inserted in the Eq.\ref{eq:fractions} in order to compute the fraction of charge shared to neighboring strips. The results on cross talk measurement from Run~I which are currently used in simulation together with the results of presented measurement described later, can be seen in Tab.~\ref{tab:measuredXtalk}. During the Run~I measurement, it was found out that the cross talk differs for each module geometry and thus it has to be measured separately for each geometry. In the table, only the cross talk measurement results from the barrels are present, as due to the eta cut of chosen trigger for the current data-taking, the tracks passing the disks and endcaps are suppressed. 
+where i=1,2, $x_{1}$ is fraction of the charge recieved by the first neighboring strip,  $x_{2}$ is fraction of charge recieved by the second neighboring strip and $x_{0}$ is obtained from the normalization condition $x_{0} = 1-2x_{1}-2x_{2}$. $q_{0}$ is the charge read by the seed strip and $q_{i}$ the charge registered by the neighboring strips. The distributions of $q_{\pm 1}/q_{0}$ and $q_{\pm 2}/q_{0}$ are each filled twice per clusters and fitted separately by Gaussian function, avoiding the tails. The mean values of these distributions are inserted in the Eq.\ref{eq:fractions} in order to compute the fraction of charge shared to neighboring strips. The results on cross talk measurement from Run~I which are currently used in simulation together with the results of presented measurement described later, can be seen in Tab.~\ref{tab:measuredXtalk}. The cross talk depends on the pitch size, strip length and width, and thus it has to be measured separately for each geometry. In the table, only the cross talk measurement results from the barrels are present, as due to the eta cut of chosen trigger for the current data-taking, the tracks passing the disks and endcaps are suppressed. 
 
     \insertFigure{figures/crossTalk} % Filename = label
                  {0.5}       % Width, in fraction of the whole page width
@@ -451,7 +444,7 @@ As also displayed in the right part of Fig.~\ref{fig:figures/muonTracks}, there 
                  { A schema of possible configurations of muon legs and hits in the tracker. }
 
 
-The distribution of time and free inverse beta for the bottom legs of the muons are shown in Fig.~\ref{fig:figures/mutimebeta}. As expected, the free inverse beta has  a largest population around one, as the direction of the bottom legs is from the IP outwards and that the muon speed is close to the speed-of-light. For the further analysis only muon tracks with positive free inverse beta are used. In principle, the time distribution for cosmic muon should be uniform due to the random arrival time of cosmics to the interaction point. But as mentioned in~\cite{Chatrchyan:2009ig}, the trigger efficiency is highest for muons arriving to the interaction point in time window of $\pm 5$~ns around the collision time. Time distribution in Fig.~\ref{fig:figures/mutimebeta} peaks around -3.5~ns similarly as observed in the note on muon timing~\cite{Traczyk:1365029}. The muons with time equal to zero, passed the interaction point at the same time when the collision muon would be produced at IP. The resolution, computed as FWHM, of the time distribution is 15.7~ns. To evaluate which part of the resolution is caused by resolution of time measurement in DTs, the timing distribution from DTs of muons produced in collision with a Gaussian fit is shown in Fig~\ref{fig:figures/timeColl}. The collision muons are produced at time equal to zero, therefore there is no ambiguity on production time as for the cosmic muons. But still the muon time is computed with an assumption that muon travels at the speed-of-light. The resolution of collision muon time computed from the fit is 3.9~ns. The cosmic muon timing distribution is more than four times larger because of the natural spread in arrival time of cosmics. Another bias in time measurement can appear due to the assumption wich is used in time computation, that the muon passes through the interaction point.
+The distribution of time and free inverse beta for the bottom legs of the muons are shown in Fig.~\ref{fig:figures/mutimebeta}. As expected, the free inverse beta has  a largest population around one, as the direction of the bottom legs is from the IP outwards and that the muon speed is close to the speed-of-light. For the further analysis only muon tracks with positive free inverse beta are used. In principle, the time distribution for cosmic muon should be uniform due to the random arrival time of cosmics to the interaction point. But as mentioned in~\cite{Chatrchyan:2009ig}, the trigger efficiency is highest for muons arriving to the interaction point in time window of $\pm 5$~ns around the collision time. Time distribution in Fig.~\ref{fig:figures/mutimebeta} peaks around -3.5~ns similarly as observed in the note on muon timing~\cite{Traczyk:1365029}. The muons with time equal to zero, passed the interaction point at the same time when the collision muon would be produced at IP. The resolution of the time distribution is 13.2~ns. To evaluate which part of the resolution is caused by resolution of time measurement in DTs, the timing distribution from DTs of muons produced in collision with a Gaussian fit is shown in Fig~\ref{fig:figures/timeColl}. The collision muons are produced at time equal to zero, therefore there is no ambiguity on production time as for the cosmic muons. But still the muon time is computed with an assumption that muon travels at the speed-of-light. The resolution of collision muon time computed from the fit is 3.3~ns. The cosmic muon timing distribution is more than four times larger because of the natural spread in arrival time of cosmics. Another bias in time measurement can appear due to the assumption wich is used in time computation, that the muon passes through the interaction point.
  
 
     \insertTwoFigures{figures/mutimebeta} % Filename = label
@@ -466,25 +459,23 @@ The distribution of time and free inverse beta for the bottom legs of the muons 
                  { Time distribution with Gaussian fit of 2017 era~F muons originating from collisions.  }
 
 
-The timing of pulse shape sampling in tracker is tuned in a way that the cluster seed charge is required to be maximal. Such timing adjustments are done with particles originating from collision, thus their production time is fixed to zero. Therefore to evaluate, if the cosmic muon time is in alignment with the collision one, the cluster seed charge distribution as a function of muon timei for the OB2 geometry shown in the left plot of Fig.~\ref{fig:figures/chargeVsTime} can be studied. This distribution is fitted with Gaussian function giving a mean $\mu = -6.6 \pm 0.3$, which is not compatible with zero within its uncertainty. As mentioned, there is a bias in the time measurement leading from the fact, that cosmic muons do not have to pass through the interaction point, but the muon time computation is extrapolating muon time to the interaction point. This effect could shift the maximum of seed charge from time equal to zero. To evaluate what is the dependency of maximum of the cluster seed charge as a function of the closest distance of track from the IP, the right plot of Fig.~\ref{fig:figures/chargeVsTime} is again revealing the mean of cluster charge as a function of time, but this time for three different cases of tracks passing at different closest distances to the IP. The closest distance, further referred only as ``distance'', of the track from the IP  is determined as a shortest distance between any point on the track and the IP. On the plot it can be noticed, that the maxima of the cluster seed charge for the three cases are at different positions. Morover smaller the distance, the cluster seed chareg peaks at smaller time. Because of observed ambiguity, the muon time has to be corrected as a function of distance. The time correction factor can be obtained from a linear fit of the time positions~($t_{max}$) of the maxima of Gaussian fits displayed in the right plot of Fig.~\ref{fig:figures/chargeVsTime} as a function of distance~($dist$). The fit is giving dependecy between time and distance
+The timing of pulse shape sampling in tracker is tuned in a way that the cluster seed charge is required to be maximal. Such timing adjustments are done with particles originating from collision, thus their production time is fixed to zero. Therefore to evaluate, if the cosmic muon time is in alignment with the collision one, the cluster seed charge distribution as a function of muon time depicted in the left plot of Fig.~\ref{fig:figures/chargeVsTime} can be studied. As mentioned, there is a bias in the time measurement leading from the fact, that cosmic muons do not have to pass through the interaction point, but the muon time computation is extrapolating muon time to the interaction point. This effect could shift the maximum of seed charge from time equal to zero. To evaluate what is the dependency of maximum of the cluster seed charge as a function of the closest distance of track from the IP, three different cases of tracks passing at different closest distances to the IP are shown in this plot. The closest distance, further referred only as ``distance'', of the track from the IP  is determined as a shortest distance between any point on the track and the IP. On the plot it can be noticed, that the maxima of the cluster seed charge for the three cases are at different positions and none of them is around 0~ns. All cluster seed charge distrubutions peak at negative times and smaller the distance, they peak at smaller time. Because of the observed ambiguity of the maximal cluster seed charge as a function of track distance from the IP, the muon time has to be corrected as a function of distance. The time correction factor can be computed from a linear fit of the time positions~($t_{max}$) of the maxima obtained from Gaussian fits as a function of distance~($dist$). The fit displayed in the right plot of Fig.~\ref{fig:figures/chargeVsTime} is giving dependecy between time and distance
 
 \eq{driftEquation}
 {
-t_{max} = 0.07 dist  - 10.3,
+t_{max} = 0.048 dist  - 7.9,
 }
 
-leading to a conclusion that the cluster seed charge is maximal for muon which passes directly through the interaction point at time equal to $-10.3 \pm 0.9 $. The dependency of time on track distance can be resolved by subtracting the factor $ 0.07 dist $ from the muon time.
-
-%at the maximum is largest for the closest tracks to the IP. But the maxima are at the same positions, therefore the distance of the track from IP is not causing any major shift of the charge distribution in time, but it acts more as a resolution effect. 
+leading to a conclusion that the cluster seed charge is maximal for muon which passed directly through the interaction point at time equal to $-7.9 \pm 0.4 $. The dependency of time on track distance can be resolved by subtracting the factor $ 0.048 dist $ from the muon time.
 
 
     \insertTwoFigures{figures/chargeVsTime} % Filename = label
-                 {figures/chargePerUnitTOB2bottommuBottom}
-                 {figures/chargePerUnitBinsTOB2bottommuBottom} % Filename = label
+                 {figures/chargePerUnitLayersBinsbottommuBottom}
+                 {figures/chargePerUnitLayersBinsfitbottommuBottom}
                  {0.45}       % Width, in fraction of the whole page width
-                 {(left) The cluster seed charge profile as a function of time for the OB2 geometry in 2018 VR CRUZET data. The measured data were fitted by a Gaussian function. (right) The cluster seed charge profiles as a function of time for the OB2 geometry and for three different distances of the muon track from the IP in 2018 VR data with the Gaussian fits. }
+                 {(left) The cluster seed charge profiles as a function of time for three different distances of the muon track from the IP in 2018 VR data with the Gaussian fits. (right) The time of maxima from the fits in the left plot as a function of the mean track distance from the IP fitted by a line. }
 
-As suggested above, the cross talk depends on time and therefore to obtain the cross talk transferable to collision conditions, in the time window when the cluster seed charge is maximal. To prove the hypothesis of cross talk dependence on time, the $\eta_{\pm 1}$ and $\eta_{\pm 2}$ distributions were filled with a cluster information from muons in 4~ns window, fitted by a Gaussian, which mean was used to evaluate the evolution of charge sharing as a function of time for OB2 geometry as shown in Fig.~\ref{fig:figures/etaAsTime}. Each bin of this figure corresponds to the middle of the 4~ns interval in which the fit was performed, i.e. the bin corresponding to time zero integrated over clusters from muon arriving to the IP at time window $-10 \pm 2$~ns. The $\eta_{\pm 1}$ and $\eta_{\pm 2}$ distributions resulting from muons within this time window, together with the Gaussian fit are shown in Fig.~\ref{fig:figures/xtalkTOB2}. The figures reveal a Gaussian distribution of certain width due to the strip noise. The tails are caused by charge sharing due to incination of track or diffusion. In Fig.~\ref{fig:figures/etaAsTime} it can be clearly seen that the charge sharing is smaller for muons arriving to a given module before a collision particle would and larger for muons passing a given module later than particle from the collision would. Given this observation it is necessary to impose the selection on the muon arrival time for which the vluster seed charge is maximal. The time window was selected to be $-10 \pm 2$~ns with regard to the time resolution from the DTs.
+As suggested above, the cross talk depends on time and therefore to obtain the cross talk transferable to collision conditions, the cross talk needs to be measured in the time window when the cluster seed charge is maximal. To prove the hypothesis of cross talk dependence on time, the $\eta_{\pm 1}$ and $\eta_{\pm 2}$ distributions were filled with a cluster information from muons in 4~ns window, fitted by a Gaussian, which mean was used to evaluate the evolution of charge sharing as a function of time for OB2 geometry as shown in Fig.~\ref{fig:figures/etaAsTime}. Each bin of this figure corresponds to the middle of the 4~ns interval in which the fit was performed, i.e. the bin corresponding to time zero integrated over clusters from muon arriving to the IP at time window $0 \pm 2$~ns. In the time window $-8 \pm 2$ the cluster seed charge is maximal and therefore for the cross talk measurement we are especially interested in this time window. The  $\eta_{\pm 1}$ and $\eta_{\pm 2}$ distributions resulting from muons within this time window, together with the Gaussian fit are shown in Fig.~\ref{fig:figures/xtalkTOB2}. The figures reveal a Gaussian distribution of certain width due to the strip noise. The tails are caused by charge sharing due to incination of track or diffusion. In Fig.~\ref{fig:figures/etaAsTime} it can be clearly seen that the charge sharing is smaller for muons arriving to a given module before a collision particle would (before -8~ns) and larger for muons passing a given module later than particle from the collision would. Given this observation, for the cross talk measurement it is necessary to impose the selection on the muon arrival time for which the cluster seed charge is maximal, which is, as discussed, $-8 \pm 2$~ns with regard to the time resolution from the DTs.
 
 %TODO start here
 
@@ -498,18 +489,10 @@ As suggested above, the cross talk depends on time and therefore to obtain the c
                  {figures/narrowTrackSharing1TOB2bottommuBottom}
                  {figures/narrowTrackSharing2TOB2bottommuBottom} % Filename = label
                  {0.45}       % Width, in fraction of the whole page width
-                 { The $\eta_{\pm 1}$ (left) and  $\eta_{\pm 2}$ (right) distribution of muon tracks in the time window of $-10 \pm 2$~ns for the OB2 geometry in 2018 VR CRUZET data and its Gaussian fit.}
+                 { The $\eta_{\pm 1}$ (left) and  $\eta_{\pm 2}$ (right) distribution of muon tracks in the time window of $-8 \pm 2$~ns for the OB2 geometry in 2018 VR CRUZET data and its Gaussian fit.}
 
 
-%After rejecting the muon tracks outside of the $-10 \pm 2$~ns time window, the evolution of the $\eta_{\pm 1}$ and $\eta_{\pm 2}$ as a function of distance from the IP is shown in Fig.~\ref{fig:figures/etaAsDist}. The distributions were filled similarly as ones in Fig.~\ref{fig:figures/etaAsTime}, but this time the sharing was not measured in time window of 4~ns, but the distance window of 4~cm. The x-axis in these plots corresponds to the lower edge of the distance window. Both $\eta_{\pm 1}$ and $\eta_{\pm 2}$ are changing and fluctuating quickly as a function of distance and do not exhibit any clear trend.
-
-%    \insertTwoFigures{figures/etaAsDist} % Filename = label
-%                 {figures/etaOneaAsDistTOB2bottommuBottom}
-%                 {figures/etaTwoAsDistTOB2bottommuBottom} % Filename = label
-%                 {0.45}       % Width, in fraction of the whole page width
-%                 {(left) The evolution of the charge shared to the first neighboring strip divided by the seed charge as a function of the track distance from the IP for OB2 geometry in 2018 CRUZET VR data.  (right) The evolution of the charge shared to the second neighboring strip divided by the seed charge as a function of the track distance from the IP for OB2 geometry in 2018 CRUZET VR data. }
-
-The cross talk parameters are computed from Eq.~\ref{eq:fractions} for all barrel geometries in the time window of $0-10 \pm 2$~ns from the Gaussian fit of corresponding  $\eta_{\pm 1}$ and $\eta_{\pm 2}$ distributions as shown for OB2 in Fig.~\ref{fig:figures/xtalkTOB2}. The measured values together with the values currently used in the simulation are recorded in Tab.~\ref{tab:measuredXtalk}.
+The cross talk parameters are computed from Eq.~\ref{eq:fractions} for all barrel geometries in the time window of $-8 \pm 2$~ns from the Gaussian fit of corresponding  $\eta_{\pm 1}$ and $\eta_{\pm 2}$ distributions as shown for OB2 in Fig.~\ref{fig:figures/xtalkTOB2}. The measured values together with the values currently used in the simulation are recorded in Tab.~\ref{tab:measuredXtalk}.
 
 
 \begin{table}[h]
@@ -538,42 +521,40 @@ OB1 & currently in simulation &  $0.687 $ & $0.122 $ & $ 0.034 $ \\
 \end{table}
 
 
-%IB1 & current measurement & $ 0.848 \pm 0.017 $ & $0.063 \pm 0.008 $ & $0.013 \pm 0.003 $ \\
-%IB1 & currently in simulation & $ 0.775 $ & $ 0.096 $ & $0.017 $  \\
-%\hline
-%IB2 &  current measurement & $0.878 \pm 0.021 $ & $0.053 \pm 0.006 $ & $0.008 \pm $ 0.003   \\
-%IB2 & currently in simulation &  $0.830 $ & $0.076 $ & $ 0.009$   \\
-%\hline
-%OB2 &  current measurement & $0.808 \pm 0.020 $ & $0.079 \pm 0.006 $ & $0.017 \pm 0.004$  \\
-%OB2 & currently in simulation &   $0.725 $ & $0.110 $ & $ 0.027 $  \\
-%\hline
-%OB1 &  current measurement &  $0.769 \pm 0.021 $ & $0.093 \pm 0.006 $ & $0.023 \pm 0.004 $  \\
-%OB1 & currently in simulation &  $0.687 $ & $0.122 $ & $ 0.034 $ \\
+In the Tab.~\ref{tab:measuredXtalk} it can be noticed, that in all cases the sharing of the chargei, i.e. cross talk, decreased. During the previous cross talk measurement, no timing information was taken into account and therefore part of the change can originate from including the time information to evaluate the cross talk. But there is also real change of cross talk due to the radiation effects. 
 
-In the Tab.~\ref{tab:measuredXtalk} it can be noticed, that in all cases the sharing of the charge decreased. During the previous cross talk measurement, no timing information was taken into account and therefore part of the change can originate from including the time information to evaluate the cross talk. But there is also real change of cross talk due to the radiation effects. The radiation is different for each layer and as the cross talk changes with the radiation damage of the module, each layer within one geometry should have different cross talk. To prove this the $\eta_{\pm 1}$ and $\eta_{\pm 2}$ dependency on time is shown in Fig.~\ref{fig:figures/etaAsLayers} for four layers of OB2 separately. The plots were obtained similarly as plots in Fig.~\ref{fig:figures/etaAsTime}, but this time the time window for each bin is 6~ns in order to gain in statistics. In the $\eta_{\pm 1}$ and $\eta_{\pm 2}$ distributions can be seen, that in  case of $\eta_{\pm 1}$ the sharing is larger for the first two layers, than of layer three and four. There is also visible difference in charge sharing between layer three and four. 
+In the Fig.~\ref{fig:figures/xtalkratio1} the ratio of updated to default parameter $x_{1}$ is shown for the four barrel geometries as a distance from the beamline. This ratio was fitted by a line. From the lineslope of $0.0012 \pm 0.0005$ it can be concluded that the change of parameter $x_{1}$ depends on the distance of a geometry from the beamline and is largest for the closest geometry. The fluence of particles decreases as a fucntion of distance from the beamline, therefore the closest geometry suffers from largest fluence, its radiation damage is the largest and as expected its cross talk change is the largest.  
 
-The first two layers are composed of double-sided modules, while the second two have only one side of sensors. In the double-sided modules, the sensors are back to back, therefore a particle going from the IP outside the CMS is entering one sensor from the side of strips and the second from the backplane. As there is also a cross talk which is caused by the movement of the charge carriers, this cross talk could be different depending on from which side the particle enters the sensor and therefore there can be a different cross talk between mono and stereo side of one layer [TODO needs to be discussed]. The $\eta_{\pm 1}$ and $\eta_{\pm 2}$ as a function of time, for decomposed mono and stereo modules of OB2 layer one and two is shown in Fig.~\ref{fig:figures/etaAsMonoStereo}. In these plots, in majority of bins of $\eta_{\pm 1}$ and $\eta_{\pm 1}$  distribution, the sharing within one layer is larger for stereo sensors than mono. This would explain that the first two layers of OB2, which are composed of double-sided modules, exhibit larger charge sharing to the first neighboring strip than the second two, which are single-sided, as discussed in Fig.~\ref{fig:figures/etaAsLayers}. The evidence for pure dependency of cross talk on the radiation can then be observed by the change of $\eta_{\pm 1}$ between layer three and four in the same plot.
+The Ref.~\cite{Hartmann:2017gzy} discusses that due to the surface radiation damages of the silicon strip sensors, the inter-strip capacitance increase and inter-strip capacitance resistance decrease, and consequently and increase in cross-talk is expected. In the presented measurement an decrease of cross talk was observed in  contrary to the literature. The cross talk change can also depend on the change of the strip to backplane capacitance, strip to aluminimum strip capacitance, the depletion and applied voltages and therefore the expected direction of the cross talk change is difficult to evaluate.
+
+    \insertFigure{figures/xtalkratio1} % Filename = label
+                 {0.5}       % Width, in fraction of the whole page width
+                 {The ratio of updated to default (currently used in simulation) $x_{1}$ parameter with the linear fit.}
+
+
+In the Fig.~\ref{fig:figures/xtalkratio1} it was suggested that the cross talk changes as a function fluence. But the sensors in different geometries are not the same and therefore for a given fluence the radiation damage of different sensors is different. To decouple the two effects and evaluate puerly fluence dependence, the cross talk can be studied for different layers of one geometry. The $\eta_{\pm 1}$ and $\eta_{\pm 2}$ dependency on time is shown in Fig.~\ref{fig:figures/etaAsLayers} for four layers of OB2 separately. The plots were obtained similarly as plots in Fig.~\ref{fig:figures/etaAsTime}, but this time the time window for each bin is 6~ns in order to gain in statistics. In the $\eta_{\pm 1}$ and $\eta_{\pm 2}$ distributions and their ratio plots can be seen, that the charge sharing is larger for the first two layers, than of layer three and four. In  $\eta_{\pm 1}$ distribution there is also visible difference in charge sharing between layer three and four, whose ratio varies from one by $\pm$10\%. 
+
+The first two layers are composed of double-sided modules, while the second two have only one side of sensors. In the double-sided modules, the sensors are back to back, therefore a particle going from the IP outside the CMS is entering one sensor from the side of strips and the second from the backplane. The formation of the signal could be different depending on from which side the particle enters the sensor and therefore there can be a different cross talk between mono and stereo side of one layer. The $\eta_{\pm 1}$ and $\eta_{\pm 2}$ as a function of time, for decomposed mono and stereo modules of OB2 layer one and two is shown in Fig.~\ref{fig:figures/etaAsMonoStereo}. In these plots, in majority of bins of $\eta_{\pm 1}$ and $\eta_{\pm 1}$  distribution, the sharing within one layer is similar or larger for stereo sensors than mono. This would explain that the first two layers of OB2, which are composed of double-sided modules, exhibit larger charge sharing to the first neighboring strip than the second two, which are single-sided, as discussed in Fig.~\ref{fig:figures/etaAsLayers}. 
+
+%The evidence for pure dependency of cross talk on the radiation can then be observed by the change of $\eta_{\pm 1}$ between layer three and four in the same plot.
 
 
     \insertTwoFigures{figures/etaAsLayers} % Filename = label
                  {figures/etaOneaAsTimeLayerTOB2bottommuBottom}
                  {figures/etaTwoAsTimeLayerTOB2bottommuBottom} % Filename = label
                  {0.45}       % Width, in fraction of the whole page width
-                 { The time evolution of the charge shared to the first (left) and second (right) neighboring strip divided by the seed charge for four layers of OB2 geometry in 2018 CRUZET VR data.}
+                 { The time evolution of the charge shared to the first (left) and second (right) neighboring strip divided by the seed charge for four layers of OB2 geometry in 2018 CRUZET VR data. The ratio plots are shown in bottom, the blue line corresponds to ratio of L1 to L2, the violet line corresonds to ratio of L2 to L3, and the grey line corresonds to ratio of L3 to L4 distributions. }
 
 
     \insertTwoFigures{figures/etaAsMonoStereo} % Filename = label
                  {figures/etaOneaAsTimeMonoStereoTOB2bottommuBottom}
                  {figures/etaTwoAsTimeMonoStereoTOB2bottommuBottom} % Filename = label
                  {0.45}       % Width, in fraction of the whole page width
-                 { The time evolution of the charge shared to the first (left) and second (right) neighboring strip divided by the seed charge for mono and stereo sensors of first two layers of TOB in 2018 CRUZET VR data.}
+                 { The time evolution of the charge shared to the first (left) and second (right) neighboring strip divided by the seed charge for mono and stereo sensors of first two layers of TOB in 2018 CRUZET VR data. The ratio plots are shown in bottom, the blue line corresponds to ratio of L1 mono to stereo, and the grey line corresonds to ratio of L2 mono to stereo distributions. }
 
 
+To evaluate if the new cross talk measurement contributes to an improvement in the data and simulation comparison, it was injected into simulation and compared with data and default simulation. For this validation the 2018 minimum bias simulated samples and 2018 zero bias data from run 317649 were used. The cluster charge, width and seed charge distributions for barrel geometries are shown in Fig.\ref{fig:figures/clusterchargeRescaledTIBXTm}~and~\ref{fig:figures/seedTOBXTm}. In these plots it is obvious, that newly measured cross talk parameters largely improved overall cluster width and seed charge description. The cluster charge remained almost unchanged, as the cross talk infuences only charge sharing between channels,i not the total charge.  For OB2, the measured cross talk fractions $(x_{0}, x_{1}, x_{2})$ are ($0.792 \pm 0.009 $, $0.083 \pm 0.003 $, $0.020 \pm 0.002$). When tuning the cross talk parameters in Sec.~\ref{sec:induce} to best describe the cluster width in data, the obtained fractions are (0.814,0.070,0.023), which suggest smaller cross talk then measured one, but no uncertainties vere evaluated for these tuned parameters. Even though the large improvemnt, there are still discrepancies in description of data by simulation. These disrecpancies could be caused by the oudated conditions, such as gains and noise. These condintions have a large impact on the cluster width, charge and seed charge description and therefore they are as well being currently updated. The discrepancies can also arise the fact that the simulation is simplified and many parts of the simulation are outdated. Thus the cross talk in simulation does not have to purely describe cross talk, but it can compensate for other effects as well. 
 
-To evaluate if the new cross talk measurement contributes to an improvement in the data and simulation comparison, it was injected into simulation and compared with data and default simulation. The cluster charge, width and seed charge distributions for barrel geometries are shown in Fig.\ref{fig:figures/clusterchargeRescaledTIBXTm}~and~\ref{fig:figures/seedTOBXTm}. In these plots it is obvious, that newly measured cross talk parameters largely improved overall cluster width and seed charge description. For OB2, the measured cross talk fractions $(x_{0}, x_{1}, x_{2})$ are ($0.81 \pm 0.02 , 0.079 \pm 0.006, 0.017 \pm 0.004$). When tuning the cross talk parameters in Sec.~\ref{sec:induce} to best describe the cluster width in data, the obtained fractions are (0.814,0.070,0.023), which are compatible with the measurement. Even though the large improvemnt, there are still discrepancies in description of data by simulation. These disrecpancies could be caused by the oudated conditions, such as gains and noise, but also it can be caused by the fact that the simulation is simplified and many parts of the simulation are outdated. Thus the cross talk in simulation does not have to purely describe cross talk, but it can compensate for other effects as well. 
-
-
-% Therefore larger charge sharing is observed in data, than it would be needed in simulation. This could be caused by the fact, that the simulation is simplified and many parts of the simulation are outdated. Thus the cross talk in simulation does not have to purely describe cross talk, but it can compensate for other effects. 
 
     \insertTwoFigures{figures/clusterchargeRescaledTIBXTm} % Filename = label
                  {figures/clusterchargeRescaledTIBl1to2XTm} % Filename = label
@@ -612,13 +593,34 @@ To evaluate if the new cross talk measurement contributes to an improvement in t
                  {0.45}       % Width, in fraction of the whole page width
                  { Distribution of the on-track cluster seed charge in data and simulation for OB2 (left) and OB1 (right) geometry and for current and newly measured cross talk parameters~($XT$).  The simulated distributions are rescaled to the number of clusters in data.  Bottom plots represent data to simulation ratios. }
 
-\textbf{Conclusion}
 
-In this section the results on the cross talk measurement were shown. The cross talk parameters used in simulation were measured at the beginning of Run~I, and as demonstrated in this section, the cross talk changes with aging of the detector and therefore it had to be remeasured. It was also shown that the cross talk depends on the particle arrival time to the module, which was not taken into account during the Run~I measurements. The newly measured cross talk improved the description of cluster properties of data by simulation althoug minor discrepanices can be still observed. These non-descriptions can be caused by the outdated database conditions and therefore they are being updated for the 2018 simualted samples. If after the update of database conditions there are discrepancies between data and simulation in the cluster charge, it a sign that the conversion factor between energy and electrons or electons and ADC has to be updated as well. These conversion factors have only minor influence on the cluster width. The cross-talk was found to be only parameter in the simulation which strongly influences the cluster width, therefore if the update of database conditions leads to large discrepancies in cluster width, it means that the simulation is over-simplified and update of cross-talk is not sufficient to well described the cluster propertiesin data. In such case the cross talk can be tuned to best described data as described in section~\ref{sec:induce}. In this case the cross talk parameter would not purelya ccount for the cross talk effect but would compansate for other effects not described in the simulation.
+\textbf{Evaluation of the cross talk for TID and TEC}
 
-Due to the limitations of data used to measure cross talk, it is not possible to evaluate cross talk in the disks and endcapes. To update cross talk also for disk and endcapes, dedicated data-taking would be required. Another option is again to deetrmine cross-talk parameters from the data and simulation comparison as described in section~\ref{sec:induce}. If the second approach is chosen, it is necesary first to update detector conditions, which are bad channels, noise and gains. These conditions are obtained from data and can affect the cluster width and charge. Then the matrix of the simulations with different cross talk parameters would be produced and these simulations would be compared to data. The agreement between data and simulations would be established based on a $\chi^{2}$ test of the cluster width distribution compatibility. The cross talk parameters of the sample with the best $\chi^{2}$ can then be injected into simulation. 
+%TODO some blba bla here - in principle we could rescale by the parametrization we saw before, but it is not that easy
+%plot of seed charge
 
 
+Because ofi the insufficient statistics of clusters for TID and TEC in the available CRUZET VR data, the cross talk for these partitions had to eb evaluated difefrently. For barrels, the change of $x_{1}$ scales linearly with the distance from the beamline and it can be expected that the same applies for TID and TEC. But the fluence and module geometries in TID and TEC are more complicated than in case of barrel and thereofore in this case the $x_{1}$ do evolve in similar way. Moreover there is no guarantee that the cross talk currently used in simulation is correct.  The change of cross talk in TID and TEC rings can be studied in the cluster seed charge distribution, which is direct proxy to the $x_{0}$ parameter. The data to simulation ratio of the mean cluster seed charge is shown in Fig.~\ref{fig:figures/seedratioTIDTEC}. The ratio is always larger than one, revealing that the mean seed charge is larger in data than simulation and consequently the charge sharing is smaller in data than simulation. No clear trend as a function of distance from beamline is observed in this ratio.
+
+    \insertFigure{figures/seedratioTIDTEC} % Filename = label
+                 {0.5}       % Width, in fraction of the whole page width
+                 {The data to simulation ratio of mean cluster seed charge for rings of TID and TEC.}
+
+As the cluster seed charge proxy to $x_{0}$ the updated $x_{0}^{u}$ can be evaluated as
+
+\eq{x0}
+{
+x_{0}^{u} =\frac{\langle ch_{seed}^{data} \rangle}{\langle ch_{seed}^{simu} \rangle  } x_{0}^{d},
+}
+
+where $\langle ch_{seed}^{data} \rangle$ and $\langle ch_{seed}^{simu} \rangle$ is mean sead cluster charge in data and simualtion, respectively and $x_{0}^{d}$ is the default value of $x_{0}$ currently used in simulation. The change of $x_{2}$ was found to be constant for all barrel geometries and from the fit was evaluated to be 0.76. We decided to apply this factor to rescale $X_{2}$ in TID and TEC. The updated value $x_{2}^{u}$ is computed as 
+
+\eq{x2}
+{
+x_{2}^{u} = 0.76  x_{2}^{d},
+}
+
+with  $x_{2}^{d}$ being the default value of $x_{2}$ currently used in simulation. The updated value of $x_{1}$ can ten be evaluated from normalization condition $x_{1} = (1-x_{0}-2x_{2})/2$. The updated values of cross talk can be seen in table.~\ref{tab:measuredXtalkTODTEC}.
 
 \begin{table}[h]
 \begin{center}
@@ -658,10 +660,49 @@ W7 &  new values & 0.7883 & 0.0888 & 0.0171 \\
 W7 &  currently in simulation & 0.7828 & 0.0862 & 0.0224 \\
 \hline
 \end{tabular}
-\caption[Table caption text]{The cross talk  }
+\caption[Table caption text]{The updated cross talk for rings of TID and TEC. }
 \label{tab:measuredXtalkTODTEC}
 \end{center}
 \end{table}
+
+
+The validation plots of the clauster charge, width and seed charge are shown in Figs.\ref{fig:figures/clusterchargeRescaledTIDTECXTm}--\ref{fig:figures/clusterseedchargeRescaledTIDl1to1XTm} for two chosen examples which are W1a (left) and W5 (right). By definition of the cross talk update procedure there is an improvement in the description of the cluster seed charge. The updated cross talk also leads to large improvment in thde description of the cluster width.
+
+    \insertTwoFigures{figures/clusterchargeRescaledTIDTECXTm} % Filename = label
+                 {figures/clusterchargeRescaledTIDl1to1XTm} % Filename = label
+                 {figures/clusterchargeRescaledTECl5to5XTm} % Filename = label
+                 {0.45}       % Width, in fraction of the whole page width
+                 { Distribution of the on-track cluster charge in data and simulation for W1a (left) and W5 (right) geometry and for current and newly measured cross talk parameters~($XT$).  The simulated distributions are rescaled to the number of clusters in data.  Bottom plots represent data to simulation ratios. }
+
+    \insertTwoFigures{figures/widthTIDTECXTm} % Filename = label %TDO continue here
+                 {figures/clusterwidthTIDl1to1XTm}
+                 {figures/clusterwidthTECl5to5XTm}
+                 {0.45}       % Width, in fraction of the whole page width
+                 { Distribution of the on-track cluster width in data and simulation for W1a (left) and W5 (right) geometry and for current and newly measured cross talk parameters~($XT$).  The simulated distributions are rescaled to the number of clusters in data.  Bottom plots represent data to simulation ratios. }
+
+    \insertTwoFigures{figures/seedTIDTECXTm} % Filename = label
+                 {figures/clusterseedchargeRescaledTIDl1to1XTm} % Filename = label
+                 {figures/clusterseedchargeRescaledTECl5to5XTm} % Filename = label
+                 {0.45}       % Width, in fraction of the whole page width
+                 { Distribution of the on-track cluster seed charge in data and simulation for W1a (left) and W5 (right) geometry and for current and newly measured cross talk parameters~($XT$).  The simulated distributions are rescaled to the number of clusters in data.  Bottom plots represent data to simulation ratios. }
+
+\textbf{Conclusion}
+
+In this section the results on the cross talk measurement were shown. The cross talk parameters used in simulation were measured at the beginning of Run~I, and as demonstrated in this section, the cross talk changes with aging of the detector and therefore it had to be remeasured. It was also shown that the cross talk depends on the particle arrival time to the module, which was not taken into account during the Run~I measurements. 
+
+The newly measured cross talk improved the description of cluster seed charge and width in  simulation althoug discrepanices between data and simulation can be still observed. These non-descriptions can be caused by the outdated database conditions and therefore they are being updated for the 2018 simualted samples. If after the update of database conditions there are discrepancies between data and simulation, it can be a sign that the simulation is over-simplified and update of cross-talk is not sufficient to well describe the cluster propertiesin data.
+
+%, it a sign that the conversion factor between energy and electrons or electons and ADC has to be updated as well. These conversion factors have only minor influence on the cluster width. The cross-talk was found to be only parameter in the simulation which strongly influences the cluster width, therefore if the update of database conditions leads to large discrepancies in cluster width, it means that the simulation is over-simplified and update of cross-talk is not sufficient to well described the cluster propertiesin data. In such case the cross talk can be tuned to best described data as described in section~\ref{sec:induce}. In this case the cross talk parameter would not purely account for the cross talk effect but would compansate for other effects not described in the simulation.
+
+%TODO blabla how we need to (and are proceeding) with cnhange of database conditions
+%TODO some blabla, different data and put into official release of CMSSW
+
+Due to the limitations of data 2018 CRUZET VR data, it is not possible to measure cross talk in the disks and endcapes. A newly designed procedure for update of cross talk parameters rescales the cross talk currently used in simulation  by well motivated factors. The update of parameters leads to better agreement between data and simulation in cluster width and seed charge for rings of TEC and TID.
+
+%To update cross talk also for disk and endcapes, dedicated data-taking would be required. Another option is again to deetrmine cross-talk parameters from the data and simulation comparison as described in section~\ref{sec:induce}. If the second approach is chosen, it is necesary first to update detector conditions, which are bad channels, noise and gains. These conditions are obtained from data and can affect the cluster width and charge. Then the matrix of the simulations with different cross talk parameters would be produced and these simulations would be compared to data. The agreement between data and simulations would be established based on a $\chi^{2}$ test of the cluster width distribution compatibility. The cross talk parameters of the sample with the best $\chi^{2}$ can then be injected into simulation. 
+
+
+The obtained cross talk parameters considerably improved the cluster width and seed charge description and therefore they were intagrated into official release of the CMS software and are going to be used for the central production of the simulated samples.
 
 %, leading to a conclusion, that the cross talk needed in simulation is compensating for other non-descriptions. To achieve a good data and simulation agreement, we have decided to plug into simulation the parameters  which describe the data the best, as presented in Sec.~\ref{sec:induce}. Also the cross talk could not be measured for disk and endcaps due to the geometrical restrictions of muons, but the approach of Sec.~\ref{sec:induce} can give results on all partitions.
 
