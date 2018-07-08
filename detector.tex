@@ -173,7 +173,6 @@ The energy resolution of ECAL was determined~\cite{Chatrchyan:2008aa} to be
 {
  \frac{\sigma_{E}}{E} = \frac{0.028}{\sqrt{E}} \bigoplus \frac{0.12}{E} \bigoplus 0.003 ,
 }
-
 where $E$ is the energy and $\sigma_{E}$ is the energy resolution. The first term is the stochastic part, it corresponds to e.g. fluctuations in number of particles. The second term accounts for noise and the third term covers mainly the non-uniformities, energy leakage and inter-calibration issues.
 
 
@@ -192,7 +191,6 @@ The hadron energy resolution from the combination of ECAL and HCAL (barrel and e
 {
  \frac{\sigma_{E}}{E} = \frac{0.847}{\sqrt{E}} \bigoplus 0.074 ,
 }
-
 where the meaning of the terms is similar as for the ECAL.
 %- for HF 1.98/sqrt(E)+0.09 -> higher because of high energy of jets in this region but as divided by energy, it is ok
 
@@ -229,21 +227,17 @@ The timing measurements are combined to produce, among others, the following var
 \begin{description}
 \item [$\mathbf{time_{IP}^{InOut}}$]
 This variable corresponds to the time at which a muon was present at the interaction point, assuming that the muon moves at the speed of light from the IP outside of CMS. It is computed as a weighted average $\bar{t}$ of the measured $\delta t$ values, where in case of the DTs each weight is equal to $N_{s}-2$, with $N_{s}$ being the number of hits in the segment of DTs to which the given hit belongs. The formula is then
-
 \eq{timingResol}
 {
  \bar{t} = \frac{1}{N} \times \frac{1}{\sum{N_{s,~i} - 2}} \times \sum{ (N_{s, i} -2) t_i },
 }
-
 where $N$ is the number of timing measurements $i$ and $t_{i}$ is a single timing measurement $\delta t$.
 
 The error on the time measurement is computed as
-
 \eq{timingResol}
 {
  \sigma^{2} = \frac{1}{N-1} \times \frac{1}{\sum{w_{i}}} \times \sum{(t_i-\bar{t})^2 w_{i} },
 }
-
 where the weight $w_{i}$ is defined as $w_i = 1/\sigma_{i}^2$ with $\sigma_{i}$ being a single hit resolution and $\bar{t}$ is the above defined weighted average of the $\delta t$ measurements.
 
 \item[$\mathbf{time_{IP}^{OutIn}}$ ]
@@ -279,14 +273,12 @@ In particle physics experiments it is very important to have information about a
 {
  \frac{\mathrm{d}N}{\mathrm{d}t} = \sigma \times \mathcal{L},
 }
-
 where $\sigma$ is the cross section of process of interest and $\mathcal{L}$ is the instantaneous luminosity given by
 
 \eq{luminosity}
 {
  \mathcal{L} = \frac{N^2 f}{4 \pi \epsilon_{n} \beta^{*}}F,
 }
-
 where the variables in numerator are $N$ which is the number of protons in one bunch (around $10^{11}$) and $f$ is the bunch crossing frequency (currently 40$\times 10^{6}$~Hz). In the denominator, $\epsilon_{n}$ is the normalized transverse beam emittance and $\beta^{*}$ is the beam amplitude function at the IP. This function is expressing how much the beam is ``squeezed'' before collision, lower the $\beta^{*}$ more the beam is squeezed. At LHC, the  $\epsilon_{n}$ is of the order of 4~mm~$\mathrm{\mu m}$ and $\beta^{*}$ of the order of 0.5~m. Lastly, because of the beam crossing angle, the reduction factor $F$ is introduced. Its value at LHC is typically around 0.95.
 
 By integration of the instantaneous luminosity over time, the integrated luminosity can be obtained:

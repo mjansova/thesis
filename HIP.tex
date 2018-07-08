@@ -95,7 +95,6 @@ If no magnetic field is present, the created charge carriers, electrons and hole
 {
    \vec{F}=  q(\vec{E}+\vec{v} \times \vec{B}),
 }
-
 where $\vec{E}$ is the electric field, $\vec{v}$ is the velocity of charge carriers and $\vec{B}$ is the magnetic field. The angle between the electric field lines and the drift direction of the charge carriers in the magnetic field is called the Lorentz angle. This angle is independent of the track inclination and can be compensated by tilting the tracker modules w.r.t. the magnetic field.
 
 Finally, the diffusion of the charge carriers during the drift to the electrodes can also modify the path of the charge carriers from the straight line. However the spread of the charge carriers due to diffusion is in  the order of few $\mathrm{\mu m}$ and therefore about two orders of magnitudes smaller than the pitch size and it can thus only result in a small amount of charge collected by neighboring strips just in case the particle has passed close to the middle of the pitch~\cite{Bloch:2007zza}.
@@ -159,7 +158,6 @@ The data collected by the FED are then treated offline. A clustering procedure i
 {
     \sigma_{cluster} = \sqrt{\sum_{i} \sigma_{i}^{2}},
 }
-
 where $\sigma_{i}$ is the noise of channel $i$ within the cluster. In addition to its charge and noise, each cluster can be quantified by a cluster width, corresponding to the number of channels in the reconstructed cluster. The example of cluster obtained at the end of the clustering procedure is shown in Fig.~\ref{fig:figures/event2layer4}.
 
     \insertFigure{figures/event2layer4} % Filename = label
@@ -267,7 +265,6 @@ At the PSI beam test, the measurement of the HIP probability was also provided. 
 {
 P_{HIP}(CMN_{HIP}\leq CMN_{threshold}) = \frac{N_{HIP}(CMN_{HIP}\leq CMN_{threshold})}{N_{tracks}},
 }
-
 where $N_{HIP}(CMN_{HIP}\leq CMN_{threshold})$ is the number of selected HIP events with a baseline value~($CMN_{HIP}$) lower than the threshold~$CMN_{threshold}$ and $N_{tracks}$ is the number of tracks traversing the sensor.
 
 The HIP probability measurements were provided with a pion beam of $300~\mathrm{MeV}$ energy, which is the most probable energy value of pions in the CMS tracker. The measured probability for the different modules, using $CMN_{threshold}=-20$~ADC, was found out to be of the order of $10^{-3}$ for the TOB and $10^{-4}$ for the TIB. It was also concluded that the HIP probability does not scale with the number of incoming particles per time period if rescaled to the number of incoming particles, but rather with the sensor thickness. With larger thickness of the sensor the probability of the nuclear interaction is increasing.  A similar measurement was provided using a proton beam of  $300~\mathrm{MeV/c}$ momentum, which in this case is not compatible with the CMS conditions.
@@ -302,16 +299,11 @@ For simplicity, in the following sections of this chapter are shown only plots f
 {
 p_{HIP} = f_{HIP} \frac{1}{N_{tracks~(APV)}},
 }
-
 with
-
-
 \eq{HIPfrac}
 {
 f_{HIP} = \frac{N_{HIP~(APV)}}{N_{all~(APV)}},
 }
-
-
 where $N_{HIP~(APV)}$ is the the number of selected HIP events per APV, $N_{all~(APV)}$ is the total number of events and $N_{tracks~(APV)}$ is the number of tracks per APV. The $p_{HIP}$ is computed in average for all layers of the strip tracker in order to complement the study with a more global picture.
 
 Alternatively the HIP probability can be defined as
@@ -320,7 +312,6 @@ Alternatively the HIP probability can be defined as
 {
 p_{HIP}(PU) = f_{HIP} \frac{1}{PU},
 }
-
 where PU is the fill pileup. 
 
 
@@ -595,7 +586,6 @@ To understand the properties of the fake clusters and numerically support the co
 {
    p_{fake} = f_{HIP}/PU_{1} \times T  \times N_{fake}/PU_{1} \times PU^2_{2} \times  \frac{\sigma_{position}}{N_{strips} \times p}  ,
 }
-
 where $f_{HIP}$ is defined in Eq.~\ref{eq:HIPfrac}, $N_{tracks~(APV)}$ is the multiplicity of tracks in one APV, the time window $T$ is the number of bunch crossings in one orbit for which the fake clusters are observed, $p$ is the pitch size, $N_{strips}$ is number of strips per APV and the position resolution $\sigma_{position}$ is the estimate of the space window around the reconstructed track in which the fake cluster is close enough to be used for the track reconstruction. The $N_{fake}$ is the average fake multiplicity over the time window $T$. The PU is pileup chosen to be the fill peak pileup. The factor $(PU_{1}/PU_{2})^2$ can transfer the results of studied run 281604 with $PU_{1}$ to different run conditions with different pileup $PU_{2}$.  
 
 A cluster is used for the track reconstruction if it passes a certain charge threshold, which depends on the thickness of the sensor and the track inclination. Considering a normal track, the cluster charge cut for the sensors of the first layer of the TOB, which have thickness of 500~$\mu$m, is around 140~ADC in the case of the tightest cut. As shown in the left plot of Fig.~\ref{fig:figures/avClusterMultiplicitySecondT}, in average all fake clusters pass this requirement. The values for the first layer of TOB needed for the probability estimation in Eq.~\ref{eq:fakeEstimation} are $f_{HIP} = 0.0024$, $T = 18$, $N_{fake} =0.099$. The position evolution is estimated as $\sigma_{position} = 2 \sqrt{2} \times 40 ~\mathrm{\mu m}$ taking into account cluster and alignment position resolutions which are for the first layer of TOB of around 40~$\mathrm{\mu m}$ each. Inserting these values into Eq.~\ref{eq:fakeEstimation} gives the lower limit on the probability for the first layer of TOB to have at least one fake cluster originating from HIP event,  which is used to reconstruct a track. This probability has been calculated to to be $0.002\%$, which is very low, but is just a lower limit as there are only 7 consecutive events and the behavior of fake clusters after these events is unknown. Moreover this probability scales with the pileup. %TODO APE, CPE and computation of fake per track, NStrips, pitch
