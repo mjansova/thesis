@@ -1,28 +1,34 @@
-\chapter{Supersymmetry as a possible extension of the Standard Model}
+\chapter{Supersymmetry as a possible extension of the standard model}
 
-In this chapter, supersymmetry, which is one of the candidates for the theory beyond the Standard Model is introduced. Before presenting supersymmetry, the basics of the Standard Model are discussed in section~\ref{sec:SM}. In this section the description of the elementary particles and interactions as well as an idea how the Standard Model was derived is given. At the end of the section~\ref{sec:SM} several shortcomings of the Standard Model, which motivate physicists to formulate beyond the Standard Model theories, are explored. The following section~\ref{sec:SUSY} describes supersymmetry, which is a promising extension of the Standard Model, due to its ability to solve many of the Standard Model issues. Within this section it is also discussed how the searches for supersymmetry can be realized and what are some of the results of such searches. 
+In this chapter the basics of the standard model are discussed. In section~\ref{sec:SM} the description of the elementary particles and interactions is presented as well as an idea how the standard model was derived. This section ends with a discussion of several shortcomings of the standard model, which motivate physicists to formulate beyond the standard model theories. Section~\ref{sec:SUSY} then describes supersymmetry, which is a promising extension of the standard model, due to its ability to solve many of the standard model issues. Within this section is also discussed how some searches for supersymmetry can be performed and the results of the SUSY searches performed at the LHC on the Run~1 data. 
 
-\section{Standard Model and its shortcomings~\label{sec:SM}}
+\section{Standard model and its shortcomings~\label{sec:SM}}
 
-The Standard Model~(SM) is a model of particle physics based on Quantum Field Theory~(QFT) and gauge symmetries~\cite{9783527406012}. The symmetry group of the SM is
+The Standard Model~(SM) of particle physics is based on Quantum Field Theory~(QFT) and gauge symmetries~\cite{9783527406012}. It was formulated in 1960s, but it is only in 2012 that the last particle of the SM, the Higgs boson, was discovered by the ATLAS and CMS collaborations~\cite{Chatrchyan:2012xdj, Aad:2012tfa}. The SM describes all fundamental interactions (except gravity), namely electromagnetic, weak, and strong interactions, and characterizes all known elementary particles. 
+
+%There are two kinds of particles in the SM, fermions with half-integer spin and bosons with integer spin. TODO do not forget
+
+The interactions in the SM are mediated via an exchange of (gauge) bosons which have integer spin. There are 12 bosons with a spin of one. The mediators of the electromagnetic and weak interaction are the massless photon~$\gamma$, ant the massive $W^{\pm}$ and $Z$ bosons, respectively. The $W^{\pm}$ and $Z$ bosons acquire their mass through a spontaneous breaking of the electroweak symmetry as explained in later text. The gauge bosons of the strong interaction are eight massless gluons, each holding an unique color charge which is a combination of colors and anticolors. The gluons are massless, indicating that the strong symmetry is unbroken. The last boson belonging to the SM is the Higgs boson which arises from the electroweak symmetry breaking. 
+
+In addition  to bosons the particles of matter are fermions of-half integer spin. Fermions can be divided into leptons and quarks. There are three generations of leptons formed respectively by the electron~$e$, the muon~$\mu$, and the tau~$\tau$, with their corresponding neutrinos~($\nu_{e},~\nu_{\mu},~\nu_{\tau}$). Leptons have integer charge of $\pm e$ with $e$ being the elementary electric charge, do not carry a charge of color and therefore interact only via electromagnetic and weak interactions as they can have non-zero quantum numbers with respect to these interactions, which are weak isospin and hypercharge. There are also three generations of quarks, the first one is formed by up~($u$) and down~($d$) quarks, the second by charm~($c$) and strange~($s$) quarks and the third one by top~($t$) and bottom~($b$) quarks. The $u,~c,~t$ quarks have charge of $2/3~e$ while the $d,~s,~b$ quarks have charge of $-1/3~e$. Each quark exists in three color versions (red, green and blue) and thus quarks can participate in strong interactions. Quarks can hold weak isospin and hypercharge and thus they can also interact via electroweak interactions. Due to the phenomena referred as ``color confinement''~\cite{Alkofer:2006fu}, quarks are always bound inside a comosite objects called ``hadrons'' and cannot be found isolated in nature. Each SM fermion has and antiparticle denoted with bar over the symbol, which differs from particle by the sign of the charge and spin. The overview of all SM particles can be seen in Fig.~\ref{fig:figures/SMparticles}.
+
+
+
+    \insertFigure{figures/SMparticles} % Filename = label
+                 {0.5}       % Width, in fraction of the whole page width
+                 { Overview of the particles present in the standard model.}
+
+The symmetry group of the SM is
 
 \eq{SMgroup}
 {
 SU(3)_{C} \otimes SU(2)_{L} \otimes U(1)_{Y},
 }
-
-where $C$ stands for the color charge of strong interaction, $L$ left-handed particles, which have, unlike the right-handed ones, non-zero weak isospin and $Y$ represents weak hypercharge. The SM group is be discussed part by part in following sections.
-
-The Standard Model started to be formulated in 1960s and was finished in 2012, when last particle of the SM, the Higgs boson, was discovered by ATLAS and CMS experiments~\cite{Chatrchyan:2012xdj, Aad:2012tfa}. It describes all fundamental interactions (except gravity), which are electroweak~(EW) and strong interactions and characterizes all known particles. There are two kinds of particles in the SM, fermions with half-integer spin and bosons with integer spin.
-
-Fermions can be divided into leptons and quarks. There are three generation of leptons which are electron~$e$, muon~$\mu$, tau~$\tau$ generation with their corresponding neutrinos~($\nu_{e},~\nu_{\mu},~\nu_{\tau}$). Leptons have integer charge in multiples of elementary charge~$e$, do not carry color and therefore interact only via electroweak interactions as they can have non-zero weak isospin and hypercharge. There are also three generation of quarks, first is formed by up~($u$) and down~($d$) quarks, second by charm~($c$) and strange~($s$) quarks and third by top~($t$) and bottom~($b$) quarks. The $u,~c,~t$ have charge of $2/3~e$ and $d,~s,~b$ have charge of $-1/3~e$. Each quark exists in three color versions, red, green and blue and thus quarks can participate in strong interactions. Quarks can hold weak isospin and hypercharge and thus they can also interact via electroweak interactions. Due to the phenomena referred as ``color confinement'', quarks are always bound inside hadrons and cannot be separated.
-
-The interaction in the SM are mediated via an exchange of (gauge) bosons. There are 12 bosons with spin of one. The mediators of the electroweak interactions are massless photon~$\gamma$, massive $W^{\pm}$ and $Z$ bosons. The $W^{\pm}$ and $Z$ bosons gain their mass through breaking of the electroweak symmetry as explained in later text. The gauge bosons of strong interaction are eight massless gluons, each holding unique color charge which is combination of colors and anticolors. The gluons are massless, indicating that strong symmetry is unbroken. The last particle belonging to the SM is the Higgs boson which arises from the electroweak symmetry breaking. The overview of all SM particles can be seen in Fig.~\ref{fig:figures/SMparticles}.
+where $C$ stands for the color charge of strong interaction, $L$ left-handed particles, which have, unlike the right-handed ones, non-zero weak isospin and $Y$ represents weak hypercharge. The SM group and the interactions originating from it, are discussed part by part in following sections building on the quantum field theory. As the standard model is a field theory, which is requiring invariance towards certain transformations of its Lagrangian, to better understand the derivation and the features of the SM, the basics of the quantum field theory and gauge transformations are described in following sections. Finally, the last Subsection~\ref{sec:shortcomings} present the shortcomings of the SM.
 
 
-    \insertFigure{figures/SMparticles} % Filename = label
-                 {0.5}       % Width, in fraction of the whole page width
-                 { Overview of the particles present in the Standard Model.}
+
+
 
 %-sm intro, more about sm can be seen in this book~\cite{9783527406012} %griffiths
 %-renormalizable quantumn field theory, derived from gauge symmetries ~\cite{tHooft:1971qjg, Weinberg:1967tq}
@@ -39,111 +45,121 @@ The interaction in the SM are mediated via an exchange of (gauge) bosons. There 
 % TODO The masses of the SM particles cannot be predicted, they have to be measured
 
 
-The Standard Model is a field theory, which is requiring invariance towards certain transformations of involved Lagrangians. To better understand the derivation and the features of the SM, the basics of quantum field theory and gauge transformations are described in following sections. Then, building on the QFT, more details about fundamental interactions are given.
 
 \subsection{Quantum field theory and gauge symmetries}
 
-In classical mechanics, the motion of a given system can be calculated by solving the Euler-Lagrange equations~\cite{9783527411887}. These equations can be generalized in order to build a relativistic theory, in which the space and time coordinates must be treated similarly. In the relativistic case, the classical Euler-Lagrange equation is generalized into formulation
+In classical mechanics, the motion of a given system can be calculated by solving the Euler-Lagrange equation~\cite{9783527411887}. These equations can be generalized in order to build a relativistic theory, in which the space and time coordinates must be treated similarly. In the relativistic case, the Euler-Lagrange equation is given by the formula
 
 \eq{EL}
 {
- \partial_{\mu}\left (\pdv{\mathcal{L}}{(\partial_{\mu}\phi_{i})}\right) = \pdv{\mathcal{L}}{\phi_{i}},~i=1,2,3,4
+ \partial_{\mu}\left (\pdv{\mathcal{L}}{(\partial_{\mu}\phi_{i})}\right) = \pdv{\mathcal{L}}{\phi_{i}},~\mathrm{with}~i=1,2,3,...,
 }
+where the basic building block of a QFT is the Lagrangian $\mathcal{L}$ which depends on the fields $\phi_{i}$ and their space-time derivatives $\partial_{\mu}\phi_{i}$. 
 
-
-The basic building block of a QFT is a Lagrangian which depends on field $\phi$ and its space-time derivatives. In the case of a scalar (spin-0) field, the Lagrangian can be written in form 
+In the case of a scalar (spin-0) field, the Lagrangian $\mathcal{L}_{KG}$ can be written in the form 
 
 \eq{kglagrangian}
 {
- \mathcal{L}_{Klein-Gordon} = \frac{1}{2}(\partial_{\mu} \phi)(\partial^{\mu} \phi) - \frac{1}{2} \left(\frac{mc}{\hbar} \right)^{2} \phi^{2},
+ \mathcal{L}_{KG} = \frac{1}{2}(\partial_{\mu} \phi)(\partial^{\mu} \phi) - \frac{1}{2} \left(\frac{mc}{\hbar} \right)^{2} \phi^{2},
 }
-
-where $m$ is a mass, $\hbar$ is Planck constant and $c$ is the speed of light. From now on, the standard convention of $\hbar = c = 1$ is used. The scalar field Lagrangian~\ref{eq:kglagrangian} plugged into the Euler-Lagrange equation~\ref{eq:EL} gives Klein-Gordon equation
+where $\phi$ is a single scalar field, $m$ is its mass, $\hbar$ is Planck constant and $c$ is the speed of light. From now on, the standard convention of $\hbar = c = 1$ is used. The scalar field Lagrangian defined in Eq.~\ref{eq:kglagrangian} and plugged into the Euler-Lagrange equation~(\ref{eq:EL}) gives the Klein-Gordon equation
 
 \eq{kgEq}
 {
  \partial_{\mu}\partial^{\mu} \phi + m^{2} \phi = 0,
 }
+which is describing a scalar particle of mass $m$. 
 
-which is describing a scalar particle of a mass $m$. 
-
-The field of half-spin particle is a four-component spinor field $\psi$. The Euler-Lagrange equation applied on field $\bar{\psi}$ using Lagrangian
+The field of an half-spin particle is a four-component spinor field $\psi$. The Euler-Lagrange equation applied on the field $\bar{\psi}$ using the Lagrangian $\mathcal{L}_{D}$
 
 
 \eq{dirlagrangian}
 {
- \mathcal{L}_{Dirac} = i \bar{\psi} \gamma^{\mu} \partial_{\mu} \psi -m \bar{\psi} \psi
+ \mathcal{L}_{D} = i \bar{\psi} \gamma^{\mu} \partial_{\mu} \psi -m \bar{\psi} \psi
 }
-
-gives Dirac equation describing half-spin particle of mass $m$:
+gives the Dirac equation describing a half-spin particle of mass $m$:
 
 \eq{dirEq}
 {
   i \gamma^{\mu} \partial_{\mu} \psi - m \psi = 0.
 }
 
-Equations for particles with different spins can be derived similarly.
+Equations for particles with spin one can be derived similarly.
 
-In the Lagrangians above~(\ref{eq:kglagrangian},~\ref{eq:dirlagrangian}), only non-interacting fields are present. To include interactions between fields, an impact of local and global transformations of the fields on the corresponding Lagrangian must be studied. The Dirac Lagrangian~\ref{eq:dirlagrangian} is invariant under global phase transformation
+In the above Lagrangians defined by Eq.~\ref{eq:kglagrangian}~and~\ref{eq:dirlagrangian}, only non-interacting fields are present. To include interactions between fields, the impact of local and global transformations of the fields on the corresponding Lagrangian must be studied. The Dirac Lagrangian given by Eq.~\ref{eq:dirlagrangian} is invariant under the global phase transformation
 
 \eq{globalTrans}
 {
 \psi \to e^{i\theta} \psi, 
 }
 
-with phase $\theta$ being an arbitrary real number. But this Lagrangian is not invariant under local phase transformation 
+with the phase $\theta$ being an arbitrary real number. But this Lagrangian is not invariant under the local phase transformation 
 
 \eq{localTrans}
 {
 \psi \to e^{i\theta (x)} \psi,
 }
 
-where phase $\theta(x)$ is this time dependent on the space-time coordinate. To preserve invariance of the Lagrangian~\ref{eq:dirlagrangian}, a term 
+where the phase $\theta(x)$ is this time dependent on the space-time coordinate. To preserve the invariance of the Lagrangian of Eq.~\ref{eq:dirlagrangian}, the term 
 
 \eq{newTerm}
 {
 -(q\bar{\psi}\gamma^{\mu}\psi)A_{\mu}, 
 }
 
-with $A_{\mu}$ which transforms as 
+with the field $A_{\mu}$ which transforms as 
 
 \eq{transfrom}
 {
 A_{\mu} \to A_{\mu} + \partial_{\mu} \lambda
 }
 
-can be added to the Dirac Lagrangian. The $A_{\mu}$ is a new vector~(spin-1) field. To obtain full Lagrangian, also the free field Lagrangian for vector field must be added to the Dirac Lagrangian~\ref{eq:dirlagrangian}. The summed Lagrangian is locally invariant only in case when field $A_{\mu}$ is massless. Such Lagrangian generates quantum electrodynamics~(QED), where the field $A_{\mu}$ corresponds to the electromagnetic potential.
+can be added to the Dirac Lagrangian. The field $A_{\mu}$ is a new vector~(spin-1) field. To obtain the full Lagrangian, also the free field Lagrangian for vector field $A_{\mu}$ must be added to the Dirac Lagrangian~\ref{eq:dirlagrangian}. The summed Lagrangian is locally invariant only in the case when the field $A_{\mu}$ is massless and therefore the term for the free field Lagrangian of the field $A_{\mu}$ can be written as
 
-The global transformation of a field $\psi$ can be understood as multiplication of this field by an unitary matrix $U$ ($\psi \to U \psi$). In given example of quantum electrodynamics, the size of matrix is $1 \times 1$ and therefore the symmetry this theory is $U(1)$ gauge invariance as the group of all such matrices is $U(1)$. Similar strategy of global and local phase invariance of Lagrangian can be applied on other groups, which was found to be the way how to generate the Standard Model.
+\eq{freeA}
+{
+    \frac{-1}{16\pi}F^{\mu\nu}F_{\mu\nu}, ~\mathrm{where}~ F^{\mu\nu} \equiv \partial^{\mu}A^{\nu} - \partial^{\nu}A^{\mu}.
+} 
 
-\subsection{Electroweak interactions}
+The total Lagrangian is then
 
-In 1954 Yang and Mills~\cite{Yang:1954ek} applied local and global invariance on $SU(2)$ group to describe weak interaction and later Glashow, Salam and Weinberg~\cite{Glashow:1961tr, Salam:1968rm, Weinberg:1967tq} shown, that if group $SU(2) \otimes U(1)$ is considered, the weak and electromagnetic interactions can be unified. Moreover they divided the left and right chiral components of the fermion fields into $\Psi_L$ composed of two spinors~(doublet) and one spinor~(singlet) $\Psi_R$. The locally invariant Lagrangian of electroweak interactions (without symmetry breaking) was found to be
+\eq{qedL}
+{
+    i \bar{\psi} \gamma^{\mu} \partial_{\mu} \psi -m \bar{\psi} \psi -  \frac{1}{16\pi}F^{\mu\nu}F_{\mu\nu} -(q\bar{\psi}\gamma^{\mu}\psi)A_{\mu},
+} 
+
+
+which generates the quantum electrodynamics~(QED), where the field $A_{\mu}$ corresponds to the electromagnetic potential.
+
+The global transformation of a field $\psi$ can be understood as the multiplication of this field by an unitary matrix $U$ ($\psi \to U \psi$). In the given example of quantum electrodynamics, the size of matrix is $1 \times 1$ and therefore the symmetry of this theory is reffered as ``$U(1)$ gauge invariance'' as the group of all such matrices is $U(1)$. A similar strategy of global and local phase invariance of the Lagrangian can be applied on other groups, which was found to be the way how to generate the standard model.
+
+\subsection{The electroweak interaction}
+
+In 1954, Yang and Mills~\cite{Yang:1954ek} applied local and global invariance on the $SU(2)$ group to describe weak interaction and later Glashow, Salam and Weinberg~\cite{Glashow:1961tr, Salam:1968rm, Weinberg:1967tq} shown, that if the group $SU(2) \otimes U(1)$ is considered, the weak and electromagnetic interactions can be unified. Moreover they divided the left and right chiral components of the fermion fields into $\Psi_L$ composed of two spinors~(doublet) and one spinor~(singlet) $\Psi_R$. The locally invariant Lagrangian of the electroweak~(EW) interaction (without symmetry breaking) was found to be
 
 \eq{EWlagrangian}
 {
 \mathcal{L}_{EW} = - \frac{1}{4} \sum_{a=1}^{3} F_{\mu\nu}^{a} F^{a\mu\nu} - \frac{1}{4} B_{\mu\nu}B^{\mu\nu} +  i \bar{\Psi_L} \gamma^{\mu} D_{\mu} \Psi_{L} +  i \bar{\Psi_R} \gamma^{\mu} D_{\mu}  \Psi_{R},
 }
+where $\Psi_{R}~(\Psi_{L})$ is the right-handed (left-handed) component of the fermion field, $D_{\mu}$ is the covariant derivative and $\gamma_{\mu}$ are the Dirac matrices. The tensors $F_{\mu\nu}$ are composed of the fields $W^{a}_{\mu}$ and their derivatives, and the tensor $B_{\mu\nu}$ is composed of derivatives of the field $B_{\mu}$.
 
-where in case of $SU(2)$ group the covariant derivative $D_{\mu}$ is
+In the case of the $SU(2)$ group the covariant dervative $D_{\mu}$ is 
 
 \eq{weakCovariant}
 {
-   D_{\mu} = \partial_{\mu} - ig\sum_{a=1}^{3}t^{a}W_{\mu}^{a},~a=1,2,3
+   D_{\mu} = \partial_{\mu} - ig\sum_{a=1}^{3}t^{a}W_{\mu}^{a},~\mathrm{with}~a=1,2,3.
 }
 
-where matrices $t^{a}$ are generators of $SU(2)$ group composed by Pauli matrices and $g$ is a constant. The $t_{3}$ component is called the weak isospin. The covariant derivative $D_{\mu}$ for $U(1)$ group is
+The matrices $t^{a}$ are the generators of the $SU(2)$ group composed by Pauli matrices and $g$ is a constant. The $t_{3}$ component is called the weak isospin. The covariant derivative $D_{\mu}$ for the $U(1)$ group is
 
 \eq{weakCovariant}
 {
    D_{\mu} = \partial_{\mu} - ig'YB_{\mu},
 }
+where $Y$ is the weak hypercharge and $g'$ is a constant. The charge $Q$ of a particle is then given by the relation between its weak isospin and hypercharge: $Q= t_{3} + \frac{1}{2}Y$.
 
-where $Y$ is the weak hypercharge and $g'$ is a constant. The charge $Q$ of a particle is then given by relation between its weak isospin and hypercharge $Q= t_{3} + \frac{1}{2}Y$.
 
-In presented equations $B_{\mu}$ and $W_{\mu}^{a}$ are the gauge fields, $\Psi_{R,L}$ is the right and left component of the fermion field, $D_{\mu}$ is the covariant derivative and $\gamma_{\mu}$ are the Dirac matrices. The tensors $F_{\mu\nu}$ are composed of fields $W^{a}_{\mu}$ and their derivatives and tensor $B_{\mu\nu}$ is composed of derivatives of field $B_{\mu}$.
-
-The group of electroweak interactions is often denoted as $SU(2)_{L} \otimes U(1)_{Y}$, where $L$ is related to the difference of behavior between left- and right-handed fields w.r.t weak interactions and $Y$ denotes the weak hypercharge. This group produces two massless gauge fields $W^{1}$ and $W^2$ which mix and create $W^{+}$ and $W^{-}$ bosons. These bosons interact only with left-handed components of the fermion field (maximum parity violation). The remaining $W^{3}$ and $B$ gauge fields interact with both left- and right-handed fermions and they mix into $Z$ boson and electromagnetic $\gamma$. As mentioned previously all these bosons have to be massless in order to preserve local and global gauge invariance, but experimentally, the $W^{\pm}$ and $Z$ bosons were found to be a massive and therefore the electroweak symmetry must be broken. It is also important to note, that EW Lagrangian gives maximum parity violation for neutrino and therefore only left component of the neutrino field exist, not right one.
+The group of electroweak interactions is often denoted as $SU(2)_{L} \otimes U(1)_{Y}$, where $L$ is related to the difference of behavior between left-handed (doublet) and right-handed (singlet) fields w.r.t weak interactions and $Y$ denotes the weak hypercharge. This group produces two massless gauge fields $W^{1}$ and $W^2$ which mix and create $W^{+}$ and $W^{-}$ bosons. These bosons interact only with left-handed components of the fermion field (maximum parity violation). The remaining $W^{3}$ and $B$ gauge fields interact with both left- and right-handed fermions and they mix into the $Z$ boson and the photon $\gamma$. As mentioned previously all these bosons have to be massless in order to preserve local and global gauge invariance, but the $W^{\pm}$ and $Z$ bosons were expected to be massive because the weak interaction is short range interactioni, what was later experimentally confirmed. Because these bosons are massive, the electroweak symmetry must be broken. It is also important to note, that the EW Lagrangian gives a maximum parity violation for neutrinos because only the left component of the neutrino field exists, not the right one.
 
 %The electric charge can be is $e= g\mathrm{sin}\theta_{W} = g'\mathrm{cos}\theta_{W} $, where $\theta_{W}$ is Weinberg mixing angle which was experimentally measured to be of around $30^{\circ}$.
 %The weak isospinhas only non-zero value for left-handed components.
@@ -152,23 +168,21 @@ The group of electroweak interactions is often denoted as $SU(2)_{L} \otimes U(1
 
 \subsection{Quantum Chromodynamics}
 
-The theory of strong interaction, called Quantum Chromodynamics~(QCD), is based on $SU(3)$ group. The corresponding Lagrangian of QCD is
+The theory of strong interaction, called Quantum Chromodynamics~(QCD), is based on the $SU(3)$ group. The corresponding Lagrangian of QCD is
 
 \eq{QCDlagrangian}
 {
 \mathcal{L}_{QCD} = -\frac{1}{4} \sum_{a=1}^{8} F_{\mu \nu}^{a} F^{a \mu \nu} + \sum_{j=1}^{n_f} \bar{q}_{j}(i D_{\mu}\gamma^{\mu} -m_{j})q_{j} ,
 }
-
-where $q_{j}$ are the quark fields which are summed over the number of different flavors $n_{f}$ and $m$ is a mass. A quark field $q_{j}$ is composed of three quark spinors, one for each color. Tensors $F_{\mu \nu}$ are combination of gluon fields $g_{\mu}$ and its derivatives. The covariant derivative in this case is
+where the quark fields $q_{j}$ are summed over the number of different quark flavors $n_{f}$ and $m_{j}$ are the masses. A quark field $q_{j}$ is composed of three quark spinors, one for each color. The tensors $F_{\mu \nu}$ are a combination of gluon fields $g_{\mu}$ and its derivatives. The covariant derivative in this case is
 
 \eq{QCDdervative}
 {
    D_{\mu} = \partial_{\mu} - i\sqrt{4 \pi \alpha_{s}} \sum_{a=1}^{8} t^{a} g_{\mu}^{a},~a=1,...,8 , 
 }
+where $\alpha_{s}$ is the strong coupling constant and $t^{a}$ are the generators composed of the Gell-Mann matrices. Particles which can interact via strong interaction must carry a color charge, the quarks carry the red, green or blue color, while in case of gluons there are eight different combinations of one color and one anticolor.
 
-where $\alpha_{s}$ is strong coupling constant, $g_{\mu}$ are gluon fields and $t^{a}$ are generators composed of the Gell-Mann matrices. Objects which can interact via strong interaction must have color, which is in case of quarks red, green or blue and in case of gluons it can be eight different combinations of colors and anticolors.
-
-The coupling of colored objects is weak at short distances~(asymptotic freedom)~\cite{Gross:1973id}, but it grows with distance~(confinement)~\cite{Wilson:1974sk}. Therefore colored objects always have to be bound inside colorless hadrons, where they are quasi-free, and can never be observed separately. There are two kinds of hadrons, baryons holding three quarks of different colors and mesons composed of two quarks, one of certain color and second of corresponding anticolor.
+The coupling of colored objects is weak at short distances~(asymptotic freedom)~\cite{Gross:1973id}, but it grows with distance~(confinement)~\cite{Wilson:1974sk}. Therefore colored objects always have to be bound inside colorless hadrons, where they are quasi-free, and can never be observed separately. There are two kinds of hadrons, baryons holding three quarks of different colors and mesons composed of two quarks, one of a certain color and the second one with the corresponding anticolor.
 
 %-asymptotic freedom - the coupling depends on the distance, , it is very weak at short distances (asymtotic freedom) nut grows in distance (confinment - bound hadron states)
 %-confinment -> color must remain neutral , not possinle to separate individual quarks and gluons, always are bound in colorless hadrons - baryons of mesons.
@@ -183,16 +197,15 @@ The coupling of colored objects is weak at short distances~(asymptotic freedom)~
 
 
 
-\subsection{Electroweak symmetry breaking~\label{sec:EWbreaking}}
+\subsection{The electroweak symmetry breaking~\label{sec:EWbreaking}}
 
-As discussed, the $W^{\pm}$ and $Z$ bosons are massive, but the mass term for these bosons cannot be incorporated into the Lagrangian of the electroweak interactions, because it would break the invariance of Lagrangian under local phase transformation. This problem was solved by the ``Higgs mechanism'', based on phenomenon referred as ``spontaneous symmetry breaking'' of SU(2) symmetry~\cite{Englert:1964et, Higgs:1964ia, Guralnik:1964eu}. The Higgs mechanism introduces a new scalar field $\phi$. The Lagrangian for this field and its interactions can be expressed as 
+As discussed, the $W^{\pm}$ and $Z$ bosons are massive, but the mass term for these bosons cannot be incorporated into the Lagrangian of the electroweak interaction, because it would break the invariance of the Lagrangian under a local phase transformation. This problem is solved by the ``Brout-Englert-Higgs mechanism'', based on a phenomenon referred as ``spontaneous symmetry breaking'' of the SU(2) symmetry~\cite{Englert:1964et, Guralnik:1964eu}. The BEH mechanism introduces a new scalar doublet field $\Phi$. The Lagrangian for this field and its interactions can be expressed as 
 
 \eq{lagHiggs}
 {
     \mathcal{L}_{Higgs} =  (D_{\mu}\Phi)^{\dagger} (D^{\mu}\Phi) - V(\Phi^{\dagger}\Phi),
 }
-
-where $D_{\mu}$ is the the covariant derivative, $V(\Phi^{\dagger}\Phi)$ is the Higgs potential and $\Phi$ is scalar doublet defined as
+where $V(\Phi^{\dagger}\Phi)$ is the Higgs potential and $\Phi$ is a scalar doublet field defined as
 
 
 \eq{doubletHiggs}
@@ -200,42 +213,42 @@ where $D_{\mu}$ is the the covariant derivative, $V(\Phi^{\dagger}\Phi)$ is the 
     \Phi = \binom{\phi^{+}}{\phi^{0}}.
 }
 
-The Higgs potential $V(\Phi^{\dagger}\Phi)$ is
+The Higgs potential $V(\Phi^{\dagger}\Phi)$ is defined by the equation
 
 \eq{potHiggs}
 {
     V(\Phi^{\dagger}\Phi) =  - \frac{1}{2} \mu^{2}\Phi^{\dagger}\Phi + \frac{1}{4} \lambda(\Phi^{\dagger}\Phi)^{2},
 }
-
-%$\Phi$ is a complex field. It is self-interacting SU(2)L doublet, weak hypercharge 1/2
-
-
-where $\mu$ and $\lambda$ are real parameters. In case when both $\mu^{2}$ and $\lambda$ are positive numbers, the potential $V(\Phi^{\dagger}\Phi)$ takes shape of a ``Mexican hat'', as shown in Fig.~\ref{fig:figures/mexicanHat}. The shape of the potential is such, that the value of field $\Phi$ at the ground state, i.e. vacuum expectation value~(VEV) of the field $\Phi$, is non-zero. The ground state is degenerate and can be chosen to be
+where $\mu$ and $\lambda$ are real parameters. Because both $\mu^{2}$ and $\lambda$ are positive numbers, the potential $V(\Phi^{\dagger}\Phi)$ takesi the shape of a ``Mexican hat'', as shown in Fig.~\ref{fig:figures/mexicanHat}. The shape of the potential is such that the value of field $\Phi$ at the ground state, i.e. the vacuum expectation value~(VEV) of the field $\Phi$, is non-zero. The ground state is degenerated and can be chosen to be
 
     \insertFigure{figures/mexicanHat} % Filename = label
                  {0.4}       % Width, in fraction of the whole page width
-                 { A shape of the Higgs potential $V$ for the complex field $\phi$ with positive values of real parameters $\mu^{2}$ and $\lambda$. The parameter $v$ denotes the vacuum expectation value.}
+                 { A shape of the Higgs potential $V$ for the complex field $\Phi$ with positive values of real parameters $\mu^{2}$ and $\lambda$. The parameter $v$ denotes the vacuum expectation value.}
 
 \eq{solutionHiggs}
 {
     \langle 0 | \Phi | 0 \rangle = \frac{1}{\sqrt{2}}\binom{0}{v} ,
 }
-
 with
 
 \eq{vDef}
 {
 v = \sqrt{\frac{\mu^{2}}{\lambda}}
 }
-
-being the ground state energy of field $\Phi$. Then the excitation of the field $\Phi$ can be written as follows
+being the ground state energy ofi the field $\Phi$. Then the excitation of the field $\Phi$ can be written as follows
 
 \eq{solutionHiggs2}
 {
     \Phi = \frac{1}{\sqrt{2}}\binom{0}{v+H},
 }
+where $H$ is the scalar field called the Higgs boson. The vector bosons $W^{\pm}$ and $Z$ become massive via interaction with the Higgs field present in the first terms of Higgs Lagrangian of Eq.~\ref{eq:lagHiggs}. The masses of the fermions can be also generated via interaction of the fermion field  $\Psi$ with the Higgs boson $H$ by adding new Yukawa term of type $\lambda_{Y} \bar{\Psi}_{L} \Phi \Psi_{R} + h.c$ with $\lambda_{Y}$ representing the Yukawa coupling dependent on the mass of the fermion to the Lagrangian of the standard model. The full Lagrangian of the standard model in the above defined notation can then be written as
 
-where $H$ is the Higgs boson. The vector bosons $W^{\pm}$ and $Z$ become massive via interaction with Higgs field present in the first term of Higgs Lagrangian~\ref{eq:lagHiggs}. The masses of the fermions can be also generated via interaction of fermion field  $\Psi$ with Higgs boson $H$ by adding new term of type $\lambda_{Y} \bar{\Psi}_{L} \Phi \Psi_{R} + h.c.$ to the Lagrangian of the Standard Model, with $\lambda_{Y}$ representing a Yukawa coupling dependent on mass of the fermion. It can be noticed that the interaction with the Higgs boson flips the chirality of a fermion from left to right and vice versa. Therefore masses of neutrinos cannot be generated in this way, as there are only left-handed neutrinos in the SM. The parameters $\mu$ and $\lambda$ of the Higgs potential are not predicted by the Standard Model and are measured experimentally. The mass of the Higgs boson at tree level, $m_{H} = \sqrt{2}\mu$, is dependent on parameter $\mu$ and therefore is as well not predicted by the SM. 
+\eq{SMlag} 
+{
+ \mathcal{L}_{SM} = \mathcal{L}_{QCD} + \mathcal{L}_{EW} +\mathcal{L}_{Higgs} + \mathcal{L}_{Yukawa}.
+} 
+
+It can be noticed  that the Yukawa interaction with the Higgs boson flips the chirality of a fermion from left to right and vice versa. Therefore the masses of neutrinos cannot be generated in this way, as there are only left-handed neutrinos in the SM. The parameters $\mu$ and $\lambda$ of the Higgs potential are not predicted by the standard model, i.e. there are free parameters which are measured experimentally. The mass of the Higgs boson at tree level dependens on the parameter $\mu$, $m_{H} = \sqrt{2}\mu$, and therefore is as well not predicted by the SM. 
 
 %Fermions get mass via interaction with $\Phi$ filed~\cite{Weinberg:1967tq}
 %-hiigs flips the chirality, this is why neurino cannot have a mass within SM
@@ -257,24 +270,24 @@ where $H$ is the Higgs boson. The vector bosons $W^{\pm}$ and $Z$ become massive
 % TODO \section{Feynman diagrams} ?
 %+perturbative theory
 
-\subsection{Issues of the Standard Model}
+\subsection{Limitations of the standard model~\label{sec:shortcomings}}
 
-Even though the Standard Model proved to be very successful in describing results of large part of the high energy physics experiments, phenomena which cannot be explained by the SM are observed as well. For this reason it is widely believed that the Standard Model is part of a larger theory. Before discussing the extension of the SM, some of the shortcomings and open questions of the Standard Model are briefly described first.
+Even though the standard model proved to be very successful in describing and predicting results of a large part of high energy physics experiments, phenomena which cannot be explained by the SM are observed as well. For this reason it is widely believed that the standard model is part of a larger theory. Before discussing the extension of the SM in Section~\ref{sec:SUSY}, some of the shortcomings and open questions of the standard model are first briefly described.
 
 
 \textbf{The naturalness problem}
 
-As mentioned in section~\ref{sec:EWbreaking} the mass of the Higgs boson at the tree level is $m_{H} = \sqrt{2}\mu$, but this mass must be corrected for contributions of the virtual particles. The correction to the square of the Higgs mass from the virtual fermions is quadratically divergent and depends quadratically on the mass of a fermion due to its Yukawa coupling. Therefore the largest correction to the Higgs mass comes from the virtual top quarks which are the heaviest fermions.
+As mentioned in section~\ref{sec:EWbreaking} the mass of the Higgs boson at the tree level is $m_{H} = \sqrt{2}\mu$, but this mass must be corrected for contributions of the virtual particles. The correction to the square of the Higgs mass from the virtual fermions is quadratically divergent and depends quadratically on the fermion masses due to their Yukawa couplings. Therefore the largest correction to the Higgs mass comes from the virtual top quarks which are the heaviest fermions.
 
     \insertFigure{figures/fermionCorr} % Filename = label
                  {0.3}       % Width, in fraction of the whole page width
-                 { A virtual fermion contributing to mass of the Higgs boson. }
+                 { A virtual fermion contributing to the mass of the Higgs boson. }
 
 An example of a virtual fermion contributing to the Higgs mass is shown in Fig.~\ref{fig:figures/fermionCorr}. The mass of the Higgs boson can be decomposed in $m_{H,0}$ which is the mass at the tree level and $\Delta m_{H}$ which is the correction from virtual fermions
 
 \eq{HiggsMass}
 {
-m_{H}^{2} = m_{H, 0}^{2} + \Delta m_{H}^{2}.
+m_{H}^{2} \approx m_{H, 0}^{2} + \Delta m_{H}^{2}.
 }
 
 It can be shown that the correction $\Delta m_{H}$ follows relation
@@ -283,15 +296,13 @@ It can be shown that the correction $\Delta m_{H}$ follows relation
 {
 \Delta m_{H}^{2} \propto m_{f}^{2} \Lambda^2,
 }
-
-where $m_f$ is mass of a fermion and $\Lambda$ is a cutoff on the momentum of the virtual particle. This cutoff is expressing up to which scale the Standard Model is valid and is usually taken to be the Planck mass $m_{Planck} \sim  10^{19}$~GeV. Knowing the term $\Delta m_{H}$, the Higgs mass can be written as
+where $m_f$ is the fermion mass and $\Lambda$ is a cutoff on the momentum of the considered virtual particle. This cutoff is expressing up to which scale the standard model is valid and is usually taken to be the Planck mass $m_{P} \sim  10^{19}$~GeV. Knowing the term $\Delta m_{H}$, the Higgs mass can be written as
 
 \eq{HiggsTuning}
 {
-m_{H}^{2} \sim m_{H, 0}^{2} + k  m_{Planck},
+m_{H}^{2} \sim m_{H, 0}^{2} + k ~m_{P},
 }
-
-where $k$ includes constants and the SM couplings. The mass of the Higgs boson was experimentally measured to be of 125~GeV~\cite{Chatrchyan:2012xdj, Aad:2012tfa}, which is orders of magnitude lower than the Planck mass. This mismatch between the order of magnitude of the Higgs and the Planck mass, for which there is no physics reason, is referred as a ``hierarchy problem''. Moreover to obtain this relatively small mass of the Higgs boson, there must be large cancellation between the two terms on RHS of Eq.~\ref{eq:HiggsTuning}. The cancellation of the terms has to happen in around thirty orders of magnitude. Such fine-tuning is not natural and this problem of fine-tuning is referred as a ``naturalness problem''.
+where $k$ includes constants and the SM couplings. The mass of the Higgs boson was experimentally measured to be of 125~GeV~\cite{Chatrchyan:2012xdj, Aad:2012tfa}, which is orders of magnitude lower than the Planck mass. This mismatch between the order of magnitude of the Higgs and the Planck masses, for which there is no physical reason, is referred as the ``hierarchy problem''. Moreover to obtain this relatively small mass of the Higgs boson, there must be large cancellation between the two terms $m_{H, 0}^{2}$ and $k ~m_{P}$  in Eq.~\ref{eq:HiggsTuning}. The cancellation of the terms has to happen in around thirty orders of magnitude. Such fine-tuning is not natural and this problem of fine-tuning is referred as the ``naturalness problem''.
 
 %corrwctions to Higgs boson mass
 %to compute cross section, all quantum loop corrections has to be taken into account
@@ -301,13 +312,13 @@ where $k$ includes constants and the SM couplings. The mass of the Higgs boson w
 %-34 digits
 %-picture higgs loop
 
-\textbf{The dark matter and energy}
+\textbf{Dark matter and dark energy}
 
-The cosmological observations suggest that the ordinary matter and energy, the matter and energy described by the Standard Model, account only for $\sim 5\%$ of the total mass~(energy) of the universe~\cite{Bertone:2004pz, Gaitskell:2004gd, Bennett:2012zja}. The remaining $\sim$95\% is divided between the dark matter~$\sim$27\% and dark energy~$\sim$68\%.
+Cosmological observations suggest that the ordinary matter and energy, described by the standard model, account for only $\sim 5\%$ of the total mass~(energy) of the universe~\cite{Bertone:2004pz, Gaitskell:2004gd, Bennett:2012zja}. The remaining $\sim$95\% is divided between the dark matter~$\sim$27\% and dark energy~$\sim$68\%.
 
-The dark matter has been observed only indirectly, it has no color or electric charge and therefore do not radiate. The first observation supporting the dark matter existence came from the measurement of rotation curves of galaxies. These curves show the dependency of star orbital velocity on the distance of the star from the center of galaxy. Rotation curves can be theoretically computed and it was found out, that the measured and theoretical curves agree at short distances. With increasing distance the observed curves remain constant, but theoretically they should decrease~\cite{Bertone:2004pz}. This phenomenon can be explained by presence of a halo of new particles, which interact by gravitational force. It was also found out that these particles must be long-lived and non-relativistic~(cold). Shortly it was realized that there is no candidate for dark matter within the Standard Model.
+Dark matter has been observed only indirectly as it does not emmit any radiation. Therefore if it an elementary particle, it has no color or electric charge. The first observation supporting the dark matter existence came from the measurement of rotation curves of galaxies~\cite{Zwicky:1937zza, Rubin:1980zd}. These curves show the dependency of the star orbital velocity on the distance of the star from the center of galaxy. Rotation curves can be theoretically computed and it was found out, that the measured and theoretical curves agree at short distances. With increasing distance the observed curves remain constant, while theoretically they should decrease~\cite{Bertone:2004pz}. This phenomenon can be explained by the presence of a halo of new particles, which interact by gravitational force. It was also found out that these particles must be stable and non-relativistic~(cold). Shortly it was realized that there is no candidate for dark matter within the standard model.
 
-The dark energy arises from the need of the cosmological constant in the Einstein equation. Without it, it would not be possible to explain the accelerated expansion of the universe. The dark energy can be interpreted as a vacuum energy, but there is a mismatch of $\sim$120 orders of magnitudes between the vacuum energy estimation from the cosmological constant and quantum field theory calculations.
+Dark energy arises from the need of the cosmological constant in the Einstein equation. Without it, it would not be possible to explain the accelerated expansion of the universe. Dark energy can be interpreted as a vacuum energy, but there is a mismatch of $\sim$120 orders of magnitude between the vacuum energy estimation from the cosmological constant and quantum field theory calculations.
 
 %-5 percent of baryonic matter
 %-27 percent of dark matter
@@ -325,15 +336,15 @@ The dark energy arises from the need of the cosmological constant in the Einstei
 %-cosmological constant (lambda) in einsteins equation necessary to explain the observed expansion of universe
 %-> cosmologica constant can be interpreted as a vacuum energy
 
-\textbf{Other issues of the Standard Model}
+\textbf{Other shortcomings of the standard model}
 
-One of the other problems is the asymmetry between matter and antimatter. In our universe there is abundance of matter, even though the matter is supposed to be produced in same amount as antimatter during the big bang. There is no mechanism within the SM, which could explain such a large asymmetry between matter and antimatter.
+Another problem of the SM is the asymmetry between matter and antimatter. In our universe there is abundance of matter, even though the matter is supposed to have been produced in the same amount as antimatter during the big bang.  Weak interaction violates the combined charge conjugation and parity~(CP) symmetry~\cite{Kobayashi:1973fv}, which could lead to the asymmetry between matter and antimatter. But the CP violation itself cannot describe that large asymmetry and therefore there is no mechanism within the SM, which could explain this asymmetry between matter and antimatter.
 
-As mentioned, there is only left-handed neutrino in the Standard Model and therefore its mass cannot be generated via interaction with the Higgs boson, which flips left-handed fermions to right-handed ones. But observed neutrino oscillations~\cite{Fukuda:1998mi, Ahmad:2001an} are only possible if the neutrinos are massive. This fact itself is not conclusive argument in favor of physics beyond the SM, but it needs to be understood how the mass of neutrinos can be generated.
+Then, as mentioned, there are only left-handed neutrinos in the standard model and therefore their masses cannot be generated via interaction with the Higgs boson, which flips left-handed fermions to right-handed ones. But neutrino oscillations~\cite{Fukuda:1998mi, Ahmad:2001an} have been observed and are only possible if neutrinos are massive. This fact itself is not conclusive argument in favor of physics beyond the SM, but it needs to be understood how the mass of neutrinos can be generated.
 
-Another argument for physics beyond the Standard Model is, that the gravitational force is not a part of the Standard Model. Currently, there are big efforts to combine general relativity and quantum field theory to formulate theory of quantum gravity.  
+Another argument to try to extend the the standard model is to include the gravitational force, which is not presently part of the standard model and therefore the SM is only effective theory. Currently, there are big efforts to combine general relativity and quantum field theory to formulate a theory of quantum gravity.  
 
-In the Standard Model, the coupling constants are dependent on energy. At higher energies the constants of weak, electromagnetic and strong interactions become of similar strengths, giving a hope for unification of these interactions at large energy scale. But this unification cannot be achieved within the SM and to unify forces a beyond the SM theory is needed.
+Finally, in the standard model, the coupling constants are dependent on energy. At higher energies the constants of weak, electromagnetic and strong interactions become of similar strengths, giving a hope for unification of these interactions at large energy scale. There is no certainty that the forces are unified, but based on previous unifications of e.g electricity and magnetism, or electromagnetic and waek interaction, the unification of other forces is expected. But this unification is not achieved within the SM and to unify forces, a theory beyond the SM is needed.
  
 %4)Matter-antimatter assymetry
 %-matter and antimatter should be produced in smae amount at big bang
@@ -361,7 +372,7 @@ In the Standard Model, the coupling constants are dependent on energy. At higher
 
 \section{Supersymmetry~\label{sec:SUSY}}
 
-To address mentioned shortcomings of the Standard Model, many extensions of the SM were proposed over the past years. There are in general two kinds of theories extending the SM~(beyond the Standard Model theories). First group of theories, which are generally referred as ``extra dimensions'' theories~\cite{Patrignani:2016xqp} add new space-time dimensions. The second group of theories add new symmetries. An example of such theory is supersymmetry~(SUSY)~\cite{Martin:1997ns}, which became very popular due to its capability to solve many issues of the SM. The SUSY started to be developed since 1970's around an idea of introducing new symmetry between fermions and bosons.
+To address mentioned shortcomings of the standard model, many extensions of the SM were proposed over the past decades. In general there are everal possibilities how to extend the SM and formulate beyond the standard model theories. The extension can be achieved by, for example, adding ``extra dimensions''~\cite{Patrignani:2016xqp}, adding new symmetries, postulating new particles and proposing new interactions. An example of theory adding new symmetries is SUperSYmmetry~(SUSY)~\cite{Martin:1997ns}, which became very popular due to its capability to solve many issues of the SM. The SUSY started to be developed since 1970's around an idea of introducing a new symmetry between fermions and bosons.
   
 %- said before: SM works fine, but we need to extend it -> we can add either additional symetries, space-time dimensions or field content
 %- one of the possibility how to extend is susy 
@@ -374,18 +385,18 @@ The supersymmetry introduces symmetry operator $Q$, which acts on fermions~$f$ a
 Q \mid f \rangle \to \mid b \rangle \to  , \; Q \mid b \rangle \to \mid f \rangle
 }
 
-The operator $Q$ changes the spin of the particle by $1/2$, therefore transforms fermion to boson and vice versa, but do not change any other quantum number or particle properties. This symmetry $Q$ yields to the symmetry within which each SM fermion have bosonic SUSY partner with the same quantum numbers except of spin, and similarly each SM boson has associated fermionic SUSY partner. The supersymmetric partners of the SM particles are referred as ``sparticles''. To build a theory which is able to reproduce the Standard Model, the operator $Q$ must satisfy following (anti)commutator relations~\cite{Haag:1974qh, Coleman:1967ad}:
+The operator $Q$ changes the spin of the particle by $1/2$, therefore transforms fermion to boson and vice versa, but do not change any other quantum number or particle properties. This symmetry $Q$ yields to the symmetry within which each SM fermion have bosonic SUSY partner with the same quantum numbers except of spin, and similarly each SM boson has associated fermionic SUSY partner. The supersymmetric partners of the SM particles are referred as ``sparticles''. To build a theory which is able to reproduce the standard model, the operator $Q$ must satisfy following (anti)commutator relations~\cite{Haag:1974qh, Coleman:1967ad}:
 
 \eq{comutators}
 {
 \{Q,Q^{\dagger}\} = P^{\mu}, \; \{Q,Q\} =\{Q^{\dagger},Q^{\dagger}\}= 0, \; [P^{\mu}, Q] = [P^{\mu}, Q^{\dagger}] = 0,
 }
 
-where $P^{\mu}$ is the four-momentum operator. It can be noticed that $-P^{2}$, which is the mass-squared operator, commutes with both $Q$ and $Q^{\dagger}$ and therefore a particle and its SUSY partner have the same mass. But as no SUSY partners have been observed, this symmetry must be broken. 
+where $P^{\mu}$ is the four-momentum operator. It can be noticed that $-P^{2}$, which is the mass-squared operator, commutes with both $Q$ and $Q^{\dagger}$ and therefore a particle and its SUSY partner have the same mass. But as no SUSY partners have been observed, this symmetry must be broken. Many symmetry breaking scenarios can be built, leading to many possible realizations of supersymmetric theory. 
 
 The naming convention for SUSY particles adds prefix ``s'' to the SUSY partners of fermions, therefore sfermions are bosons. The SUSY partners to bosons get suffix ``ino'', for example the SUSY partner of gluon is gluino, which is fermion. The symbols of superpartners have a tilde.
 
-There are many realizations of the supersymmetry, but in further text only Minimal Supersymmetric Standard Model, which is the most used one, is considered.
+There are many realizations of the supersymmetry, but in further text only Minimal Supersymmetric standard model, which is the most used one, is considered.
 
 
 %------------------------------------------------------------------------------------------------------------------------------------------
@@ -418,7 +429,7 @@ There are many realizations of the supersymmetry, but in further text only Minim
 
 \subsection{Minimal Supersymmetric Standard Model}
 
-The Minimal Supersymmetric Standard Model~(MSSM) is supersymmetric extension of the SM which adds a minimum of new particles. It also does not introduce any additional gauge interactions. The Lagrangian of the new theory can be written as
+The Minimal Supersymmetric Standard Model~(MSSM)~\cite{Martin:1997ns} is a supersymmetric extension of the SM which adds a minimum of new particles. It also does not introduce any additional gauge interactions. The Lagrangian of the new theory can be written as
 
 \eq{lagSUSY}
 {
@@ -432,13 +443,13 @@ where $\mathcal{L}_{MSSM}$ is the supersymmetric part of the Lagrangian and term
 \Delta m_{H}^{2} \propto (m_{f}^{2} - m_{b}^2) \mathrm{ln} \left(\frac{\Lambda}{m_{b}}\right),
 }
 
-where $m_{f}$ is mass of fermion, $m_{b}$ mass of boson and $\Lambda$ a cutoff. This term is zero in case that mass of particle and its partner is the same and therefore no fine-tuning is needed. The virtual contributions to the Higgs mass in context of MSSM are visualized in Fig.~\ref{fig:figures/fermionCorr2}, within which the fermion and sfermion loop contributions are of same value but opposite sign and therefore cancel. In the broken theory the masses are not the same, the term $\Delta m_{H}^{2}$ has logarithmic divergence and larger the mass difference between the particle and sparticle, more fine-tuning is needed. Therefore to preserve the naturalness of the theory, it is required that it is broken only slightly and the supersymmetric partners do not have mass hugely larger than the SM particles. Especially, as the largest  contribution to the Higgs mass comes from the top quark, the mass difference between the top quark and top squark should be reasonably small, leading to a constraint on the top squark mass to be of order of 1~TeV. The newly explored natural SUSY models permit the stop masses up to 3~TeV~\cite{Baer:2016bwh}.
+where $m_{f}$ is mass of fermion, $m_{b}$ mass of boson and $\Lambda$ a cutoff. This term is zero in case that mass of particle and its partner is the same and therefore no fine-tuning is needed. The virtual contributions to the Higgs mass in context of MSSM are visualized in Fig.~\ref{fig:figures/fermionCorr2}, within which the fermion and sfermion loop contributions are of same value but opposite sign and therefore cancel. In the broken theory the masses are not the same, the term $\Delta m_{H}^{2}$ has logarithmic divergence and larger the mass difference between the particle and sparticle, more fine-tuning is needed. Therefore to preserve the naturalness of the theory, it is required that it is broken only slightly and the supersymmetric partners do not have mass hugely larger than the SM particles. Especially, as the largest  contribution to the Higgs mass comes from the top quark, the mass difference between the top quark and top squark should be reasonably small, leading to a constraint on the top squark mass to be of order of around 1~TeV~\cite{Barbieri:1987fn}. The newly explored natural SUSY models permit the stop masses up to 3~TeV~\cite{Baer:2016bwh}.
 
     \insertFigure{figures/fermionCorr2} % Filename = label
                  {0.3}       % Width, in fraction of the whole page width
                  { A virtual fermion and boson contributing to mass of the Higgs boson.}
 
-The spectrum of SUSY partners can be seen in Tab.~\ref{tab:SUSYspectrum} in column ``Gauge Eigenstates''. In the MSSM there are two Higgs doublets in order to avoid gauge anomalies and to be able to have Yukawa coupling of both up- and down- type quarks. Both Higgs doublets have non-zero vacuum expectation value. As a consequence of electroweak symmetry breaking, the charged fields $W_{1,2}$ mix into positive and negative winos~($\tilde{W}^{\pm}$) and the neutral fields $B_{0}$ and $W_{3}$ mix into zino~($\tilde{Z}$) and photino ($\tilde{\gamma}$). The higgsinos mix with the flavor eigenstates of the SUSY partners of $SU(2) \otimes U(1)$ gauge bosons to give rise to the gaugino mass eigenstates. The two charged higgsinos~($\tilde{H}_{u}^{+}~\tilde{H}_{d}^{-}$) mix with $\tilde{W}^{\pm}$ to form two charginos~($\tilde{\chi}_{1,2}^{\pm}$) in negative and positive version. The four neutralinos $\tilde{\chi}_{1,2,3,4}^{0}$ are mix of zino, photino and two neutral higgsinos~($\tilde{H}_{u}^{0}~\tilde{H}_{d}^{0}$). There is also mixing between the left and right component of the third generation of squarks and stau, due to the large mass of third generation of quarks and tau and therefore large Yukawa coupling. The mass eigenstates can be as well found in Tab.~\ref{tab:SUSYspectrum}. The subscripts $L,R$ denote left and right chiral components of the fermion field.
+The spectrum of SUSY partners can be seen in Tab.~\ref{tab:SUSYspectrum} in column ``Gauge Eigenstates''. In the MSSM there are two Higgs doublets in order to avoid gauge anomalies and to be able to have Yukawa coupling of both up- and down- type quarks. Both Higgs doublets have non-zero vacuum expectation value. As a consequence of electroweak symmetry breaking, the charged fields $W_{1,2}$ mix into positive and negative winos~($\tilde{W}^{\pm}$) and the neutral fields $B_{0}$ and $W_{3}$ mix into zino~($\tilde{Z}$) and photino ($\tilde{\gamma}$). The higgsinos mix with the flavor eigenstates of the SUSY partners of $SU(2) \otimes U(1)$ gauge bosons to give rise to the gaugino mass eigenstates. The two charged higgsinos~($\tilde{H}_{u}^{+}~\tilde{H}_{d}^{-}$) mix with $\tilde{W}^{\pm}$ to form two charginos~($\tilde{\chi}_{1,2}^{\pm}$) in negative and positive version. The four neutralinos $\tilde{\chi}_{1,2,3,4}^{0}$ are mix of zino, photino and two neutral higgsinos~($\tilde{H}_{u}^{0}~\tilde{H}_{d}^{0}$). There is also mixing between the left and right component of the third generation of squarks and stau, due to the large mass of third generation of quarks and tau and therefore large Yukawa coupling which is proportionate to $m/v$, where $m$ is the fermion mass and $v = \mu/\sqrt(\lambda)$ are the parameters of the Higgs potential. The mass eigenstates can be as well found in Tab.~\ref{tab:SUSYspectrum}. The subscripts $L,R$ denote left and right chiral components of the fermion field.
 
 \begin{table}[h]
 \begin{center}
@@ -499,7 +510,7 @@ Another advantage of the MSSM is that the energy dependence of the coupling cons
 
 %TODO 
 
-The MSSM brings 105 new free parameters on top of the 19 free parameters in the Standard Model. Most of these parameters come from the supersymmetry breaking part of the Lagrangian. It is not possible to search for SUSY in such a large parameter-space and therefore the collider experiments usually search for SUSY in context of simplified models, in case of CMS collaboration referred as ``Simplified Model Spectra'', which reduce the number of free parameters.
+The MSSM brings 105 new free parameters on top of the 19 free parameters in the standard model. Most of these parameters come from the supersymmetry breaking part of the Lagrangian. It is not possible to search for SUSY in such a large parameter-space and therefore the collider experiments usually search for SUSY in context of simplified models, in case of CMS collaboration referred as ``Simplified Model Spectra'', which reduce the number of free parameters.
 
 
 %------------------------------------------------------------------------------------------------------------------------------------------
@@ -564,7 +575,7 @@ where $m_{\tilde{\chi}_{1}^{\pm}}$ is the chargino mass, $m_{\tilde{t}_{1}}$ is 
                  {0.45}       % Width, in fraction of the whole page width
                  {An example of a Feynman diagram with intermediary chargino. In this diagram both stops decay to a bottom quark and chargino. Both charginos then decay to W-boson and LSP.   } % Caption
 
-The directly produced stop pair decays eventually into two b-quarks, two W-bosons and two neutralinos. Therefore in the final state two b-jets, two neutralinos and leptons and/or jets from the W-bosons are expected. The neutralinos interact only weakly and escape the detector unmeasured. Although undetected particles can be spotted by presence of large amount of missing transverse energy, giving such SUSY signal unique experimental signature compared to the Standard Model processes.
+The directly produced stop pair decays eventually into two b-quarks, two W-bosons and two neutralinos. Therefore in the final state two b-jets, two neutralinos and leptons and/or jets from the W-bosons are expected. The neutralinos interact only weakly and escape the detector unmeasured. Although undetected particles can be spotted by presence of large amount of missing transverse energy, giving such SUSY signal unique experimental signature compared to the standard model processes.
 
 In general, results of the searches in context of the SMS are exclusion limits on the sparticle masses in plane of the two of them, in the described case in the plane of stop versus LSP mass.
 
