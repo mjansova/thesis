@@ -1,115 +1,120 @@
-\chapter{Search for top squark pair production in pp collisions at sqrt(s)=13~TeV using single lepton events}
+\chapter{Search for top squark pair production in pp collisions at $\sqrt{s}$=13~TeV in Run 2 using single lepton events}
 
 %\section{Introduction and motivation}
 
-The supersymmetry is considered to be the most popular extension of the Standard Model, due to its capability to address many shortcomings of the SM. Among others, it provides a natural solution to the hierarchy problem and a dark matter candidate. Within supersymmetry each SM particle has a SUSY partner with the same quantum numbers except of spin which is differing by one half. This chapter is focuses on the direct pair production of the SUSY partners of the top quarks, referred as ``top squarks'' or ``stops''~($\tilde{t}$). There are two scalar stops $\tilde{t}_{R}$ and  $\tilde{t}_{L}$ as there is left and right component of the SM fermion field. These two stops mix into mass eigenstates $\tilde{t}_{1}$ and $\tilde{t}_{2}$,  $\tilde{t}_{1}$ being the lighter one. Due to the naturalness constraint the lighter stop should have mass lower than few TeV. Moreover the Higgs mass measurements give condition that $\sqrt{m_{\tilde{t}_{1}} m_{\tilde{t}_{2}}}$ should be around 600~GeV. In this chapter only a SUSY model, in which the R-parity is conserved and the LSP is the lightest neutralino~($\tilde{\chi}^{0}_{1}$), is considered.
+The supersymmetry is considered to be the most popular extension of the Standard Model, due to its capability to address many shortcomings of the SM. Among others, it provides a natural solution to the hierarchy problem and a dark matter candidate. Within supersymmetry each SM particle has a SUSY partner with the same quantum numbers except of spin which is differing by one half. This chapter focuses on the direct pair production of the SUSY partners of the top quarks, referred as ``top squarks'' or ``stops''~($\tilde{t}$). There are two scalar stops $\tilde{t}_{R}$ and  $\tilde{t}_{L}$ as there are a left and a right components of the SM fermion fields. These two stops mix into mass eigenstates $\tilde{t}_{1}$ and $\tilde{t}_{2}$ labelled by increasing mass. 
 
-Depending on the mass difference between stop and neutralino $\Delta m = \tilde{t}_{1} - \tilde{\chi}^{0}_{1}$, several decay modes of the stops are possible. The stops can decay via two, three or four body decays to final states with b- or c-quarks. This chapter describes search for top squark pair production in pp collisions at sqrt(s)=13~TeV using single lepton events~\cite{Sirunyan:2017xse}, covering two and three body decays with b-quarks in final states. As I was also involved in previous versions of this analysis~\cite{Sirunyan:2016jpr, CMS:2016vew}, several differences between the three analyses are briefly discussed, but in general these analysis are largely similar. Described analyses were performed in the working group of around twenty to forty people and therefore in following sections I will especially highlight some chosen contributions from my side.
+In this chapter only a SUSY model, in which the R-parity is conserved leading to LSP being the lightest neutralino~($\tilde{\chi}^{0}_{1}$) and the stops being produced  in pair, is considered. Depending on the mass difference between the stop and the neutralino $\Delta m = m_{\tilde{t}_{1}} - m_{\tilde{\chi}^{0}_{1}}$, several decay modes of the stops are possible. The stops can decay via two, three or four body decays to final states with b- or c-quarks. In case of three (four) body decays the top quark (W boson) in the decay chain are produced off-shell. This chapter describes the search for top squark pair production in pp collisions at $\sqrt{s}$=13~TeV using single lepton events~\cite{Sirunyan:2017xse} corresponding to integrated luminosity of 35.9~fb$^{-1}$ collected during 2016. This analysis, further referred as ``full 2016 analysis'', is covering two and three body decays with b-quarks in the final state. As I was also involved in the previous versions of this analysis~\cite{Sirunyan:2016jpr, CMS:2016vew}, corresponding to data from 2015 of the integrated luminosity 2.3~fb$^-1$ referred as ``2015 analysis'' and data from beginning of 2016 of the integrated luminosity 12.9~fb$^-1$ referred as ``beginning of 2016 analysis'', respectively, several differences between the three versions are briefly discussed, but in general they analysis are largely similar. In the foillowing sections I especially highlight some chosen personal contributions.
+
+In the section~\ref{sec:stopologies} the signal topologies targeted by full 2016 analysis are presented. The following Section~\ref{sec:strategy} defines the strategy of the analysis.  Then in Section~\ref{sec:estimations} the background estimations in the search region are discussed, starting from the estimation of background reffered as ``$Z \to \nu \bar{\nu}$'' which I provided during my PhD thesis. Within the subsections on the relevant backgrounds, the systematic uncertainties on the background estimates are identified. Finally Section~\ref{sec:results} discusses the signal uncertainties, summarizes the results of this analysis and provides their interpretation. 
 
 %-delta M around top mass challenging kinematics -> looks like SM tt -> this region is called stealthy region
 %-for t2bW when W becomes on-shell also difficult kinematics
 
-\section{Signal topologies}
+\section{Signal topologies~\label{sec:stopologies}}
 
-The presented analysis focuses on the kinematic region where $\Delta m > m_W+m_b$ and on three different decay modes of the stop pair.  All modes lead to states with two b-jets, two W-bosons and two neutralinos, but the final state kinematics differ depending on the decay mode and $\Delta m$. The $\Delta m$ plane is shown in Fig.~\ref{fig:figures/dmplane}. In the part of the plane where $\Delta m < m_t$, often referred as ``compressed spectra'' region, the decay products are soft and subsequently not reconstructed. On the other hand when the $\Delta m$ is large, boosted topologies can be expected. 
+In this analysis the targeted final states have one leptonically and one hadronically decaying W boson, resulting in one charged lepton in the final states. The advantage of this one lepton channel is the low occurrence of the Standard model backgrounds and its relatively high branching ratio, the stop pair decays in around 32\% of cases to the final states with one lepton. The analysis focuses on the kinematic region where $\Delta m > m_W+m_b$ and on three different decay modes of the stop pair.  
 
-    \insertFigure{figures/dmplane} % Filename = label
-                 {0.99}       % Width, in fraction of the whole page width
-                 { The plane of stop versus LSP mass showing where signal with different $\Delta m$ is located~\cite{Aad:2014kra}. }
-
-In this analysis the targeted final states have one leptonically and one hadronically decaying W-boson, resulting in one charged lepton in the final states. The advantage of this one lepton channel is low occurrence of the Standard model backgrounds and its relatively high branching ratio, around 32\% of directly produced stop pairs decay to final states with one lepton.
-
-The first of the three considered decay chains of the stop pair shown in the left part of Fig.~\ref{fig:figures/stopdecays} is referred as ``T2tt'', in which both stops decay to top quark and neutralino, followed by decay of each top quark to W-boson and b-quark:
+The first of the three considered decay chains of the stop pair is shown in the left part of Fig.~\ref{fig:figures/stopdecays} and referred as ``T2tt'', in which both stops decay to a top quark and a neutralino, followed by the decay of each top quark to a W boson and a b-quark:
 
 \eq{t2tt}
 {
-    \tilde{t}_{1} \bar{\tilde{t}}_{1} \to t \bar{t} \tilde{\chi}^{0}_{1} \tilde{\chi}^{0}_{1} \to b \bar{b} W^{+} W^{-} \tilde{\chi}^{0}_{1} \tilde{\chi}^{0}_{1}.
+    \tilde{t}_{1} \bar{\tilde{t}}_{1} \to t \bar{t} \tilde{\chi}^{0}_{1} \tilde{\chi}^{0}_{1} \to b \bar{b} W^{+} W^{-} \tilde{\chi}^{0}_{1} \tilde{\chi}^{0}_{1} \to b \bar{b} \ell \nu_{\ell} 2j \tilde{\chi}^{0}_{1} \tilde{\chi}^{0}_{1}.
 }
 
-The second possibility depicted in the right part of Fig.~\ref{fig:figures/stopdecays} is referred as ``T2bW'' and in this case both stop quarks decay via intermediary chargino:
+The second possibility depicted in the right part of Fig.~\ref{fig:figures/stopdecays} is referred as ``T2bW'' and in this case both stop quarks decay via an intermediate chargino:
 
 \eq{t2bW}
 {
-    \tilde{t}_{1} \bar{\tilde{t}}_{1} \to b \bar{b} \tilde{\chi}^{+}_{1} \tilde{\chi}^{-}_{1} \to b \bar{b} W^{+} W^{-} \tilde{\chi}^{0}_{1} \tilde{\chi}^{0}_{1}.
+    \tilde{t}_{1} \bar{\tilde{t}}_{1} \to b \bar{b} \tilde{\chi}^{+}_{1} \tilde{\chi}^{-}_{1} \to b \bar{b} W^{+} W^{-} \tilde{\chi}^{0}_{1} \tilde{\chi}^{0}_{1} \to b \bar{b} \ell \nu_{\ell} 2j \tilde{\chi}^{0}_{1} \tilde{\chi}^{0}_{1} .
 }
+In the T2bW model the chargino mass is not scanned due to the computing limitations and it was chosen to be fixed halfway between the mass of the stop and thei mass of the neutralino. 
 
     \insertTwoFigures{figures/stopdecays}
                  {figures/T2tt} % Filename = label
                  {figures/T6bbWW} % Filename = label
                  {0.45}       % Width, in fraction of the whole page width
-                 { The SMS Feynman diagrams for the direct stop pair production. In the left diagram stop pair decays to $t \bar{t} \tilde{\chi}^{0}_{1} \tilde{\chi}^{0}_{1}$, while in the right one to $ b \bar{b} \tilde{\chi}^{+}_{1} \tilde{\chi}^{-}_{1}$~\cite{website:SUSYdiagrams}. }
+                 { The SMS diagrams for the direct stop pair production. In the left diagram each stop decays to $t \bar{t}  \tilde{\chi}^{0}_{1}$, while in the right one it decays to $ b \tilde{\chi}^{\pm}_{1} $~\cite{website:SUSYdiagrams}. }
 
-In the T2bW model the chargino mass is fixed to be halfway between the mass of stop and neutralino. The third decay shown in Fig.~\ref{fig:figures/T4tbW} combines the previous two with 50\% branching ratio of $\tilde{t} \to t \tilde{\chi}_{1}^{0})$. In this case, referred as ``T2tb'', one of the stops decay to the top quark and neutralino and the second to the bottom quark and chargino.
+
+The third decay, shown in Fig.~\ref{fig:figures/T4tbW} and reffered as ``T2tb'' combines the previous two decay modes of the stop: one of the stops decay to a top quark and a neutralino, while other one decays to a bottom quark and a chargino:
 
 \eq{t2tb}
 {
-    \tilde{t}_{1} \bar{\tilde{t}}_{1} \to t b \tilde{\chi}^{0}_{1} \tilde{\chi}^{+}_{1} \to b \bar{b} W^{+} W^{-} \tilde{\chi}^{0}_{1} \tilde{\chi}^{0}_{1}.
+    \tilde{t}_{1} \bar{\tilde{t}}_{1} \to t b \tilde{\chi}^{0}_{1} \tilde{\chi}^{+}_{1} \to b \bar{b} W^{+} W^{-} \tilde{\chi}^{0}_{1} \tilde{\chi}^{0}_{1} \to b \bar{b} \ell \nu_{\ell} 2j \tilde{\chi}^{0}_{1} \tilde{\chi}^{0}_{1} .
 }
+In the T2tb model, the chargino and neutralino are taken as almost mass degenerate, the chargino mass is fixed by relation $m_{\tilde{\chi}_{1}^{\pm}} = m_{\tilde{\chi}_{1}^{0}} + 5~\mathrm{GeV}$. Because of this small difference between the chargino and neutralino masses, the W boson is produced off-shell, its decay products have low transverse momenta and are typically not selected or even reconstructed. 
 
     \insertFigure{figures/T4tbW} % Filename = label
                  {0.5}       % Width, in fraction of the whole page width
-                 { The SMS Feynman diagram for the direct stop pair production considering the mixed decay of the stop pair $t b \tilde{\chi}^{0}_{1} \tilde{\chi}^{+}_{1}$~\cite{website:SUSYdiagrams}. }
+                 { The SMS diagram for the direct stop pair production considering the mixed decay of the stop pair $t b \tilde{\chi}^{0}_{1} \tilde{\chi}^{+}_{1}$~\cite{website:SUSYdiagrams}. }
 
-In T2tb model, chargino and neutralino are almost mass degenerate, the chargino mass is fixed by relation $m_{\tilde{\chi}_{1}^{\pm}} = m_{\tilde{\chi}_{1}^{0}} + 5~\mathrm{GeV}$. Because of this small difference between chargino and neutralino masses, the W-boson is produced off-shell, its decay products have low transverse momenta and are probably not reconstructed. If the jets from hadronically decaying W-boson are not reconstructed, only the two b-jets are present in the final state of this signal topology, what is being one of the motivation to search for final states with less jets than expected four.
 
-The analysis strategy introduced in the next section is general for all types of signal topologies. Only for corridor region of T2tt a separately optimized ``corridor'' analysis was designed to target better very challenging signal final state, which is very similar to those of the SM processes. To be able to combine results of the nominal and corridor analysis, the sensitivity of both analysis for different $\Delta m$ was evaluated and it was decided to use compressed analysis for T2tt signals in $\Delta m$ range between 100 and 225~GeV and the nominal one everywhere else.
+All decay modes considered by this analysis lead to states with two b-jets, two W bosons and two neutralinos, but the final state kinematics differ depending on the decay mode and $\Delta m$. The $\Delta m$ plane is shown in Fig.~\ref{fig:figures/dmplane}. In the part of the plane where $\Delta m < m_t$, often referred as ``compressed spectra'' region or ``corridor region'', the decay products are softer and subsequently not selected. On the other hand when the $\Delta m$ is large, boosted topologies can be expected. 
+
+    \insertFigure{figures/dmplane} % Filename = label
+                 {0.99}       % Width, in fraction of the whole page width
+                 { The plane of stop versus LSP~($\tilde{\chi}^{0}_{1}$) masses~\cite{Aad:2014kra}. }
 
 
 \section{Analysis strategy}
 
-Because of the two neutralinos, the signal processes (T2tt, T2bW and T2tb)  can have final state signatures largely differing from the SM background processes ones. The knowledge about the signal and background signatures is used to define the baseline search region, in which the SM background is suppressed. This baseline search region is then divided to smaller signal regions with help of discriminating variables. These variables are useful to define signal regions where some of the signals are enriched or some of the backgrounds are more reduced. The remaining background in each signal region is estimated from data-driven techniques or simulations. In the baseline search region there are three groups of backgrounds present. 
+Because of the two neutralinos, the signal processes (T2tt, T2bW and T2tb)  can have final state signatures largely differing from the SM background ones. The knowledge about the signal and background signatures is used to define a ``baseline search region'', in which the SM backgrounds are suppressed. 
 
-The leading background is referred as ``lost lepton'' background and is mainly coming from $\mathrm{t\bar{t}} \to 2 \ell$ process, where both W-bosons decay into leptons and one of the charged leptons is lost due to acceptance or other criteria. This background is reduced by applying veto on the misreconstructed second lepton, but even after this it remains the largest background. The sub-leading background is ``one lepton'' background, which is predominantly composed of W+jets and $\mathrm{t\bar{t}} \to 1 \ell$ processes with leptonically decaying W-boson. The last relevant background is denoted as ``$Z \to \nu \bar{\nu}$'' and comes from processes such as $t\bar{t}Z$ and $WZ$ in which the Z-boson decays to two neutrinos and one of the W-bosons leptonically.  
+In the baseline search region there are three groups of backgrounds present. The leading background is referred as the ``lost lepton'' background which has a final state with two W bosons, both decaying into leptons and one of the charged leptons being lost due to acceptance or other criteria. This background, mainly coming from $\mathrm{t\bar{t}} \to 2 \ell$ single top quark process,  is reduced by applying veto on the misreconstructed second lepton, but even after this it remains the largest background. The sub-leading background is the ``one lepton'' background, which is predominantly composed of $W+jets \to 1\ell$ and $t\bar{t} \to 1 \ell$ processes with one W boson decaying leptonically. The last relevant background is denoted as ``$Z \to \nu \bar{\nu}$'' and comes from processes such as $t\bar{t}Z$ and $WZ$ in which the Z boson decays to two neutrinos and one of the W bosons decays leptonically.  
 
-The signal and estimated background yields are compared with data in the signal regions and in case that no excess from the SM expectation is observed, the exclusion limits can be put on given signal models. For the purposes of the optimization of analysis and limits setting, the procedure of the hypothesis testing in the LHC searches is briefly described in the section~\ref{sec:stats}. 
+This baseline search region is then divided,  with help of discriminating variables, to smaller signal regions. The goal is to define regions in which the signal to background ratio is enhanced and only the regions leading to the high signal to background ratio are used. Also these variables can discriminate between different signals and backgrounds and can be helpful in defining signal regions where some of the signals are enriched or some of the backgrounds are more reduced. The remaining background in each signal region is estimated from data-driven techniques or simulations. 
 
-In the following subsection~\ref{sec:variables}, the variables designed for definition of baseline search region and its division to signal regions are introduced and justified on the examples of signal topologies. The backgrounds behavior with regard to the choice of the variables is discussed as well. In the end, the final definition of the baseline and signal regions for the presented analysis is revealed.
+The hypothesis tests are performed on the signal, estimated background and observed data yields in the signal regions. In case that no excess from the SM expectation is observed, the results are interpreted in term of exclusion limits on given signal models. For the purpose of analysis optimization and limit setting, the procedure of hypothesis tests in the LHC searches is briefly described in the Section~\ref{sec:stats}. Then the triggers and objects used in this analysis are introduced in subsections \ref{sec:trigger}, \ref{sec:objects},
+ 
+In the following Section~\ref{sec:variables}, the variables designed to define the baseline search region and its categorization in signal regions are introduced and justified on the examples of signal topologies. The backgrounds behavior with regard to the choice of the variables is discussed as well. In the end, the final definition of the baseline and signal regions for the presented analysis is revealed. Once the most discriminating variables are identified, the final definition of the baseline and signal regions is shown in Section \ref{sec:baseline} and \ref{sec:sr}. 
 
-Once the most discriminating variables are identified the object selection, triggers and final design of baseline selection and signal regions are introduced in subsections \ref{sec:trigger}, \ref{sec:objects}, \ref{sec:baseline} and \ref{sec:sr}. Then in the section~\ref{sec:estimations} the background estimations in the signal region are discussed, starting from the $Z \to \nu \bar{\nu}$ estimation which was provided by myself. After estimating all relevant backgrounds, in the subsection~\ref{sec:systematics} the systematic uncertainties on the background estimates as well as on signal yields are identified. Finally the section~\ref{sec:results} summarizes the results of this analysis and provides an interpretation of them. 
+The introduced analysis strategy is general for all types of signal topologies. Only for corridor region of T2tt a separately optimized ``corridor'' analysis was designed to better target a very challenging signal final state scenario, whose kinematics is very similar to that of the SM processes. To be able to combine results of the nominal and corridor analyses, the sensitivity of both analysis for different $\Delta m$ was evaluated and it was decided to use compressed analysis for T2tt signals in $\Delta m$ range between 100 and 225~GeV and the nominal one everywhere else.
 
 %binned approach in variables which tend to reduce signal
 %single top?
 
 
-\subsection{Statistical methods in LHC searches~\label{sec:stats} }
+\subsection{Hypothesis testing in LHC searches~\label{sec:stats} }
 
-The hypothesis testing and limit setting procedure chosen by the ATLAS and CMS collaborations is modified frequentist method referred as the ``$\mathrm{CL_{s}}$'' method~\cite{Read:2002hq, Junk:1999kv, Cowan:2010js, CMS-NOTE-2011-005}. There are two hypothesis to be tested, the background only hypothesis $H_{0}$ also referred as ``null hypothesis'' and the signal plus background hypothesis $H_{1}$ usually called as ``alternative hypothesis''. These hypothesis are functions of $b+\mu s$, where $b$ and $s$ are the expected background and signal yields and $\mu$ is the signal strength modifier. In case of background only hypothesis $H_{0}$ the signal strength $\mu$ is zero. The signal and background estimates entering into the hypothesis testing are burdened by meany systematic uncertainties, which are in the $\mathrm{CL_{s}}$ methods treated as nuisance parameters and denoted collectively as $\theta$. Then the expected signal and background yields are dependent on these nuisance parameters: $s \to s(\theta)$ and $b \to b(\theta)$.
+The hypothesis testing and limit setting procedure chosen by the CMS collaborations is a modified frequentist method referred as the ``$\mathrm{CL_{s}}$'' method~\cite{Read:2002hq, CMS-NOTE-2011-005}. There are two hypotheses to be tested, the background only hypothesis $H_{0}$ also referred as the ``null hypothesis'' and the signal plus background hypothesis $H_{1}$ usually called as ``alternative hypothesis''. These hypotheses are functions of $b+\mu s$, where $b$ and $s$ are the expected background and signal yields and $\mu$ is the signal strength modifier. In case of background only hypothesis $H_{0}$ the signal strength $\mu$ is zero. The signal and background estimates entering into the hypothesis testing are burdened by many systematic uncertainties, which are in the $\mathrm{CL_{s}}$ method treated as nuisance parameters and denoted collectively as $\theta$. The expected signal and background yields are dependent on these nuisance parameters: $s \to s(\theta)$ and $b \to b(\theta)$.
 
-To compute the \textbf{observed limits} a likelihood function $\mathcal{L}(data|\mu, \theta)$ can be built as follows
+\textbf{Observed limits}
+
+To compute the observed limits a likelihood function $\mathcal{L}(data|\mu, \theta)$ can be built as follows~\cite{CMS-NOTE-2011-005}
 
 \eq{likelihood}
 {
-\mathcal{L}(data|\mu, \theta) = Poisson(data| \mu s(\theta) +b(\theta))~p(\tilde{\theta}|\theta),
+\mathcal{L}(data|\mu, \theta) = \operatorname{Poisson}(data| \mu s(\theta) +b(\theta))~p(\tilde{\theta}|\theta),
 }
-where $p(\tilde{\theta}|\theta)$ are the pdfs for nuisance parameters $\theta$ with $\tilde{\theta}$ being the default value of the nuisance parameter. Data for this purpose refer to the information about observed data and expected signal and background yields. In case of binned likelihood the term $Poisson(data| \mu s(\theta) +b(\theta))$ can be expressed as
+where $p(\tilde{\theta}|\theta)$ are the probability distribution functions for the nuisance parameters $\theta$ with $\tilde{\theta}$ being the default value of the nuisance parameter, $data$ for this purpose refers to the information about the observed data yield or generated pseudo-data. In case of a binned likelihood, the term $\operatorname{Poisson}(data| \mu s(\theta) +b(\theta))$ can be expressed as
 
 
 \eq{binnedlikelihood}
 {
-Poisson(data| \mu s(\theta) +b(\theta))  = \prod_{i} \frac{\mu s_{i}+b_{i}}{n_{i}!} e^{-\mu s_{i}-b_{i}},
+\operatorname{Poisson}(data| \mu s(\theta) +b(\theta))  = \prod_{i} \frac{\mu s_{i}+b_{i}}{n_{i}!} e^{-\mu s_{i}-b_{i}},
 }
-which is a product  of Poisson probabilities to observe $n_{i}$ events in bin $i$. Having the likelihood function, the compatibility of data with the $H_{0}$ or $H_{1}$ hypothesis can be tested with help of the test statistics$\tilde{q}_{\mu}$ which has a form of the profile likelihood ratio
+which is a product  of Poisson probabilities to observe $n_{i}$ data events in the bin $i$. Given the likelihood function, the compatibility of $data$ with the $H_{0}$ or $H_{1}$ hypothesis can be tested with the help of the test statistics $\tilde{q}_{\mu}$ which has the form of a profile likelihood ratio
 
 \eq{pLR}
 {
-\tilde{q}_{\mu} = -2 \mathrm{ln } \frac{ \mathcal{L}(data| \mu , \hat{\theta}_{\mu}) } {\mathcal{L}(data| \hat{\mu} ,~\hat{\theta})}, 0 \leq \hat{\mu} \leq \mu ,
+\tilde{q}_{\mu} = -2 \mathrm{ln } \frac{ \mathcal{L}(data| \mu , \hat{\theta}_{\mu}) } {\mathcal{L}(data| \hat{\mu} ,~\hat{\theta})},
 }
-where the signal strength $\mu$ is a free parameter, $\hat{\theta}_{\mu}$ are conditional maximum likelihood estimators of parameters $\theta$ given the parameter $\mu$ and measured data. The $\hat{\mu}$ and $\hat{\theta}$ are the parameter estimators at the global maximum of the likelihood. The condition $\hat{\mu} \geq 0 $ expresses that the rate of signal cannot be negative and $\hat{\mu} \leq \mu $ is constraint to consider only one-sided confidence interval.
+where the signal strength $\mu$ is a free parameter, $\hat{\theta}_{\mu}$ are the conditional maximum likelihood estimators of the parameters $\theta$ given the parameter $\mu$ and the measured data. The $\hat{\mu}$ and $\hat{\theta}$ are the parameter estimators at the global maximum of the likelihood. 
+%The condition $\hat{\mu} \geq 0 $ expresses that the rate of signal cannot be negative and $\hat{\mu} \leq \mu $ is constraint to consider only one-sided confidence interval.
 	  
-Once having the measured data, the observed value of profile likelihood ratio~\ref{eq:pLR} $\tilde{q}_{\mu}^{obs}$ can be computed and the maximum likelihood estimators of $\theta$ best describing the observed data can be evaluated for both $H_{0}$ and $H_{1}$ hypotheses. The $\mathrm{CL_{s}}$  method defines two p-values, the first one is $p_{\mu}$ testing the compatibility of observation with $H_{1}$ and the second $1-p_{b}$ testing the compatibility of observation with background only hypothesis~$H_{0}$. The $\mathrm{CL_{s}}$ for given signal strength $\mu$ is then defined as
+The observed value of the profile likelihood ratio expressed in Eq.~\ref{eq:pLR} $\tilde{q}_{\mu}^{obs}$, can be computed using the measured data and the maximum likelihood estimators of $\theta$ which best describe the observed data, can be evaluated for both the $H_{0}$ and $H_{1}$ hypotheses. The $\mathrm{CL_{s}}$  method defines two p-values, the first one is $p_{\mu}$ testing the compatibility of the observation with $H_{1}$ and the second one, $1-p_{b}$, testing the compatibility of the observation with the background-only hypothesis~$H_{0}$. The $\mathrm{CL_{s}}$ for a given signal strength $\mu$ is then defined as
 
 \eq{cls}
 {
 \mathrm{CL_{s}}(\mu) = \frac{p_{\mu}}{1-p_{b}},
 }
-
 where $p_{\mu}$ can be written as
 
 \eq{pmu}
 {
 p_{\mu} = P(\tilde{q}_{\mu} \geq \tilde{q}_{\mu}^{obs}|s+b)
 }
-
 and $1-p_{b}$ as
 
 \eq{pb}
@@ -117,18 +122,19 @@ and $1-p_{b}$ as
 1-p_{b} = P(\tilde{q}_{\mu} \geq \tilde{q}_{\mu}^{obs}|b).
 }
 
-When $\mu$ being set to one, in case that $\mathrm{CL_{s}} \leq \alpha$ where for exclusion limits $\alpha = 0.05$, the $H_{1}$ is excluded at $1-\alpha$ (=95\%) $\mathrm{CL_{s}}$ confidence level. In the case of the  SMS the $\mu$ is not fixed to one and therefore the exclusion limits are set on the cross section given a fixed branching ratio of given SMS model. In such procedure the signal strength $\mu$ starts at zero and it is increased up to the point where $\mathrm{CL_{s}}$ = 0.05. If for a given signal point the cross section is limited to a lower value than the theoretical cross section, the signal point is excluded. The contour line is drawn at the place where the limit on the cross section is equal to the theoretical cross section.
+For $\mu=1$, the $H_{1}$ is excluded at $1-\alpha$ $\mathrm{CL_{s}}$ confidence level in case that $\mathrm{CL_{s}} \leq \alpha$. Typically, the exclusion limits are derived for $\alpha = 0.05$. In the case that $\mu$ parameter is not fixed to one, the exclusion limits are set on the cross section given a fixed branching ratio of a given signal model. In such procedure the signal strength $\mu$ starts at zero and it is increased up to the point where $\mathrm{CL_{s}}$ = 0.05. If for a given signal point the cross section is limited to a lower value than the theoretical cross section, the signal point is excluded. A contour line is drawn at the place where the limit on the cross section is equal to the theoretical cross section.
 
-The \textbf{expected limits} can be determined via similar method using generated background only pseudo-data instead of observed data. 
+\textbf{Expected limits}
 
-Assuming that the test statistics has Gaussian tail  the p-value can be converted to the significance $Z$ with help of convention
+The expected limits can be determined via a similar method using generated background-only pseudo-data instead of observed data. 
+
+Assuming that the test statistics has a Gaussian tail, the p-value can be converted to the significance $Z$ with the convention
 
 \eq{significance}
 {
- p = \int_Z^{\infty} \frac{1}{\sqrt{2\pi}} e^{-x^{2}/2} dx,
+ p = \int_Z^{\infty} \frac{1}{\sqrt{2\pi}} e^{-x^{2}/2} dx.
 }
-
-where if considering background only hypothesis, the significance of 5 standard deviations corresponding to $p_{b} = 2.8 \times 10^{-7} $ suggests that the $H_{0}$ hypothesis is excluded at $5 \sigma$ in favor of the $H_{1}$ hypothesis. %TODO check that
+If considering the background-only hypothesis, the significance of 5 standard deviations corresponding to $p_{b} = 2.8 \times 10^{-7} $ suggests that a $H_{0}$ hypothesis is excluded at $5 \sigma$ in favor of the $H_{1}$ hypothesis, therefore the discovery is claimed. %TODO check that
 
 \subsection{Search variables~\label{sec:variables}}
 
@@ -138,23 +144,24 @@ The presented search focuses on final states with one charged lepton and therefo
 
 \subsubsection{Number of jets~($N_{J}$)}
 
-As shown in the example in blue on the left of Fig.~\ref{fig:figures/T2ttlep1}, four jets are expected in the signal final states. But as already discussed, because of the low mass difference between chargino and neutralino in case of T2tb, the two jets from hadronically decaying W-boson have low \pt and thus they do not have to be reconstructed therefore only two jets are expected. In case of high $\Delta m$ the decay products of stops can be boosted and thus two or more jets can be merged into one, resulting to reduced number of reconstructed jets in final state. The baseline requirement is to have at least two jets, but this variable is also used for the definition of signal regions targeting different topologies.
+As shown in the example in blue on the left of Fig.~\ref{fig:figures/T2ttlep1}, four jets are expected in the signal final states. But because of the low mass difference between chargino and neutralino in case of T2tb, the two jets from hadronically decaying W boson have low \pt and thus they do not have to be selected therefore only two jets are expected. In case of high $\Delta m$ the decay products of stops can be boosted and thus two or more jets can be merged into one, resulting to reduced number of selected jets in final state. The baseline requirement is to have at least two jets, but this variable is also used for the definition of signal regions targeting different topologies.
 
+%If the jets from hadronically decaying W boson are not selected, only the two b-jets are present in the final state of this signal topology, what is being one of the motivation to search for final states with less jets than expected four.
 %TODO jets PT, eta, jet wp
 
     \insertTwoFigures{figures/T2ttlep1}
                  {figures/T2ttlepJET} % Filename = label
                  {figures/T2ttlepMET} % Filename = label
                  {0.45}       % Width, in fraction of the whole page width
-                 { Feynman diagrams of the T2tt signal model supporting the choice of $N_{J}$ (left) and \MET (right) range~\cite{CMS:2016vew}. }
+                 { Diagrams of the T2tt signal model supporting the choice of $N_{J}$ (left) and \MET (right) range~\cite{CMS:2016vew}. }
 
 \subsubsection{Number of b-jets~($N_{b}$)}
 
-In the left diagram of Fig.~\ref{fig:figures/T2ttlep1} it can be also noticed that two of the jets in green are originating from the b-quarks. For this reason number of b-tagged jets selected by the medium working point of CSVv2 is one of the discriminating variables, which is in the baseline search region  chosen to be larger or equal to one. In the signal regions where W+jets background is dominant, the tight b-tagging working point is used to further suppress it, as the jets are expected to be mainly composed of light flavors [TODO: is that really true?].
+In the left diagram of Fig.~\ref{fig:figures/T2ttlep1} it can be also noticed that two of the jets in green are originating from the b-quarks. For this reason number of b-tagged jets selected by the medium working point of CSVv2 is one of the discriminating variables, which is in the baseline search region  chosen to be larger or equal to one. In the signal regions where $W+jets \to 1\ell$  background is dominant, the tight b-tagging working point is used to further suppress it, as the jets are expected to be mainly composed of light flavors [TODO: is that really true?].
 
 \subsubsection{Missing transverse energy~($E_{T}^{miss}$)}
 
-The right diagram of Fig.~\ref{fig:figures/T2ttlep1} shows that in the final states of the signal processes there are two neutralinos and a neutrino originating from the leptonically decaying W-boson. These particles escape detector and lead to missing energy in the transverse plane, referred as ``Missing Transverse Energy''. This variable is very powerful in rejection of the SM backgrounds because they tend to have small values of the \MET as the sources of the \MET are more limited than in case of the signal processes. Therefore the baseline selection requires \MET to be larger than 250~GeV. The distribution of the \MET in the baseline search region for all relevant backgrounds and selected signal points is shown in the left plot of Fig.~\ref{fig:figures/METMT}. In this Figure the one lepton background is decomposed to ``1l from top'' populated by $t \bar{t} \to 1\ell$ and ``1l not from top'' populated by W+jets processes. The \MET was also found to be good variable for definition of signal regions.
+The right diagram of Fig.~\ref{fig:figures/T2ttlep1} shows that in the final states of the signal processes there are two neutralinos and a neutrino originating from the leptonically decaying W boson. These particles escape detector and lead to missing energy in the transverse plane, referred as ``Missing Transverse Energy''. This variable is very powerful in rejection of the SM backgrounds because they tend to have small values of the \MET as the sources of the \MET are more limited than in case of the signal processes. Therefore the baseline selection requires \MET to be larger than 250~GeV. The distribution of the \MET in the baseline search region for all relevant backgrounds and selected signal points is shown in the left plot of Fig.~\ref{fig:figures/METMT}. In this Figure the one lepton background is decomposed to ``1l from top'' populated by $t \bar{t} \to 1\ell$ and ``1l not from top'' populated by $W+jets \to 1\ell$  processes. The \MET was also found to be good variable for definition of signal regions.
 
 Because of the two neutrinos and misreconstructed lepton in lost lepton background, the \MET of this background can be very large, which also applies for $Z \to \nu \bar{\nu}$ background, where the source of the \MET are three neutrinos.
 
@@ -166,16 +173,15 @@ The selection on \MET in combination with the $M_{T}$ variable defined as
 {
  M_{T} = \sqrt{2 p_{T}^{\ell} E_{T}^{miss} (1 - \mathrm{cos}(\phi)) } ,
 }
-
-where $p_{T}^{\ell}$ is the transverse momentum of the lepton and $\phi$ is the angle between momentum of lepton and direction of \MET, ensure dramatic reduction of the SM background. The $M_{T}$ variable is  designed to suppress backgrounds where both lepton and \MET (neutrino) come from one W-boson. In such case the $M_{T}$ has an endpoint at W-boson mass. As shown in the left diagram of Fig.~\ref{fig:figures/T2ttlep2} for the signal the leptonically decaying W-boson is not the only source of the \MET and therefore it has no endpoint.
+where $p_{T}^{\ell}$ is the transverse momentum of the lepton and $\phi$ is the angle between momentum of lepton and direction of \MET, ensure dramatic reduction of the SM background. The $M_{T}$ variable is  designed to suppress backgrounds where both lepton and \MET (neutrino) come from one W boson. In such case the $M_{T}$ has an endpoint at W boson mass. As shown in the left diagram of Fig.~\ref{fig:figures/T2ttlep2} for the signal the leptonically decaying W boson is not the only source of the \MET and therefore it has no endpoint.
 
     \insertTwoFigures{figures/T2ttlep2}
                  {figures/T2ttlepMT} % Filename = label
                  {figures/T2ttlepDPHI} % Filename = label
                  {0.45}       % Width, in fraction of the whole page width
-                 { Feynman diagrams of the T2tt signal model supporting the choice of $M_{T}$ and min$\Delta \phi (j_{1,2}, E_{T}^{miss}$ range~\cite{CMS:2016vew}. }
+                 { Diagrams of the T2tt signal model supporting the choice of $M_{T}$ and min$\Delta \phi (j_{1,2}, E_{T}^{miss}$ range~\cite{CMS:2016vew}. }
 
-The baseline search region requires events with $M_{T}$ larger than 150~GeV, suppressing hugely mainly one lepton background. The lepton and \MET in both  W+jets and $t \bar{t} \to 1\ell$ originate from one W-boson and thus their $M_{T}$ should have endpoint at W-boson mass~($\sim$80~GeV). It can be seen in the right plot of Fig.~\ref{fig:figures/METMT}, that indeed the bulk of the one lepton events have low $M_{T}$, but there are tails with high $M_{T}$. In case of $t \bar{t} \to 1\ell$ the top quark constraints the kinematics of the W-boson and therefore the tail in $M_{T}$  is mainly caused by the \MET resolution. The situation is different for W+jets, where the kinematics permits off-shell production of W-boson and consequently $m_{W^{*}}> 80$~GeV. For the lost lepton and $Z \to \nu \bar{\nu}$ backgrounds there is no endpoint as the \MET does not originate from one W-boson.
+The baseline search region requires events with $M_{T}$ larger than 150~GeV, suppressing hugely mainly one lepton background. The lepton and \MET in both  $W+jets \to 1\ell$  and $t \bar{t} \to 1\ell$ originate from one W boson and thus their $M_{T}$ should have endpoint at W boson mass~($\sim$80~GeV). It can be seen in the right plot of Fig.~\ref{fig:figures/METMT}, that indeed the bulk of the one lepton events have low $M_{T}$, but there are tails with high $M_{T}$. In case of $t \bar{t} \to 1\ell$ the top quark constraints the kinematics of the W boson and therefore the tail in $M_{T}$  is mainly caused by the \MET resolution. The situation is different for $W+jets \to 1\ell$ , where the kinematics permits off-shell production of W boson and consequently $m_{W^{*}}> 80$~GeV. For the lost lepton and $Z \to \nu \bar{\nu}$ backgrounds there is no endpoint as the \MET does not originate from one W boson.
 
     \insertTwoFigures{figures/METMT}
                  {figures/LogMET2j} % Filename = label
@@ -193,7 +199,7 @@ In the backgrounds where a neutrino is only source of the \MET, it is probable t
                  {0.45}       % Width, in fraction of the whole page width
                  { Distributions of min$\Delta \phi (j_{1,2}, E_{T}^{miss})$ (left) and $M_{\ell b}$ (right) variables in region on which the baseline selection is applied except of the cut on the shown variable~\cite{website:stopSupp}. }
 
-\subsubsection{Invariant mass of the reconstructed lepton and the closest b-quark~($M_{\ell b}$)}
+\subsubsection{Invariant mass of the selected lepton and the closest b-quark~($M_{\ell b}$)}
 
 In case that a lepton and a b-jet originate from one top quark as displayed in Fig.~\ref{fig:figures/T2ttlepMlb}, there is a bound on the $M_{\ell b}$ variable which is
 
@@ -201,11 +207,11 @@ In case that a lepton and a b-jet originate from one top quark as displayed in F
 {
  m_{t} \sqrt{1 - \frac{m_{W}^{2}}{m_{t}^{2}} } \approx 153~\mathrm{GeV} ,
 }
-where $m_{t}$ is the mass of the top quark and $m_{W}$ the W-boson mass. This limit is true for backgrounds coming from $t\bar{t}$ decays, but also for T2tt signal. On the other hand there is no limit for W+jets backgrounds and T2bW signal. Therefore this variable is not suitable for baseline region definition, as putting a constraint on it would considerably reduce the signal but it can be used to define signal regions with enriched one kind of the signal and suppressed one type of the background. The distribution of  $M_{\ell b}$ variable for all relevant backgrounds and different signals in the baseline search region is shown in Fig.~\ref{fig:figures/DPHIMLB}, where it can be clearly noticed that the low $M_{\ell b}$ part of distribution is more lost lepton and T2tt-like, while the high $M_{\ell b}$ is mainly populated by W+jets and T2bW-like signal.
+where $m_{t}$ is the mass of the top quark and $m_{W}$ the W boson mass. This limit is true for backgrounds coming from $t\bar{t}$ decays, but also for T2tt signal. On the other hand there is no limit for $W+jets \to 1\ell$  backgrounds and T2bW signal. Therefore this variable is not suitable for baseline region definition, as putting a constraint on it would considerably reduce the signal but it can be used to define signal regions with enriched one kind of the signal and suppressed one type of the background. The distribution of  $M_{\ell b}$ variable for all relevant backgrounds and different signals in the baseline search region is shown in Fig.~\ref{fig:figures/DPHIMLB}, where it can be clearly noticed that the low $M_{\ell b}$ part of distribution is more lost lepton and T2tt-like, while the high $M_{\ell b}$ is mainly populated by $W+jets \to 1\ell$  and T2bW like signal.
 
     \insertFigure{figures/T2ttlepMlb}
                  {0.5}       % Width, in fraction of the whole page width
-                 { Feynman diagram of the T2tt signal model explaining the $M_{\ell b}$ variable~\cite{CMS:2016vew}. }
+                 { Diagram of the T2tt signal model explaining the $M_{\ell b}$ variable~\cite{CMS:2016vew}. }
 
 \subsubsection{Modified topness~($t_{mod}$)}
 
@@ -216,8 +222,7 @@ The topness~\cite{Graesser:2012qy} is $\chi^{2}$-like type of variable developed
 {
  t_{mod} = \mathrm{ln(\mathrm{min}S)},~\mathrm{where}~S(\vec{p}_{W}, p_{\nu, z} ) = \frac{(m_{W}^{2}- (p_{\nu}+p_{\ell})^2 )^2 }{a_{W}^{4}} + \frac{(m_{t}^{2}- (p_{b_{2}}+p_{W})^2 )^2 }{a_{t}^{4}},
 }
-
-with $m_{W}$ and  $m_{t}$ is the mass of W-boson and top quark, ${p}_{W}$, ${p}_{\nu}$, ${p}_{\ell}$, ${p}_{b_{2}}$ are momenta of W-boson, neutrino, lepton and b-jet. The parameters $a_{W} =5$~GeV and $a_{t}=15$~GeV are the resolution parameters. The first term in Eq.~\ref{eq:tmod} aims to reconstruct mass of the W-boson whose lepton was reconstructed and the purpose of second term is to reconstruct the top mass of the leg, whose lepton was lost. There are more options how to chose the  b-jet. Several options were studied and for this analysis following procedure was chosen. The modified topness is computed for three jets having the highest CSVv2 discriminator. Then the jet which leads to the smallest modified topness is chosen.
+with $m_{W}$ and  $m_{t}$ is the mass of W boson and top quark, ${p}_{W}$, ${p}_{\nu}$, ${p}_{\ell}$, ${p}_{b_{2}}$ are momenta of W boson, neutrino, lepton and b-jet. The parameters $a_{W} =5$~GeV and $a_{t}=15$~GeV are the resolution parameters. The first term in Eq.~\ref{eq:tmod} aims to reconstruct mass of the W boson whose lepton was selected and the purpose of second term is to reconstruct the top mass of the leg, whose lepton was lost. There are more options how to chose the  b-jet. Several options were studied and for this analysis following procedure was chosen. The modified topness is computed for three jets having the highest CSVv2 discriminator. Then the jet which leads to the smallest modified topness is chosen.
 
 Different backgrounds and signal models with different $\Delta m$ populate $t_{mod}$ distribution shown in Fig.~\ref{fig:figures/Logtmod2j} differently, therefore this variable is valuable for definition of signal regions.
 
@@ -230,16 +235,16 @@ Different backgrounds and signal models with different $\Delta m$ populate $t_{m
 The purpose of the $M_{T2}^{W}$ is similar as of the modified topness, to reduce the lost lepton background. This variably similarly tries to reconstruct event under the $t \bar{t} \to \ell \ell$ with one lost lepton hypothesis. The $M_{T2}^{W}$ has an endpoint at the top mass for $t\bar{t}$ events with lost lepton. It would be possible to use this variable for baseline selection by requiring high values of $M_{T2}^{W}$, but it was found out that signals with low $\Delta m$ also lead to small $M_{T2}^{W}$. In the past versions of analysis the $M_{T2}^{W}$ was used for definition of signal regions. The $M_{T2}^{W}$ has very similar behavior as the $t_{mod}$ and with more statistics collected it was found out that the $t_{mod}$ is more discriminating in full analysis phase-space than the $M_{T2}^{W}$ variable and therefore in current analysis the $M_{T2}^{W}$ is not used anymore.
 
 
-\subsubsection{Number of W-tagged jets~($N_{W}$)}
+\subsubsection{Number of W tagged jets~($N_{W}$)}
 
-In case of high  $\Delta m$ signals the top quarks originating from the stop decays are expected to be significantly boosted. As in the SM the top quark is the heaviest particle, similar source of boost of top quarks is not present within the SM and therefore tagging of boosted objects could help the signal discrimination. As shown in Fig.~\ref{fig:figures/boostedTopologies} when the momentum of hadronically decaying top quark is low, three resolved ak4 jets are observed. With growing boost of the top quark, the jets originating from W-boson or all three jets of the top quark can be merged into one fat jet. The merged jets can be tagged by special W- or top-tagging techniques.
+In case of high  $\Delta m$ signals the top quarks originating from the stop decays are expected to be significantly boosted. As in the SM the top quark is the heaviest particle, similar source of boost of top quarks is not present within the SM and therefore tagging of boosted objects could help the signal discrimination. As shown in Fig.~\ref{fig:figures/boostedTopologies} when the momentum of hadronically decaying top quark is low, three resolved ak4 jets are observed. With growing boost of the top quark, the jets originating from W boson or all three jets of the top quark can be merged into one fat jet. The merged jets can be tagged by special W  or top-tagging techniques.
 
     \insertFigure{figures/boostedTopologies}
                  {0.99}       % Width, in fraction of the whole page width
                  { A schema of the jet configuration of hadronically decaying top quark  depending on its boost. }
 
 
-Part of my contribution to the presented stop searches was study of W-tagging techniques and evaluation of its benefits for the stop analysis. The study was performed in context of the single lepton stop analysis~\cite{Sirunyan:2016jpr} which is using data collected in 2015 at center-of-mass energy of 13~TeV  corresponding to the integrated luminosity of 2.3~fb$^{-1}$. This analysis defines four kinds of signal regions targeting signals with different kinematics. In case of this study we focused only on region groups with high $\Delta m $ referred as ``High $\Delta m$'' and ``Boosted High $\Delta m$'' defined in Table~\ref{tab:SRnoW}. This study redefines the signal regions with use of number of W-tagged jets~($N_{W}$) instead of the \MET, but keeps the number of the signal regions the same. The proposed signal regions are shown in Table~\ref{tab:SRW}.
+Part of my contribution to the presented stop searches was study of W tagging techniques and evaluation of its benefits for the stop analysis. The study was performed in context of the single lepton stop analysis~\cite{Sirunyan:2016jpr} which is using data collected in 2015 at center-of-mass energy of 13~TeV  corresponding to the integrated luminosity of 2.3~fb$^{-1}$. This analysis defines four kinds of signal regions targeting signals with different kinematics. In case of this study we focused only on region groups with high $\Delta m $ referred as ``High $\Delta m$'' and ``Boosted High $\Delta m$'' defined in Table~\ref{tab:SRnoW}. This study redefines the signal regions with use of number of W tagged jets~($N_{W}$) instead of the \MET, but keeps the number of the signal regions the same. The proposed signal regions are shown in Table~\ref{tab:SRW}.
 
 \begin{table}[h]
 \begin{center}
@@ -269,20 +274,20 @@ Name            & $N_{J}$  & $M_{T2}^{W}$~[GeV]            & $E_{T}^{miss}$~[GeV
 \hline
 \hline
                           & $\geq$4  & >200                & 250<$E_{T}^{miss}$<350   & --   \\
-High $\Delta m$ W-tagging & $\geq$4  & >200                & $E_{T}^{miss}$>350       & 0    \\
+High $\Delta m$ W tagging & $\geq$4  & >200                & $E_{T}^{miss}$>350       & 0    \\
                           & $\geq$4  & >200                & $E_{T}^{miss}$>350       & 1    \\
 \hline
-Boosted High $\Delta m$ W-tagging & 3  & >200              & $E_{T}^{miss}$>250 & 0  \\
+Boosted High $\Delta m$ W tagging & 3  & >200              & $E_{T}^{miss}$>250 & 0  \\
                                   & 3  & >200              & $E_{T}^{miss}$>250 & 1  \\
 \hline
 \end{tabular}
-\caption[Table caption text]{ Proposed signal regions using W-tagged jets multiplicity. }
+\caption[Table caption text]{ Proposed signal regions using W tagged jets multiplicity. }
 \label{tab:SRW}
 \end{center}
 \end{table}
 
 
-The standard jets used in analysis are clustered by the ak4 algorithm with cone radius parameter of 0.4. The boosted W-jets are expected to be ``fat'' and therefore they need to be re-clustered with different cone radius parameter. In the study two possibilities were exploited, ak8 jets with cone radius parameter  of 0.8 and ak10 jets with cone radius parameter of 1.0. The merged W-jet should have large transverse momentum and mass around the mass of W-boson. To discriminate if the jet is merged jet originating from a W-boson, a requirement on its mass can be posed. The raw mass of the jet is contaminated by the initial state radiation, underlying events and pile-up and therefore it must be cleaned from these contributions. Several ``grooming techniques'' of the jet mass were developed by CMS, but in this study only pruned mass is used, as it was recommended technique for the merged W-jets. The pruning procedure~\cite{Ellis:2009su} rejects large angle and soft constituents during re-clustering iterations. Another variable used in W-tagging is called N-subjettiness~($\tau_{N}$) which aims to discriminate how much the jet is consistent with N-jet hypothesis. The N-subjettiness ratio $\tau_{21} = \tau_{2}/\tau_{1}$ has high discriminating power for merged W-jets and therefore in this study the requirement on jet $\tau_{21}$ is used to tag merged W-jets. Taking into account the discriminating variables, two definitions of the W-tagged jets referred as ``ak8-W'' and ``ak10-W'' defined in Table~\ref{tab:Wtags} are established.
+The standard jets used in analysis are clustered by the ak4 algorithm with cone radius parameter of 0.4. The boosted W jets are expected to be ``fat'' and therefore they need to be re-clustered with different cone radius parameter. In the study two possibilities were exploited, ak8 jets with cone radius parameter  of 0.8 and ak10 jets with cone radius parameter of 1.0. The merged W jet should have large transverse momentum and mass around the mass of W boson. To discriminate if the jet is merged jet originating from a W boson, a requirement on its mass can be posed. The raw mass of the jet is contaminated by the initial state radiation, underlying events and pile-up and therefore it must be cleaned from these contributions. Several ``grooming techniques'' of the jet mass were developed by CMS, but in this study only pruned mass is used, as it was recommended technique for the merged W jets. The pruning procedure~\cite{Ellis:2009su} rejects large angle and soft constituents during re-clustering iterations. Another variable used in W tagging is called N-subjettiness~($\tau_{N}$) which aims to discriminate how much the jet is consistent with N-jet hypothesis. The N-subjettiness ratio $\tau_{21} = \tau_{2}/\tau_{1}$ has high discriminating power for merged W jets and therefore in this study the requirement on jet $\tau_{21}$ is used to tag merged W jets. Taking into account the discriminating variables, two definitions of the W tagged jets referred as ``ak8-W'' and ``ak10-W'' defined in Table~\ref{tab:Wtags} are established.
 
 
 
@@ -303,7 +308,7 @@ ak10-W  &        ak10                     &   60<$m_{W,p}$<100               & <
 \end{center}
 \end{table}
 
-To evaluate the benefits of the W-tagging the expected significance in the default signal regions in Table.~\ref{tab:SRnoW} was compared to the expected significance in proposed W-tagging signal regions in Table.~\ref{tab:SRnoW}. The significance, described in section~\ref{sec:stats}, is expected significance when using generated pseudo-data with signal strength of one instead of observed data. For this comparison all relevant backgrounds and three different T2tt signal points with different stop and neutralino mass $(m_{\tilde{t}_{1}}, m_{\tilde{\chi}^{0}_{1}})$ were used. These signal points are (900,1), (800,300) and (650,450). In this study the significances for two different luminosity options of 2.3~fb$^{-1}$ and 10~fb$^{-1}$, two different options of W-tagging defined in Table~\ref{tab:Wtags} and different combinations of default and W-tagged signal regions were computed. The best performing combination of signal regions was found to be combination of ``High $\Delta m$ W-tagging'' with ``High $\Delta m$'' regions as shown in Table~\ref{tab:taggingResults}. In this table the significances of the best performing combination of the signal regions for both ak8-W and ak10-W is shown together with significances of default signal regions for three signal points and integrated luminosity of 2.3~fb$^{-1}$. It can be noticed, that using ak10 jets leads to larger significance than ak8 jets. Although there is an increase in the significance up to around 20~\% in some cases, the increase is not large enough to support usage of complicated and time consuming W-taggers which have significant gain only for high $\Delta m$ signals. Compared to the full analysis, in this study many simplifications were done, no systematic uncertainties were evaluated and the background yields were taken directly form simulated samples. But when studying the significances for different luminosities it was found that with growing luminosity the gain in significance when using W-tagging is increasing and therefore the W-tagging is interesting option for analyses based on data with larger integrated luminosity. 
+To evaluate the benefits of the W tagging the expected significance in the default signal regions in Table.~\ref{tab:SRnoW} was compared to the expected significance in proposed W tagging signal regions in Table.~\ref{tab:SRnoW}. The significance, described in section~\ref{sec:stats}, is expected significance when using generated pseudo-data with signal strength of one instead of observed data. For this comparison all relevant backgrounds and three different T2tt signal points with different stop and neutralino mass $(m_{\tilde{t}_{1}}, m_{\tilde{\chi}^{0}_{1}})$ were used. These signal points are (900,1), (800,300) and (650,450). In this study the significances for two different luminosity options of 2.3~fb$^{-1}$ and 10~fb$^{-1}$, two different options of W tagging defined in Table~\ref{tab:Wtags} and different combinations of default and W tagged signal regions were computed. The best performing combination of signal regions was found to be combination of ``High $\Delta m$ W tagging'' with ``High $\Delta m$'' regions as shown in Table~\ref{tab:taggingResults}. In this table the significances of the best performing combination of the signal regions for both ak8-W and ak10-W is shown together with significances of default signal regions for three signal points and integrated luminosity of 2.3~fb$^{-1}$. It can be noticed, that using ak10 jets leads to larger significance than ak8 jets. Although there is an increase in the significance up to around 20~\% in some cases, the increase is not large enough to support usage of complicated and time consuming W taggers which have significant gain only for high $\Delta m$ signals. Compared to the full analysis, in this study many simplifications were done, no systematic uncertainties were evaluated and the background yields were taken directly form simulated samples. But when studying the significances for different luminosities it was found that with growing luminosity the gain in significance when using W tagging is increasing and therefore the W tagging is interesting option for analyses based on data with larger integrated luminosity. 
 
 %Table results
 \begin{table}[h]
@@ -312,7 +317,7 @@ To evaluate the benefits of the W-tagging the expected significance in the defau
 \hline
 Signal point             & --      & ak8-W & ak10-W \\
 \hline
-                       & High $\Delta m$ +           &  High $\Delta m$ W-tagging +  &   High $\Delta m$ W-tagging +  \\
+                       & High $\Delta m$ +           &  High $\Delta m$ W tagging +  &   High $\Delta m$ W tagging +  \\
                        &  Boosted High $\Delta m$    & Boosted High $\Delta m$       &   Boosted High $\Delta m$  \\
 \hline
 \hline
@@ -433,16 +438,16 @@ In the previous versions of analysis there is lower number of the signal regions
 
 \section{Background estimations~\label{sec:estimations}}
 
-After the baseline search region selection, there are three categories of relevant background from the SM processes. The lost lepton background coming from $t\bar{t} \to 2 \ell$ and single-top processes where one of the two leptons is misreconstructed is the largest contribution in the signal regions with low $M_{\ell b}$ and at least four jets. This background is estimated with help of dilepton control samples. The one lepton background is represented by W+jets and $t\bar{t} \to 1\ell$ processes. This background is largely suppressed by the \MET and $M_{T}$ cuts. After these cuts the yield of $t\bar{t} \to 1\ell$ process in the signal regions is small and can be estimated from a simulation. The W+jets processes lead to larger contribution especially in regions with high $M_{\ell b}$ and are estimated from zero b-tag control samples. $Z \to \nu \bar{\nu}$ is the last relevant background group composed by the $t\bar{t}Z$ and $WZ$ processes, where the Z-boson decays to neutrinos and one W-boson decays leptonically. The yields of $Z \to \nu \bar{\nu}$ in the signal regions are estimated from simulation and are normalized by overall normalization factor obtained from a three lepton control region.  
+After the baseline search region selection, there are three categories of relevant background from the SM processes. The lost lepton background coming from $t\bar{t} \to 2 \ell$ and single-top processes where one of the two leptons is misreconstructed is the largest contribution in the signal regions with low $M_{\ell b}$ and at least four jets. This background is estimated with help of dilepton control samples. The one lepton background is represented by $W+jets \to 1\ell$  and $t\bar{t} \to 1\ell$ processes. This background is largely suppressed by the \MET and $M_{T}$ cuts. After these cuts the yield of $t\bar{t} \to 1\ell$ process in the signal regions is small and can be estimated from a simulation. The $W+jets \to 1\ell$  processes lead to larger contribution especially in regions with high $M_{\ell b}$ and are estimated from zero b-tag control samples. $Z \to \nu \bar{\nu}$ is the last relevant background group composed by the $t\bar{t}Z$ and $WZ$ processes, where the Z boson decays to neutrinos and one W boson decays leptonically. The yields of $Z \to \nu \bar{\nu}$ in the signal regions are estimated from simulation and are normalized by overall normalization factor obtained from a three lepton control region.  
 
 In the described version of analysis my responsibility was to provide estimation of the $Z \to \nu \bar{\nu}$ background. In this section the estimation of this background is described first and than building on the knowledge of the $Z \to \nu \bar{\nu}$ background estimation method, the other background estimates are introduced.
 
 
 \subsection{$Z \to \nu \bar{\nu}$ background estimation}
 
-The $Z \to \nu \bar{\nu}$ background, which arises from $t\bar{t}Z$ and $WZ$ processes with one leptonically decaying W-boson and Z-boson decaying to neutrinos is overall the smallest relevant group of backgrounds, but it is largely enhanced in high \MET and $t_{mod}$ signal regions. The main contribution to the $Z \to \nu \bar{\nu}$ background comes from the $t\bar{t}Z$ process, however at low jet multiplicities, the $WZ$ process becomes an important part of this background.  The previous versions of this analysis estimated this background purely from simulation, because of the small yield in the three lepton control region. Now with larger statistics, the normalization of both processes is derived from data-driven method, but the shape~(sharing of events between signal regions) is taken from simulation. 
+The $Z \to \nu \bar{\nu}$ background, which arises from $t\bar{t}Z$ and $WZ$ processes with one leptonically decaying W boson and Z boson decaying to neutrinos is overall the smallest relevant group of backgrounds, but it is largely enhanced in high \MET and $t_{mod}$ signal regions. The main contribution to the $Z \to \nu \bar{\nu}$ background comes from the $t\bar{t}Z$ process, however at low jet multiplicities, the $WZ$ process becomes an important part of this background.  The previous versions of this analysis estimated this background purely from simulation, because of the small yield in the three lepton control region. Now with larger statistics, the normalization of both processes is derived from data-driven method, but the shape~(sharing of events between signal regions) is taken from simulation. 
 
-To explain the data-driven background estimation technique, first only one signal~(SR) and control~(CR) region is considered. The control region is a region enriched in events of studied process and for this kind of background it is three lepton control region, in which the Z-boson decays to two leptons instead of two neutrinos. The relationship between data~($N^{Data}$) and MC~($N^{MC}$) yields in the signal (SR) and control (CR) region can be written as follows
+To explain the data-driven background estimation technique, first only one signal~(SR) and control~(CR) region is considered. The control region is a region enriched in events of studied process and for this kind of background it is three lepton control region, in which the Z boson decays to two leptons instead of two neutrinos. The relationship between data~($N^{Data}$) and MC~($N^{MC}$) yields in the signal (SR) and control (CR) region can be written as follows
 
 \eq{bkgEst}
 {
@@ -460,7 +465,6 @@ in the analysis there is not only one signal region and thus the background yiel
 {
 N_{proc}^{Data~estimate,~SR}  = N_{proc}^{MC,~SR} \times SF_{proc,~3\ell}^{CR},
 }
-
 where the scale factor $SF_{proc,~3\ell}^{CR}$ is determined for each process from a template fit of $N_{b}$ distribution in the three lepton control region as described in the following subsection.
 
 \subsubsection{Scale factors from the three lepton control region}
@@ -469,7 +473,7 @@ The scale factors for the $t\bar{t}Z$ and  $WZ$ were determined in paper~\cite{S
 
 \begin{itemize}
 \item Two leptons passing nominal isolation and identification, one of \pt>25~GeV and second of \pt>20~GeV
-\item Third lepton of \pt>10~GeV passes tight identification and must have opposite sign and same flavor as one of the leptons above; the lepton pair must have mass within $\pm$15~GeV window around Z-boson mass
+\item Third lepton of \pt>10~GeV passes tight identification and must have opposite sign and same flavor as one of the leptons above; the lepton pair must have mass within $\pm$15~GeV window around Z boson mass
 \item $H_{T}$ = $\sum_{jets} p_{T}$>80~GeV
 \item $N_{J} \geq 2$ with \pt>40~GeV
 \item No cut on b-jets
@@ -543,7 +547,7 @@ The final estimation of the $t\bar{t}Z$ and $WZ$ yields computed according to Eq
 
 \subsection{Lost lepton background estimation}
 
-The lost lepton background composed of $t\bar{t}$, single top, $t\bar{t}V$ and diboson processes decaying to two leptons where one lepton is misreconstructed, is dominant background due to the large tails in \MET and $M_{T}$ distributions caused by two neutrinos and not reconstructed lepton. The majority of the lost lepton background arises from the $t\bar{t} \to 2\ell$ process. The background yields in the signal regions are estimated according to Eq.~\ref{eq:bkgEst2} from the dilepton control regions. These control regions have purity above 95\% in studied processes and therefore no correction for contamination from other processes is needed. 
+The lost lepton background composed of $t\bar{t}$, single top, $t\bar{t}V$ and diboson processes decaying to two leptons where one lepton is misreconstructed, is dominant background due to the large tails in \MET and $M_{T}$ distributions caused by two neutrinos and not selected lepton. The majority of the lost lepton background arises from the $t\bar{t} \to 2\ell$ process. The background yields in the signal regions are estimated according to Eq.~\ref{eq:bkgEst2} from the dilepton control regions. These control regions have purity above 95\% in studied processes and therefore no correction for contamination from other processes is needed. 
 
 The control regions pass the same selection as the signal regions, except of the veto on the second lepton, which is reversed. Because of the small yields in high \MET control regions, several control regions differing only by the \MET range had to be merged. Due to this combination of the control regions, the background estimate in a given signal region has to be corrected by corresponding interpolation factor. The lost lepton background estimate in signal region can be then written as
 
@@ -565,9 +569,9 @@ The final estimates of the lost lepton background in the signal regions are show
 \subsection{One lepton background estimation}
 
 
-The  one lepton background is the sub-leading background composed of W+jets and $t\bar{t} \to 1\ell$ processes. The W+jets is the largest part of the one lepton background and is estimated from control regions with zero b-jets. The control regions are defined in a same way as signal regions, only the b-jet requirement is reversed. The  $t\bar{t} \to 1\ell$ represents only small contribution to the one lepton background and therefore is taken directly from the simulation.
+The  one lepton background is the sub-leading background composed of $W+jets \to 1\ell$  and $t\bar{t} \to 1\ell$ processes. The $W+jets \to 1\ell$  is the largest part of the one lepton background and is estimated from control regions with zero b-jets. The control regions are defined in a same way as signal regions, only the b-jet requirement is reversed. The  $t\bar{t} \to 1\ell$ represents only small contribution to the one lepton background and therefore is taken directly from the simulation.
 
-In the zero b-jet control regions, the $M_{\ell b}$ variable needs to be redefined as there is no b-jet. Instead of the closest b-jet, the jet with highest CSVv2 discriminator is used to define $M_{\ell b}$ in this case. Contrary to the previous background estimations there is enough statistics to define corresponding zero b-tag control region to each signal region. On the other hand the control regions are not pure in the W+jets process and the background estimates have to account for the contamination by non-W+jets processes in the control regions. The W+jets background estimation in the signal regions can be then written as
+In the zero b-jet control regions, the $M_{\ell b}$ variable needs to be redefined as there is no b-jet. Instead of the closest b-jet, the jet with highest CSVv2 discriminator is used to define $M_{\ell b}$ in this case. Contrary to the previous background estimations there is enough statistics to define corresponding zero b-tag control region to each signal region. On the other hand the control regions are not pure in the $W+jets \to 1\ell$  process and the background estimates have to account for the contamination by non-$W+jets \to 1\ell$  processes in the control regions. The $W+jets \to 1\ell$  background estimation in the signal regions can be then written as
 
 \eq{bkgEstWJ}
 {
@@ -580,7 +584,7 @@ where the first term on right side denotes the simulated yield in the signal reg
 {
 N^{Data,~CR}_{W+jets,~0btag} = N^{Data,~CR}_{all,~0btag} \times \frac{N^{MC,~CR}_{W+jets,~0btag}}{ N^{MC,~CR}_{all,~0btag}} ,
 }
-where the second term on the right side is simulation based factor which corrects data yields in the control region for non-W+jets processes.
+where the second term on the right side is simulation based factor which corrects data yields in the control region for non-$W+jets \to 1\ell$  processes.
 
 Because of the $M_{\ell b}$ redefinition, in this case it had to be investigated if the shape of this variable agrees between the control and signal regions. The study based on simulations confirmed, that the two shapes are in agreement. 
 
@@ -749,7 +753,7 @@ Here again the dominant uncertainty arises from the limited statistics in data a
 
 \subsubsection{Systematic uncertainties on the one lepton background estimation}
 
-The uncertainties on the W+jets background estimates are very similar to the previous cases as they contain uncertainties due to the limited statistics in simulation, PU, JES, PDFs, scales, $\alpha_{S}$, b-tagging and lepton scale factors, although here as well many of them largely cancel in $N^{MC,~SR}_{W+jets,~\geq 1btag}/ N^{MC,~CR}_{W+jets,~0btag}$ ratio used for estimation of one lepton background yields in the SRs.
+The uncertainties on the $W+jets \to 1\ell$  background estimates are very similar to the previous cases as they contain uncertainties due to the limited statistics in simulation, PU, JES, PDFs, scales, $\alpha_{S}$, b-tagging and lepton scale factors, although here as well many of them largely cancel in $N^{MC,~SR}_{W+jets,~\geq 1btag}/ N^{MC,~CR}_{W+jets,~0btag}$ ratio used for estimation of one lepton background yields in the SRs.
 
 Except of these uncertainties following uncertainties had to be evaluated:
 
@@ -760,7 +764,7 @@ Except of these uncertainties following uncertainties had to be evaluated:
 \item Uncertainty on the contamination of control regions
 \end{itemize}
 
-In this case the dominant uncertainties arise from the limited statistics in data and simulation and also from the contamination of control regions by non-W+jets processes. These uncertainties can reach up to 90\%.
+In this case the dominant uncertainties arise from the limited statistics in data and simulation and also from the contamination of control regions by non-$W+jets \to 1\ell$  processes. These uncertainties can reach up to 90\%.
 
 The uncertainty on $t\bar{t} \to 1\ell$ estimates was evaluated to be 100\% from the studies of the \MET resolution.
 
@@ -845,7 +849,7 @@ Some ideas
 %	different masses-> grooming techniques
 	
 %\textbf{Results}
-%	end of 2015 - slide 8,9 - results on different ak8 W-tagging categories (18/11); lumi=2 1/fb
+%	end of 2015 - slide 8,9 - results on different ak8 W tagging categories (18/11); lumi=2 1/fb
 %	mid of 2016 -update of previous study - lumi=2.26 fb; ak8+ak10 tagging; tables slide 7, 11 -> mo improvement with ak8, but slight improvement with ak10 
 
 

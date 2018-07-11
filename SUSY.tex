@@ -92,28 +92,24 @@ In the above Lagrangians defined by Eq.~\ref{eq:kglagrangian}~and~\ref{eq:dirlag
 {
 \psi \to e^{i\theta} \psi, 
 }
-
 with the phase $\theta$ being an arbitrary real number. But this Lagrangian is not invariant under the local phase transformation 
 
 \eq{localTrans}
 {
 \psi \to e^{i\theta (x)} \psi,
 }
-
 where the phase $\theta(x)$ is this time dependent on the space-time coordinate. To preserve the invariance of the Lagrangian of Eq.~\ref{eq:dirlagrangian}, the term 
 
 \eq{newTerm}
 {
 -(q\bar{\psi}\gamma^{\mu}\psi)A_{\mu}, 
 }
-
 with the field $A_{\mu}$ which transforms as 
 
 \eq{transfrom}
 {
 A_{\mu} \to A_{\mu} + \partial_{\mu} \lambda
 }
-
 can be added to the Dirac Lagrangian. The field $A_{\mu}$ is a new vector~(spin-1) field. To obtain the full Lagrangian, also the free field Lagrangian for vector field $A_{\mu}$ must be added to the Dirac Lagrangian~\ref{eq:dirlagrangian}. The summed Lagrangian is locally invariant only in the case when the field $A_{\mu}$ is massless and therefore the term for the free field Lagrangian of the field $A_{\mu}$ can be written as
 
 \eq{freeA}
@@ -127,8 +123,6 @@ The total Lagrangian is then
 {
     i \bar{\psi} \gamma^{\mu} \partial_{\mu} \psi -m \bar{\psi} \psi -  \frac{1}{16\pi}F^{\mu\nu}F_{\mu\nu} -(q\bar{\psi}\gamma^{\mu}\psi)A_{\mu},
 } 
-
-
 which generates the quantum electrodynamics~(QED), where the field $A_{\mu}$ corresponds to the electromagnetic potential.
 
 The global transformation of a field $\psi$ can be understood as the multiplication of this field by an unitary matrix $U$ ($\psi \to U \psi$). In the given example of quantum electrodynamics, the size of matrix is $1 \times 1$ and therefore the symmetry of this theory is referred as ``$U(1)$ gauge invariance'' as the group of all such matrices is $U(1)$. A similar strategy of global and local phase invariance of the Lagrangian can be applied on other groups, which was found to be the way how to generate the standard model.
@@ -440,7 +434,6 @@ where $\mathcal{L}_{MSSM}$ is the supersymmetric part of the Lagrangian and the 
 {
 \Delta m_{H}^{2} \propto (m_{f}^{2} - m_{b}^2) \mathrm{ln} \left(\frac{\Lambda}{m_{b}}\right),
 }
-
 where $m_{f}$ is the mass of the fermion $f$, $m_{b}$ the mass of the boson $b$ and $\Lambda$ a cutoff. This term is zero in the case where the masses of the particle and its partner are the same and therefore no fine-tuning is needed. The virtual contributions to the Higgs mass in the context of the MSSM are visualized in Fig.~\ref{fig:figures/fermionCorr2}. The fermion and sfermion loop contributions are of the same value but opposite sign and therefore cancel. In the broken theory, the masses are not the same anymore, the term $\Delta m_{H}^{2}$ has a logarithmic divergence and larger is the mass difference between the particle and sparticle, more fine-tuning is needed. Therefore to preserve the naturalness of the theory, it is required that it is broken only slightly and the supersymmetric partners do not have a mass hugely larger than the SM particles. Especially, as the largest  contribution to the Higgs mass comes from the top quark, the mass difference between the top quark and top squark should be reasonably small, leading to a constraint on the top squark mass to be of order of around 1~TeV~\cite{Barbieri:1987fn}. The newly explored natural SUSY models permit the stop masses up to 3~TeV~\cite{Baer:2016bwh}.
 
     \insertFigure{figures/fermionCorr2} % Filename = label
@@ -490,7 +483,7 @@ m_t(A_{t} + \mu ~ \cot \beta) &  m_{\tilde{t}_{R}}^{2} + m_{t}^{2} + \Delta_{\ti
 \end{pmatrix}
 ,
 }
-where $m_{\tilde{t}_{L}},~(m_{\tilde{t}_{R}})$ is mass of the left and right component of the stop field, respectively,  $\mu$ is the Higgs mass parameter, $\beta$ is the ratio of Higgs VEVs, $A_{t}$ is the trilinear coupling and the $\Delta$ terms are coming from the quadratic interactions of squarks and Higgs boson, which are in the gauge-less limit neglected. The parameter $X_{t}$ is defined as
+where $m_{\tilde{t}_{L}},~(m_{\tilde{t}_{R}})$ is mass of the left and right component of the stop field, respectively, $m_{t}$ is top quark mass,  $\mu$ is the Higgs mass parameter, $\beta$ is the ratio of Higgs VEVs, $A_{t}$ is the trilinear coupling and the $\Delta$ terms are coming from the quadratic interactions of squarks and Higgs boson, which are in the gauge-less limit neglected. The parameter $X_{t}$ is defined as
 
 \eq{xt}
 {
@@ -500,7 +493,7 @@ X_{t} \equiv A_{t}+ \mu ~ \cot \beta .
 Through the radiative corrections, the Higgs mass is sensitive to the stop mass, specifically the parameters present in the Eq.~\ref{eq:stopM} as shown in Fig.~\ref{fig:figures/plotsstophiggs}. Therefore the observed value of the Higgs mass puts a constraint on the stop parameters. It can be noticed, that even when masses of  $\tilde{t}_{L}$ and $\tilde{t}_{R}$ are around 3~TeV a configuration of parameters being compatible with the observed Higgs mass can be found. 
 
     \insertFigure{figures/plotsstophiggs} % Filename = label
-                 {0.45}       % Width, in fraction of the whole page width
+                 {0.7}       % Width, in fraction of the whole page width
                  {The predicted mass of the lightest Higgs boson $M_{h}$ in dependence on the ratio of the stop parameters $X_{t}$ and $m_{\tilde{t}_{R}}$ for three different values of $m_{\tilde{t}_{R}}$. For the computation the parameters were fixed to $m_{\tilde{t}_{L}} = m_{\tilde{t}_{R}}+100$~GeV, $A_{t}= \abs{1.3 m_{\tilde{t}_{R}} + \mu ~ \cot \beta} $, $\mu$=1~TeV and $\tan \beta = 50$. The gray horizontal line corresponds to the observed Higgs mass.  More details can be seen in~\cite{Passehr:2017ufr}.  } % Caption
 
 The Ref.~\cite{Baer:2016bwh} shows that the mass of the lighter stop $(\tilde{t}_{1})$ up to the 3~TeV can lead to the natural SUSY  and examines the stop discovery and exclusion potential for current and future colliders as depicted in Fig.~\ref{collidersstop}. The figure reveals, that the stop mass of 3~TeV cannot be probed at current center-of-mass energies of 13~TeV and machine delivering collisions at center-of-mass energy of 33~TeV would be needed.  [TODO: maybe this discussion should not really be here, what do you think?]
@@ -646,7 +639,7 @@ In general, the results of searches in context of the SMS are exclusion limits o
 %-fully hadronic: http://cms-results.web.cern.ch/cms-results/public-results/publications/SUS-13-023/index.html , http://cms-results.web.cern.ch/cms-results/public-results/publications/SUS-14-001/index.html
 %-summarized results: https://twiki.cern.ch/twiki/bin/view/CMSPublic/SUSYSMSSummaryPlots8TeV
 
-In Run~1, many analyses targeting the SUSY particles and especially the stop quark production were performed. The naturalness constraint and the mixing of gauge eigenstates of the stops suggest that the lightest stop $\tilde{t}_{1}$ could be relatively light and therefore accessible at the LHC energies, although as discussed the $\tilde{t}_{1}$ mass in the natural scenario can go up to 3~TeV being already out of the current LHC reach. The combined results of stop decaying either to $t \tilde{\chi}_{1}^0$ or $c \tilde{\chi}_{1}^0$ are shown in Fig.~\ref{fig:figures/T2tt2015}. This figure shows the exclusion limits on the stop and LSP masses in three different kinematic regions. The region where the stop mass is smaller than the mass of the LSP is kinematically forbidden, but once the masses satisfy $m_{\tilde{t}} > m_{LSP}$ but $m_{\tilde{t}} - m_{LSP} = m_{W}$ the stop can decay either to $c \tilde{\chi}_{1}^0$i via loop or to four bodies via off-shell top quarks and W bosons. Once  $m_{\tilde{t}} - m_{LSP} > m_{W}$ but also  $m_{\tilde{t}} - m_{LSP} < m_{t}$, the three body decay via off-shell top quark is possible. When  $m_{\tilde{t}} - m_{LSP} > m_{t}$  the stop can decay to $t \tilde{\chi}_{1}^0$. The analyses whose results are presented in the Fig.~\ref{fig:figures/T2tt2015} do not only differ by the coverage of the kinematic regions, but also by the analysis strategy, for example they require different number of leptons in the final state. In general, less leptons are in the final state, larger is the branching ratio, and therefore the expected yield. But on the other hand analyses with more leptons suffer from less SM background contributions.  The strongest exclusion limit on the stop mass was put by analysis~\cite{Khachatryan:2016oia} (light blue in the Fig.~\ref{fig:figures/T2tt2015}) searching for fully hadronic final states. This analysis in context of SMS excludes top squark masses up to 755~GeV when the neutralino mass is below 200~GeV. On the diagonals, where $\Delta m \sim m_{W}$ and $\Delta m \sim m_{t}$ the signal final state topologies are very similar to the ones of SM background, the analyses have a low sensitivity in these regions and therefore there are no limits on them with the Run~I data.
+In Run~1, many analyses targeting the SUSY particles and especially the stop quark production were performed. The naturalness constraint and the mixing of gauge eigenstates of the stops suggest that the lightest stop $\tilde{t}_{1}$ could be relatively light and therefore accessible at the LHC energies, although as discussed the $\tilde{t}_{1}$ mass in the natural scenario can go up to 3~TeV being already out of the current LHC reach. The combined results of stop decaying either to $t \tilde{\chi}_{1}^0$ or $c \tilde{\chi}_{1}^0$ are shown in Fig.~\ref{fig:figures/T2tt2015}. This figure shows the exclusion limits on the stop and LSP masses in three different kinematic regions. The region where the stop mass is smaller than the mass of the LSP is kinematically forbidden, but once the masses satisfy $m_{\tilde{t}} > m_{LSP}$ but $m_{\tilde{t}} - m_{LSP} = m_{W}$ the stop can decay either to $c \tilde{\chi}_{1}^0$ or to four bodies via off-shell top quarks and W bosons. The decay of the stop to the $c \tilde{\chi}_{1}^0$ is possible via lops or flavour changing neutral currents.  Once  $m_{\tilde{t}} - m_{LSP} > m_{W}$ but also  $m_{\tilde{t}} - m_{LSP} < m_{t}$, the three body decay via off-shell top quark is possible. When  $m_{\tilde{t}} - m_{LSP} > m_{t}$  the stop can decay to $t \tilde{\chi}_{1}^0$. The analyses whose results are presented in the Fig.~\ref{fig:figures/T2tt2015} do not only differ by the coverage of the kinematic regions, but also by the analysis strategy, for example they require different number of leptons in the final state. In general, less leptons are in the final state, larger is the branching ratio, and therefore the expected yield. But on the other hand analyses with more leptons suffer from less SM background contributions.  The strongest exclusion limit on the stop mass was put by analysis~\cite{Khachatryan:2016oia} (light blue in the Fig.~\ref{fig:figures/T2tt2015}) searching for fully hadronic final states. This analysis in context of SMS excludes top squark masses up to 755~GeV when the neutralino mass is below 200~GeV. On the diagonals, where $\Delta m \sim m_{W}$ and $\Delta m \sim m_{t}$ the signal final state topologies are very similar to the ones of SM background, the analyses have a low sensitivity in these regions and therefore there are no limits on them with the Run~I data.
 
 %-analyses preformed in 0,1 and 2-lep
 %	- hadronic suffer with large backgroun but high production cross section
