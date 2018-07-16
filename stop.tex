@@ -960,43 +960,109 @@ The excluded stop mass in the T2tt model was increased by around of 50~GeV in ea
 
 \section{Perspectives}
 
+%Beyond 1 Tev - why is that possible
+As mentioned previously, the Ref.~\cite{Baer:2016bwh} shows that the mass of the lighter stop $(\tilde{t}_{1})$ can be up to the 3~TeV can lead to the natural SUSY. This reference discusses that if the obesrvable $O$ can be written as
+
+\eq{finetuning}
+{
+O = a + b + f(b) + c,
+}
+the $O$ is claimed to be natural in case that all the terms on the right hand side are of comparable values or smaller. If they would be larger than observable $O$, some degree of fine tuning would be needed to cancel the large terms between each other in order to end up with small $O$. But in the Eq.~\ref{eq:finetuning} two terms which are $b$ and $f(b)$ are correlated and they can cancel each other without any fine-tuning, e.g. if $f(b) = -b$, the $b+f(b)$ is always zero independently on the avlue of $b$. Therefore when evaluating fine tuning, only independent terms should be compared between each other. The naturalness measure can be deined as 
+
+\eq{ftm}
+{
+\Delta = \frac{\abs{\mathrm{largest term on right hand side}}}{\abs{O}}.
+}
+
+The two terms on the right side of  Eq.~\ref{eq:HiggsMass} giving the Higgs boson mass, which are $m_{H,0}^{2}$ and $\Delta m_{H}^{2}$ are independent and to avoid the fine-tuning, each of them should be around the measured mass of the Higgs boson. In the MSSM, the SM Higgs boson is denoted as $m_{h}$ is given by relation
+
+\eq{sustHiggs}
+{
+m_{h}^{2} \approx -2 \mu^{2} (\Lambda)+ m_{H_{u}}^{2} (\Lambda)+ \delta m_{H_{u}}^{2}(\Lambda),
+}
+where $\Lambda$ is the energy cutt-off, $\mu$ is the higgsino mass parameter, $m_{H_{u}}((\Lambda))$ is the up-Higgs mass and $\delta m_{H_{u}}^{2}((\Lambda))$ is teh radiative correction to the up-Higgs mass. In the Eq.~\ref{eq:sustHiggs} terms $m_{H_{u}}^{2} ((\Lambda))$ and  $\delta m_{H_{u}}^{2} ((\Lambda))$ are dependent, larger the $m_{H_{u}}^{2} ((\Lambda))$, larger is the cancelling correction  $\delta m_{H_{u}}^{2} ((\Lambda))$. Therefore in evaluating the naturalness as in Eq.~\ref{eq:ftm}, only the combination of the dependent terms should appear in the numarator.
+
+In the context of the MSSM the mass of the Z boson, when assuming $\beta \leq$, can be expressed as 
+
+\eq{Zmass}
+{
+\frac{m_{Z}^{2}}{2} \simeq -m_{H_{u}}^{2} - \sum_{u}^{u} - \mu^{2},
+}
+where $\sum_{u}^{u}$ denotes 1-loop corrections and the three terms on the right hand side are mutually independent. The $\Delta_{EW}$ defined as
+
+\eq{deltaEW}
+{
+\Delta_{EW} = \frac{\abs{\mathrm{largest term on right hand side of Eq.~\ref{eq:Zmass}}}}{m_{Z}^{2}/2}.
+}
+gives the measure for fine-tuning of SUSY at the electroweak scale. Requiring the $\Delta_{EW}$<30, i.e. 3\% fine-tuning or better, then the upper bound on the gluino mass is up to 4~TeV, the lighter stop mass up to 3~TeV. The of two lighter neutralinos and lightest chargino which are higgsino-like can go up to 300~GeV and these three sparticles are expected to be almost mass degenerate. The other charginos and neutralinos masses are exzpected to be at TeV scale.
+
++
+Fig.2
+
+
+  and examines the stop discovery and exclusion potential for current and future colliders as depicted in Fig.~\ref{collidersstop}. The figure reveals, that the stop mass of 3~TeV cannot be probed at current center-of-mass energies of 13~TeV and machine delivering collisions at center-of-mass energy of 33~TeV would be needed.  [TODO: maybe this discussion should not really be here, what do you think?]
+
+    \insertFigure{figures/collidersstop} % Filename = label
+                 {0.45}       % Width, in fraction of the whole page width
+                 { Potential for discovery (5$\sigma$) and exclusion (95\%) of the current LHC with center-of-mass energy of 13~TeV, HL-LHC with center-of-mass energy of 13~TeV, HE-LHC with center-of-mass energy of 33~TeV,  and pp collider with center-of-mass energy of 100~TeV given the stop mass $\tilde{t}_{1}$~\cite{Baer:2016bwh}.  }
+
+
+%Beyond the studied model
+%compressed arXiv:1504.00504, dispalced signatures: arXiv:1601.01326 not all studied at LHC
+% Matural SUSY in unconventional signatures -?Mariotti
+
+
+%reinterpretations
+%pssm https://arxiv.org/pdf/1606.03577.pdf
+	
+%Beyond mssm - RPV susy
+%normally r-parity assumed in order not  to have proton decay
+% but there are proposals how to violate parity and make proton stable
+%for example replace r-parity by a new symmetry, which conserves baryon but violates lepton number -> this symmetry allows LSP to decay
+%then collider signatures completely different
+	%both pair and single sparticle production
+	%LSP can decay - if lepton number violation neutralino decays to two opposite charge (maybe even difefrent flavour) leptons plus neutrino -> charged leptons or large MET or both
+	%if B violation LSP decaying to hadrons
+	%the signal signature depends on the r-parity violation model and therefore it is different for different models
+	%also in some cases, other sparticles other than LSP can decay to to SM particles
+		%several models already excluded at LHC
+
+
+%compressed spectra
+
+%dark matter motivation for SUSY (Martin 129)
+%known cold dark matter density $\Omega_{DM}h^{2} \approx 0.120$ -> omega is the average energy density in non-baryonic dm divide3d by the critical density that would lead to a spatially flat homogenous universe, h is the hubble constant in units of 100 $km sec^{-1} MPc^{-1}$, $h^2$ observed to be 0.46 therefore cold dark matter denisty $\rho_{DM} = 1.2 \times 10^{-6} GeV/cm^{3}$
+%LSP the dm candidate - it can be gravitino, sneutralino or lightest neutralino
+%sneutrino lsp is largely ruled out by  direct searches [284]
+%gravitions possible candidate which could have the correct relic density but impossible to detect directly -> their interaction is too weak
+%best option for detection is neutralino
+% in early universe sparticles were in thermal equilibrum with sm particles, but then universe cooled down,  the heavier particles could not be produced anymore, they anihilated into SM particles or decayed to LSP.
+%eventually the anihilation rate became was smaller compared to expansion and there was a freezeout of lsps to the today density (diluted by the expansion)
+%IF
+%LSP is mostly higgsino or mostly wino, the LSP needs to be very heavy (around 1 TeV) to obtain correct dm density -> this is against hierarchy but within LHC limits
+	%to get lighter higgsino-like or wino-like LSP, non-thermal mechanism exist to predict correct density
+%IF
+%In many susy models lightest neutralino is bino-like
+	%but the masses predicting correct dm density are already excluded by collider experiments
+	%but the density can be reduced, if at least one of the sfermions is not too heavy -> usually spleptons, but the sleptons are light enough to be already excluded at LHC
+	%but there is a viable option where stop is less than 150GeV heavier than LSP, then LSP is between mass of the top and top+100GeV. But it violates the prediction for unification at higher scales - actually now I see than in my analysis it is also excluded
+	%or there must be some anihilation mechanism which decreases the abundance of LSP
+%MSUGRA is giving masses of squarks to be several TeVs -> attractive
+
+%but simple thermal (anihilation and decay) mechanism to compute the relic density, but does not have to be true, there might be -> e.g. breaking of r-parity, non-thermal mechanism ( such as out-of-equilibrum decays), or non-thermal production of neutralinos after freeze-out
+	%therefore the assumptions above just for simplified model and it is not strict exclusion 
+
 %Some ideas
+
+%SM measuremets of coupling -> bsm physics
+%b-> s gamma measurements
+
+%Other possibilities beyond MSSM -NMSSM
 
 %\begin{itemize}
 %\item W/top tagging
 %\item Stops beyond 1TeV  - motivation, perspectives for HL-LHC
 %\item Beyond SMS - different models, exotic signatures
 %\end{itemize}
-
-%The Ref.~\cite{Baer:2016bwh} shows that the mass of the lighter stop $(\tilde{t}_{1})$ up to the 3~TeV can lead to the natural SUSY  and examines the stop discovery and exclusion potential for current and future colliders as depicted in Fig.~\ref{collidersstop}. The figure reveals, that the stop mass of 3~TeV cannot be probed at current center-of-mass energies of 13~TeV and machine delivering collisions at center-of-mass energy of 33~TeV would be needed.  [TODO: maybe this discussion should not really be here, what do you think?]
-
-%    \insertFigure{figures/collidersstop} % Filename = label
-%                 {0.45}       % Width, in fraction of the whole page width
-%                 { Potential for discovery (5$\sigma$) and exclusion (95\%) of the current LHC with center-of-mass energy of 13~TeV, HL-LHC with center-of-mass energy of 13~TeV, HE-LHC with center-of-mass energy of 33~TeV,  and pp collider with center-of-mass energy of 100~TeV given the stop mass $\tilde{t}_{1}$~\cite{Baer:2016bwh}.  }
-
-%\textbf{Motivation}
-
-%	high delta M regim - boost -> jets merge
-
-%\textbf{Techniques}
-%	larger radius jets
-%	tau ratios - N subjetiness
-%	different masses-> grooming techniques
-	
-%\textbf{Results}
-%	end of 2015 - slide 8,9 - results on different ak8 W tagging categories (18/11); lumi=2 1/fb
-%	mid of 2016 -update of previous study - lumi=2.26 fb; ak8+ak10 tagging; tables slide 7, 11 -> mo improvement with ak8, but slight improvement with ak10 
-
-
-%\textbf{Perspectives}
-%	-results from Sicheng with top tagging
-%	-resolved top tagger - 3ak4 jets
-%	-second presentation (31/01 same as 12 feb?), slide 6 - interesting plot, slide 10,11 significance table
-%        -merged top tagger - boosted objects
-%		slide 4, 5, 6
-
-%\subsection{Depndence of discriminating variables on pileup}
-%-not much to say
-
 
 %When Δm(stop,lsp) ~ m(top), the decay products in the rest frame of the stop have ~no momentum.  When m(lsp) << m(top), whatever boost the stop receives is primarily transmitted to the top, resulting in very little MET	
