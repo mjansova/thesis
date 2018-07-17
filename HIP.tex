@@ -172,6 +172,8 @@ Secondly, the particle gain is correcting for the differences at the sensor leve
 
 These calibrations need to be determined frequently as they are affected of the aging of the detector~(e.g. fibers and lasers for G1,  sensors for G2) or some change of the operating conditions~(e.g. temperature). During this step the cluster charge is corrected by factor 1/(G1$\times$G2).
 
+Because of the observed discrepancy in the cluster position between peak and deconvolution data, which was found to be caused by a reduced efficiency of collecting charge close to the backplane in the deconvolution data, a correction referred to as ``backplane correction'' must be applied to have the same cluster position in deconvolution and peak data.
+
 For the further reconstruction steps the clusters are converted to hits, whose position is obtained from charge-weighted positions of the channels in the cluster, corrected for the Lorentz drift in case of barrels, where the magnetic field is perpendicular to the module plane. In case of stereo modules, the matching of hits between the two tilted modules is done. The resolution on the hit position is also assessed at this step.
 
 %On top of this an additional correction is applied due to compensate inefficiencies of the collection of charges deposited close to the back-plane. 
