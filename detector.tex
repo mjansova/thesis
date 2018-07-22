@@ -28,7 +28,7 @@ The bunches of protons collide at four interaction points (IP), at which four ma
 
 One of the main motivations for the LHC and its experiments was the search for the Higgs boson, which was discovered in 2012. As it has been discovered, the measurement of the Higgs boson properties now entered into the physics program. A second important topic of research is the search for new particles and more generally for evidence of physics beyond the Standard Model, motivated mainly by cosmological observations, naturalness of the Higgs mass and the desire for unification of known interactions.
 
-\newpage
+%\newpage
 
 %TODO here
 
@@ -36,7 +36,7 @@ One of the main motivations for the LHC and its experiments was the search for t
 
 %The CMS (``Compact Muon Solenoid'') detector~\cite{Chatrchyan:2008aa, CMSproposal} is a multipurpose detector of overall length of 22~m, a diameter of 15~m and a weight of 14~t, located at the IP~5. The designed properties of the CMS  detector were to have high efficiency of muon identification and reconstruction. It was also required have precise momentum resolution in large range of momenta, dimuon mass resolution of order of 1\% at 100 GeV, good charged-particle momentum measurement and resolution~(around 1\%-2\% for 10~GeV muons in majority of CMS coverage) as well as high efficiency in reconstruction of charged-particle tracks. Furthermore it was designed to have precise measurement electromagnetic energy, leading to resolution of diphoton and dielectron mass of around 1\% at 100~GeV. Good missing transverse energy~(MET) and dijet mass resolution was required as well. One of the important requirements was also high efficiency in offline tagging of tau particles and jets originating from b-quarks. These conditions have to be fulfilled in the LHC environment, with a bunch crossing~(BX) frequency of 25~ns, where every bunch crossing leads to tens of inelastic interactions on top of the interaction of the interest, referred to as ``pileup''~(PU), resulting in thousands of charged particles in the CMS detector every 25~ns. Because of this large radiation, the detectors and front-end electronics have to be radiation-hard.
 
-The CMS (``Compact Muon Solenoid'') detector~\cite{Chatrchyan:2008aa} is a multipurpose detector of an overall length of 22~m, a diameter of 15~m and a weight of 14~t, located at the IP~5. The designed properties~\cite{CMSproposal} of the CMS  detector were to have high a quality tracking providing precise charged-particle momentum measurement and resolution around 1\%-2\% for 10~GeV muons in the majority of the CMS coverage being $\abs{\eta}<2.4$ and to have high efficiency of muon identification and reconstruction, leading to a requirement on  a dimuon mass resolution of the order of 1\% at 100 GeV.Furthermore it was designed to have the best possible measurement of the electromagnetic energy, leading to a resolution of diphoton and dielectron masses of around 1\% at 100~GeV. These conditions have to be fulfilled in the LHC environment, with a bunch crossing~(bx) every 25~ns, where every bunch crossing leads to tens of inelastic interactions on top of the interaction of the interest, referred to as ``pileup''~(PU), resulting in thousands of charged particles in the CMS detector every 25~ns. Because of this large radiation, the detectors and front-end electronics have to be radiation-hard.
+The CMS (``Compact Muon Solenoid'') detector~\cite{Chatrchyan:2008aa} is a multipurpose detector of an overall length of 22~m, a diameter of 15~m and a weight of 14~t, located at the IP~5. The designed properties~\cite{CMSproposal} of the CMS  detector were to have high a quality tracking providing precise charged-particle momentum measurement and resolution around 1\%-2\% for 10~GeV muons in the majority of the CMS coverage being $\abs{\eta}<2.4$ and to have high efficiency of muon identification and reconstruction, leading to a requirement on  a dimuon mass resolution of the order of 1\% at 100 GeV. Furthermore it was designed to have the best possible measurement of the electromagnetic energy, leading to a resolution of diphoton and dielectron masses of around 1\% at 100~GeV. These conditions have to be fulfilled in the LHC environment, with a bunch crossing~(bx) every 25~ns, where every bunch crossing leads to tens of inelastic interactions on top of the interaction of the interest, referred to as ``pileup''~(PU), resulting in thousands of charged particles in the CMS detector every 25~ns. Because of this large radiation, the detectors and front-end electronics have to be radiation-hard.
 
 To achieve the given requirements, CMS was built in layers around a large solenoidal magnet, with endcaps at each side. The CMS magnet is a superconducting solenoid providing a magnetic field of 3.8~T. The magnet is surrounded from outside by the steel yoke which returns the magnetic flux of the solenoid~\cite{tdrMagnet}. The radius of the magnet has to be kept relatively small and therefore the available space between the magnet and interaction point is limited.
 
@@ -166,7 +166,7 @@ The track  resolution in \pt determined in 2011 before replacing the pixel detec
 
 
     \insertFigure{figures/hitResolution}
-                 {0.6}       
+                 {0.57}       
                  {Measured resolution of reconstructed hit position for different layers of the strip tracker and different size of pitch between the strips. The red color corresponds to hits with a charge deposited in one strip, green in two strips and blue in three strips~\cite{website:hitEff}. }
 
 \subsection{The electromagnetic calorimeter}
@@ -324,11 +324,11 @@ H & 61.603  \\
 \label{tab:PU}
 \end{center}
 \end{table}
-\newpage
+%\newpage
 
 \section{Event and object reconstruction at CMS~\label{sec:objects}}
 
-The events triggered by the HLT are saved in RAW data format which contains the raw information from the detector. The data in the RAW format are then processed in order to reconstruct physics objects. The output of such reconstruction is saved in the RECO format. Most physics analyses do not need all the information present in the RECO files, and thus these files are slimmed to up to a miniAOD~\cite{Petrucciani:2029414} format in order to save space and computing time (in 2017, there is an effort to slim even further the size of the data, going from miniAOD to nanoAOD format). In the miniAOD the event size is reduced by factor of around 60 compered to the RECO event size. In this section several physics objects, which are important for the analyses discussed in this thesis, are introduced.
+The events triggered by the HLT are saved in RAW data format which contains the raw information from the detector. The data in the RAW format are then processed in order to reconstruct physics objects. The output of such reconstruction is saved in the RECO format. Most physics analyses do not need all the information present in the RECO files, and thus these files are slimmed to up to a miniAOD~\cite{Petrucciani:2029414} format in order to save space and computing time (in 2017, there is an effort to slim even further the size of the data, going from miniAOD to nanoAOD format). In the miniAOD the event size is reduced by factor of around 60 compared to the RECO event size. In this section several physics objects, which are important for the analyses discussed in this thesis, are introduced.
 
 
 \subsection{The Particle-Flow algorithm}
@@ -408,7 +408,7 @@ The Missing Transverse Momentum, for simplicity referred as ``Missing Transverse
 E_{T}^{miss} = \abs{-\sum_{i} \vec{p}_{T_{i}}},
 }
 
-where $\vec{p}_{T_{i}}$ is the momentum of $i$th PF particle. Because of the energy thresholds in the calorimeters, inefficiencies in the tracker or non-linearity of the calorimeters' response for hadrons, the \MET measurement can be biased and thus an energy correction factor must be used. This factor accounts for effects influencing the \MET and is applied on the transverse momenta of the jets. The \MET is then recomputed with the new transverse momenta of jets. The uncertainty on \MET is evaluated by varying the $p_{T}$ of each kind of object within its resolution. The  \MET  distributions for  $Z \rightarrow ee$ and $Z \rightarrow \mu \mu$ events are shown in Fig.~\ref{fig:figures/met}~\cite{CMS:2016ljj}. These plots show a good agreement between data and simulation. The $Z \rightarrow ee$ and $Z \rightarrow \mu \mu$ events have no genuine source of the \MET , no neutrino in the final states. Therefore the \MET is expected to be zero, but due to the \MET resolution, non-zero values are observed.  
+where $\vec{p}_{T_{i}}$ is the momentum of $i$-th PF particle. Because of the energy thresholds in the calorimeters, inefficiencies in the tracker or non-linearity of the calorimeters' response for hadrons, the \MET measurement can be biased and thus an energy correction factor must be used. This factor accounts for effects influencing the \MET and is applied on the transverse momenta of the jets. The \MET is then recomputed with the new transverse momenta of jets. The uncertainty on \MET is evaluated by varying the $p_{T}$ of each kind of object within its resolution. The  \MET  distributions for  $Z \rightarrow ee$ and $Z \rightarrow \mu \mu$ events are shown in Fig.~\ref{fig:figures/met}~\cite{CMS:2016ljj}. These plots show a good agreement between data and simulation. The $Z \rightarrow ee$ and $Z \rightarrow \mu \mu$ events have no genuine source of the \MET , no neutrino in the final states. Therefore the \MET is expected to be zero, but due to the \MET resolution, non-zero values are observed.  
 
 
     \insertFigure{figures/met} % Filename = label

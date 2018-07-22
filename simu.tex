@@ -153,6 +153,7 @@ The charge of each track segment is being fluctuated by the GEANT4 routine. This
                  {0.45}       % Width, in fraction of the whole page width
                  {  On-track cluster width (left) and cluster seed charge (right) in simulation for the OB2 geometry and for different values of the delta ray production cut-off~$\delta$.   The simulated distributions are normalized by the same factors as in the right plots of Figs.~\ref{fig:figures/widthTOB} and \ref{fig:figures/seedTOB}, respectively.  In the ratio plots the default simulation is divided by different simulation scenarios. }
 
+\newpage
 \textbf{Pulse shapes}
 
 The deconvolution pulse shape used in simulation, presented in Fig.~\ref{fig:figures/timeResponse}, was determined by the parametrization of results obtained in~\cite{Delaere:1061284}. These results were obtained from laser studies of the TOB modules before the start of the LHC operation. Fig.~\ref{fig:figures/timeResponseReal} presents the results, when a single strip was hit by the laser. In this plot, the resulting pulse shape from the hit strip and the two neighbors on each side is shown. The neighboring strips read non-zero charge purely due to the electronic cross talk, which is a result of the coupling of the strips via inter--strip capacitance as shown in Fig.~\ref{fig:figures/capacitanceNetwork}. 
@@ -391,7 +392,7 @@ Besides the standard zero suppressed simulation, the tracker digitization step b
 % TODO	-particle goes straight (ask? meaning the track goes straight?)
 % TODO charge spread depends on applied and depletion voltage ???
 
-\newpage
+%\newpage
 
 \section{The cross talk measurement to improve the simulation~\label{sec:xtalk}}
 
@@ -490,7 +491,7 @@ leading to the conclusion that the cluster seed charge is maximal for muon which
                  {0.45}       % Width, in fraction of the whole page width
                  {(left) The cluster seed charge profiles as a function of time for four different distances of the muon track from the IP in 2018 CRUZET VR data, the results of Gaussian fits are also displayed. (right) The time of the maxima extracted from the fits performed in the left plot as a function of the mean track distance from the IP, these points are fitted with a straight line. }
 
-As suggested above, the cross talk depends on time. To prove this hypothesis, the $\eta_{\pm 1}$ and $\eta_{\pm 2}$ are studied as a function of time. As the available statistics does not allow to consider the $\eta_{\pm 1}$ and $\eta_{\pm 2}$ distribution per bin of 1~ns, overlapping time windows of 4~ns are used for the muons. The $\eta_{\pm 1}$ and $\eta_{\pm 2}$ distributions are filled for each time window and then fitted by Gaussians. The estimated means are shown in Fig.~\ref{fig:figures/etaAsTime}  for the OB2 geometry and allow to evaluate the time evolution of the charge sharing. Each bin of this figure corresponds to the middle of the 4~ns interval in which the fit was performed, for example the time equal to zero is in reality integrated over clusters from muons arriving to the IP in a time window of $0 \pm 2$~ns. The dependence of $\eta_{\pm 1}$ and $\eta_{\pm 2}$ as a function of time in Fig.~\ref{figures/etaAsTime} confirms that the time window in which to perform the cross talk measurement has to be selected with care. The time window $-8 \pm 2$~ns, for which the cluster seed charge is maximal, is therefore of special interest for the cross talk measurement as it corresponds to the collision conditions. The width of the time window is also close to the time spread in the DTs shown in Fig.~\ref{fig:figures/timeColl}. The $\eta_{\pm 1}$ and $\eta_{\pm 2}$ distributions resulting from muons within the $-8 \pm 2$~ns time window are shown in Fig.~\ref{fig:figures/etaAsTime}, together with the Gaussian fits. The distributions in these figures reveal spread of certain width due to the strip noise. The tails in charge sharing are caused by inclination of track or diffusion.
+As suggested above, the cross talk depends on time. To prove this hypothesis, the $\eta_{\pm 1}$ and $\eta_{\pm 2}$ are studied as a function of time. As the available statistics does not allow to consider the $\eta_{\pm 1}$ and $\eta_{\pm 2}$ distribution per bin of 1~ns, overlapping time windows of 4~ns are used for the muons. The $\eta_{\pm 1}$ and $\eta_{\pm 2}$ distributions are filled for each time window and then fitted by Gaussians. The estimated means are shown in Fig.~\ref{fig:figures/etaAsTime}  for the OB2 geometry and allow to evaluate the time evolution of the charge sharing. Each bin of this figure corresponds to the middle of the 4~ns interval in which the fit was performed, for example the time equal to zero is in reality integrated over clusters from muons arriving to the IP in a time window of $0 \pm 2$~ns. The dependence of $\eta_{\pm 1}$ and $\eta_{\pm 2}$ as a function of time in Fig.~\ref{fig:figures/etaAsTime} confirms that the time window in which to perform the cross talk measurement has to be selected with care. The time window $-8 \pm 2$~ns, for which the cluster seed charge is maximal, is therefore of special interest for the cross talk measurement as it corresponds to the collision conditions. The width of the time window is also close to the time spread in the DTs shown in Fig.~\ref{fig:figures/timeColl}. The $\eta_{\pm 1}$ and $\eta_{\pm 2}$ distributions resulting from muons within the $-8 \pm 2$~ns time window are shown in Fig.~\ref{fig:figures/etaAsTime}, together with the Gaussian fits. The distributions in these figures reveal spread of certain width due to the strip noise. The tails in charge sharing are caused by inclination of track or diffusion.
 
 
     \insertTwoFigures{figures/etaAsTime} % Filename = label
@@ -706,6 +707,8 @@ The validation plots of the cluster charge, width and seed charge are shown in F
                  {figures/clusterseedchargeRescaledTECl5to5XTm} % Filename = label
                  {0.45}       % Width, in fraction of the whole page width
                  { Distribution of the on-track cluster seed charge in data and simulation for the W1a (left) and W5 (right) geometries, for the current (default) and newly updated cross talk parameters~($XT$).  The simulated distributions are rescaled to the number of clusters in data.  The bottom plots represent the data to simulation ratios. }
+
+\newpage
 
 \subsection{Conclusion}
 
