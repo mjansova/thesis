@@ -88,9 +88,9 @@
      inkscape:window-height="981"
      id="namedview4"
      showgrid="false"
-     inkscape:zoom="1.4707735"
-     inkscape:cx="528.02743"
-     inkscape:cy="235.34017"
+     inkscape:zoom="1.4686739"
+     inkscape:cx="476.28"
+     inkscape:cy="236.7"
      inkscape:window-x="0"
      inkscape:window-y="28"
      inkscape:window-maximized="1"
@@ -171,12 +171,12 @@
        id="flowPara4215"
        style="font-size:22.5px">COMPRESSED SPECTRA</flowPara></flowRoot>  <path
      style="fill:none;fill-rule:evenodd;stroke:#0000ee;stroke-width:1.63336313;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#Arrow1Lend)"
-     d="M 640.6712,306.28654 606.32645,253.13632"
+     d="m 646.22134,314.72147 -43.71599,-45.7539"
      id="path4929"
      inkscape:connector-curvature="0" />
   <path
      style="fill:none;fill-rule:evenodd;stroke:#0000ee;stroke-width:1.59465289;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#Arrow1Lend-3)"
-     d="m 737.79904,216.504 36.18967,58.03192"
+     d="m 722.95623,195.33244 47.78034,48.93296"
      id="path4929-7"
      inkscape:connector-curvature="0" />
   <text
@@ -194,13 +194,13 @@
   <text
      xml:space="preserve"
      style="font-style:normal;font-weight:normal;font-size:17.5px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-     x="770.01544"
-     y="220.38188"
+     x="750.97784"
+     y="196.58488"
      id="text6572-5"
      sodipodi:linespacing="125%"><tspan
        sodipodi:role="line"
        id="tspan6574-3"
-       x="770.01544"
-       y="220.38188"
+       x="750.97784"
+       y="196.58488"
        style="font-size:20px">High Δm</tspan></text>
 </svg>
