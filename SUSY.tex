@@ -4,7 +4,8 @@
 \chapterwithnum{Supersymmetry as a possible extension of the standard model~\label{sec:SUSYch}}
 \setcounter{secnumdepth}{4}
 
-In this chapter the basics of the standard model are discussed. In section~\ref{sec:SM} the description of the elementary particles and interactions is presented as well as an idea on how the standard model was derived. This section ends with a discussion of several shortcomings of the standard model, which motivate physicists to formulate beyond the standard model theories. Section~\ref{sec:SUSY} then describes supersymmetry~(SUSY), which is a promising extension of the standard model, due to its ability to solve many of the standard model issues. Within this section it is also discussed how some searches for supersymmetry can be performed and  the results of the Run~1 SUSY searches are presented. 
+In this chapter the basics of the standard model are discussed. In section~\ref{sec:SM} the description of the elementary particles and interactions is presented as well as an idea on how the standard model was derived. This section ends with a discussion of several shortcomings of the standard model, which motivate physicists to formulate beyond the standard model theories. Section~\ref{sec:SUSY} then describes supersymmetry~(SUSY), which is a promising extension of the standard model, due to its ability to solve many of the standard model issues. In this section, the results of the Run~1 SUSY searches are also presented. 
+%Within this section it is also discussed how some searches for supersymmetry can be performed and  the results of the Run~1 SUSY searches are presented. 
 
 \section{The standard model and its shortcomings~\label{sec:SM}}
 
@@ -58,7 +59,7 @@ In classical mechanics, the motion of a given system can be calculated by solvin
 {
  \partial_{\mu}\left (\pdv{\mathcal{L}}{(\partial_{\mu}\phi_{i})}\right) = \pdv{\mathcal{L}}{\phi_{i}},
 }
-where the physics describing the system is contained with a Lagrangian $\mathcal{L}$ which depends on the fields $\phi_{i}$ and their space-time derivatives $\partial_{\mu}\phi_{i}$. 
+where the physics describing the system is contained in the Lagrangian $\mathcal{L}$ which depends on the fields $\phi_{i}$ and their space-time derivatives $\partial_{\mu}\phi_{i}$. 
 
 In the case of a scalar (spin-0) field, the Lagrangian $\mathcal{L}_{KG}$ can be written in the form 
 
@@ -74,7 +75,7 @@ where $\phi$ is a single scalar field, $m$ is its mass, $\hbar$ is the Planck co
 }
 which describes a scalar particle of mass $m$. 
 
-The field of a half-spin particle is a four-component spinor field $\psi$. The Euler-Lagrange equation applied on the field $\bar{\psi}$ using the Lagrangian $\mathcal{L}_{D}$
+The field of a half-spin particle is a four-component spinor field $\psi$. The Euler-Lagrange equation applied on the field $\bar{\psi}$, using the Lagrangian $\mathcal{L}_{D}$
 
 
 \eq{dirlagrangian}
@@ -131,13 +132,13 @@ The global transformation of a field $\psi$ can be understood as the multiplicat
 
 \subsection{The electroweak interaction}
 
-In 1954, Yang and Mills~\cite{Yang:1954ek} applied local invariance on the $SU(2)$ group to describe the weak interaction and later Glashow, Salam and Weinberg~\cite{Glashow:1961tr, Salam:1968rm, Weinberg:1967tq} showed, that if the group $SU(2) \otimes U(1)$ is considered, the weak and electromagnetic interactions can be unified. Moreover they divided the left and right chiral components of the fermion fields. The doublet $\Psi_L$ is composed by two left-handed fermion field spinors, left-handed charged lepton and its corresponding neutrino. The singlet $\Psi_R$ consists of one right-handed fermion field spinor. The locally invariant Lagrangian of the electroweak~(EW) interaction (without symmetry breaking) can be written as following
+In 1954, Yang and Mills~\cite{Yang:1954ek} applied local invariance on the $SU(2)$ group to describe the weak interaction and later Glashow, Salam and Weinberg~\cite{Glashow:1961tr, Salam:1968rm, Weinberg:1967tq} showed, that if the group $SU(2) \otimes U(1)$ is considered, the weak and electromagnetic interactions can be unified. Moreover they separated the left and right chiral components of the fermion fields. The doublet $\Psi_L$ is composed by two left-handed fermion field spinors corresponding to the left-handed charged lepton and its corresponding neutrino. The singlet $\Psi_R$ consists of one right-handed fermion field spinor. The locally invariant Lagrangian of the electroweak~(EW) interaction (without symmetry breaking) can be written as the following
 
 \eq{EWlagrangian}
 {
 \mathcal{L}_{EW} = - \frac{1}{4} \sum_{a=1}^{3} F_{\mu\nu}^{a} F^{a\mu\nu} - \frac{1}{4} B_{\mu\nu}B^{\mu\nu} +  i \bar{\Psi_L} \gamma^{\mu} D_{\mu} \Psi_{L} +  i \bar{\Psi_R} \gamma^{\mu} D_{\mu}  \Psi_{R},
 }
-where $\Psi_{R}~(\Psi_{L})$ is the right-handed (left-handed) component of the fermion fields and $D_{\mu}$ is the covariant derivative. The tensors $F_{\mu\nu}$ are composed of the vector fields $W^{a}_{\mu}$ and their derivatives, and the tensor $B_{\mu\nu}$ is composed of derivatives of the vector field $B_{\mu}$, similarly as shown in Eq.~\ref{eq:freeA}.
+where $D_{\mu}$ is the covariant derivative, the tensors $F_{\mu\nu}$ are composed of the vector fields $W^{a}_{\mu}$ and their derivatives, and the tensor $B_{\mu\nu}$ is composed of the derivatives of the vector field $B_{\mu}$, similarly as shown in Eq.~\ref{eq:freeA}.
 
 In the case of the $SU(2)$ group the covariant derivative $D_{\mu}$ is 
 
@@ -169,16 +170,16 @@ The theory of strong interaction, called Quantum Chromodynamics~(QCD), is based 
 {
 \mathcal{L}_{QCD} = -\frac{1}{4} \sum_{a=1}^{8} F_{\mu \nu}^{a} F^{a \mu \nu} + \sum_{j=1}^{n_f} \bar{q}_{j}(i D_{\mu}\gamma^{\mu} -m_{j})q_{j} ,
 }
-where the quark fields $q_{j}$ are summed over the number of different quark flavors $n_{f}$, and $m_{j}$ are the associated masses. A quark field $q_{j}$ is composed of three quark spinors, one for each color. The tensors $F_{\mu \nu}$ are a combination of gluon fields $g_{\mu}^{a}$ and their derivatives. The index $a$ runs over eight independent color charges of gluons. The covariant derivative in this case is
+where the quark fields $q_{j}$ are summed over the number of different quark flavors $n_{f}$, and $m_{j}$ are the associated masses. A quark field $q_{j}$ is composed of three quark spinors, one for each color. The tensors $F_{\mu \nu}$ are a combination of gluon fields $g_{\mu}^{a}$ and their derivatives. The index $a$ runs over eight independent color charges of the gluons. The covariant derivative in this case is
 
 \eq{QCDdervative}
 {
-   D_{\mu} = \partial_{\mu} - i\sqrt{4 \pi \alpha_{s}} \sum_{a=1}^{8} T^{a} g_{\mu}^{a},~a=1,...,8 , 
+   D_{\mu} = \partial_{\mu} - i\sqrt{4 \pi \alpha_{s}} \sum_{a=1}^{8} T^{a} g_{\mu}^{a}, 
 }
 where $\alpha_{s}$ is the strong coupling constant and $T^{a}$ are the generators represented by the Gell-Mann matrices. 
 
 %Particles which can interact via strong interaction must carry a color charge, the quarks carry the red, green or blue color, while in case of gluons there are eight different combinations of one color and one anticolor.
-The coupling of colored objects is weak at short distances~(asymptotic freedom)~\cite{Gross:1973id}, but it grows with distance~(confinement)~\cite{Wilson:1974sk}. Therefore colored objects always have to be bound inside colorless hadrons, where they are quasi-free, and can never be observed separately. There are two kinds of hadrons, the baryons holding three quarks of different colors and the mesons composed of quark-antiquark pair.
+The coupling of colored objects is weak at short distances~(asymptotic freedom)~\cite{Gross:1973id}, but it grows with distance~(confinement)~\cite{Wilson:1974sk}. Therefore colored objects always have to be bound inside colorless hadrons, where they are quasi-free, and can never be observed separately. There are two kinds of hadrons, the baryons holding three quarks of different colors and the mesons composed of a quark-antiquark pair.
 
 %-asymptotic freedom - the coupling depends on the distance, , it is very weak at short distances (asymtotic freedom) nut grows in distance (confinment - bound hadron states)
 %-confinment -> color must remain neutral , not possinle to separate individual quarks and gluons, always are bound in colorless hadrons - baryons of mesons.
@@ -241,7 +242,7 @@ being the ground state energy of the field $\Phi$. Then the excitation of the fi
 {
     \Phi = \frac{1}{\sqrt{2}}\binom{0}{v+H},
 }
-where $H$ is the scalar field called the Higgs boson. The vector bosons $W^{\pm}$ and $Z$ become massive via the interaction with the Higgs field present in the first term of the Higgs Lagrangian of Eq.~\ref{eq:lagHiggs}. The masses of the fermions can be also generated via the interaction of the fermion field  $\Psi$ with the Higgs boson $H$ by adding  to the Lagrangian of the SM Yukawa terms of type $\lambda_{Y} \bar{\Psi}_{L} \Phi \Psi_{R} + h.c.$ with $\lambda_{Y}$ representing the Yukawa coupling proportional to the mass of the fermion. The full Lagrangian of the standard model in the above defined notation can then be written as
+where $H$ is the scalar field called the Higgs boson. The vector bosons $W^{\pm}$ and $Z$ become massive via the interaction with the Higgs field present in the first term of the Higgs Lagrangian of Eq.~\ref{eq:lagHiggs}. The masses of the fermions can be also generated via the interaction of the fermion field  $\Psi$ with the Higgs boson $H$ by adding,  to the Lagrangian of the SM Yukawa, terms of type $\lambda_{Y} \bar{\Psi}_{L} \Phi \Psi_{R} + h.c.$ with $\lambda_{Y}$ representing the Yukawa coupling proportional to the mass of the fermion. The full Lagrangian of the standard model in the above defined notation can then be written as
 
 \eq{SMlag} 
 {
@@ -283,7 +284,7 @@ Even though the standard model proved to be very successful in describing and pr
 
 \textbf{The naturalness problem}
 
-As mentioned in Section~\ref{sec:EWbreaking}, the mass of the Higgs boson at the tree level is defined by Eq.~\ref{eq:treeMass}, but this mass must be corrected for contributions of virtual particles. An example of a virtual fermion loop contributing to the Higgs mass is shown in Fig.~\ref{fig:figures/fermionCorr}. The mass of the Higgs boson can be thereby decomposed in $m_{H,0}$ as:
+As mentioned in Section~\ref{sec:EWbreaking}, the mass of the Higgs boson at the tree level is defined by Eq.~\ref{eq:treeMass}, but this mass must be corrected for contributions of virtual particles. An example of a virtual fermion loop contributing to the Higgs mass is shown in Fig.~\ref{fig:figures/fermionCorr}. The mass of the Higgs boson can be thereby decomposed as $m_{H,0}$ as:
 
 \eq{HiggsMass}
 {
@@ -307,7 +308,7 @@ where $k$ includes constants and SM couplings.
                  {0.3}       % Width, in fraction of the whole page width
                  { A virtual fermion contributing to the mass of the Higgs boson. }
 
-The mass of the Higgs boson was experimentally measured to be of 125~GeV~\cite{Chatrchyan:2012xdj, Aad:2012tfa}, which is orders of magnitude lower than Planck mass. This mismatch between the order of magnitude of the Higgs and the Planck masses, for which there is no physical reason, is referred to as the ``hierarchy problem''. Moreover to obtain this relatively small mass of the Higgs boson, there must be large cancellation between the two terms $m_{H, 0}^{2}$ and $k ~m_{P}$  in Eq.~\ref{eq:HiggsTuning}. The cancellation of the terms has to happen in around thirty orders of magnitude. Such fine-tuning is not natural and this problem of fine-tuning is referred to as the ``naturalness problem''.
+The mass of the Higgs boson was experimentally measured to be of 125~GeV~\cite{Chatrchyan:2012xdj, Aad:2012tfa}, which is orders of magnitude lower than Planck mass. This mismatch between the order of magnitude of the Higgs and the Planck masses, for which there is no physical reason, is referred to as the ``hierarchy problem''. Moreover to obtain this relatively small mass of the Higgs boson, there must be a large cancellation between the two terms $m_{H, 0}^{2}$ and $k ~m_{P}$  in Eq.~\ref{eq:HiggsTuning}. The cancellation of the terms has to happen in around thirty orders of magnitude. Such fine-tuning is not natural and this problem of fine-tuning is referred to as the ``naturalness problem''.
 
 %corrwctions to Higgs boson mass
 %to compute cross section, all quantum loop corrections has to be taken into account
@@ -343,7 +344,7 @@ Dark energy arises from the need to introduce a cosmological constant in the Ein
 
 \textbf{Other shortcomings of the standard model}
 
-Another problem of the SM is the asymmetry between matter and antimatter. In our universe there is an abundance of matter, even though the matter is supposed to have been produced in the same amount as antimatter during the big bang.  Weak interaction violates the combined charge conjugation and parity~(CP) symmetry~\cite{Kobayashi:1973fv}, which could lead to an asymmetry between matter and antimatter. But the known sources of the CP violation cannot describe so large asymmetry and therefore there is no mechanism within the SM, which could explain the observed asymmetry between matter and antimatter.
+Another problem of the SM is the asymmetry between matter and antimatter. In our universe there is an abundance of matter, even though the matter is supposed to have been produced in the same amount as antimatter during the big bang.  Weak interaction violates the combined charge conjugation and parity~(CP) symmetry~\cite{Kobayashi:1973fv}, which could lead to an asymmetry between matter and antimatter. But the known sources of the CP violation cannot describe a so large asymmetry and therefore there is no mechanism within the SM which could explain the observed asymmetry between matter and antimatter.
 
 Then, as mentioned, there are only left-handed neutrinos in the SM and therefore their masses cannot be generated via the interaction with the Higgs boson, which flips left-handed fermions to right-handed ones. But neutrino oscillations have been observed~\cite{Fukuda:1998mi, Ahmad:2001an} and are only possible if neutrinos are massive. Thus one needs to introduce a mechanism to generate mass terms for neutrinos in the SM Lagrangian. However, this fact in  itself is not a conclusive argument in favor of a physics beyond the SM~(BSM).
 
@@ -497,9 +498,9 @@ gravitino  \rule{0pt}{3ex} & 3/2 & $\tilde{G}$  & (same) \\
 \end{center}
 \end{table}
 
-The MSSM brings 105 new free parameters on top of the 19 free parameters in the standard model. Most of these parameters come from the supersymmetry breaking part of the Lagrangian. It is not possible to search for SUSY in such a large parameter-space and therefore the collider experiments usually search for SUSY in the context of simplified models, referred to as ``Simplified Model Spectra'', which reduce considerably the number of free parameters. More details on these simplified models are given in Section~\ref{sec:SMS}. Another option to reduce the number of parameters is to apply well motivated assumptions. For example the pMSSM allows to reduce the number of parameters to 19, defined at the electroweak scale~\cite{Berger:2008cq}.
+The MSSM brings 105 new free parameters on top of the 19 free parameters in the standard model. Most of these parameters come from the supersymmetry breaking part of the Lagrangian. It is not possible to search for SUSY in such a large parameter-space and therefore the collider experiments usually search for SUSY in the context of simplified models, referred to as ``Simplified Model Spectra'', which reduce considerably the number of free parameters. More details on these simplified models are given in Section~\ref{sec:SMS}. Another option to reduce the number of parameters is to apply well motivated assumptions. For example the phenomenological MSSM  (pMSSM) allows to reduce the number of parameters to 19, defined at the electroweak scale~\cite{Berger:2008cq}.
 
-The left ($\tilde{t}_{L}$) and right ($\tilde{t}_{R}$) stop eingenstates mix into the mass eignestates ($\tilde{t}_{1},~\tilde{t}_{2}$). In the phenomenological MSSM, which reduces number of free parameters by assuming values of majority of them, the masses of the $\tilde{t}_{1}$ and $\tilde{t}_{2}$ can be determined from the mass matrix $M_{\tilde{t}}$ in the ($\tilde{t}_{L},~\tilde{t}_{R}$) basis~\cite{Passehr:2017ufr}. The mass matrix $M_{\tilde{t}}$ can be written as
+The left ($\tilde{t}_{L}$) and right ($\tilde{t}_{R}$) stop eingenstates mix into the mass eignestates ($\tilde{t}_{1},~\tilde{t}_{2}$). In the pMSSM, the masses of the $\tilde{t}_{1}$ and $\tilde{t}_{2}$ can be determined from the mass matrix $M_{\tilde{t}}$ in the ($\tilde{t}_{L},~\tilde{t}_{R}$) basis~\cite{Passehr:2017ufr}. The mass matrix $M_{\tilde{t}}$ can be written as
 
 %from 100 to 19 (or sth like this)
 
@@ -512,10 +513,10 @@ m_t(A_{t} + \mu ~ \cot \beta) &  m_{\tilde{t}_{R}}^{2} + m_{t}^{2} + \Delta_{\ti
 \end{pmatrix}
 ,
 }
-where $m_{\tilde{t}_{L}}$ and $m_{\tilde{t}_{R}}$ are the masses of the left and right component of the stop field, respectively, $m_{t}$ is the top quark mass,  $\mu$ is the Higgs mass parameter, $\beta$ is the ratio of the Higgs VEVs, $A_{t}$ is the trilinear coupling and the $\Delta$ terms are coming from the quadrilinear interactions of the squarks and the  Higgs boson which represent small contributions compared to the other terms. 
+where $m_{\tilde{t}_{L}}$ and $m_{\tilde{t}_{R}}$ are the masses of the left and right component of the stop field, respectively, $m_{t}$ is the top quark mass,  $\mu$ is the higgsino mass parameter, $\beta$ is the ratio of the Higgs VEVs, $A_{t}$ is the trilinear coupling and the $\Delta$ terms are coming from the quadrilinear interactions of the squarks and the  Higgs boson which represent small contributions compared to the other terms. 
 
 
-Through the radiative corrections, the Higgs mass is sensitive to the stop mass. The Fig.~\ref{fig:figures/plotsstophiggs} shows the dependence of the Higgs mass on two parameters, $m_{\tilde{t}_{R}}$ and $X_{t}$ defined as
+Through the radiative corrections, the Higgs mass is sensitive to the stop mass. Fig.~\ref{fig:figures/plotsstophiggs} shows the dependence of the Higgs mass on two parameters, $m_{\tilde{t}_{R}}$ and $X_{t}$ defined as
 \eq{xt}
 {
 X_{t} \equiv A_{t}+ \mu ~ \cot \beta .
@@ -545,7 +546,7 @@ P_R=(-1)^{3(B-L)+2s },
 }
 where $B$ is the baryon number, $L$ the lepton number and $s$ the spin of the particle. All SM particles have $P_{R}=1$ and their SUSY partners $P_{R}=-1$. The consequence of R-parity conservation is that sparticles can be produced only in an even number and each of them can decay only into an odd number of sparticles. In addition, the lightest supersymmetric particle~(LSP) must be stable. In that case the LSP is a dark matter candidate and can be either the lightest neutralino, sneutrino or gravitino, depending on the specific realization of the MSSM. 
 
-Another advantage of the MSSM is that the energy dependence of the coupling constants of the SM interactions is modified as a result of the introduction of sparticles. Consequently these coupling constants can be unified at a large energy scale referred to as  the ``GUT scale''. Within the supersymmetry it is also possible to create models of supergravity by imposing the locality of the supersymmetry.
+Another advantage of the MSSM is that the energy dependence of the coupling constants of the SM interactions is modified as a result of the introduction of sparticles. Consequently these coupling constants can be unified at a large energy scale referred to as  the ``GUT scale''. Within supersymmetry it is also possible to create models of supergravity by imposing the locality of supersymmetry.
 
 
 
@@ -558,7 +559,7 @@ Another advantage of the MSSM is that the energy dependence of the coupling cons
 
 \subsection{Simplified Model Spectra~\label{sec:SMS}}
 
-The parameter-space of the MSSM can be reduced by fixing the sparticles decay modes and branching ratios and the mass hierarchy between sparticles. Such restrictions give only a limited number of possible MSSM models called ``Simplified Model Spectra''~(SMS)~\cite{Alves:2011wf, Alwall:2008ag, Chatrchyan:2013sza}.
+The parameter-space of the MSSM can be reduced by fixing the sparticles decay modes and branching ratios and the mass hierarchy between sparticles. Such restrictions give only a limited number of possible SUSY models called ``Simplified Model Spectra''~(SMS)~\cite{Alves:2011wf, Alwall:2008ag, Chatrchyan:2013sza}.
 
 A typical SMS scenario for the stop production is illustrated in Fig.~\ref{fig:figures/T2tt}. In this case only the masses of the stop and the neutralino are considered to be free parameters. All the other sparticles are assumed to be much heavier and do not influence the studied process. The associated branching fraction for the decay of the stop (here $t \tilde{\chi}_{1}^0$) is arbitrarily fixed, most of the cases to 100\%.
 
@@ -580,7 +581,7 @@ In Run~1, many analyses searching for the SUSY particles were performed. In part
 
 For $m_{LSP} < \Delta m < m_{W}$ the stop can decay either to $c \tilde{\chi}_{1}^0$ or to four bodies where the intermediate top quark and W boson are off-shell in $t \tilde{\chi}_{1}^0$, the region $\Delta m < m_{LSP}$ being kinematically forbidden. The decay of the stop to the $c \tilde{\chi}_{1}^0$ is possible via loops or flavor changing neutral currents. Once $m_{W} < \Delta m < m_{t}$, the decay $t \tilde{\chi}_{1}^0$ undergoes a three body decay via off-shell quark, but with an on-shell W boson. When $\Delta m > m_{t}$ the stop can decay to $t \tilde{\chi}_{1}^0$. The analyses whose results are presented in the Fig.~\ref{fig:figures/T2tt2015} do not only differ by the coverage of the kinematic regions, but also by the analysis strategy, for example they may require a different number of leptons in the final state. In general, less leptons there are in the final state, larger is the branching ratio, and therefore the expected yield. But on the other hand the analyses requesting more leptons suffer less from SM background contributions.  
 
-The strongest exclusion limit on the stop mass was put by the analysis~\cite{Khachatryan:2016oia} (light blue in the Fig.~\ref{fig:figures/T2tt2015}) searching for fully hadronic final states. This analysis is interpreted in the context of of SMS and excludes top squark masses up to 755~GeV for a neutralino mass  below 200~GeV. Probing the higher $\tilde{t}$ is difficult with the current dataset, given that the production cross section falls steeply as a function of the mass as illustrated in Fig.~\ref{fig:figures/xsectionsstrong}.
+The strongest exclusion limit on the stop mass was put by the analysis~\cite{Khachatryan:2016oia} (light blue in the Fig.~\ref{fig:figures/T2tt2015}) searching for fully hadronic final states. This analysis is interpreted in the context of SMS and excludes top squark masses up to 755~GeV for a neutralino mass  below 200~GeV. Probing the higher stop $\tilde{t}$ masses is difficult with the current dataset, given that the production cross section falls steeply as a function of the mass as illustrated in Fig.~\ref{fig:figures/xsectionsstrong}.
  
     \insertFigure{figures/xsectionsstrong} % Filename = label
                  {0.7}       % Width, in fraction of the whole page width
@@ -594,14 +595,14 @@ The summary plots of excluded masses of SUSY particles obtained by SUSY searches
 
     \insertFigure{figures/ATLASSUSYSummaryRun1}
                  {0.95}       % Width, in fraction of the whole page width
-                 {Summary of the masses of SUSY particles excluded by ATLAS~\cite{website:SUSYresRunIATLAS} collaboration with the Run~1 dataset. The SUSY models, decay channels and assumptions are directly indicated in the plot. More details can be seen in the documentation of the analyses. }
+                 {Summary of the masses of SUSY particles excluded by the ATLAS collaboration with the Run~1 dataset~\cite{website:SUSYresRunIATLAS}. The SUSY models, decay channels and assumptions are directly indicated in the plot. More details can be seen in the documentation of the analyses. }
 
 
     \insertFigure{figures/CMSSUSYSummaryRun1} % Filename = label
                  {0.95}       % Width, in fraction of the whole page width
-                 {Summary of the masses of SUSY particles excluded by CMS~\cite{website:SUSYresRunI} collaboration. The limits in darker shades are given for a massless LSP, while lighter shades limits are for m(mother)-m(LSP)=200~GeV. More details can be seen in the documentation of the analyses. }
+                 {Summary of the masses of SUSY particles excluded by the CMS collaboration~\cite{website:SUSYresRunI}. The limits in darker shades are given for a massless LSP, while lighter shades limits are for m(mother)-m(LSP)=200~GeV. More details can be seen in the documentation of the analyses. }
 
-The increase of the center-of-mass energy between Run~1 and Run~2, from 8~TeV to 13~TeV, permits to further probe higher SUSY masses thanks to  the parton luminosity increase: for example the pair production of stop mass of 700~GeV is increased by a factor 8.4 as shown in Fig.~\ref{fig:figures/PartonLuminosity13to8}, while the gain of typical SM backgrounds is much smaller.
+The increase of the center-of-mass energy between Run~1 and Run~2, from 8~TeV to 13~TeV, permits to further probe higher SUSY masses thanks to  the parton luminosity increase: for example the pair production of stops of 700~GeV is increased by a factor 8.4 as shown in Fig.~\ref{fig:figures/PartonLuminosity13to8}, while the gain of typical SM backgrounds is much smaller.
 
     \insertFigure{figures/PartonLuminosity13to8} % Filename = label
                  {0.99}       % Width, in fraction of the whole page width
