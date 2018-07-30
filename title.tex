@@ -7,56 +7,85 @@
 % Geometry for the title page only
 \newgeometry{top=3cm, bottom=2.5cm, left=2cm, right=2cm, bindingoffset=0cm}
 
+\begin{textblock}{0}[0,0](0.25,0.5)
+{
+    \setlength{\fboxsep}{0.7pt}
+    \setlength{\fboxrule}{1pt}
+    \includegraphics[height=1.5cm]{figures/lunistra}
+}
+\end{textblock}
+
+\begin{textblock}{0}[0,0](12.5,0.5)
+{
+    \setlength{\fboxsep}{0.7pt}
+    \setlength{\fboxrule}{1pt}
+    \includegraphics[height=1.5cm]{figures/logoED}
+}
+\end{textblock}
 
 \begin{titlepage}
-    \vspace*{1cm}
     \begin{center}
-        \framebox{{\Large \textsc{Université de Strasbourg}}}\\
+    \vspace*{-2cm}
+        {\Large \textbf{UNIVERSITÉ DE STRASBOURG}}\\
 
-        \vspace*{0.8cm}
+        \vspace*{1cm}
 
-        {\Large \textsc{Thèse}}
+        {\large \textbf{ÉCOLE DOCTORALE DE PHYSIQUE ET CHIMIE PHYSIQUE}}\\
+        \textbf{Institut Pluridisciplinaire Hubert Curien}\\
 
-        \vspace*{0.8cm}
+        \vspace*{1cm}
 
-        pour l'obtention du diplôme de
+        {\LARGE \textbf{TH\`{E}SE}} présentée par:
 
-        \vspace*{0.8cm}
+        \vspace*{0.3cm}
 
-        {\Large \textsc{Docteur de l'Université de Strasbourg}}
+        {\Large \textbf{Mark\'{e}ta JANSOV\'{A}}}
 
-        \vspace*{0.8cm}
+        soutenue le: \textbf{27 Septembre 2018}
+        
 
-        \underline{spécialité} : physique des particules
+        \vspace*{1cm}
 
-        \vspace*{0.8cm}
+        pour obtenir le grade de: \textbf{Docteur de l'université de Strasbourg}
 
-        présentée par
 
-        \textsc{Mark\'{e}ta Jansov\'{a}}
+        Discipline/Spécialité: Physique des particules
 
-        \vspace*{0.8cm}
 
-        {\Large \textbf{Recherche du partenaire supersymétrique du quark top et mesure des propriétés des dépôts dans le trajectographe à pistes de silicium de l’expérience CMS au Run 2}} %}
+        \vspace*{1cm}
 
-        \vspace*{0.8cm}
+        \fbox{
+        \parbox{\textwidth}{\centering \LARGE \textbf{Recherche du partenaire supersymétrique du quark top et mesure des propriétés des dépôts dans le trajectographe à pistes de silicium de l’expérience CMS au Run 2}} %}
+%\centering
+         }
 
-        présentée le 27 Septembre 2018 devant la commission d'examen composée de
+        \end{center}
 
-        \vspace*{0.8cm}
+        \vspace*{1cm}
 
+        {\large \textbf{THÈSE dirigée par:}}\\
         \begin{tabular}{ll}
-            Mme. COLLARD Caroline,          & directrice de thèse\\
-            M. KAJFASZ Éric,                & rapporteur\\
-            M. TROCME Benjamin,             & rapporteur \\
-            Mme. BOUDOUL Gaëlle,            & examinateur\\
-            M. BAUDOT Jérôme,               & examinateur\\
-            M. CHABERT Éric,                & examinateur\\
+        \hspace{1cm}    \textbf{Mme. COLLARD Caroline}          & Institut Pluridisciplinaire Hubert Curien, Uistra \\
+        \end{tabular}
+        
+        {\large \textbf{RAPPORTEURS:}} \\
+        \begin{tabular}{ll}
+            \hspace{1cm}    \textbf{M. KAJFASZ Éric~~~~~~~~}                & Centre de Physique des Particules de Marseille\\
+            \hspace{1cm}    \textbf{M. TROCME Benjamin}             & Laboratoire de Physique Subatomique \& Cosmologie \\
+        \end{tabular}
+        \vspace*{0.5cm}
+        \hline
+
+        \vspace*{0.5cm}
+        {\large \textbf{AUTRES MEMBRES DU JURY:}}\\
+        \begin{tabular}{ll}
+            \hspace{1cm}    \textbf{Mme. BOUDOUL Gaëlle~~}            & Institut de Physique Nucléaire de Lyon \\
+            \hspace{1cm}    \textbf{M. BAUDOT Jérôme}               & Institut Pluridisciplinaire Hubert Curien, Unistra \\
+            \hspace{1cm}    \textbf{M. CHABERT Éric}                & Institut Pluridisciplinaire Hubert Curien, Unistra \\
         \end{tabular}
 
         \vspace*{0.5cm}
 
-    \end{center}
     \vspace*{1cm}
 \end{titlepage}
 \restoregeometry
