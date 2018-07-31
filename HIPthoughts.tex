@@ -1,0 +1,68 @@
+The problem for physics:
+%https://twiki.cern.ch/twiki/bin/viewauth/CMS/SiStripHitEffLoss
+%https://indico.cern.ch/event/450121/contributions/1946079/attachments/1217237/1777959/HIP_GB_160126.pdf
+%-------------------------
+increase of instantaneous luminosity
+ With increasing instantaneous luminosity we observe:
+
+    lower cluster charge
+    lower S/N
+    lower hit efficiency
+    shorter tracks
+    lower track efficiency 
+
+-tracks fewer hits:
+- hit inefficiency
+-reduced cluster charge
+-relaxed? cluster charge cut? _> there is a change, different procedure
+-less tracks in  2015RunD tahn in MC, not visinle in RunC  !!!
+-The effect is lumi dependent, but also BX dependent (electronics recovers during gaps)
+
+
+%-------------------------
+actions taken
+%------------------------
+-discussion with the people who created APV etc
+-simulation: HIP math model, function and fit code -> mitigation
+-recontruction: Recipe How to Reconstruct VirginRaw Data and reco datasets (new ZS, e.g. iterative median etc)
+-Inefficient modules identification/Classification in VR data -identify modules with missing hit and categorize what is happening
+-hit efficiency studies
+-impact of HIP on cluster charge and S/N 
+-adjusting the baseline level: in order not to be that much sensitive to teh drop, did not help, only spurious clusters from noise appeared
+-Evolution of mean cluster charge with bx, with old and new APV settingsi (as a function of time, bx, inst lumi, etc...)
+-parameters in APV - considering change
+
+%-------------------------
+HIP on the physics:
+%-------------------------
+
+Jet/MET
+- shorter tracks are ok, no big problems for jet and met at first -> nothing seen as a function of BX
+- there is only small effect for plow pT jets
+- but then: Large MET tails arising from iterations in muon tracking steps, which lead to spurious muon or charged hadron with high pt and large error
+	- reconstruction issue influencing both data and MC
+	- main source: not high purity tracks in PF algorithm
+	- this causes problems to analyses with a lot of fake MET (fully hadronic searches) or high pt muon searches
+	-> bad muon filter + bad charged hadron filter    
+- problem with JEC - probably problem with photon energy scale
+
+Muon:
+-medium and tight muon ID efficiency -> drop with the inst lumi -> significant impact
+-muon tracking efficiency drop -> not seen in MC
+-nr of primary vertices drop -> not seen in MC
+
+Electron:
+-electron ID seems not to be much influenced
+
+Tau:
+-some effect, but well mitigated with changes in tarcking
+
+BTV:
+%https://indico.cern.ch/event/544743/contributions/2219210/attachments/1299735/1939738/20160628_xpog.pdf
+- hit multiplicity and selected tracks multiplicity disagreement between data and simu
+- an effect up to 10\% on the SV reconstruction
+-disagreement in number of b-tagged jets
+-> problems with scale factors, dependent on luminosity
+-> mitigation - improved track selection, relaxin  number of hits in strip tracker, while keepinh nr of hits in pixels high
+- 0.65 b tagging efficiency without hip, with hip up to only 0.5
+
