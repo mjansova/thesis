@@ -1,6 +1,10 @@
 The problem for physics:
 %https://twiki.cern.ch/twiki/bin/viewauth/CMS/SiStripHitEffLoss
 %https://indico.cern.ch/event/450121/contributions/1946079/attachments/1217237/1777959/HIP_GB_160126.pdf
+%https://indico.cern.ch/event/560224/contributions/2265347/attachments/1320462/1980048/WGM_HIP_Boudoul.pdf
+%https://indico.cern.ch/event/560226/contributions/2277448/attachments/1324704/1988050/wgm_vfp_change_ebutz.pdf
+%https://indico.cern.ch/event/536853/contributions/2269134/attachments/1320885/1980813/Hall_DPG_0816.pdf -> about APV design
+%https://indico.cern.ch/event/570778/contributions/2308697/attachments/1340097/2017731/hip-caltech.pdf -> hip story, mitigation, impact
 %-------------------------
 increase of instantaneous luminosity
  With increasing instantaneous luminosity we observe:
@@ -17,8 +21,12 @@ increase of instantaneous luminosity
 -relaxed? cluster charge cut? _> there is a change, different procedure
 -less tracks in  2015RunD tahn in MC, not visinle in RunC  !!!
 -The effect is lumi dependent, but also BX dependent (electronics recovers during gaps)
-
-
+-lower cluster charge, less hits and also less reconstructed vertices -> tracks get shorter
+-problems with cc and cluster position -> loss of hit
+-more reasons for track to stop (nr of lost hits, nr of lost consecutive hits, ...)
+-mitigation: ccc retuning
+-mitigation: inactive hits, retune matching hits in stereo modules -> but can produce a lot of fake tarcks (applied?) -> not large efffect but in general worsenes tracking performance but helps in B-tagging
+-mitigation: HIP simulation -> looked reasonable at that time
 %-------------------------
 actions taken
 %------------------------
@@ -50,9 +58,10 @@ Muon:
 -medium and tight muon ID efficiency -> drop with the inst lumi -> significant impact
 -muon tracking efficiency drop -> not seen in MC
 -nr of primary vertices drop -> not seen in MC
+-increased muon fake rate due to mitigation
 
 Electron:
--electron ID seems not to be much influenced
+-electron ID and reconstruction influenced by HIP
 
 Tau:
 -some effect, but well mitigated with changes in tarcking
@@ -66,3 +75,12 @@ BTV:
 -> mitigation - improved track selection, relaxin  number of hits in strip tracker, while keepinh nr of hits in pixels high
 - 0.65 b tagging efficiency without hip, with hip up to only 0.5
 
+
+Physics analyses:
+-bad muons: %https://indico.cern.ch/event/605717/contributions/2443762/attachments/1398823/2133673/gp-badmuons-190117.pdf
+-bad muons create fake MET O(0.1\%) effect but
+-in Z->mumu + 0 jets completely dominates the MET tail
+-bad muon is poorly reconstructed copy of the good muon
+	-inside-out tracking reconstructs a muon
+	-outside-in tracking tries to also reconstruct it, and sometimes produces also a fake track
+- disappearring tracks searches largely influenced -> in general really influences searches which plays with tracks
