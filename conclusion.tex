@@ -18,18 +18,37 @@ type of studies
 results achieved
 perspectives
 the big picture
-
+%----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 %HIP
+results
+	-first studied the hi effect as a possible explanation of the inefficiencies
+	-first study with the CMS data, studied the evolution of baseline and raw digis standard deviation and with their help designed the selection of the HIP, it was found out that the HIP leads to the low baseline and low rms raw what was also observed in the 2nd study provided opportunity to study data not affecte dby the ineffeicincies
+	-the HIP effect affects the cluster charge and multiplicity and in the first study a decrease in the cluster multiplicity form average, i.e. dead time, is observed for aroun 250 ns.
+	-Due to the data-taking properties the deadtime cannot be studied in data after vfp fix, but with these data we have shown that there is an increased multiplicity of fake clusters after a HIP event. But in average this multiplicity is of the same order of magnitude as the cluster multiplicity of fake clusters when no HIP is present. We have also estimated a lower bound on the probability that a fake cluster from a HIP event is reconstructed into track to be 0.002\%. We observed that these fake clusters originate from the baseline distortiond induced by the HIP event. 
+	-We have computed that the hip probability per pileup for each layer/wheel/ring of the silicon strip tracker and it has been found to be of the order of~$10^{-4}-10^{-3}$\% depending on the tracker layer/wheel/ring. This means that in case of dead time for 250ns and bunch spacing of 25ns the PU of order of $10^4-10^5$  would cause that the APV chip is never fully efficient (ask prob of 10 events before have a HIP) and we are far from that now.
+ 
 is there something to be improved
+	-different design of the APV chip. The common powering of inverters causes the drop o baseline but o the other hand it stabilizes the baseline. The resistance of the inverter resistor was changed in order to improve the sensitivity to the HIP event, but it enhances the instabilities of baseline, the basline distrotion, leading to a possible enhancement of the fake cluster reconstruction.
+
 does it need to be monitored
-nothing about dead time ?
+	-the HIP probability is now low and tehrefore does not cause a large problems. But once the PU is increasing it can become dangerous, but as I mentioned the PU would have to be of the order of... which is far from teh expected PU at LHC.
+ 
 how to improve ?
-should it be monitored ?
+	-increase of lumi, increase of PU > for HL-LHC there is a development of new chips and therefore in their design we need to pay attention to the HIP effect (does somebody already thinking about that)
+
 could we prevent by changing baseline ref value ?
+	-the HIP was tried to be mitigated by maximizing CMN. But it was found out taht this maximization elads ony to the appearance of the so-called "anomalous cluster" (more details in HitEffLoss page). This check was though done before the APV change and should be redone. But the problem is that due to the HIP tehre are also fragments causing clusters plus fakes from distrotions which would not be normally reconstructed as they are below zero. So would it be the right thing to do?  %slide 27: https://indico.cern.ch/event/470862/contributions/1146979/attachments/1281240/1903454/common_mode_maximization.pdf
+
 will we suffer of this at HL-LHC ?
+we will ahve a HIP effect but it consequences, the induced dead time and probability will depend on the design of modules.
+
 something about the APV conditions?
+Preamp Feedback Voltage Bias (VFP) Change
+not much to say...
+
 the common biasing scheme of inverters -> stabilize baseline but xtalk effect -> could reduce the HIP problem - check 
+%----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
 %SIMU
@@ -51,6 +70,7 @@ Should we plan to measure it later this run or at run III ?
 What should be the next step ?
 What about cross-talk in the future detector ?
 How to understand the change of cross talk, which goes in opproite direction, can we disentangle it by more frequent measurements?
+%----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
 %SUSY
@@ -59,6 +79,7 @@ perspectives at HLLHC
 highlight my contributions
 Rediscuss the motivation, the situation, the limits prior to our work
 perspectives: but they have to be "summarized" here. It is not a summary.
-	What about the search at low mass ?
-	How to improve ?
-	How to interpret in a realistic model ? Do we have other strong constraints from other measurements/ serches ? ...
+perspectives:	What about the search at low mass ?
+perspectives:	How to improve ?
+perspectives:	How to interpret in a realistic model ? Do we have other strong constraints from other measurements/ serches ? ...
+%----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
