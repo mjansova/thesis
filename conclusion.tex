@@ -27,6 +27,7 @@ results
 	-the HIP effect affects the cluster charge and multiplicity and in the first study a decrease in the cluster multiplicity form average, i.e. dead time, is observed for aroun 250 ns.
 	-Due to the data-taking properties the deadtime cannot be studied in data after vfp fix, but with these data we have shown that there is an increased multiplicity of fake clusters after a HIP event. But in average this multiplicity is of the same order of magnitude as the cluster multiplicity of fake clusters when no HIP is present. We have also estimated a lower bound on the probability that a fake cluster from a HIP event is reconstructed into track to be 0.002\%. We observed that these fake clusters originate from the baseline distortiond induced by the HIP event. 
 	-We have computed that the hip probability per pileup for each layer/wheel/ring of the silicon strip tracker and it has been found to be of the order of~$10^{-4}-10^{-3}$\% depending on the tracker layer/wheel/ring. This means that in case of dead time for 250ns and bunch spacing of 25ns the PU of order of $10^4-10^5$  would cause that the APV chip is never fully efficient (ask prob of 10 events before have a HIP) and we are far from that now.
+	-HLLHC expected pu 140-200
  
 is there something to be improved
 	-different design of the APV chip. The common powering of inverters causes the drop o baseline but o the other hand it stabilizes the baseline. The resistance of the inverter resistor was changed in order to improve the sensitivity to the HIP event, but it enhances the instabilities of baseline, the basline distrotion, leading to a possible enhancement of the fake cluster reconstruction.
@@ -41,35 +42,81 @@ could we prevent by changing baseline ref value ?
 	-the HIP was tried to be mitigated by maximizing CMN. But it was found out taht this maximization elads ony to the appearance of the so-called "anomalous cluster" (more details in HitEffLoss page). This check was though done before the APV change and should be redone. But the problem is that due to the HIP tehre are also fragments causing clusters plus fakes from distrotions which would not be normally reconstructed as they are below zero. So would it be the right thing to do?  %slide 27: https://indico.cern.ch/event/470862/contributions/1146979/attachments/1281240/1903454/common_mode_maximization.pdf
 
 will we suffer of this at HL-LHC ?
-we will ahve a HIP effect but it consequences, the induced dead time and probability will depend on the design of modules.
+	-we will ahve a HIP effect but it consequences, the induced dead time and probability will depend on the design of modules.
 
 something about the APV conditions?
-Preamp Feedback Voltage Bias (VFP) Change
-not much to say...
+	-Preamp Feedback Voltage Bias (VFP) Change
+	-not much to say...
+
+which kind of data would be perfect?
+	-theoretically the best option would be data without trigger rules. Then we measured probabilities but we miss deadtime. so we would need subdeetctors in to have tracking. And to link the track to the module with HIP. To measure dead-time we would need trains and to track a given module and asseswhn clusters start to be seen in that module with the help of tracking again. The analyiss would need to be more complex. (Think about that a bit more). Then there is still ambiguity in HIP selection - we would need to require HIP which is alreadys een in the first event in the train and then we would need to trigger all events in a time window (dead time estimated to 250ns, so at least this window)
 
 the common biasing scheme of inverters -> stabilize baseline but xtalk effect -> could reduce the HIP problem - check 
 %----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
 %SIMU
+results
+	- After identifying that the cross talk causes a large discrepancies in description of cluster shape, we have decided to arrange a data-taking and remeasure it
+	- measurement done (differences between barrel and endcaps!) \& cross talk was found to decrease compared to the values originally int he MC
+	- example of TOB2 measurement before and after
+	- found evolution of xtalk as a function of time
+ 	- what remains unchanged - many parameters were found otdated but not updated week dependence -> should be some update later, but just for consistency
+	-cross talk: Said somewhere that it was done last time in 2010 ?
+
 does it need to be remeasured
+	- As shown the cross-talk evolves with fluence and tehrefore it must be remeasured from time to time.  Interesting feature is that the evolution is opposite than expected and therefore it would be interesting to monitor the cross talk in the vision of understanding the feature.
+
 do we need a different data
+	-the cruzet cosmics is good, but ideally we would need also some data from endcaps and this is difficult with cosmics as we would need quite a lot of time. The ideal case would be zero tesla collision data in the virgin raw, but this is scifi. These data would help to collect large stats everywhere, plus we would not have problems with timing.
+
 how can we improve the emasurement and the physics
+	-we could potentionally measure if there is left-right assymetry of cross talk (in past and this work observed average cluster (seed) charge dependency on the cluster position burt between 3); if the cross talk is dependent o the cluster position and track position within a sensor. But the description now is in general good and as mentioned there is only a small dependency of the tracking on the cross talk. In general only the physics analyses which are using tracking i.e. searches fro the appearing/disappearing tracks; or b-tagging discriminators are influenced.
+	-also we should update the cross talk in the peak data and check if the evolution is the same as in deco, the crosss talk decreases, this could give us a hint what is going on
+
 can we introduce some new things in simu
+	-for now we have achieved improvement and there are no things to be introduced into simu. After updating the conditions everything seems to be better described except the fraction of saturated clusters. This need to be resolved and changes in simulation might be done. On the other hand there are parts of simulation, where the effect is really small, e.g. diffucsion and if we would target the simplification of the code i order to reduce the simulation time, certainly few things could be simplified
+ 
 are there some problematic things in simualtion
+ -in my opinion there is one large problem in simulation taht the parameters are not updated frequently. For some parameters it is not a problem, but for some it is crucial. For example the timing curve changed with the change of APV parameter and was not updated. The pulse shape largely influences teh clsuter properties and can pose really problems
+	- mainly the OOT will not be corectly described, firstly of incorrect pulse shape, but also because of the dependence of the cross talk on the particle arrival time. This could be considered for implementation in the smulation.
+	- then the puls shape is difefrent for the main strip and neighbor, what will cause also incorrect description of oot as we fixed it now for intime
+
 do we need to change something more frequently or completely because the sensor changes with radiation
-what remains unchanged
+	- as shown except of cross talk also the noise and database conditions change fast with the aging of sensors.
+
+
 pulse shape problematics -> the OOT is not well described
 xtalk independent of time in simu
+	-already talked about
+
+
 measure it at HLLHC?
+	-for sure it needs to be determined what is teh cross talk and what it evolution will be (and if we are able to do so, measured from time to time) We need to make sure that the clusters do nto fail the binary criterium because they are too wide, because of too large cross talk. 
+	-soem sensors are going to be DC coupled, things will be different with xtalk
+	-ensure large interstrip resistance (think about xtalk during design) 
+
 what are the limitations ?
 why outdated ? talk about irradation
-cross talk: Said somewhere that it was done last time in 2010 ?
-Do we know why it was modified ?
-Should we plan to measure it later this run or at run III ?
-What should be the next step ?
-What about cross-talk in the future detector ?
+	-fluence causes the aging of modules (defects, surface damage)
+
+Do we know why it was modified?
+	- not completely uderstood why xtalk is evolving in this way, but the evolution was expected due to surface damages on the sio-si interface
+
 How to understand the change of cross talk, which goes in opproite direction, can we disentangle it by more frequent measurements?
+	- it might be the cose but it does not have to
+
+Radiation Damage (https://indico.cern.ch/event/577879/contributions/2740332/attachments/1572803/2483960/CMS-OT_aldi.pdf) - slide 23 reference
+
+Bulk damage
+	Primary lattice defects (I and V) form higher order defects (V2, VO,...) or even defect clusters, with energy levels in the band gap of Si
+	Depending on energy level and cross section they contribute to leakage current, effective doping concentration, trapping
+
+Surface damage
+	-Ionizing radiation generates e/h pairs also in SiO2 
+	e much higher mobility than h -> positive charge up of oxide
+	Additional, interface traps with dynamic characteristics
+	Theses lead to increased surface currents, altered electric field in surface region, accumulation of electrons at surface
 %----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
