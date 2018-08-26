@@ -19,14 +19,26 @@ results achieved
 perspectives
 the big picture
 %----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-
+%tenses!!!!!!!!!!!
+%-------------
 %HIP
-results
-	-first studied the hi effect as a possible explanation of the inefficiencies
-	-first study with the CMS data, studied the evolution of baseline and raw digis standard deviation and with their help designed the selection of the HIP, it was found out that the HIP leads to the low baseline and low rms raw what was also observed in the 2nd study provided opportunity to study data not affecte dby the ineffeicincies
-	-the HIP effect affects the cluster charge and multiplicity and in the first study a decrease in the cluster multiplicity form average, i.e. dead time, is observed for aroun 250 ns.
-	-Due to the data-taking properties the deadtime cannot be studied in data after vfp fix, but with these data we have shown that there is an increased multiplicity of fake clusters after a HIP event. But in average this multiplicity is of the same order of magnitude as the cluster multiplicity of fake clusters when no HIP is present. We have also estimated a lower bound on the probability that a fake cluster from a HIP event is reconstructed into track to be 0.002\%. We observed that these fake clusters originate from the baseline distortiond induced by the HIP event. 
-	-We have computed that the hip probability per pileup for each layer/wheel/ring of the silicon strip tracker and it has been found to be of the order of~$10^{-4}-10^{-3}$\% depending on the tracker layer/wheel/ring. This means that in case of dead time for 250ns and bunch spacing of 25ns the PU of order of $10^4-10^5$  would cause that the APV chip is never fully efficient (ask prob of 10 events before have a HIP) and we are far from that now.
+
+Before the beginnng of the LHC operation the hihgly inoizing particles were identified to cause the dead-time in cluster reconstruction leading to the hit inefficiency in the silicon strip tracker. When the increase in the hit inefficiency in strip tracker was was observed in 2015-2016, the possible explanation of the ineffficiency was quickly identified to be HIP effect. First I studied the HIP effect as a possible explanation of these inefficiencies with collision data in which no subtractios and supressions were done on the tracker level and therefore information about all channels was available. In this study we identified that the HIP effect staurates the elctronics, causing the drop of the charges of all channels in on-detector APV chip and decreased spread of the charges of all channels within one APV. With these data we were able to measure the rate of the HIP events to be aroun $4 \times 10 ^{-3}$ for first layer of TOB and evaluate the dead time to be for this layer up to aroun 250~ns. 
+
+The data collected after the largest source of inefficiencies was found and fixed, provided an opportunity to study the HIP effect in a greater detail due to the trigger conditions. With these data we were able to emasure the HIP probability per pileup for each layer/wheel/ring of the silicon strip tracker to be of the order of~$10^{-4}-10^{-3}$\% depending on the tracker layer/wheel/ring. This means that in case of dead time for 250ns and bunch spacing of 25ns the pile up of order of $10^4-10^5$  would cause that the APV chip is never fully efficient.
+
+TODO: is this calculation correct?
+
+In these data we studied the cluster charge, multiplicity and width in presence and absence of collisions, in presence of the HIP event and after the HIP event. We found out that the fake cluster multiplicity 
+is increased after a HIP event compared to the event in which no HIP occured. But in average this multiplicity is of the same order of magnitude as the cluster multiplicity of fake clustersi not resulting fromthe HIP event. We also estimated a lower bound on the probability that a fake cluster from a HIP event is reconstructed into track to be 0.002\% and tehrefore negligible. We observed that these fake clusters originate from the distortions in the channels natural charge level induced by the HIP event. 
+
+On the other hand, the limitation of these data was the impossibility to emasure the dead-time.
+%	-first studied the hi effect as a possible explanation of the inefficiencies
+%	-first study with the CMS data, studied the evolution of baseline and raw digis standard deviation and with their help designed the selection of the HIP, it was found out that the HIP leads to the low baseline and low rms raw what was also observed in the 2nd study provided opportunity to study data not affecte dby the ineffeicincies
+	%-the HIP effect affects the cluster charge and multiplicity and in the first study a decrease in the cluster multiplicity form average, i.e. dead time, is observed for aroun 250 ns.
+	%-Due to the data-taking properties the deadtime cannot be studied in data after vfp fix, but with these data we have shown that 
+	%there is an increased multiplicity of fake clusters after a HIP event. But in average this multiplicity is of the same order of magnitude as the cluster multiplicity of fake clusters when no HIP is present. We have also estimated a lower bound on the probability that a fake cluster from a HIP event is reconstructed into track to be 0.002\%. We observed that these fake clusters originate from the baseline distortiond induced by the HIP event. 
+	%-We have computed that the hip probability per pileup for each layer/wheel/ring of the silicon strip tracker and it has been found to be of the order of~$10^{-4}-10^{-3}$\% depending on the tracker layer/wheel/ring. This means that in case of dead time for 250ns and bunch spacing of 25ns the PU of order of $10^4-10^5$  would cause that the APV chip is never fully efficient (ask prob of 10 events before have a HIP) and we are far from that now.
 	-HLLHC expected pu 140-200
  
 is there something to be improved
@@ -56,96 +68,120 @@ the common biasing scheme of inverters -> stabilize baseline but xtalk effect ->
 
 
 %SIMU
-results
-	- After identifying that the cross talk causes a large discrepancies in description of cluster shape, we have decided to arrange a data-taking and remeasure it
-	- measurement done (differences between barrel and endcaps!) \& cross talk was found to decrease compared to the values originally int he MC
-	- example of TOB2 measurement before and after
-	- found evolution of xtalk as a function of time
- 	- what remains unchanged - many parameters were found otdated but not updated week dependence -> should be some update later, but just for consistency
-	-cross talk: Said somewhere that it was done last time in 2010 ?
+The simulation of the CMS silicon strip tracker uses real tracker conditions in order to provide realistic results. These conditions change because of change of operating conditions, e.g. the temperature, but also evolve as a result of tracker ageing, i.e. the radiation damage such as the cross talk. Majority of these conditions were never updated since begining of Run~1 and therefore we decided to revise the simulation and study th impact of the outdated conditions on the tracker simulation of clusters. We found out that change of many conditions have negligible impact on the cluster description but change of cross talk parameters largely impacts the description of cluster width and seed charge.
 
-does it need to be remeasured
-	- As shown the cross-talk evolves with fluence and tehrefore it must be remeasured from time to time.  Interesting feature is that the evolution is opposite than expected and therefore it would be interesting to monitor the cross talk in the vision of understanding the feature.
+After identifying that the cross talk parameters cause a large discrepancies in description of cluster shape in data by simulation, a cosmic data-taking in absence of magnetic field, dedicated to remeasure cross talk parameters, was arranged. In these data no subtrations and supressions of channels with no signal were done on the detector level. In these data we spotted that the cross talk parameters evolve as a function of time and therefore the cross talk needs to be measured at correct timing, when the particle originating from pp interaction would reach a given module. Due to the trigger conditions we only had sufficent statistics to measure cross talk in barrels. To determine the cross talk in disks and endcaps we used the masured cross talk in barrel and data to simulation comparisons in collision samples. We measured that in all geometries the cross talk, the charge shared to fist and second neighboring strip, decreased in barrel geometries compared to the previous measurement. The sharing to the first neighboring strips in barrel decreased by around 18-27\%, the change being larger for closer geometries i.e. with larger fluence consequently largely damaged modules. The sharing to second neighboring strips diminished by around 24\%.
 
-do we need a different data
-	-the cruzet cosmics is good, but ideally we would need also some data from endcaps and this is difficult with cosmics as we would need quite a lot of time. The ideal case would be zero tesla collision data in the virgin raw, but this is scifi. These data would help to collect large stats everywhere, plus we would not have problems with timing.
+%But it is not know if previous measurement of cross talk paramters took into account the timing dependency and tehrefore it is not guaranteed that it was realistic.
+	%- measurement done (differences between barrel and endcaps!) \& cross talk was found to decrease compared to the values originally int he MC
+	%- example of TOB2 measurement before and after
+	%- found evolution of xtalk as a function of time
+	%-cross talk: Said somewhere that it was done last time in 2010 ?
 
-how can we improve the emasurement and the physics
-	-we could potentionally measure if there is left-right assymetry of cross talk (in past and this work observed average cluster (seed) charge dependency on the cluster position burt between 3); if the cross talk is dependent o the cluster position and track position within a sensor. But the description now is in general good and as mentioned there is only a small dependency of the tracking on the cross talk. In general only the physics analyses which are using tracking i.e. searches fro the appearing/disappearing tracks; or b-tagging discriminators are influenced.
-	-also we should update the cross talk in the peak data and check if the evolution is the same as in deco, the crosss talk decreases, this could give us a hint what is going on
+The cross talk parameters influence the cluster shape but the total cluster charge is almost unchanged. Due to the clustering criteria, when cross talk changes, the clusters which were slighty above the threshold do not have to pass it after change and vice versa. Also due to the different charge sharing the cluster position and its resolution chnages in simulation, resulting in small changes in tracking. Therefore the analyses, i.e. the searches for appearing/disappearing tracks, and object discriminators, mainly b-tagging, which are strongly dependent on tracking will be influenced. But the impact is not expected to be large and for other physics objects and analysis not largely dependent on tracking it is expected to be negligible. 
 
-can we introduce some new things in simu
-	-for now we have achieved improvement and there are no things to be introduced into simu. After updating the conditions everything seems to be better described except the fraction of saturated clusters. This need to be resolved and changes in simulation might be done. On the other hand there are parts of simulation, where the effect is really small, e.g. diffucsion and if we would target the simplification of the code i order to reduce the simulation time, certainly few things could be simplified
+It was shown that the cross talk parameters evolve as a function of fluence and therefore there should be remeasured and updated regularly. Also more frequent measurement of cross talk parameters could help us understand why cross talk is decreasing, opposed to the literature which is stating that it should increase. Also we measured cross talk for the deconvolution mode and it should be updated for the peak mode as well. However this mode is not used in data-taking it might be important for some studies, and also it could help us to understand the decrease of cross talk, by disentangeling the effects of deconvolution from the other effects.
+
+The cosmic data in absence of magnetic field used for cross talk measurement posed several constraints and dificulties. First due to the trigger conditions tehre is insufficent statistics in the disks and endcaps. Even if the trigger would be re-designed, due to the $\eta$ distribution of cosmics the data-taking would have to be long in order to collect sufficient statistics, which is difficult to arrange in the tight CMS schedule. Second large issue is with the timing of tracker when it samples the collected signal. The tracker has no special timing for the cosmics and tehrefore the collision timing is always used. The collision timing maximizes the cluster seed charge for particles coming from the interaction point to the given module, and for cosmics no such maximization is done. As the cross talk depends on timing, for the cross talk measuremet only cosmics which arrived to the given module at the same time as particle produced in the pp colision would was used. Another ambiguity is in computation when a cosmic particle arrived to an interaction point. The computation extrapolates all particles to the interaction point, even though they did not have to pass by tehre. All the pseudorapidity coverage and timing issues would be solved if it would be possibel to arrange a data-taking of not supressed collision data without magnetic field. But such data-taking is not comaptible with a CMS program.
+
+%does it need to be remeasured
+%	- As shown the cross-talk evolves with fluence and tehrefore it must be remeasured from time to time.  Interesting feature is that the evolution is opposite than expected and therefore it would be interesting to monitor the cross talk in the vision of understanding the feature.
+
+%do we need a different data
+%	-the cruzet cosmics is good, but ideally we would need also some data from endcaps and this is difficult with cosmics as we would need quite a lot of time. The ideal case would be zero tesla collision data in the virgin raw, but this is scifi. These data would help to collect large stats everywhere, plus we would not have problems with timing.
+
+Several other interesting studies could be performed with the taken cosmic data. In the past it was observed that there is left-right assymetry between the charge sharing and tghis effect could be studied again with these data. Moreover we could study cross talk and cluster properties as a function where the track intercepts the strip plane, close and far to the strip. Also in the past it was observed that there is an evolution of cluster seed charge as a function of a strip number belonging to one strip, as well possible to study in these data.  These all studies could help us to understand forming of signal, features of the sensors i.e. the non-uniformities in the electric field, but also changes of sensors as the sensors ages. 
+
+%how can we improve the emasurement and the physics
+%	-we could potentionally measure if there is left-right assymetry of cross talk (in past and this work observed average cluster (seed) charge dependency on the cluster position burt between 3); if the cross talk is dependent o the cluster position and track position within a sensor. But the description now is in general good and as mentioned there is only a small dependency of the tracking on the cross talk. In general only the physics analyses which are using tracking i.e. searches fro the appearing/disappearing tracks; or b-tagging discriminators are influenced.
+%	-also we should update the cross talk in the peak data and check if the evolution is the same as in deco, the crosss talk decreases, this could give us a hint what is going on
+
+After update od the cross talk paranaters and condition parametersi such as gains and noise updated by other members of the tracker local reconstruction group, the description of in-time clusters in data by simulation was largely improved. We identified that tehre are still several parameters which outdated and could be in future updated, however these parameters do not largely change the cluster description. Because several parts in the simulation have only negligible impact, i.e. the diffusion, in the future it might be evaluated what parts of simualtion are really needed and which are obsolete in order to reduce the time needed for simulation.
+
+Several improvements still should be done in simuation of out-of-time clusters. Firstly the pulse shape changed due to the change of APV parameters and therefore should be updated in order to reduce teh simukated charge by a correct fraction. Secondly, we have shown that teh cross talk depends on timing. The cross talk parameters were derived for in-time clusters and are not correct for out-of-time clusters. Ideally the cross talk parameters should be parametrized as a function of the particle arival time to the module. The out-of-time clusters need to be also welll simulated as these clusters might be used by tracking algorithm to reconstruct a track.
+
+%Overall to prevent large discrepacnies between data and simulation, the paraaters and conditions in the simulation should be more frequently updated
+
+%can we introduce some new things in simu
+%	-for now we have achieved improvement and there are no things to be introduced into simu. After updating the conditions everything seems to be better described except the fraction of saturated clusters. This need to be resolved and changes in simulation might be done. On the other hand there are parts of simulation, where the effect is really small, e.g. diffucsion and if we would target the simplification of the code i order to reduce the simulation time, certainly few things could be simplified
  
-are there some problematic things in simualtion
- -in my opinion there is one large problem in simulation taht the parameters are not updated frequently. For some parameters it is not a problem, but for some it is crucial. For example the timing curve changed with the change of APV parameter and was not updated. The pulse shape largely influences teh clsuter properties and can pose really problems
-	- mainly the OOT will not be corectly described, firstly of incorrect pulse shape, but also because of the dependence of the cross talk on the particle arrival time. This could be considered for implementation in the smulation.
-	- then the puls shape is difefrent for the main strip and neighbor, what will cause also incorrect description of oot as we fixed it now for intime
+%are there some problematic things in simualtion
+% -in my opinion there is one large problem in simulation taht the parameters are not updated frequently. For some parameters it is not a problem, but for some it is crucial. For example the timing curve changed with the change of APV parameter and was not updated. The pulse shape largely influences teh clsuter properties and can pose really problems
+%	- mainly the OOT will not be corectly described, firstly of incorrect pulse shape, but also because of the dependence of the cross talk on the particle arrival time. This could be considered for implementation in the smulation.
+%	- then the puls shape is difefrent for the main strip and neighbor, what will cause also incorrect description of oot as we fixed it now for intime
 
-do we need to change something more frequently or completely because the sensor changes with radiation
-	- as shown except of cross talk also the noise and database conditions change fast with the aging of sensors.
-
-
-pulse shape problematics -> the OOT is not well described
-xtalk independent of time in simu
-	-already talked about
+%do we need to change something more frequently or completely because the sensor changes with radiation
+%	- as shown except of cross talk also the noise and database conditions change fast with the aging of sensors.
 
 
-measure it at HLLHC?
-	-for sure it needs to be determined what is teh cross talk and what it evolution will be (and if we are able to do so, measured from time to time) We need to make sure that the clusters do nto fail the binary criterium because they are too wide, because of too large cross talk. 
-	-soem sensors are going to be DC coupled, things will be different with xtalk
-	-ensure large interstrip resistance (think about xtalk during design) 
+%pulse shape problematics -> the OOT is not well described
+%xtalk independent of time in simu
+%	-already talked about
 
-what are the limitations ?
-why outdated ? talk about irradation
-	-fluence causes the aging of modules (defects, surface damage)
 
-Do we know why it was modified?
-	- not completely uderstood why xtalk is evolving in this way, but the evolution was expected due to surface damages on the sio-si interface
+In the future update of the strip tracker for the HL-LHC, the clstering will be largely different, only the binary information from the strip/macro-pixel will be sent and therefore the cluster seed and cluster charge will not be available. However it will be still important to determine and monitor cross talk in order to design and maintain the threshold for strip/macro-pixel charge to be truncated into one or zero.
 
-How to understand the change of cross talk, which goes in opproite direction, can we disentangle it by more frequent measurements?
-	- it might be the cose but it does not have to
+TODO: how is it with AC and DC coupling?
 
-Radiation Damage (https://indico.cern.ch/event/577879/contributions/2740332/attachments/1572803/2483960/CMS-OT_aldi.pdf) - slide 23 reference
+%measure it at HLLHC?
+%	-for sure it needs to be determined what is teh cross talk and what it evolution will be (and if we are able to do so, measured from time to time) We need to make sure that the clusters do nto fail the binary criterium because they are too wide, because of too large cross talk. 
+%	-soem sensors are going to be DC coupled, things will be different with xtalk
+%	-ensure large interstrip resistance (think about xtalk during design) 
 
-Bulk damage
-	Primary lattice defects (I and V) form higher order defects (V2, VO,...) or even defect clusters, with energy levels in the band gap of Si
-	Depending on energy level and cross section they contribute to leakage current, effective doping concentration, trapping
+%what are the limitations ?
+%why outdated ? talk about irradation
+%	-fluence causes the aging of modules (defects, surface damage)
 
-Surface damage
-	-Ionizing radiation generates e/h pairs also in SiO2 
-	e much higher mobility than h -> positive charge up of oxide
-	Additional, interface traps with dynamic characteristics
-	Theses lead to increased surface currents, altered electric field in surface region, accumulation of electrons at surface
+%Do we know why it was modified?
+%	- not completely uderstood why xtalk is evolving in this way, but the evolution was expected due to surface damages on the sio-si interface
+
+%How to understand the change of cross talk, which goes in opproite direction, can we disentangle it by more frequent measurements?
+%	- it might be the cose but it does not have to
+
+%Radiation Damage (https://indico.cern.ch/event/577879/contributions/2740332/attachments/1572803/2483960/CMS-OT_aldi.pdf) - slide 23 reference
+
+%Bulk damage
+%	Primary lattice defects (I and V) form higher order defects (V2, VO,...) or even defect clusters, with energy levels in the band gap of Si
+%	Depending on energy level and cross section they contribute to leakage current, effective doping concentration, trapping
+
+%Surface damage
+%	-Ionizing radiation generates e/h pairs also in SiO2 
+%	e much higher mobility than h -> positive charge up of oxide
+%	Additional, interface traps with dynamic characteristics
+%	Theses lead to increased surface currents, altered electric field in surface region, accumulation of electrons at surface
+
+
+ %	- what remains unchanged - many parameters were found otdated but not updated week dependence -> should be some update later, but just for consistency
+
 %----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
 %SUSY
-motivation, conclusion
+%motivation, conclusion
 	%-the standard model of the particle physics was over years found to be excelently describing the nature, nut there are several shortcomings
 	%-the most popular extension of sm du to its ability to addrss many shortcommings
-what was done and my contribution
+%what was done and my contribution
 	%-search for the supersymmetric partner of teh stop
 	%-three posible decay channels, top neutralino, bottom chargino and mix of them
 	%-search in one lepton final state + jets + met
-	- limits already at runI but runII due to cnage in energy and larger integrated luminosity enabled to probe stop masses far beyond the runI possibilities
+	%- limits already at runI but runII due to cnage in energy and larger integrated luminosity enabled to probe stop masses far beyond the runI possibilities
 	%-three analyses - my largest contribution to the full 2016
 	%-the largest contribution to the full 2016 is estimation of the z to nunu background
 
-perspectives at HLLHC
-	-the relatively light stops already excluded
-	-the naturalness can be achieved with heavier ones therefore we must keep searching
-	-at the HL-LHC integrated lumi of 3000 fb-1 by CMS to be 2TeV
-	-further probing could be achieved by increase of the center of mass energy
-	-beyond this the more spohisticated analysis techniqus can eb designed to further probe the stop masses - like W or top tagging, new disriminating variables or machine learning teqniques
+%perspectives at HLLHC
+%	-the relatively light stops already excluded
+%	-the naturalness can be achieved with heavier ones therefore we must keep searching
+%	-at the HL-LHC integrated lumi of 3000 fb-1 by CMS to be 2TeV
+%	-further probing could be achieved by increase of the center of mass energy
+%	-beyond this the more spohisticated analysis techniqus can eb designed to further probe the stop masses - like W or top tagging, new disriminating variables or machine learning teqniques
 
-perspectives:	What about the search at low mass ?
-perspectives:	How to improve ?
-perspectives:	How to interpret in a realistic model ? Do we have other strong constraints from other measurements/ serches ? ...
+%perspectives:	What about the search at low mass ?
+%perspectives:	How to improve ?
+%erspectives:	How to interpret in a realistic model ? Do we have other strong constraints from other measurements/ serches ? ...
 
 The standard model of particle physics suffers from several shortcomings but in general it was found over years that it is capable to well describe the majority of observed physics phenomena. Due to these shortcomings theories beyond the SM were proposed and one of them, the supersymmetry, became the most popular one because of its ability to adress large part of the SM issues. In this thesis I present searches for the supersymmteric partner of the top quark, the stop, with the CMS Run~2 data. These searches target stop pair production, with stops decaying via three channels: to top quark and neutralino, to bottom quark and chargino, and to the mixture of the two previous cases.  The targeted signal final states have one lepton, jets and missing transverse energy. 
 
-I was involved in three different searches: one based on data from 2015 corresponding to an integrated luminosity of 2.3~$fb^{-1}$, the second one based on data from the beginning of 2016 with an integrated luminosity of 12.9~$fb^{-1}$ and the last one corresponding to an integrated luminosity of 35.9 fb${-1}$ collected during 2016 . My largest involvment was in the last analysis, where I was responsible for estimation of one of the backrounds, in which a Z boson decays to two neutrinos. In this thesis I also expolited the technique for tagging of merged jets originating from W boson and I shown that the gain of implementing suh techique is growing with the integrated luminosity. 
+I was involved in three different searches: one based on data from 2015 corresponding to an integrated luminosity of 2.3~$fb^{-1}$, the second one based on data from the beginning of 2016 with an integrated luminosity of 12.9~fb$^{-1}$ and the last one corresponding to an integrated luminosity of 35.9 fb${-1}$ collected during 2016 . My largest involvment was in the last analysis, where I was responsible for estimation of one of the backrounds, in which a Z boson decays to two neutrinos. In this thesis I also expolited the technique for tagging of merged jets originating from W boson and I shown that the gain of implementing suh techique is growing with the integrated luminosity. 
 
 The searches for the stop pair production in difefrent final states were already performed with the Run~1 data. The analyses exclude stop masses in terms of simplified model spectra with stops decaying to top quark and neutralino up to around 755 GeV for a neutralino mass below 200 GeV. With an increase of the center of mass energy and then also integrated luminosity, it was soon possible to further probe the stop masses. No excess in data corresponding to the integrated luminosity of 35.9 fb${-1}$ with respect to the background was found and therefore the exclusion limtis were derived. This analysis excludes the stop masses up to 1120 GeV from massless in terms of simplified model spectra where both stops decay to top quark and neutralino. In case where both stops decay to bottom quark and chargino or in case of mixed decay the stop masses up to 1000 GeV  and 980 GeV are excluded, respectively.
 
