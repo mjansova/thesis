@@ -34,6 +34,15 @@
     \renewcommand{\leftmark}{Chapter \thechapter\, - #1}
 }
 
+\newcommand{\appendixwithnum}[1]
+{
+    \chapter{#1}
+    \renewcommand{\leftmark}{Appendix \, - #1}
+    \renewcommand{\appendixname}{Appendix \, #1}
+    %\renewcommand{\appendixtocname}{Appendix \, #1}
+    %\renewcommand{\appendixpagename}{Appendix \, #1}
+}
+
 % Non-numbered section
 \newcommand{\sectionnonum}[1]
 {
